@@ -9,19 +9,19 @@ import AboutView from '../../views/AboutView.vue'
 
 const routes = [
   {
-    path: 'freshcart/',
+    path: '/',
     component: MainLayout,
     children: [
       // Start Routes Tampilan Awal
       {
-        path: 'freshcart/',
+        path: '/',
         name: 'home',
         component: HomeView
       },
       // End Routes Tampilan Awal
 
       {
-        path: 'freshcart/about',
+        path: '/about',
         name: 'about',
         component: AboutView
       }
