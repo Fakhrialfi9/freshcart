@@ -8,7 +8,7 @@ const isLoading = ref(true)
 onMounted(() => {
   setTimeout(() => {
     isLoading.value = false
-  }, 100)
+  }, 1500)
 })
 
 // Start Style Global
