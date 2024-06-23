@@ -1,0 +1,43 @@
+<!-- eslint-disable vue/multi-word-component-names -->
+<template>
+  <a fill="currentColor">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="currentColor"
+      class="bi bi-x-lg"
+      viewBox="0 0 16 16"
+    >
+      <path
+        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+      />
+    </svg>
+  </a>
+</template>
+
+<style scoped>
+a {
+  display: flex !important;
+  place-items: center !important;
+  place-content: center !important;
+  color: inherit !important;
+  fill: inherit !important;
+  font-size: inherit !important;
+}
+
+a > svg {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  margin: inherit !important;
+  padding: inherit !important;
+  stroke-width: inherit !important;
+  stroke: currentColor !important;
+  stroke-linejoin: round !important;
+  stroke-linecap: round !important;
+}
+</style>

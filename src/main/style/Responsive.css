@@ -1,0 +1,219 @@
+@media (max-width: 576px) {
+  .Container {
+    width: 98.5%;
+    max-width: 576px;
+    user-select: none !important;
+  }
+  .DisplayNone-SM {
+    display: none !important;
+  }
+  .DisplayBlock-SM {
+    display: block !important;
+  }
+
+  /* Start Section Navbar Component Responsive */
+  .MobileMenu {
+    width: 100% !important;
+  }
+  .Navbar {
+    position: fixed !important;
+    top: 0 !important;
+  }
+  .LogoNavbarContent img {
+    width: 100% !important;
+  }
+  /* End Section Navbar Component Responsive */
+
+  /* Start Section Footer Component Responsive */
+  .Footer {
+    padding-bottom: 8rem !important;
+  }
+  .FooterTopContent > ul {
+    justify-content: flex-start !important;
+  }
+  .FooterTopContent > ul > li {
+    justify-content: flex-start !important;
+  }
+  .FooterCenterContent > ul > li {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  /* Start Section Footer Component Responsive */
+
+  /* Start Section Home Pages Responsive */
+  .HomeContent {
+    padding: 5rem 0 0.5rem 0 !important;
+  }
+
+  .ContentBannerSlider-Headline {
+    padding: 1.5rem !important;
+  }
+
+  .ContentBannerSlider-Headline > ul {
+    width: 100% !important;
+    max-width: 100% !important;
+    gap: 3rem !important;
+  }
+
+  .ContentBannerSlider-Headline > ul > li > h1 {
+    font-size: 2.5rem !important;
+  }
+
+  .ContainerPopularProduct {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
+    width: 80% !important;
+  }
+
+  .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  /* End Section Home Pages Responsive */
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .Container {
+    width: 97.5%;
+    max-width: 768px;
+    user-select: none !important;
+  }
+  .DisplayNone-MD {
+    display: none !important;
+  }
+  .DisplayBlock-MD {
+    display: block !important;
+  }
+
+  /* Start Section Navbar Component Responsive */
+  .MobileMenu {
+    width: 100% !important;
+  }
+  .Navbar {
+    position: fixed !important;
+    top: 0 !important;
+  }
+  .LogoNavbarContent img {
+    width: 100% !important;
+  }
+  /* End Section Navbar Component Responsive */
+
+  /* Start Section Footer Component Responsive */
+  .Footer {
+    padding-bottom: 8rem !important;
+  }
+  .FooterTopContent > ul {
+    justify-content: flex-start !important;
+  }
+  .FooterTopContent > ul > li {
+    justify-content: flex-start !important;
+  }
+  .FooterCenterContent > ul > li {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  /* End Section Footer Component Responsive */
+
+  /* Start Section Home Pages Responsive */
+  .HomeContent {
+    padding: 5rem 0 0.5rem 0 !important;
+  }
+  .ContainerPopularProduct {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
+    width: 80% !important;
+  }
+  .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  /* End Section Home Pages Responsive */
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .Container {
+    width: 96.5%;
+    max-width: 991px;
+    user-select: none !important;
+  }
+  .DisplayNone-LG {
+    display: none !important;
+  }
+  .DisplayBlock-LG {
+    display: block !important;
+  }
+
+  /* Start Section Navbar Component Responsive */
+  .LogoNavbarContent img {
+    width: 100% !important;
+  }
+  /* End Section Navbar Component Responsive */
+
+  /* Start Section Footer Component Responsive */
+  .FooterTopContent > ul {
+    justify-content: flex-start !important;
+  }
+  .FooterTopContent > ul > li {
+    justify-content: flex-start !important;
+  }
+  .FooterCenterContent > ul > li {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  .ContainerPopularProduct {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+  .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* End Section Footer Component Responsive */
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .Container {
+    width: 95.5%;
+    max-width: 1200px;
+    user-select: none !important;
+  }
+  .DisplayNone-XL {
+    display: none !important;
+  }
+  .DisplayBlock-XL {
+    display: block !important;
+  }
+  .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .Container {
+    width: 85%;
+    max-width: 1400px;
+    user-select: none !important;
+  }
+  .DisplayNone-XXL {
+    display: none !important;
+  }
+  .DisplayBlock-XXL {
+    display: block !important;
+  }
+  .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .Container {
+    width: 80%;
+    user-select: none !important;
+  }
+  .DisplayNone-XXXL {
+    display: none !important;
+  }
+  .DisplayBlock-XXXL {
+    display: block !important;
+  }
+}

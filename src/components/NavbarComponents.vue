@@ -1,0 +1,635 @@
+<script lang="ts">
+// Start Import Router Link & Router View
+import { RouterLink } from 'vue-router'
+// End Import Router Link & Router View
+
+// Start Image Import
+import LogoNavbar from './../assets/logo/logo-company/freshcart-logo.svg'
+// Start Image Import
+
+export default {
+  components: {
+    RouterLink
+  },
+  data() {
+    return {
+      LogoNavbar,
+      AllDepartmentDropdown: false,
+      ShopDropdown: false,
+      StoresDropdown: false,
+      CategoryDropdown: false,
+      ArticleDropdown: false,
+      ProductDropdown: false,
+      BrandDropdown: false,
+      PromoDropdown: false,
+      ToggleMenuMobile: false
+    }
+  },
+  methods: {
+    toggleDropdown() {
+      ;(this.AllDepartmentDropdown = !this.AllDepartmentDropdown),
+        (this.ShopDropdown = !this.ShopDropdown),
+        (this.StoresDropdown = !this.StoresDropdown),
+        (this.CategoryDropdown = !this.CategoryDropdown),
+        (this.ArticleDropdown = !this.ArticleDropdown),
+        (this.ProductDropdown = !this.ProductDropdown),
+        (this.BrandDropdown = !this.BrandDropdown),
+        (this.PromoDropdown = !this.PromoDropdown)
+    },
+
+    toggleAllDepartmentDropdown() {
+      this.AllDepartmentDropdown = !this.AllDepartmentDropdown
+    },
+
+    toggleShopDropdown() {
+      this.ShopDropdown = !this.ShopDropdown
+    },
+
+    toggleStoresDropdown() {
+      this.StoresDropdown = !this.StoresDropdown
+    },
+
+    toggleCategoryDropdown() {
+      this.CategoryDropdown = !this.CategoryDropdown
+    },
+
+    toggleArticleDropdown() {
+      this.ArticleDropdown = !this.ArticleDropdown
+    },
+
+    toggleProductDropdown() {
+      this.ProductDropdown = !this.ProductDropdown
+    },
+
+    toggleBrandDropdown() {
+      this.BrandDropdown = !this.BrandDropdown
+    },
+
+    togglePromoDropdown() {
+      this.PromoDropdown = !this.PromoDropdown
+    },
+
+    ToggleHamburgerMenu() {
+      this.ToggleMenuMobile = !this.ToggleMenuMobile
+
+      if (this.ToggleMenuMobile) {
+        document.documentElement.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.documentElement.style.overflow = 'auto'
+        document.body.style.overflow = 'auto'
+      }
+    }
+  }
+}
+</script>
+
+<script setup lang="ts">
+import IconWishlist from '../assets/icon/IconWishlist.vue'
+import IconUsers from '../assets/icon/IconUsers.vue'
+import IconBagCart from '../assets/icon/IconBagCart.vue'
+import IconGridSquare from '../assets/icon/IconGridSquare.vue'
+import IconChevronDown from '../assets/icon/IconChevronDown.vue'
+import IconHamburgerMenu from '../assets/icon/IconHamburgerMenu.vue'
+import IconClose from '../assets/icon/IconClose.vue'
+import IconSearch from '../assets/icon/IconSearch.vue'
+import IconPinLocation from '../assets/icon/IconPinLocation.vue'
+</script>
+
+<template>
+  <main id="Navbar">
+    <nav class="Navbar">
+      <div class="Container">
+        <div class="NavbarContent">
+          <!-- Start Navbar Top Content -->
+          <div class="NavbarTopContent">
+            <div class="LeftContent">
+              <div class="LogoNavbarContent">
+                <RouterLink to="/">
+                  <img :src="LogoNavbar" alt="Local Image" />
+                </RouterLink>
+              </div>
+              <div class="FormSearchNavbarContent DisplayNone-SM DisplayNone-MD DisplayNone-LG">
+                <form>
+                  <i className="IconInputSearch">
+                    <IconSearch class="IconSearch" />
+                  </i>
+                  <input type="text" placeholder="Search For Product" />
+                </form>
+                <button><IconPinLocation class="IconPinLocation" /> Location</button>
+              </div>
+            </div>
+            <div class="RightContent">
+              <a class="DisplayNone-SM Tooltip">
+                <IconWishlist class="IconNavbar" />
+                <span class="BadgeContentNavbar">3</span>
+                <span class="TooltipText">Wishlist</span>
+              </a>
+
+              <a class="DisplayNone-SM Tooltip">
+                <IconUsers class="IconNavbar" />
+                <span class="TooltipText">User Login</span>
+              </a>
+
+              <a class="DisplayNone-SM Tooltip">
+                <IconBagCart class="IconNavbar" />
+                <span class="BadgeContentNavbar">3</span>
+                <span class="TooltipText"> Cart</span>
+              </a>
+
+              <a
+                @click="ToggleHamburgerMenu"
+                class="DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG"
+              >
+                <IconHamburgerMenu class="IconHamburgerMenu" />
+              </a>
+            </div>
+          </div>
+          <!-- End Navbar Top Content -->
+
+          <!-- Start Navbar Bottom Content -->
+          <div class="NavbarBottomContent DisplayNone-SM DisplayNone-MD DisplayNone-LG">
+            <ul>
+              <!-- Start All Departement Menu & Dropdown -->
+              <li
+                @mouseenter="AllDepartmentDropdown = true"
+                @mouseleave="AllDepartmentDropdown = false"
+              >
+                <button>
+                  <IconGridSquare class="IconButtonAllDepartement" />
+                  All Departement
+                </button>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="AllDepartmentDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Dairy, Bread & Eggs</RouterLink></li>
+                      <li><RouterLink to="/">Snacks & Munchies</RouterLink></li>
+                      <li><RouterLink to="/">Fruits & Vegetables</RouterLink></li>
+                      <li><RouterLink to="/">Cold Drinks & Juices</RouterLink></li>
+                      <li><RouterLink to="/">Breakfast & Instant Food</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End All Departement Menu & Dropdown -->
+
+              <!-- Start Home Menu  -->
+              <li>
+                <a>Home</a>
+              </li>
+              <!-- End Home Menu  -->
+
+              <!-- Start Shop Menu & Dropdown -->
+              <li @mouseenter="ShopDropdown = true" @mouseleave="ShopDropdown = false">
+                <a>
+                  Shop
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="ShopDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Fruits & Vegetables</RouterLink></li>
+                      <li><RouterLink to="/">Meat & Poultry</RouterLink></li>
+                      <li><RouterLink to="/">Dairy & Eggs</RouterLink></li>
+                      <li><RouterLink to="/">Bakery & Bread</RouterLink></li>
+                      <li><RouterLink to="/">Pantry Staples</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Shop Menu & Dropdown -->
+
+              <!-- Start Stores Menu & Dropdown -->
+              <li @mouseenter="StoresDropdown = true" @mouseleave="StoresDropdown = false">
+                <a>
+                  Stores
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="StoresDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Tokyo, Jepang</RouterLink></li>
+                      <li><RouterLink to="/">Paris, Prancis</RouterLink></li>
+                      <li><RouterLink to="/">New York City, Amerika Serikat</RouterLink></li>
+                      <li><RouterLink to="/">Sydney, Australia</RouterLink></li>
+                      <li><RouterLink to="/">Cairo, Mesir</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Stores Menu & Dropdown -->
+
+              <!-- Start Category Menu & Dropdown -->
+              <li @mouseenter="CategoryDropdown = true" @mouseleave="CategoryDropdown = false">
+                <a>
+                  Category
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="CategoryDropdown" class="DropdownMenuMegaMenu">
+                    <ul>
+                      <ol>
+                        <span>Dairy, Bread and Eggs</span>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ol>
+                      <ol>
+                        <span>Dairy, Bread and Eggs</span>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ol>
+                      <ol>
+                        <span>Dairy, Bread and Eggs</span>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ol>
+                      <ol>
+                        <span>Dairy, Bread and Eggs</span>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ol>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Category Menu & Dropdown -->
+
+              <!-- Start Article Menu & Dropdown -->
+              <li @mouseenter="ArticleDropdown = true" @mouseleave="ArticleDropdown = false">
+                <a>
+                  Article
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="ArticleDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Fresh Fruits</RouterLink></li>
+                      <li><RouterLink to="/">Fresh Vegetables</RouterLink></li>
+                      <li><RouterLink to="/">Dairy Products</RouterLink></li>
+                      <li><RouterLink to="/">Fresh Meat & Poultry</RouterLink></li>
+                      <li><RouterLink to="/">Seafood</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Article Menu & Dropdown -->
+
+              <!-- Start Product Menu & Dropdown -->
+              <li @mouseenter="ProductDropdown = true" @mouseleave="ProductDropdown = false">
+                <a>
+                  Product
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="ProductDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Snacks & Sweets</RouterLink></li>
+                      <li><RouterLink to="/">Beverages</RouterLink></li>
+                      <li><RouterLink to="/">Frozen Foods</RouterLink></li>
+                      <li><RouterLink to="/">Organic & Specialty</RouterLink></li>
+                      <li><RouterLink to="/">International Cuisine</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Product Menu & Dropdown -->
+
+              <!-- Start Brand Menu & Dropdown -->
+              <li @mouseenter="BrandDropdown = true" @mouseleave="BrandDropdown = false">
+                <a>
+                  Brand
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="BrandDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Tech Brands</RouterLink></li>
+                      <li><RouterLink to="/">Fashion Brands</RouterLink></li>
+                      <li><RouterLink to="/">Book Publishers</RouterLink></li>
+                      <li><RouterLink to="/">Gardening Brands</RouterLink></li>
+                      <li><RouterLink to="/">Outdoor Brands</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Brand Menu & Dropdown -->
+
+              <!-- Start Promo Menu & Dropdown -->
+              <li
+                class="PromoBadge"
+                @mouseenter="PromoDropdown = true"
+                @mouseleave="PromoDropdown = false"
+              >
+                <a>
+                  Promo
+                  <IconChevronDown class="IconDropdown" />
+                </a>
+
+                <transition name="SlideFadeDropdown">
+                  <div v-if="PromoDropdown" class="DropdownMenu">
+                    <ul>
+                      <li><RouterLink to="/">Fresh Fruit Deals</RouterLink></li>
+                      <li><RouterLink to="/">Vegetable Discounts</RouterLink></li>
+                      <li><RouterLink to="/">Dairy Product Sales</RouterLink></li>
+                      <li><RouterLink to="/">Meat & Poultry Offers</RouterLink></li>
+                      <li><RouterLink to="/">Seafood Specials</RouterLink></li>
+                    </ul>
+                  </div>
+                </transition>
+              </li>
+              <!-- End Promo Menu & Dropdown -->
+            </ul>
+          </div>
+          <!-- End Navbar Bottom Content -->
+
+          <!-- Start Mobile Section -->
+
+          <!-- Start Slider Menu Mobile -->
+          <transition name="SlideFadeToggleMenu">
+            <div v-if="ToggleMenuMobile" class="MobileMenu">
+              <ul>
+                <!-- Start Logo Image Mobile -->
+                <li>
+                  <a
+                    ><img :src="LogoNavbar" alt="Local Image" />
+                    <span @click="ToggleHamburgerMenu" :class="{ active: ToggleMenuMobile }">
+                      <IconClose class="IconCloseToggleMobileMenu" />
+                    </span>
+                  </a>
+                </li>
+                <!-- End Logo Image Mobile -->
+
+                <!-- Start Form & Button Mobile -->
+                <li>
+                  <form>
+                    <i className="IconInputSearchMobile">
+                      <IconSearch class="IconSearch" />
+                    </i>
+                    <input type="text" placeholder="Search For Product" />
+                  </form>
+                  <button><IconPinLocation class="IconPinLocation" /> Pick Location</button>
+                </li>
+                <!-- End Form & Button Mobile -->
+
+                <!-- Start Menu Button All Departement Mobile -->
+                <li>
+                  <button
+                    @click="toggleAllDepartmentDropdown"
+                    @mouseleave="AllDepartmentDropdown = false"
+                  >
+                    All Departement
+                  </button>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="AllDepartmentDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Dairy, Bread & Eggs</RouterLink></li>
+                        <li><RouterLink to="/">Snacks & Munchies</RouterLink></li>
+                        <li><RouterLink to="/">Fruits & Vegetables</RouterLink></li>
+                        <li><RouterLink to="/">Cold Drinks & Juices</RouterLink></li>
+                        <li><RouterLink to="/">Breakfast & Instant Food</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Button All Departement Mobile -->
+
+                <!-- Start Menu Home Mobile -->
+                <li><a>Home</a></li>
+                <!-- End Menu Home Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Shop Mobile -->
+                <li>
+                  <a @click="toggleShopDropdown" @mouseleave="ShopDropdown = false">
+                    Shop
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="ShopDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Fruits & Vegetables</RouterLink></li>
+                        <li><RouterLink to="/">Meat & Poultry</RouterLink></li>
+                        <li><RouterLink to="/">Dairy & Eggs</RouterLink></li>
+                        <li><RouterLink to="/">Bakery & Bread</RouterLink></li>
+                        <li><RouterLink to="/">Pantry Staples</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Shop Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Stores Mobile -->
+                <li>
+                  <a @click="toggleStoresDropdown" @mouseleave="StoresDropdown = false">
+                    Stores
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="StoresDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Tokyo, Jepang</RouterLink></li>
+                        <li><RouterLink to="/">Paris, Prancis</RouterLink></li>
+                        <li><RouterLink to="/">New York City, Amerika Serikat</RouterLink></li>
+                        <li><RouterLink to="/">Sydney, Australia</RouterLink></li>
+                        <li><RouterLink to="/">Cairo, Mesir</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Stores Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Category Mobile -->
+                <li>
+                  <a @click="toggleCategoryDropdown" @mouseleave="CategoryDropdown = false">
+                    Category
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="CategoryDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Category Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Article Mobile -->
+                <li>
+                  <a @click="toggleArticleDropdown" @mouseleave="ArticleDropdown = false">
+                    Article
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="ArticleDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Fresh Fruits</RouterLink></li>
+                        <li><RouterLink to="/">Fresh Vegetables</RouterLink></li>
+                        <li><RouterLink to="/">Dairy Products</RouterLink></li>
+                        <li><RouterLink to="/">Fresh Meat & Poultry</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Article Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Product Mobile -->
+                <li>
+                  <a @click="toggleProductDropdown" @mouseleave="ProductDropdown = false">
+                    Product
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="ProductDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Snacks & Sweets</RouterLink></li>
+                        <li><RouterLink to="/">Beverages</RouterLink></li>
+                        <li><RouterLink to="/">Frozen Foods</RouterLink></li>
+                        <li><RouterLink to="/">Organic & Specialty</RouterLink></li>
+                        <li><RouterLink to="/">International Cuisine</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Product Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Brand Mobile -->
+                <li>
+                  <a @click="toggleBrandDropdown" @mouseleave="BrandDropdown = false">
+                    Brand
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="BrandDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Condiments & Sauces</RouterLink></li>
+                        <li><RouterLink to="/">Seafood</RouterLink></li>
+                        <li><RouterLink to="/">Health Foods</RouterLink></li>
+                        <li><RouterLink to="/">Grains & Pasta</RouterLink></li>
+                        <li><RouterLink to="/">Canned & Packaged Foods</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+                <!-- End Menu Brand Mobile -->
+
+                <div class="diver"></div>
+
+                <!-- Start Menu Promo Mobile -->
+                <li>
+                  <a @click="togglePromoDropdown" @mouseleave="PromoDropdown = false">
+                    Promo
+                    <span> <IconChevronDown class="IconDropdown" /></span>
+                  </a>
+
+                  <transition name="SlideFadeDropdown">
+                    <div v-if="PromoDropdown" class="DropdownMenuMobile">
+                      <ul>
+                        <li><RouterLink to="/">Fresh Fruit Deals</RouterLink></li>
+                        <li><RouterLink to="/">Vegetable Discounts</RouterLink></li>
+                        <li><RouterLink to="/">Dairy Product Sales</RouterLink></li>
+                        <li><RouterLink to="/">Meat & Poultry Offers</RouterLink></li>
+                        <li><RouterLink to="/">Seafood Specials</RouterLink></li>
+                      </ul>
+                    </div>
+                  </transition>
+                </li>
+
+                <!-- End Menu Promo Mobile -->
+              </ul>
+            </div>
+          </transition>
+          <!-- End Slider Menu Mobile -->
+
+          <!-- Start Navbar Bottom Mobile Content -->
+          <div class="NavbarBottomMobile DisplayNone DisplayBlock-SM">
+            <div class="Container">
+              <div class="NavbarBottomMobileContent">
+                <ul>
+                  <li>
+                    <RouterLink to="" class="ActiveNavbarBottomMobile">
+                      <IconGridSquare class="IconGridSquareNavbarBottom" />
+                      <!-- <span class="BadgeContentNavbar">3</span> -->
+                    </RouterLink>
+                  </li>
+                  <li>
+                    <RouterLink to="">
+                      <IconUsers class="IconUsersNavbarBottom" />
+                    </RouterLink>
+                  </li>
+                  <li>
+                    <RouterLink to="">
+                      <IconWishlist class="IconWishlistNavbarBottom" />
+                      <!-- <span class="BadgeContentNavbar">3</span> -->
+                    </RouterLink>
+                  </li>
+                  <li>
+                    <RouterLink to="">
+                      <IconBagCart class="IconBagCartNavbarBottom" />
+                      <!-- <span class="BadgeContentNavbar">3</span> -->
+                    </RouterLink>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End Navbar Bottom Mobile Content -->
+
+          <!-- Start Blur Effect Mobile Menu -->
+          <div
+            @click="ToggleHamburgerMenu"
+            :class="{ active: ToggleMenuMobile }"
+            class="BlurEffect"
+          ></div>
+          <!-- End Blur Effect Mobile Menu -->
+
+          <!-- Start Mobile Section -->
+        </div>
+      </div>
+    </nav>
+  </main>
+</template>
+
+<style scoped src="../assets/style/Components/NavbarComponents.css"></style>

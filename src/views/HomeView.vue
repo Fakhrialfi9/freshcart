@@ -1,0 +1,53 @@
+<script lang="ts">
+// Start Import Section Home Page
+import BannerHome from './Section/HomeView/BannerHome.vue'
+import FeaturedCategories from './Section/HomeView/FeaturedCategories.vue'
+import PromotionSale from './Section/HomeView/PromotionSale.vue'
+import PopularProduct from './Section/HomeView/PopularProduct.vue'
+import DailyBestSells from './Section/HomeView/DailyBestSells.vue'
+
+// Start Import Section Home Page
+
+export default {
+  name: 'HomeView',
+  components: {
+    BannerHome,
+    FeaturedCategories,
+    PromotionSale,
+    PopularProduct,
+    DailyBestSells
+  }
+}
+</script>
+
+<template>
+  <main id="MainHome">
+    <section class="Home">
+      <div class="Container">
+        <div class="HomeContent">
+          <!-- Start Content Slider Banner -->
+          <BannerHome />
+          <!-- End Content Slider Banner -->
+
+          <!-- Start Featured Categories -->
+          <FeaturedCategories />
+          <!-- End Featured Categories -->
+
+          <!-- Start Promotion Sale -->
+          <PromotionSale />
+          <!-- End Promotion Sale -->
+
+          <!-- Start Promotion Sale -->
+          <PopularProduct />
+          <!-- End Promotion Sale -->
+
+          <!-- Start Daily Best Sells -->
+          <DailyBestSells />
+          <!-- End Daily Best Sells -->
+        </div>
+      </div>
+    </section>
+  </main>
+</template>
+
+<style scoped src="../assets//style//Views/HomeView.css"></style>

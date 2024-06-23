@@ -1,0 +1,1297 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+  background-color: var(--white-color);
+}
+
+.Home {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HomeContent {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+  gap: 2.5rem;
+}
+
+/* Start Style Banner Home */
+
+.BannerHome {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 35rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.BannerSlider {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--border-radius-lg) !important;
+  box-sizing: border-box !important;
+  cursor: pointer;
+}
+
+.ContentBannerSlider {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--border-radius-lg) !important;
+  background-color: var(--bg-color);
+  overflow: hidden !important;
+}
+
+.ContentBannerSlider img {
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
+  width: inherit;
+  height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.ContentBannerSlider-Headline {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: inherit;
+  justify-content: f;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.5rem 4rem;
+  z-index: 1;
+}
+
+.RouterLink {
+  text-decoration: none !important;
+}
+
+.ContentBannerSlider-Headline > ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  max-width: 50%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.ContentBannerSlider-Headline > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ContentBannerSlider-Headline > ul > li > span {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  background-color: var(--warning-color);
+}
+
+.ContentBannerSlider-Headline > ul > li > h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.ContentBannerSlider-Headline > ul > li > .RouterLink > button {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--gray-900);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--white-color);
+  fill: var(--white-color);
+}
+
+.ContentBannerSlider-Headline > ul > li > .RouterLink > button:hover {
+  background-color: var(--primary-color) !important;
+}
+
+.ContentBannerSlider-Headline > ul > li > .RouterLink > button > svg {
+  width: 0.75rem !important;
+  fill: inherit;
+}
+
+.swiper-pagination-bullet {
+  background-color: var(--dark-color) !important;
+  opacity: 0.35;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--dark-color) !important;
+  opacity: 1;
+}
+/* End Style Banner Home */
+
+/* Start Featured Categories */
+.FeaturedCategories {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.FeaturedCategories > ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.FeaturedCategories > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.FeaturedCategories > ul > li:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.FeaturedCategories > ul > li span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.FeaturedCategories > ul > li > button {
+  display: flex;
+  flex-direction: row;
+  width: 2rem;
+  height: 2rem;
+  background-color: var(--bg-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 50%;
+  color: var(--darkgrey-color);
+  fill: var(--darkgrey-color);
+  transition: all 0.2s ease-in-out;
+}
+
+.FeaturedCategories > ul > li > button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  fill: var(--white-color);
+}
+
+.FeaturedCategories > ul > li > button > svg {
+  width: 0.5rem !important;
+}
+
+.FeaturedCategoriesContentProduct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.ContainerBoxProductFeaturedCategories {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1rem 0;
+  box-sizing: border-box;
+}
+
+.BoxProductFeaturedCategories {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 3rem 2.5rem;
+  border: 0.08rem solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  white-space: nowrap;
+  transition: all 0.35s ease-in-out;
+}
+
+.BoxProductFeaturedCategories h5 {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+  color: var(--gray-700);
+}
+
+.BoxProductFeaturedCategories:hover {
+  cursor: pointer;
+  border: 0.08rem solid var(--primary-color);
+}
+
+.BoxProductFeaturedCategories:active {
+  transform: scale(0.95);
+}
+
+/* End Featured Categories */
+
+/* Start Promotion Sale */
+.PromotionSale {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.PromotionContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.BoxPromotionContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 25vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius-lg) !important;
+  background-color: var(--bg-color);
+  overflow: hidden !important;
+}
+
+.BoxPromotionContent img {
+  position: absolute;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100%;
+  height: inherit;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  border-radius: var(--border-radius-lg) !important;
+}
+
+.BoxPromotionContent-Headline {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.5rem;
+  z-index: 1;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.BoxPromotionContent-Headline > ul {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.BoxPromotionContent-Headline > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.BoxPromotionContent-Headline > ul > li > h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+}
+
+.BoxPromotionContent-Headline > ul > li > h5 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.BoxPromotionContent-Headline > ul > li > .RouterLink > button {
+  display: flex;
+  flex-direction: row;
+  background-color: var(--gray-900);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--white-color);
+  fill: var(--white-color);
+}
+/* End Promotion Sale */
+
+/* Start Popular Product */
+.PopularProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ContentPopularProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.NavsPopularProduct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.NavsPopularProduct > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.NavsPopularProduct > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.NavsPopularProduct > ul > li:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.NavsPopularProduct > ul > li span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.NavsPopularProduct > ul > li > button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  background-color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1.15rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  border-radius: var(--border-radius-md);
+  transition: all 0.2s ease-in-out;
+}
+
+.NavsPopularProduct > ul > li > button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  fill: var(--white-color);
+}
+
+.NavsPopularProduct > ul > li > button > svg {
+  width: 0.5rem !important;
+}
+
+.ContainerPopularProduct {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  padding: 1rem 0;
+  overflow: hidden;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.CardPopularProduct {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1rem;
+  border: 0.08rem solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  transition: all 0.5s ease-in-out;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.CardPopularProduct:hover {
+  border: 0.08rem solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.CardPopularProduct:active {
+  transform: scale(0.95);
+}
+
+.Badge-CardPopularProduct {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: 50%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  font-size: 0.65rem;
+  color: var(--white-color);
+  font-weight: 600;
+  background-color: var(--danger-color);
+  border-radius: var(--border-radius-md);
+}
+
+.Image-CardPopularProduct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+}
+
+.Image-CardPopularProduct img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+}
+
+.CardPopularProduct > .Headline-CardPopularProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardPopularProduct > .Headline-CardPopularProduct > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardPopularProduct > .Headline-CardPopularProduct > li > span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.CardPopularProduct > .Headline-CardPopularProduct > li > p {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+/* Setting Rating */
+.RatingProduct {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  color: var(--gray-300) !important;
+}
+
+.IconStar {
+  width: 0.85rem !important;
+}
+
+.StarRatingProduct {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.StarRatingProduct.SelectedRating,
+.StarRatingProduct.HoverRatingProduct {
+  color: var(--warning-color);
+}
+
+.RatingProduct > p {
+  font-size: 0.75rem;
+  color: var(--gray-600);
+}
+/* Setting Rating */
+
+.CardPopularProduct > .PriceCart-CardPopularProduct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  z-index: 999 !important;
+}
+
+.CardPopularProduct > .PriceCart-CardPopularProduct > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+}
+
+.CardPopularProduct > .PriceCart-CardPopularProduct > li > .Price {
+  font-size: 0.75rem !important;
+  font-weight: 400;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.CardPopularProduct > .PriceCart-CardPopularProduct > li > .Promo {
+  font-size: 1rem !important;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.CardPopularProduct > .PriceCart-CardPopularProduct > li > button {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+}
+/* End Popular Product */
+
+/* Start Daily Best Sells */
+.DailyBestSells {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ContentDailyBestSells {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.ContentDailyBestSells > .ContainerHeadlineContent-DailyBestSells {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ContentDailyBestSells
+  > .ContainerHeadlineContent-DailyBestSells
+  > .HeadlineContent-DailyBestSells {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ContentDailyBestSells
+  > .ContainerHeadlineContent-DailyBestSells
+  > .HeadlineContent-DailyBestSells
+  > span {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ContainerCardBoxDailyBestSells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  padding: 1rem 0;
+  overflow: hidden;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.CardBoxBannerDailyBestSells {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  width: 100%;
+  max-width: 100%;
+  min-height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border: 0.08rem solid transparent;
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  transition: all 0.5s ease-in-out;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.CardBoxBannerDailyBestSells img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  place-items: center;
+  place-content: center;
+}
+
+.ContentBannerCardBoxDailyBestSells {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.5rem;
+  gap: 0.85rem;
+  z-index: 1;
+}
+
+.ContentBannerCardBoxDailyBestSells h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--white-color);
+}
+
+.ContentBannerCardBoxDailyBestSells span {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--white-color);
+}
+
+.ContentBannerCardBoxDailyBestSells button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.IconShortArrow {
+  width: 1.15rem !important;
+  stroke-width: 0.01rem !important;
+  color: var(--white-color) !important;
+}
+
+.CardBoxProductDailyBestSells {
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  min-height: 35rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  border: 0.08rem solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  transition: all 0.5s ease-in-out;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.CardBoxProductDailyBestSells:hover {
+  cursor: pointer;
+  border: 0.08rem solid var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.CardBoxProductDailyBestSells:active {
+  transform: scale(0.95);
+}
+
+.Image-CardBoxDailyBestSells {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+}
+
+.Image-CardBoxDailyBestSells img {
+  width: 70%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+}
+
+.CardBoxProductDailyBestSells > .Headline-CardBoxDailyBestSells {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxProductDailyBestSells > .Headline-CardBoxDailyBestSells > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxProductDailyBestSells > .Headline-CardBoxDailyBestSells > li > span {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.CardBoxProductDailyBestSells > .Headline-CardBoxDailyBestSells > li > h5 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-900);
+}
+
+.CardBoxProductDailyBestSells > .PriceRating {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.CardBoxProductDailyBestSells > .PriceRating > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxProductDailyBestSells > .PriceRating > li > .Price {
+  font-size: 0.75rem !important;
+  font-weight: 400;
+  color: var(--gray-500);
+  text-decoration: line-through;
+}
+
+.CardBoxProductDailyBestSells > .PriceRating > li > .Promo {
+  font-size: 1rem !important;
+  font-weight: 700;
+  color: var(--gray-700);
+}
+
+.CardBoxProductDailyBestSells button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  z-index: 999 !important;
+}
+
+.CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells > li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0.5rem;
+  background-color: var(--white-color);
+  border: 0.08rem solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells > li > span {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  text-align: center;
+  gap: 0.25rem;
+}
+
+.CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells > li > span > h6 {
+  font-size: inherit !important;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells > li > span > p {
+  font-size: inherit !important;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+/* End Daily Best Sells */
+
+/* Start Hover Button Product Card */
+.HoverButtonProduct {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5rem;
+  gap: 0.5rem !important;
+  background: linear-gradient(to top, rgba(10, 173, 10, 0.2), rgba(255, 255, 255, 0));
+  z-index: 99 !important;
+}
+
+.ContainerHoverButtonProduct {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ContainerHoverButtonProduct button {
+  display: flex;
+  flex-direction: row;
+  width: 2.5rem;
+  max-width: 2.5rem;
+  height: 2.5rem;
+  max-height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  padding: 0.25rem;
+  border-radius: var(--border-radius-md);
+  background-color: var(--white-color);
+  color: var(--grey-color) !important;
+  fill: var(--grey-color) !important ;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s ease-in-out;
+}
+
+.ContainerHoverButtonProduct > button > .IconHoverButtonProduct {
+  width: 1rem !important;
+  stroke-width: 0.015rem !important;
+  opacity: 1 !important;
+}
+
+.ContainerHoverButtonProduct button:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color) !important;
+  fill: var(--white-color) !important ;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  opacity: 1 !important;
+  opacity: 1 !important;
+}
+
+/* Start Transition effect Dropdown */
+.SlideFadeDropdown-enter-active,
+.SlideFadeDropdown-leave-active {
+  transition: all 0.35s ease-in-out;
+  transform: translateX(-50%, 50%) !important;
+}
+
+.SlideFadeDropdown-enter-from,
+.SlideFadeDropdown-leave-to {
+  opacity: 1;
+  right: 0 !important;
+  left: -100% !important;
+  transform: translateX(50%, 50%) !important;
+}
+
+/* Start Transition effect Dropdown */
+
+/* End Hover Button Product Card */

@@ -1,0 +1,316 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+.Footer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 5rem 0;
+  background-color: var(--bg-color);
+}
+
+.FooterContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.FooterTopContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 5rem;
+}
+
+.FooterTopContent > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 3.5rem;
+}
+
+.FooterTopContent > ul > li:nth-child(1) {
+  align-items: flex-end !important;
+  gap: 3.5rem !important;
+}
+
+.FooterTopContent > ul > li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.FooterTopContent > ul > li > ol {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.FooterTopContent > ul > li > ol span {
+  font-size: 0.9rem;
+  font-weight: 700 !important;
+  margin: 0.5rem 0;
+}
+
+.FooterTopContent > ul > li > ol a {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.FooterTopContent > ul > li > ol a:hover {
+  color: var(--primary-color) !important;
+}
+
+.FooterCenterContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+  gap: 0;
+  border-top: 0.05rem solid var(--border-color);
+  border-bottom: 0.05rem solid var(--border-color);
+}
+
+.FooterCenterContent > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem;
+}
+
+.FooterCenterContent > ul > li:nth-child(1) {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.FooterCenterContent > ul > li:nth-child(2) {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.FooterCenterContent > ul > li > ol {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.FooterCenterContent > ul > li > ol > span {
+  width: auto !important;
+  font-size: 0.875rem;
+  font-family: 500;
+}
+
+.FooterBottomContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0;
+}
+
+.FooterBottomContent > ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.FooterBottomContent > ul > ol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.FooterBottomContent > ul > li {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.FooterBottomContent > ul > li > ol {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.FooterBottomContent > ul > li > ol > span {
+  font-size: 0.75rem !important;
+  line-height: 1.85 !important;
+}
+
+.FooterBottomContent > ul > li > ol > span > a {
+  font-size: inherit;
+  color: var(--primary-color) !important;
+}
+
+.SocialMediaFooter {
+  display: flex;
+  flex-direction: row;
+  width: 2.5rem;
+  max-width: 2.5rem;
+  height: 2.5rem;
+  max-height: 2.5rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0.25rem;
+  border-radius: var(--border-radius);
+  border: 0.08rem solid var(--darkgrey-color);
+  box-sizing: border-box;
+}
+
+.SocialMediaFooter:hover {
+  border: 0.08rem solid var(--primary-color);
+  cursor: pointer;
+  color: var(--primary-color) !important;
+}
+
+.IconSocialMediaFooter {
+  width: 1.25rem !important;
+  color: var(--gray-500);
+  stroke-width: 0.01rem !important;
+}
+
+.SocialMediaFooter:hover > a {
+  color: var(--primary-color);
+}
