@@ -36,36 +36,71 @@
     display: flex !important;
     flex-direction: column;
     top: 50% !important;
-    left: 0 !important;
-    transform: translateY(-50%) !important;
-    width: 100vw !important;
-    max-width: 100vw !important;
-    height: 100vh !important;
-    max-height: 100vh !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
     justify-content: center !important;
     align-items: center !important;
     margin: 0 auto !important;
     padding: 0 !important;
     background-color: var(--white-color) !important;
-    border-radius: 0 !important;
-    transition: all 0.3s ease-in-out;
+    border-radius: var(--border-radius-lg) !important;
     overflow: scroll !important;
     box-sizing: border-box !important;
     z-index: 9999 !important;
+    transition: all 1s ease !important;
   }
 
   .SlideFadeToggleModalBasketCart-enter-active,
   .SlideFadeToggleModalBasketCart-leave-active {
-    transition: all 0.5s ease-in-out !important;
-    transform: translateX(-50%, 50%) !important;
+    transition: all 1.5s ease !important;
   }
 
-  .SlideFadeToggleModalBasketCart-enter-from,
+  .SlideFadeToggleModalBasketCart-enter-from {
+    top: 100% !important;
+    left: 50% !important;
+    transform: translate(-50%, 0%) !important;
+    width: 55vw !important;
+    max-width: 55vw !important;
+    height: 58vh !important;
+    max-height: 58vh !important;
+    border-radius: 0 !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-enter-to {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+    border-radius: var(--border-radius-lg) !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-leave-from {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important;
+    max-width: 90vw !important;
+    height: 95vh !important;
+    max-height: 95vh !important;
+    border-radius: var(--border-radius-lg) !important;
+  }
+
   .SlideFadeToggleModalBasketCart-leave-to {
-    opacity: 1 !important;
-    right: 0 !important;
-    left: 0 !important;
-    transform: translateY(50%) !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translate(-50%, 0%) !important;
+    width: 55vw !important;
+    max-width: 55vw !important;
+    height: 58vh !important;
+    max-height: 58vh !important;
+    border-radius: 0 !important;
   }
 
   /* End Section Navbar Component Responsive */

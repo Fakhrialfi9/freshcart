@@ -716,7 +716,12 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
                   <li>
                     <span>
                       <button>Checkout</button>
-                      <button>Cencle</button>
+                      <button
+                        @click="ToggleBasketCartModals"
+                        :class="{ active: setBasketCartModals }"
+                      >
+                        Cencle
+                      </button>
                     </span>
                   </li>
                 </ul>
