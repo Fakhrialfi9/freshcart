@@ -128,8 +128,8 @@
   max-width: 100%;
   height: auto;
   max-height: auto;
-  border: 0.01rem solid var(--grey-color);
-  opacity: 0.2;
+  border: 0.035rem solid var(--grey-color);
+  opacity: 0.35;
 }
 
 .diver-vertical {

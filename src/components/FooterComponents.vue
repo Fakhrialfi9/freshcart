@@ -9,8 +9,8 @@ import AmericanExpress from './../assets/logo/logo-brand/american-express.svg'
 import MasterCard from './../assets/logo/logo-brand/mastercard.svg'
 import Paypal from './../assets/logo/logo-brand/paypal.svg'
 import Visa from './../assets/logo/logo-brand/visa.svg'
-import DownloadAppStore from './../assets/image/Other/appstore-btn.svg'
-import DownloadPlayStore from './../assets/image/Other/googleplay-btn.svg'
+import DownloadAppStore from './../assets/image/other/appstore-btn.svg'
+import DownloadPlayStore from './../assets/image/other/googleplay-btn.svg'
 // Start Image Import
 
 export default {

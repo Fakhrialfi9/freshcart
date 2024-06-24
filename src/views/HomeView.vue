@@ -5,6 +5,7 @@ import FeaturedCategories from './Section/HomeView/FeaturedCategories.vue'
 import PromotionSale from './Section/HomeView/PromotionSale.vue'
 import PopularProduct from './Section/HomeView/PopularProduct.vue'
 import DailyBestSells from './Section/HomeView/DailyBestSells.vue'
+import AdvantageServices from './Section/HomeView/AdvantageServices.vue'
 
 // Start Import Section Home Page
 
@@ -15,7 +16,8 @@ export default {
     FeaturedCategories,
     PromotionSale,
     PopularProduct,
-    DailyBestSells
+    DailyBestSells,
+    AdvantageServices
   }
 }
 </script>
@@ -43,6 +45,10 @@ export default {
 
           <!-- Start Daily Best Sells -->
           <DailyBestSells />
+          <!-- End Daily Best Sells -->
+
+          <!-- Start Daily Best Sells -->
+          <AdvantageServices />
           <!-- End Daily Best Sells -->
         </div>
       </div>

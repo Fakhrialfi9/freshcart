@@ -34,7 +34,7 @@ a > svg {
   margin: inherit !important;
   padding: inherit !important;
   stroke-width: inherit !important;
-  stroke: currentColor !important;
+  stroke: inherit !important;
   stroke-linejoin: round !important;
   stroke-linecap: round !important;
 }

@@ -5,6 +5,7 @@ import { RouterLink } from 'vue-router'
 
 // Start Image Import
 import LogoNavbar from './../assets/logo/logo-company/freshcart-logo.svg'
+import categorydairybreadeggs from '../assets/image/category/categorydairybreadeggs.jpg'
 // Start Image Import
 
 export default {
@@ -14,6 +15,7 @@ export default {
   data() {
     return {
       LogoNavbar,
+      categorydairybreadeggs,
       AllDepartmentDropdown: false,
       ShopDropdown: false,
       StoresDropdown: false,
@@ -22,7 +24,8 @@ export default {
       ProductDropdown: false,
       BrandDropdown: false,
       PromoDropdown: false,
-      ToggleMenuMobile: false
+      setMenuMobile: false,
+      setBasketCartModals: false
     }
   },
   methods: {
@@ -70,9 +73,21 @@ export default {
     },
 
     ToggleHamburgerMenu() {
-      this.ToggleMenuMobile = !this.ToggleMenuMobile
+      this.setMenuMobile = !this.setMenuMobile
 
-      if (this.ToggleMenuMobile) {
+      if (this.setMenuMobile) {
+        document.documentElement.style.overflow = 'hidden'
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.documentElement.style.overflow = 'auto'
+        document.body.style.overflow = 'auto'
+      }
+    },
+
+    ToggleBasketCartModals() {
+      this.setBasketCartModals = !this.setBasketCartModals
+
+      if (this.setBasketCartModals) {
         document.documentElement.style.overflow = 'hidden'
         document.body.style.overflow = 'hidden'
       } else {
@@ -131,7 +146,7 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
                 <span class="TooltipText">User Login</span>
               </a>
 
-              <a class="DisplayNone-SM Tooltip">
+              <a @click="ToggleBasketCartModals" class="DisplayNone-SM Tooltip">
                 <IconBagCart class="IconNavbar" />
                 <span class="BadgeContentNavbar">3</span>
                 <span class="TooltipText"> Cart</span>
@@ -365,14 +380,14 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
 
           <!-- Start Slider Menu Mobile -->
           <transition name="SlideFadeToggleMenu">
-            <div v-if="ToggleMenuMobile" class="MobileMenu">
+            <div v-if="setMenuMobile" class="MobileMenu">
               <ul>
                 <!-- Start Logo Image Mobile -->
                 <li>
                   <a
                     ><img :src="LogoNavbar" alt="Local Image" />
-                    <span @click="ToggleHamburgerMenu" :class="{ active: ToggleMenuMobile }">
-                      <IconClose class="IconCloseToggleMobileMenu" />
+                    <span @click="ToggleHamburgerMenu" :class="{ active: setMenuMobile }">
+                      <IconClose class="IconCloseToggle" />
                     </span>
                   </a>
                 </li>
@@ -589,26 +604,23 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
               <div class="NavbarBottomMobileContent">
                 <ul>
                   <li>
-                    <RouterLink to="" class="ActiveNavbarBottomMobile">
+                    <RouterLink to="/" active-class="ActiveNavbarBottomMobile">
                       <IconGridSquare class="IconGridSquareNavbarBottom" />
-                      <!-- <span class="BadgeContentNavbar">3</span> -->
                     </RouterLink>
                   </li>
                   <li>
-                    <RouterLink to="">
+                    <RouterLink to="/users" active-class="ActiveNavbarBottomMobile">
                       <IconUsers class="IconUsersNavbarBottom" />
                     </RouterLink>
                   </li>
                   <li>
-                    <RouterLink to="">
+                    <RouterLink to="/wishlist" active-class="ActiveNavbarBottomMobile">
                       <IconWishlist class="IconWishlistNavbarBottom" />
-                      <!-- <span class="BadgeContentNavbar">3</span> -->
                     </RouterLink>
                   </li>
                   <li>
-                    <RouterLink to="">
+                    <RouterLink to="" @click="ToggleBasketCartModals">
                       <IconBagCart class="IconBagCartNavbarBottom" />
-                      <!-- <span class="BadgeContentNavbar">3</span> -->
                     </RouterLink>
                   </li>
                 </ul>
@@ -620,10 +632,106 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
           <!-- Start Blur Effect Mobile Menu -->
           <div
             @click="ToggleHamburgerMenu"
-            :class="{ active: ToggleMenuMobile }"
+            :class="{ active: setMenuMobile }"
             class="BlurEffect"
           ></div>
           <!-- End Blur Effect Mobile Menu -->
+
+          <!-- Start Modal Basket Cart -->
+          <transition name="SlideFadeToggleModalBasketCart">
+            <div v-if="setBasketCartModals" class="ModalBasketCart">
+              <div class="ContentTopModalBasketCart">
+                <ul class="HeadingContent-ModalBasketCart">
+                  <li>
+                    <h5>Shop Cart</h5>
+                    <span>Location in 382480</span>
+                  </li>
+                  <li>
+                    <span @click="ToggleBasketCartModals" :class="{ active: setBasketCartModals }">
+                      <IconClose class="IconCloseToggle" />
+                    </span>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="ContentCardModalBasketCart">
+                <div class="AlertModalBasketCart">
+                  <div class="ContentAlertModalBasketCart">
+                    <h5>
+                      You’ve got FREE delivery. Start
+                      <RouterLink class="LinkColor" to="">checkout now!</RouterLink>
+                    </h5>
+                  </div>
+                </div>
+
+                <div class="diver"></div>
+
+                <!--Start  Card Checkout Product -->
+                <ul class="CardBoxCheckoutProduct" v-for="index in 20" :key="index">
+                  <li>
+                    <div class="ImageInformasi-CardBoxCheckoutProduct">
+                      <div class="ImageContent">
+                        <img :src="categorydairybreadeggs" alt="" />
+                      </div>
+                      <div class="InformationContent">
+                        <h6>Haldiram's Sev Bhujia</h6>
+                        <span>250g</span>
+                        <button>Remove</button>
+                      </div>
+                    </div>
+
+                    <div class="InputQuantity-CardBoxCheckoutProduct">
+                      <form class="FormInputQuantity" action="">
+                        <button
+                          class="QuantityUp"
+                          type="button"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
+                        >
+                          -
+                        </button>
+                        <input min="1" name="quantity" value="10" type="number" />
+                        <button
+                          class="QuantityDown"
+                          type="button"
+                          onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
+                        >
+                          +
+                        </button>
+                      </form>
+                    </div>
+
+                    <div class="PriceContent-CardBoxCheckoutProduct">
+                      <span>$5.00 </span>
+                    </div>
+                  </li>
+                </ul>
+                <!-- End Card Checkout Product -->
+              </div>
+              <div class="ContentBottomModalBasketCart">
+                <ul class="HeadingContent-ModalBasketCart">
+                  <li>
+                    <b>Total</b>
+                    <h5>$354</h5>
+                  </li>
+                  <li>
+                    <span>
+                      <button>Checkout</button>
+                      <button>Cencle</button>
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </transition>
+          <!-- End Modal Basket Cart -->
+
+          <!-- Start Blur Effect Basket Cart Menu -->
+          <div
+            @click="ToggleBasketCartModals"
+            :class="{ active: setBasketCartModals }"
+            class="BlurEffect"
+          ></div>
+          <!-- End Blur Effect Basket Cart Menu -->
 
           <!-- Start Mobile Section -->
         </div>
@@ -633,3 +741,4 @@ import IconPinLocation from '../assets/icon/IconPinLocation.vue'
 </template>
 
 <style scoped src="../assets/style/Components/NavbarComponents.css"></style>
+<style scoped src="../assets/style/Components/ModalsCart.css"></style>

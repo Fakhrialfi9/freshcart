@@ -167,13 +167,11 @@ export default defineComponent({
   <main>
     <section class="DailyBestSells">
       <div class="ContentDailyBestSells">
-        <!-- Start Content Headline -->
-        <ul class="ContainerHeadlineContent-DailyBestSells">
-          <li class="HeadlineContent-DailyBestSells">
-            <span>Daily Best Sells</span>
-          </li>
+        <!-- Start Headline Section Home -->
+        <ul class="HeadlineSection-Home">
+          <li><h5>Daily Best Sells</h5></li>
         </ul>
-        <!-- End Content Headline -->
+        <!-- End Headline Section Home -->
 
         <div class="ContainerCardBoxDailyBestSells">
           <!-- Start Content Card Box Banner -->

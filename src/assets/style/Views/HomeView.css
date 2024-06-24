@@ -40,6 +40,42 @@ main {
   gap: 2.5rem;
 }
 
+/* Start Headline Content Section  */
+.HeadlineSection-Home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.HeadlineSection-Home > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.HeadlineSection-Home > li > h5 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+/* End Headline Content Section  */
+
 /* Start Style Banner Home */
 
 .BannerHome {
@@ -210,56 +246,23 @@ main {
   align-items: center;
   margin: 0 auto;
   padding: 0;
-  gap: 1rem;
 }
 
-.FeaturedCategories > ul {
+.ContentFeaturedCategories {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 100%;
   max-width: 100%;
   height: auto;
   max-height: auto;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 0 auto;
   padding: 0;
+  gap: 1rem;
 }
 
-.FeaturedCategories > ul > li {
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-height: auto;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  gap: 0.5rem;
-}
-
-.FeaturedCategories > ul > li:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-height: auto;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  gap: 0.5rem;
-}
-
-.FeaturedCategories > ul > li span {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.FeaturedCategories > ul > li > button {
+.ContentFeaturedCategories > .HeadlineSection-Home > li > button {
   display: flex;
   flex-direction: row;
   width: 2rem;
@@ -277,28 +280,14 @@ main {
   transition: all 0.2s ease-in-out;
 }
 
-.FeaturedCategories > ul > li > button:hover {
+.ContentFeaturedCategories > ul > li > button:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
   fill: var(--white-color);
 }
 
-.FeaturedCategories > ul > li > button > svg {
+.ContentFeaturedCategories > ul > li > button > svg {
   width: 0.5rem !important;
-}
-
-.FeaturedCategoriesContentProduct {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0;
-  box-sizing: border-box;
 }
 
 .ContainerBoxProductFeaturedCategories {
@@ -311,8 +300,11 @@ main {
   justify-content: space-between;
   align-items: center;
   align-content: center;
-  margin: 0;
-  padding: 1rem 0;
+  margin: 0 auto;
+  padding: 0;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -508,72 +500,10 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
-.NavsPopularProduct {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.NavsPopularProduct > ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 auto;
-  padding: 0;
-  gap: 1rem;
-}
-
-.NavsPopularProduct > ul > li {
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-height: auto;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  gap: 1rem;
-}
-
-.NavsPopularProduct > ul > li:nth-child(2) {
-  display: flex;
-  flex-direction: row;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-height: auto;
-  justify-content: flex-end;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  gap: 1rem;
-}
-
-.NavsPopularProduct > ul > li span {
-  font-size: 1.5rem;
-  font-weight: 700;
-}
-
-.NavsPopularProduct > ul > li > button {
+.ContentPopularProduct > .HeadlineSection-Home > li > button {
   display: flex;
   flex-direction: row;
   width: auto;
@@ -589,33 +519,32 @@ main {
   transition: all 0.2s ease-in-out;
 }
 
-.NavsPopularProduct > ul > li > button:hover {
+.ContentPopularProduct > .HeadlineSection-Home > li > button:hover {
   background-color: var(--primary-color);
   color: var(--white-color);
   fill: var(--white-color);
 }
 
-.NavsPopularProduct > ul > li > button > svg {
+.ContentPopularProduct > .HeadlineSection-Home > li > button > svg {
   width: 0.5rem !important;
 }
 
 .ContainerPopularProduct {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
   max-width: 100%;
   height: auto;
   max-height: auto;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   align-content: center;
   margin: 0 auto;
+  padding: 1rem 0;
   padding-block-end: 0;
   padding-block-start: 0;
-  padding: 1rem 0;
   overflow: hidden;
-  gap: 1rem;
   box-sizing: border-box;
 }
 
@@ -629,6 +558,7 @@ main {
   max-width: 100%;
   height: 100%;
   max-height: 100%;
+  min-height: 25rem;
   justify-content: space-between;
   align-items: center;
   align-content: center;
@@ -638,7 +568,7 @@ main {
   border-radius: var(--border-radius-lg);
   background-color: var(--white-color);
   transition: all 0.5s ease-in-out;
-  gap: 1rem;
+  gap: 0.5rem;
   overflow: hidden;
 }
 
@@ -815,9 +745,16 @@ main {
 }
 
 .CardPopularProduct > .PriceCart-CardPopularProduct > li > button {
-  font-size: 0.85rem;
-  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9rem;
+  font-weight: 500;
   padding: 0.25rem 0.5rem;
+  gap: 0.25rem;
+}
+
+.CardPopularProduct > .PriceCart-CardPopularProduct > li > button > .IconButtonAddCart {
+  width: 0.9rem;
 }
 /* End Popular Product */
 
@@ -846,49 +783,13 @@ main {
   align-items: center;
   margin: 0 auto;
   padding: 0;
-  gap: 1rem;
-}
-
-.ContentDailyBestSells > .ContainerHeadlineContent-DailyBestSells {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.ContentDailyBestSells
-  > .ContainerHeadlineContent-DailyBestSells
-  > .HeadlineContent-DailyBestSells {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.ContentDailyBestSells
-  > .ContainerHeadlineContent-DailyBestSells
-  > .HeadlineContent-DailyBestSells
-  > span {
-  font-size: 1.5rem;
-  font-weight: 700;
+  gap: 1.5rem;
 }
 
 .ContainerCardBoxDailyBestSells {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
+  gap: 1rem;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -897,11 +798,10 @@ main {
   align-items: flex-start;
   align-content: center;
   margin: 0 auto;
+  padding: 1rem 0;
   padding-block-end: 0;
   padding-block-start: 0;
-  padding: 1rem 0;
   overflow: hidden;
-  gap: 1rem;
   box-sizing: border-box;
 }
 
@@ -1295,3 +1195,166 @@ main {
 /* Start Transition effect Dropdown */
 
 /* End Hover Button Product Card */
+
+/* Start Advantage Services */
+.AdvantageServices {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ContentAdvantageServices {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.ContentAdvantageServices > .CardBoxAdvantageServices {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem 0;
+  padding-block-end: 0;
+  padding-block-start: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 1rem;
+  gap: 1rem;
+  border: 0.08rem solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--white-color);
+  overflow: hidden;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  transition: transform 0.6s ease-in-out;
+  z-index: 0;
+}
+.ContentAdvantageServices .CardBoxAdvantageServices > li > * {
+  position: relative;
+  z-index: 1;
+  transition:
+    color 1.15s ease-in-out,
+    background-color 0.4s ease-in-out,
+    fill 0.4s ease-in-out,
+    stroke 0.4s ease-in-out,
+    border-radius 1.15s ease-in-out;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover > * {
+  transition:
+    color 0.3s ease-in-out,
+    background-color 0.35s ease-in-out,
+    fill 0.35s ease-in-out,
+    stroke 0.35s ease-in-out,
+    border-radius 0.6s ease-in-out;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li > .IconAdvantageServices {
+  background-color: var(--primary-color);
+  padding: 0.5rem;
+  border-radius: 100%;
+  stroke-width: 0.165rem;
+  fill: var(--primary-color) !important;
+  stroke: var(--white-color) !important;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li > h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li > p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--gray-500);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li > p > .LinkColorPrimary {
+  transition: color 1.15s ease-in-out;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li > p > .LinkColorPrimary {
+  color: var(--primary-color);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover {
+  cursor: pointer !important;
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover::before {
+  fill: var(--primary-color) !important;
+  stroke: var(--white-color) !important;
+  color: var(--white-color) !important;
+  transform: translateX(100%);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover .IconAdvantageServices {
+  background-color: var(--white-color);
+  fill: var(--white-color) !important;
+  stroke: var(--primary-color) !important;
+  border-radius: var(--border-radius-md);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover h5 {
+  color: var(--white-color);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover p {
+  color: var(--white-color);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover p > .LinkColorPrimary {
+  color: var(--warning-color);
+}
+
+.ContentAdvantageServices .CardBoxAdvantageServices > li:hover > p > .LinkColorPrimary {
+  transition: color 0.6s ease-in-out;
+}
+
+/* End Advantage Services */

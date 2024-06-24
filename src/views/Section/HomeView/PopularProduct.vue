@@ -11,6 +11,7 @@ import IconStar from '../../../assets/icon/IconStar.vue'
 import IconArrowCompare from '../../../assets/icon/IconArrowCompare.vue'
 import IconWishlistFill from '../../../assets/icon/IconWishlistFill.vue'
 import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
+import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
 // End Import Icon
 
 export default {
@@ -18,7 +19,8 @@ export default {
     IconStar,
     IconArrowCompare,
     IconWishlistFill,
-    IconEyePriview
+    IconEyePriview,
+    IconAddPlus
   },
 
   props: {
@@ -201,17 +203,17 @@ export default {
   <main>
     <section class="PopularProduct">
       <div class="ContentPopularProduct">
-        <div class="NavsPopularProduct">
-          <ul>
-            <li><span>Popula Product</span></li>
-            <li>
-              <button>All</button>
-              <button>Hot Sale</button>
-              <button>Years Sale</button>
-              <button>Big Deals</button>
-            </li>
-          </ul>
-        </div>
+        <!-- Start Headline Section Home -->
+        <ul class="HeadlineSection-Home">
+          <li><h5>Popula Product</h5></li>
+          <li>
+            <button>All</button>
+            <button>Hot Sale</button>
+            <button>Years Sale</button>
+            <button>Big Deals</button>
+          </li>
+        </ul>
+        <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
           <!-- Start Content Card Product -->
           <RouterLink v-for="(product, index) in products" :key="index" :to="product.link">
@@ -265,7 +267,9 @@ export default {
                   <p class="Promo">{{ product.promoPrice }}</p>
                   <p class="Price">{{ product.price }}</p>
                 </li>
-                <li><button>Add To Cart</button></li>
+                <li>
+                  <button><IconAddPlus class="IconButtonAddCart" /> Cart</button>
+                </li>
               </ul>
               <!-- End Price & Button Card Box Product -->
 

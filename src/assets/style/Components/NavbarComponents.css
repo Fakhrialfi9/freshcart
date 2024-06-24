@@ -162,15 +162,8 @@ main {
   align-content: center;
   margin: 0;
   padding: 0;
-  gap: 0.75rem;
+  gap: 0.5rem;
   box-sizing: border-box;
-}
-
-.IconNavbar {
-  width: 1.25rem;
-  font-size: 1.25rem;
-  stroke-width: 0.125rem !important;
-  padding: 0.25rem !important;
 }
 
 .RightContent a {
@@ -191,15 +184,24 @@ main {
 
 .RightContent a:hover {
   color: var(--primary-color) !important;
+  stroke: var(--primary-color);
 }
 
 .RightContent a:active {
   transform: scale(0.95);
 }
 
+.IconNavbar {
+  width: 1.65rem;
+  stroke: var(--grey-color);
+  stroke-width: 0.125rem !important;
+  padding: 0.25rem !important;
+}
+
 .IconHamburgerMenu {
-  width: 1.65rem !important;
-  stroke-width: 0.01rem !important;
+  width: 1.65rem;
+  stroke-width: 0.125rem !important;
+  padding: 0.25rem !important;
   color: var(--primary-color) !important;
 }
 
@@ -279,10 +281,6 @@ main {
 
 .IconButtonAllDepartement {
   width: 0.85rem;
-}
-
-.NavbarBottomContent > ul > li > button > .IconNavbar {
-  font-size: 1.25rem !important;
 }
 
 .IconDropdown {
@@ -521,7 +519,7 @@ main {
 
 .SlideFadeToggleMenu-enter-active,
 .SlideFadeToggleMenu-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .SlideFadeToggleMenu-enter-from,
@@ -531,17 +529,18 @@ main {
 
 .BlurEffect {
   position: fixed;
+  display: none;
   top: 0;
   right: 0 !important;
   width: 100vw !important;
   height: 100vh !important;
   z-index: 999 !important;
   background-color: rgb(0, 0, 0, 0);
-  transform: translateX(-100%);
   backdrop-filter: blur(0) !important;
 }
 
 .BlurEffect.active {
+  display: block !important;
   position: fixed;
   top: 0;
   right: 0 !important;
@@ -549,8 +548,8 @@ main {
   height: 100vh !important;
   z-index: 999 !important;
   background-color: rgb(0, 0, 0, 0.5);
-  transform: translateX(0);
-  backdrop-filter: blur(1.5px) !important;
+  backdrop-filter: blur(0.15rem) !important;
+  transition: all 1s ease-in-out;
 }
 
 .MobileMenu > ul {
@@ -597,13 +596,14 @@ main {
   color: var(--primary-color);
 }
 
-.IconCloseToggleMobileMenu {
+.IconCloseToggle {
+  font-size: 1.15rem !important;
   width: 1.15rem !important;
   stroke-width: 0.05rem !important;
 }
 
-.IconCloseToggle {
-  font-size: 1.15rem !important;
+.IconCloseToggle:hover {
+  color: var(--primary-color) !important;
 }
 
 .MobileMenu form {
@@ -766,7 +766,8 @@ main {
   align-items: center;
   margin: 0;
   padding: 0;
-  color: var(--white-color) !important;
+  color: var(--white-color);
+  stroke: var(--white-color);
 }
 
 .NavbarBottomMobileContent > ul > li > a {
@@ -784,26 +785,27 @@ main {
 }
 
 .IconGridSquareNavbarBottom {
-  width: 1.5rem !important;
-  stroke-width: 0.025rem !important;
+  width: 1.5rem;
+  stroke-width: 0.025rem;
 }
 
 .IconUsersNavbarBottom {
-  width: 1.5rem !important;
-  stroke-width: 0.1rem !important;
+  width: 1.5rem;
+  stroke-width: 0.15rem;
 }
 
 .IconWishlistNavbarBottom {
-  width: 1.5rem !important;
-  stroke-width: 0.1rem !important;
+  width: 1.5rem;
+  stroke-width: 0.15rem;
 }
 
 .IconBagCartNavbarBottom {
-  width: 1.5rem !important;
-  stroke-width: 0.1rem !important;
+  width: 1.5rem;
+  stroke-width: 0.1rem;
 }
 
 .ActiveNavbarBottomMobile {
+  stroke: var(--primary-color);
   color: var(--primary-color) !important;
   position: relative !important;
 }

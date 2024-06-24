@@ -4,9 +4,11 @@
     max-width: 576px;
     user-select: none !important;
   }
+
   .DisplayNone-SM {
     display: none !important;
   }
+
   .DisplayBlock-SM {
     display: block !important;
   }
@@ -28,6 +30,44 @@
   .LogoNavbarContent img {
     width: 100% !important;
   }
+
+  .ModalBasketCart {
+    position: fixed !important;
+    display: flex !important;
+    flex-direction: column;
+    top: 50% !important;
+    left: 0 !important;
+    transform: translateY(-50%) !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    height: 100vh !important;
+    max-height: 100vh !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background-color: var(--white-color) !important;
+    border-radius: 0 !important;
+    transition: all 0.3s ease-in-out;
+    overflow: scroll !important;
+    box-sizing: border-box !important;
+    z-index: 9999 !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-enter-active,
+  .SlideFadeToggleModalBasketCart-leave-active {
+    transition: all 0.5s ease-in-out !important;
+    transform: translateX(-50%, 50%) !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-enter-from,
+  .SlideFadeToggleModalBasketCart-leave-to {
+    opacity: 1 !important;
+    right: 0 !important;
+    left: 0 !important;
+    transform: translateY(50%) !important;
+  }
+
   /* End Section Navbar Component Responsive */
 
   /* Start Section Footer Component Responsive */
@@ -79,6 +119,10 @@
 
   .ContainerCardBoxDailyBestSells {
     grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .ContentAdvantageServices > ul {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
   /* End Section Home Pages Responsive */
 }
@@ -138,6 +182,10 @@
   .ContainerCardBoxDailyBestSells {
     grid-template-columns: repeat(2, 1fr) !important;
   }
+
+  .ContentAdvantageServices > ul {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
   /* End Section Home Pages Responsive */
 }
 
@@ -147,9 +195,11 @@
     max-width: 991px;
     user-select: none !important;
   }
+
   .DisplayNone-LG {
     display: none !important;
   }
+
   .DisplayBlock-LG {
     display: block !important;
   }
@@ -164,17 +214,25 @@
   .FooterTopContent > ul {
     justify-content: flex-start !important;
   }
+
   .FooterTopContent > ul > li {
     justify-content: flex-start !important;
   }
+
   .FooterCenterContent > ul > li {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
+
   .ContainerPopularProduct {
     grid-template-columns: repeat(3, 1fr) !important;
   }
+
   .ContainerCardBoxDailyBestSells {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .ContentAdvantageServices > ul {
     grid-template-columns: repeat(2, 1fr) !important;
   }
 

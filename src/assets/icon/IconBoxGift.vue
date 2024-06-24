@@ -1,16 +1,18 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <a fill="currentColor">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="20"
-      height="20"
-      fill="currentColor"
-      class="bi bi-suit-heart-fill"
-      viewBox="0 0 16 16"
-    >
+    <svg width="40" height="40" xmlns="http://www.w3.org/2000/svg">
       <path
-        d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"
+        d="M33.333 20v16.667H6.667V20m30-8.334H3.333V20h33.334v-8.334zM20 36.666v-25"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+      <path
+        d="M20 11.667h-7.5a4.167 4.167 0 010-8.334c5.834 0 7.5 8.334 7.5 8.334zm0 0h7.5a4.167 4.167 0 100-8.334c-5.833 0-7.5 8.334-7.5 8.334z"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </svg>
   </a>
@@ -22,11 +24,10 @@ a {
   place-items: center !important;
   place-content: center !important;
   color: inherit !important;
-  fill: inherit !important;
   font-size: inherit !important;
 }
 
-a > svg {
+a > svg > path {
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -34,7 +35,8 @@ a > svg {
   margin: inherit !important;
   padding: inherit !important;
   stroke-width: inherit !important;
-  stroke: currentColor !important;
+  fill: transparent !important;
+  stroke: inherit !important;
   stroke-linejoin: round !important;
   stroke-linecap: round !important;
 }

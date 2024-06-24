@@ -4,8 +4,8 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      width="16"
-      height="16"
+      width="20"
+      height="20"
       fill="currentColor"
     >
       !Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License -
