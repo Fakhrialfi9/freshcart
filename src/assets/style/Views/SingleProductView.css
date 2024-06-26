@@ -1,0 +1,677 @@
+main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+}
+
+.SingleProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.SingleProductContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+  gap: 1.5rem;
+}
+
+.diver {
+  width: 100%;
+  max-width: 100%;
+  height: 0.1px;
+  max-height: 0.1px;
+  background-color: var(--gray-400);
+  opacity: 0.35;
+  margin: 1rem 0;
+}
+
+.LeftContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-width: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ImageLayout-LeftContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.PrimaryImage-LeftContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 30rem;
+  max-height: 100%;
+  min-height: 30rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden !important;
+  border-radius: var(--border-radius-lg);
+  cursor: zoom-in !important;
+}
+
+.PrimaryImage-LeftContent > img {
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.5s ease-in;
+}
+
+.PrimaryImage-LeftContent:hover > img {
+  transform: scale(1.2) !important;
+}
+
+.ThumbnailImage-LeftContent {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.BoxThumbnail-LeftContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  min-width: 100%;
+  height: 7.5rem;
+  max-height: 7.5rem;
+  min-height: 7.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden !important;
+  background-color: black;
+}
+
+.BoxThumbnail-LeftContent:hover {
+  outline: 0.1rem solid var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(10, 173, 10, 0.25);
+}
+
+.BoxThumbnail-LeftContent img {
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.RightContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.InformationProduct-RightContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.InformationProduct-RightContent > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.InformationProduct-RightContent > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.15rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductCategoty {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductName {
+  font-size: 2.25rem;
+  font-weight: 600 !important;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductRating {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductRating > .RatingIcon {
+  width: 0.85rem !important;
+  color: var(--warning-color) !important;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductRating > span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductPrice {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  font-size: 1.35rem;
+  gap: 0.85rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductPrice > .DiscountPrice {
+  font-size: inherit;
+  font-weight: 600 !important;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductPrice > .NormalPrice {
+  font-size: inherit;
+  font-weight: 600 !important;
+  text-decoration: line-through var(--gray-400);
+  color: var(--gray-500);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ProductPrice > .BadgeDiscount {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.15rem 0.85rem;
+  font-size: 0.8rem !important;
+  color: var(--white-color);
+  gap: 0.5rem;
+  background-color: var(--danger-color);
+  border-radius: var(--border-radius);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SelectWeightProduct {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SelectWeightProduct > button {
+  background-color: transparent;
+  border: 0.08rem solid var(--gray-400);
+  color: var(--gray-600);
+  padding: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SelectWeightProduct > button:hover {
+  background-color: var(--gray-500);
+  border: 0.08rem solid transparent !important;
+  color: var(--white-color);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SelectWeightProduct > button:focus {
+  background-color: var(--gray-500);
+  border: 0.08rem solid transparent !important;
+  color: var(--white-color);
+}
+
+.InputQuantity-CardBoxCheckoutProduct {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 10rem;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  border-radius: 0;
+  border-top: 0.05rem solid var(--border-color) !important;
+  border-bottom: 0.05rem solid var(--border-color) !important;
+  border: 0rem solid transparent;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity .QuantityUp {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  color: var(--gray-700);
+  border-radius: 0.5rem 0 0 0.5rem;
+  border: 0.05rem solid var(--border-color);
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity .QuantityDown {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  color: var(--gray-700);
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: 0.05rem solid var(--border-color);
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity button:focus,
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity button:hover {
+  background-color: var(--gray-200);
+}
+
+.InputQuantity-CardBoxCheckoutProduct
+  > .FormInputQuantity
+  input[type='number']::-webkit-outer-spin-button,
+.InputQuantity-CardBoxCheckoutProduct
+  > .FormInputQuantity
+  input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity input[type='number']::-moz-appearance {
+  appearance: none;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity input[type='number']:focus {
+  border: 0rem solid transparent;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > button {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonAddToCart {
+  background-color: var(--primary-color);
+  padding: 0.7rem 2.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonShare {
+  background-color: var(--gray-200);
+  color: var(--gray-600);
+  padding: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.IconButtonShare {
+  fill: none;
+  stroke-width: 0.025rem !important;
+  stroke: var(--gray-600) !important;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonWishlist {
+  background-color: var(--gray-200);
+  color: var(--gray-600);
+  padding: 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.IconButtonWishlist {
+  fill: none;
+  stroke-width: 0.115rem;
+  stroke: var(--gray-600);
+}
+
+.IconButtonWishlist:hover,
+.IconButtonWishlist:focus,
+.IconButtonWishlist.clicked {
+  fill: var(--danger-color);
+  color: var(--danger-color);
+  stroke: var(--danger-color);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SpecificationProduct {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 4.5rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SpecificationProduct > .Question {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SpecificationProduct > .Question > span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SpecificationProduct > .Answer {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-width: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 2rem;
+}
+
+.InformationProduct-RightContent > ul > li > .Content-SpecificationProduct > .Answer > span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .SingleProduct {
+    padding: 4rem 0 0 0 !important;
+  }
+
+  .SingleProductContent {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  .LeftContent {
+    max-width: 100%;
+  }
+
+  .RightContent {
+    max-width: 100%;
+    padding: 0 !important;
+  }
+
+  .BoxThumbnail-LeftContent {
+    height: 5rem !important;
+    max-height: 5rem !important;
+    min-height: 5rem !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .SingleProduct {
+    padding: 5rem 0 0 0 !important;
+  }
+
+  .SingleProductContent {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+
+  .LeftContent {
+    max-width: 100%;
+  }
+
+  .RightContent {
+    max-width: 100%;
+    padding: 0 !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .SingleProductContent {
+    flex-direction: column !important;
+    gap: 2.5rem !important;
+  }
+  .LeftContent {
+    max-width: 100%;
+  }
+  .RightContent {
+    max-width: 100%;
+    padding: 0 !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+}

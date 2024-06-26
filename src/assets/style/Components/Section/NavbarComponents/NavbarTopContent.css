@@ -1,0 +1,189 @@
+.NavbarTopContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 70%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.LogoNavbarContent {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.LogoNavbarContent img {
+  width: 10.5rem !important;
+}
+
+.FormSearchNavbarContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.75rem;
+}
+
+.FormSearchNavbarContent form {
+  position: relative;
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+.FormSearchNavbarContent input {
+  background-color: transparent;
+}
+
+.IconInputSearch {
+  position: absolute;
+  right: 1rem;
+  color: var(--gray-400);
+}
+
+.IconSearch {
+  width: 1.15rem !important;
+  stroke-width: 0.025rem !important;
+  padding: 0.05rem;
+}
+
+.FormSearchNavbarContent button {
+  display: flex;
+  padding: 0.5rem 1.15rem;
+  background-color: transparent;
+  border: 0.1rem solid var(--border-color);
+  color: var(--grey-color);
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.IconPinLocation {
+  width: 1.15rem !important;
+  stroke-width: 0.025rem !important;
+  padding: 0.05rem;
+}
+
+.FormSearchNavbarContent button:hover {
+  background-color: var(--primary-color);
+  border: 0.1rem solid transparent;
+  color: var(--white-color);
+}
+
+.RightContent {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+  box-sizing: border-box;
+  stroke: var(--grey-color);
+  fill: none !important;
+}
+
+.RightContent a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer !important;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.RightContent a:hover {
+  color: var(--primary-color) !important;
+  stroke: var(--primary-color);
+}
+
+.RightContent a:active {
+  transform: scale(0.95);
+}
+
+.ActiveIconNavbar {
+  stroke: var(--primary-color) !important;
+  fill: var(--primary-color) !important ;
+}
+
+.IconNavbar {
+  height: 2.35rem !important;
+  width: 2.35rem !important;
+  stroke-width: 0.125rem !important;
+  padding: 0.25rem !important;
+}
+
+.IconHamburgerMenu {
+  height: 2.35rem !important;
+  width: 2.35rem !important;
+  stroke-width: 0.125rem !important;
+  padding: 0.25rem !important;
+  color: var(--primary-color) !important;
+}
+
+.BadgeContentNavbar {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  right: 0;
+  width: 1.2rem;
+  min-width: none;
+  height: 1.2rem;
+  min-height: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0.18rem;
+  margin: 0 auto;
+  border-radius: 100rem;
+  color: var(--white-color);
+  font-size: 0.7rem;
+  background-color: var(--primary-color);
+  outline: 0.09rem solid var(--white-color);
+}

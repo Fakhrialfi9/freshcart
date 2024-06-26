@@ -1,0 +1,511 @@
+main {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+}
+
+.User {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.Container-SigninUsers {
+  width: 60%;
+  max-width: 100vw;
+  height: auto;
+  min-height: auto;
+  padding: 0 0.5rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 50%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.FormContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.Image-FormContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.Image-FormContent img {
+  width: 100%;
+}
+
+.Image-FormContent button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: 0.5rem;
+  background-color: var(--gray-300);
+  color: var(--white-color);
+}
+
+.Image-FormContent button:hover {
+  background-color: var(--danger-color);
+}
+
+.Heading-FormContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.Heading-FormContent h4 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--black-color);
+}
+
+.Heading-FormContent p {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.SigninOption-FormContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.SigninOption-FormContent button:nth-child(1) {
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--gray-600);
+  border: 0.1rem solid var(--border-color);
+}
+
+.SigninOption-FormContent button:nth-child(1):hover {
+  background-color: rgb(234, 66, 53);
+  color: var(--white-color);
+  border: 0.1rem solid transparent;
+}
+
+.SigninOption-FormContent button:nth-child(2) {
+  width: 100%;
+  background-color: var(--white-color);
+  color: var(--gray-600);
+  border: 0.1rem solid var(--border-color);
+}
+
+.SigninOption-FormContent button:nth-child(2):hover {
+  background-color: rgb(23, 116, 236);
+  color: var(--white-color);
+  border: 0.1rem solid transparent;
+}
+
+.SigninWithEmail-FormContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin: 0.1rem auto;
+  padding: 0;
+}
+
+.SigninWithEmail-FormContent p {
+  flex: 2;
+  margin: 0 0.1rem;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.SigninWithEmail-FormContent::before,
+.SigninWithEmail-FormContent::after {
+  content: '';
+  flex: 2;
+  border-bottom: 0.1rem solid var(--border-color);
+}
+
+.SignWithEmail-FormContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.SignWithEmail-FormContent form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.InputEmail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.InputEmail input {
+  width: 100%;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.35rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.InputPassword {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.InputPassword input {
+  width: 100%;
+  padding: 0.65rem 0.85rem 0.65rem 2.5rem;
+  border: 0.1rem solid var(--border-color);
+  border-radius: 0.35rem;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.IconInputSignin {
+  width: 1rem;
+  color: var(--gray-400) !important;
+  stroke-width: 0 !important;
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.CheckBoxRememberMe {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.CheckBoxRememberMe label {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CheckBoxRememberMe P {
+  color: var(--gray-600);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.CheckBoxRememberMe input[type='checkbox'] {
+  content: '';
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin: 0;
+  vertical-align: middle;
+  cursor: pointer;
+  outline: none;
+  border: 0.1rem solid var(--gray-300);
+  background-color: var(--white-color);
+}
+
+.CheckBoxRememberMe input[type='checkbox']:checked {
+  border: 0.1rem solid var(--gray-300);
+  background-color: var(--primary-color);
+}
+
+.CheckBoxRememberMe input[type='checkbox']:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1.15rem;
+  height: 1.15rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-check" viewBox="0 0 16 16"><path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425z"/></svg>');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.CheckBoxRememberMe > .ForgotPassword {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.ForgotPassword a {
+  color: var(--primary-color);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.ForgotPassword a:hover {
+  color: var(--primary-color);
+}
+
+.ButtonSignin {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ButtonSignin button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: 0.25rem;
+}
+
+.SignUp-FormContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.SignUp-FormContent h6 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--gray-600);
+}
+
+.SignUp-FormContent .CreateAccout {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.SignUp-FormContent .CreateAccout:hover {
+  color: var(--primary-color);
+}
+
+.RightContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 50%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--primary-color);
+}
+
+.RightContent img {
+  position: absolute;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: right;
+}
+
+@media (max-width: 576px) {
+  .Container-SigninUsers {
+    width: 90% !important;
+  }
+  .LeftContent {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .Container-SigninUsers {
+    width: 90% !important;
+  }
+  .LeftContent {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .Container-SigninUsers {
+    width: 80% !important;
+  }
+  .LeftContent {
+    max-width: 100% !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .Container-SigninUsers {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .Container-SigninUsers {
+    width: 90% !important;
+  }
+}
+
+@media (min-width: 1401px) and (max-width: 1530px) {
+}

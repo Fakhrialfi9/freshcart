@@ -1,10 +1,7 @@
-<script lang="ts">
-import { reactive } from 'vue'
-
-// Start Import Image Banner
-import Product1 from '../../../assets/image/popularproduct/product1.jpg'
-import Product2 from '../../../assets/image/popularproduct/product2.jpg'
-// End Import Image Banner
+<script setup lang="ts">
+import { defineProps, ref } from 'vue'
+import { RouterLink } from 'vue-router'
+import type { Product } from '../../../function/GetProduct.ts'
 
 // Start Import Icon
 import IconStar from '../../../assets/icon/IconStar.vue'
@@ -14,188 +11,41 @@ import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
 import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
 // End Import Icon
 
-export default {
-  components: {
-    IconStar,
-    IconArrowCompare,
-    IconWishlistFill,
-    IconEyePriview,
-    IconAddPlus
-  },
+const props = defineProps<{
+  products: Product[]
+}>()
 
-  props: {
-    value: {
-      type: Number,
-      required: false,
-      default: 0
-    }
-  },
-
-  data() {
-    return {
-      Product1,
-      Product2,
-      currentRating: this.value,
-      hoverRating: 0,
-      stars: [1, 2, 3, 4, 5],
-      hoverIndex: -1,
-      showButtonsFlag: false
-    }
-  },
-
-  methods: {
-    setRating(rating: number) {
-      this.currentRating = rating
-      this.$emit('input', rating)
-    },
-
-    setHoverRating(rating: number) {
-      this.hoverRating = rating
-    },
-
-    resetHoverRating() {
-      this.hoverRating = 0
-    },
-
-    showButtons(index: number) {
-      this.hoverIndex = index
-      this.showButtonsFlag = true
-    },
-
-    hideButtons(index: number) {
-      this.hoverIndex = -1
-      this.showButtonsFlag = false
-    }
-  },
-
-  setup() {
-    const products = reactive([
-      {
-        link: '/',
-        badge: 'Hot Sale',
-        image: Product1,
-        category: 'Snack & Munchies',
-        name: "Haldiram's Sev Bhujia",
-        currentRating: 4.5,
-        rating: 4.5,
-        reviews: 149,
-        promoPrice: '$18',
-        price: '$24'
-      },
-      {
-        link: '/',
-        badge: 'New Arrival',
-        image: Product2,
-        category: 'Beverages',
-        name: 'Fresh Apples',
-        currentRating: 4.2,
-        rating: 4.2,
-        reviews: 89,
-        promoPrice: '$1',
-        price: '$2'
-      },
-      {
-        link: '/',
-        badge: 'Best Seller',
-        image: Product1,
-        category: 'Dairy',
-        name: 'Amul Butter',
-        currentRating: 4.8,
-        rating: 4.8,
-        reviews: 200,
-        promoPrice: '$4',
-        price: '$5'
-      },
-      {
-        link: '/',
-        badge: 'Limited Offer',
-        image: Product2,
-        category: 'Bakery',
-        name: 'Whole Wheat Bread',
-        currentRating: 4.3,
-        rating: 4.3,
-        reviews: 120,
-        promoPrice: '$3',
-        price: '$4'
-      },
-      {
-        link: '/',
-        badge: 'Discount',
-        image: Product1,
-        category: 'Fruits',
-        name: 'Fresh Apples',
-        currentRating: 4.7,
-        rating: 4.7,
-        reviews: 180,
-        promoPrice: '$2',
-        price: '$3'
-      },
-      {
-        link: '/',
-        badge: 'Hot Sale',
-        image: Product1,
-        category: 'Snack & Munchies',
-        name: "Haldiram's Sev Bhujia",
-        currentRating: 4.5,
-        rating: 4.5,
-        reviews: 149,
-        promoPrice: '$18',
-        price: '$24'
-      },
-      {
-        link: '/',
-        badge: 'New Arrival',
-        image: Product2,
-        category: 'Beverages',
-        name: 'Fresh Apples',
-        currentRating: 4.2,
-        rating: 4.2,
-        reviews: 89,
-        promoPrice: '$1',
-        price: '$2'
-      },
-      {
-        link: '/',
-        badge: 'Best Seller',
-        image: Product1,
-        category: 'Dairy',
-        name: 'Amul Butter',
-        currentRating: 4.8,
-        rating: 4.8,
-        reviews: 200,
-        promoPrice: '$4',
-        price: '$5'
-      },
-      {
-        link: '/',
-        badge: 'Limited Offer',
-        image: Product2,
-        category: 'Bakery',
-        name: 'Whole Wheat Bread',
-        currentRating: 4.3,
-        rating: 4.3,
-        reviews: 120,
-        promoPrice: '$3',
-        price: '$4'
-      },
-      {
-        link: '/',
-        badge: 'Discount',
-        image: Product1,
-        category: 'Fruits',
-        name: 'Fresh Apples',
-        currentRating: 4.7,
-        rating: 4.7,
-        reviews: 180,
-        promoPrice: '$2',
-        price: '$3'
-      }
-    ])
-
-    return {
-      products
-    }
+const truncateText = (value: string, limit: number) => {
+  if (value.length > limit) {
+    return value.substring(0, limit) + '...'
   }
+  return value
+}
+
+const hoverIndex = ref(-1)
+const showButtonsFlag = ref(false)
+const hoverRating = ref(0)
+
+function showButtons(index: number) {
+  hoverIndex.value = index
+  showButtonsFlag.value = true
+}
+
+function hideButtons(index: number) {
+  hoverIndex.value = -1
+  showButtonsFlag.value = false
+}
+
+function setRating(rating: number) {
+  hoverRating.value = rating
+}
+
+function setHoverRating(rating: number) {
+  hoverRating.value = rating
+}
+
+function resetHoverRating() {
+  hoverRating.value = 0
 }
 </script>
 
@@ -216,17 +66,27 @@ export default {
         <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
           <!-- Start Content Card Product -->
-          <RouterLink v-for="(product, index) in products" :key="index" :to="product.link">
+          <RouterLink
+            v-for="(product, index) in props.products"
+            :key="product.id"
+            :to="'/detailproduct/' + product.id"
+          >
             <div
               class="CardPopularProduct"
               @mouseover="showButtons(index)"
               @mouseleave="hideButtons(index)"
             >
               <!-- Start Badge & Image Card Box Product -->
-              <span class="Badge-CardPopularProduct">{{ product.badge }}</span>
+              <span class="Badge-CardPopularProduct" v-if="product.badges.length > 0">{{
+                product.badges[0]
+              }}</span>
               <div class="Image-CardPopularProduct">
-                <img :src="product.image" />
+                <img
+                  :src="'public/assets/image/popularproduct/' + product.images[0]"
+                  :alt="product.name"
+                />
               </div>
+
               <!-- End Badge & Image Card Box Product -->
 
               <!-- Start Headline Card Box Product -->
@@ -235,27 +95,27 @@ export default {
                   <span>{{ product.category }}</span>
                 </li>
                 <li>
-                  <h5>{{ product.name }}</h5>
+                  <h5>{{ truncateText(product.name, 18) }}</h5>
                 </li>
                 <li>
                   <div class="RatingProduct">
                     <span
-                      v-for="StarRatingProduct in stars"
+                      v-for="StarRatingProduct in 5"
                       :key="StarRatingProduct"
                       :class="[
                         'StarRatingProduct',
                         {
-                          SelectedRating: StarRatingProduct <= product.currentRating,
+                          SelectedRating: StarRatingProduct <= product.rating,
                           HoverRatingProduct: StarRatingProduct <= hoverRating
                         }
                       ]"
                       @click="setRating(StarRatingProduct)"
                       @mouseover="setHoverRating(StarRatingProduct)"
-                      @mouseout="resetHoverRating"
+                      @mouseleave="resetHoverRating"
                     >
                       <IconStar class="IconStar" />
                     </span>
-                    <p>{{ product.rating }}({{ product.reviews }})</p>
+                    <p>{{ product.rating }}</p>
                   </div>
                 </li>
               </ul>
@@ -264,8 +124,8 @@ export default {
               <!-- Start Price & Button Card Box Product -->
               <ul class="PriceCart-CardPopularProduct">
                 <li>
-                  <p class="Promo">{{ product.promoPrice }}</p>
-                  <p class="Price">{{ product.price }}</p>
+                  <p class="Promo">{{ product.discountPrice }}</p>
+                  <p class="Price">{{ product.priceNormal }}</p>
                 </li>
                 <li>
                   <button><IconAddPlus class="IconButtonAddCart" /> Cart</button>
@@ -277,11 +137,12 @@ export default {
               <transition name="SlideFadeDropdown">
                 <div class="HoverButtonProduct" v-if="hoverIndex === index && showButtonsFlag">
                   <div class="ContainerHoverButtonProduct">
-                    <button class="Tooltip">
-                      <IconEyePriview class="IconHoverButtonProduct" />
-                      <span class="TooltipText">Priview</span>
-                    </button>
-
+                    <RouterLink :to="'/detailproduct/' + product.id">
+                      <button class="Tooltip">
+                        <IconEyePriview class="IconHoverButtonProduct" />
+                        <span class="TooltipText">Priview</span>
+                      </button>
+                    </RouterLink>
                     <button class="Tooltip">
                       <IconWishlistFill class="IconHoverButtonProduct" />
                       <span class="TooltipText">Wishlist</span>

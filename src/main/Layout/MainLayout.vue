@@ -26,7 +26,9 @@ import FooterComponents from '../../components/FooterComponents.vue'
     <!-- End Main Navbar -->
 
     <div class="MainContent">
-      <RouterView />
+      <transition name="slide" mode="out-in">
+        <RouterView :key="$route.fullPath" />
+      </transition>
     </div>
 
     <!-- Start Main Navbar -->

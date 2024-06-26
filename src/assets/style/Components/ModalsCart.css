@@ -126,15 +126,23 @@
 }
 
 .ContentTopModalBasketCart > .HeadingContent-ModalBasketCart > li > h5 {
-  font-size: 1.85rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: var(--gray-700);
+}
+
+.ContentTopModalBasketCart > .HeadingContent-ModalBasketCart > li > p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  line-height: 1;
 }
 
 .ContentTopModalBasketCart > .HeadingContent-ModalBasketCart > li > span {
   font-size: 0.85rem;
   font-weight: 500;
   color: var(--gray-500);
+  line-height: 1;
 }
 
 .ContentCardModalBasketCart > .CardBoxCheckoutProduct {
@@ -517,4 +525,136 @@
   background-color: var(--danger-color);
 }
 
+.BlurEffect {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999 !important;
+  background-color: rgb(0, 0, 0, 0);
+  backdrop-filter: blur(0) !important;
+}
+
+.BlurEffect.active {
+  display: block !important;
+  position: fixed;
+  top: 0;
+  right: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999 !important;
+  background-color: rgb(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.15rem) !important;
+  transition: all 1s ease-in-out;
+}
+
 /* Start Modal Basket Cart */
+
+@media (max-width: 576px) {
+  .ModalBasketCart {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .ModalBasketCart {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .ModalBasketCart {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .ModalBasketCart {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+  }
+}
+
+@media (max-width: 1200px) {
+  .SlideFadeToggleModalBasketCart-enter-active,
+  .SlideFadeToggleModalBasketCart-leave-active {
+    transition: all 0.65s ease !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-enter-from {
+    top: 100% !important;
+    left: 50% !important;
+    transform: translate(-50%, 0%) !important;
+    width: 55vw !important;
+    max-width: 55vw !important;
+    height: 58vh !important;
+    max-height: 58vh !important;
+    border-radius: 0 !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-enter-to {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 95vw !important;
+    max-width: 95vw !important;
+    height: 98vh !important;
+    max-height: 98vh !important;
+    border-radius: var(--border-radius-lg) !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-leave-from {
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    width: 90vw !important;
+    max-width: 90vw !important;
+    height: 95vh !important;
+    max-height: 95vh !important;
+    border-radius: var(--border-radius-lg) !important;
+  }
+
+  .SlideFadeToggleModalBasketCart-leave-to {
+    top: 100% !important;
+    left: 50% !important;
+    transform: translate(-50%, 0%) !important;
+    width: 55vw !important;
+    max-width: 55vw !important;
+    height: 58vh !important;
+    max-height: 58vh !important;
+    border-radius: 0 !important;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  /* Null */
+}
+
+@media (min-width: 1400px) and (max-width: 1550px) {
+  /* Null */
+}

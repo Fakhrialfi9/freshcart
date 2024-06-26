@@ -1,96 +1,44 @@
-<script lang="ts">
-import { defineComponent, ref } from 'vue'
-
-// Start Import Router
+<script setup lang="ts">
+import { defineProps, ref } from 'vue'
 import { RouterLink } from 'vue-router'
-// End Import Router
+import type { Product } from '../../../function/GetProduct.ts'
 
-// Start Import Swiper Vue.js components
+// Start Import SwiperJs
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import type SwiperClass from 'swiper'
-// End Import Swiper Vue.js components
-
-// Start Image Import
-import categorydairybreadeggs from '../../../assets/image/category/categorydairybreadeggs.jpg'
-// End Image Import
-
-// import required modules
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
-
-// Start Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import 'swiper/swiper-bundle.css'
-// End Import Swiper styles
+// End Import SwiperJs
 
-export default defineComponent({
-  props: {
-    screens: {
-      type: Array,
-      required: false
-    }
-  },
-  components: {
-    Swiper,
-    SwiperSlide,
-    RouterLink
-  },
-  setup() {
-    const categories = ref([
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' },
-      { link: '/', image: categorydairybreadeggs, name: 'Dairy, Breads & Eggs' }
-    ])
+const props = defineProps<{
+  products: Product[]
+}>()
 
-    const sliderSettings = {
-      1600: { slidesPerView: 6, spaceBetween: 10 },
-      1280: { slidesPerView: 5, spaceBetween: 10 },
-      1024: { slidesPerView: 4, spaceBetween: 10 },
-      768: { slidesPerView: 3, spaceBetween: 10 },
-      576: { slidesPerView: 3, spaceBetween: 10 },
-      320: { slidesPerView: 2, spaceBetween: 10 }
-    }
+const sliderSettings = {
+  1600: { slidesPerView: 6, spaceBetween: 10 },
+  1280: { slidesPerView: 5, spaceBetween: 10 },
+  1024: { slidesPerView: 4, spaceBetween: 10 },
+  768: { slidesPerView: 3, spaceBetween: 10 },
+  576: { slidesPerView: 3, spaceBetween: 10 },
+  320: { slidesPerView: 2, spaceBetween: 10 }
+}
 
-    let vSwiperRef: SwiperClass | null = null
-    const setVSwiperRef = (swiper: SwiperClass) => {
-      vSwiperRef = swiper
-    }
-    const vSwiperIndex = ref<number>()
-    const updateVSwiperIndex = () => {
-      vSwiperIndex.value = vSwiperRef?.activeIndex
-    }
+let vSwiperRef: SwiperClass | null = null
+const setVSwiperRef = (swiper: SwiperClass) => {
+  vSwiperRef = swiper
+}
+const vSwiperIndex = ref<number>()
+const updateVSwiperIndex = () => {
+  vSwiperIndex.value = vSwiperRef?.activeIndex
+}
 
-    const prevVSwiperSlide = () => vSwiperRef?.slidePrev()
-    const nextVSwiperSlide = () => vSwiperRef?.slideNext()
+const prevVSwiperSlide = () => vSwiperRef?.slidePrev()
+const nextVSwiperSlide = () => vSwiperRef?.slideNext()
 
-    return {
-      categories,
-      sliderSettings,
-      prevVSwiperSlide,
-      nextVSwiperSlide,
-      setVSwiperRef,
-      vSwiperIndex,
-      updateVSwiperIndex,
-      modules: [Navigation, Pagination, Autoplay]
-    }
-  }
-})
+const modules = [Navigation, Pagination, Autoplay]
 </script>
 
 <template>
@@ -142,11 +90,14 @@ export default defineComponent({
             :breakpoints="sliderSettings"
           >
             <!-- Start Content Slider  -->
-            <swiper-slide v-for="(category, index) in categories" :key="index">
+            <swiper-slide v-for="product in props.products" :key="product.id">
               <div class="BoxProductFeaturedCategories">
-                <RouterLink :to="category.link">
-                  <img :src="category.image" :alt="category.name" />
-                  <h5>{{ category.name }}</h5>
+                <RouterLink :to="'/detailproduct/' + product.id">
+                  <img
+                    :src="'public/assets/image/popularproduct/' + product.images[0]"
+                    :alt="product.name"
+                  />
+                  <h5>{{ product.category }}</h5>
                 </RouterLink>
               </div>
             </swiper-slide>

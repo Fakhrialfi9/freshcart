@@ -6,7 +6,6 @@
       width="20"
       height="20"
       viewBox="0 0 24 24"
-      fill="none"
       class="feather feather-heart"
     >
       <path
@@ -18,12 +17,12 @@
 
 <style scoped>
 a {
-  display: flex !important;
-  place-items: center !important;
-  place-content: center !important;
-  color: inherit !important;
-  fill: inherit !important;
-  font-size: inherit !important;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  color: inherit;
+  fill: inherit;
+  font-size: inherit;
 }
 
 a > svg {
@@ -31,11 +30,11 @@ a > svg {
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  margin: inherit !important;
-  padding: inherit !important;
-  stroke-width: inherit !important;
-  stroke: inherit !important;
-  stroke-linejoin: round !important;
-  stroke-linecap: round !important;
+  margin: inherit;
+  padding: inherit;
+  stroke-width: inherit;
+  stroke: inherit;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 </style>

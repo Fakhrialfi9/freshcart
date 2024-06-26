@@ -1,0 +1,691 @@
+main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+}
+
+.Wishlist {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0.5rem 0;
+}
+
+.WishlistContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+  gap: 1.5rem;
+}
+
+.HeadlineWishlistContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.HeadlineWishlistContent h5 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.HeadlineWishlistContent span {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.NavigationWishlistContent {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.NavigationWishlistContent button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+}
+
+.Button-NavigationWishlistContent {
+  gap: 0.5rem;
+  background-color: var(--bg-color);
+  border: 0.05rem solid var(--border-color) !important;
+}
+
+.NavigationWishlistContent > button > input[type='checkbox'] {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.NavigationWishlistContent p {
+  color: var(--gray-700);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.InputSearch-NavigationWishlistContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 40%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+.InputSearch-NavigationWishlistContent input[type='text'] {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
+}
+
+.CheckAllDelete {
+  margin-left: auto !important;
+  background-color: var(--danger-color);
+  font-weight: 500;
+}
+
+.ContainerCardBoxWishlistContent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.CardBoxWishlistContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  min-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.25rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  border: 0.05rem solid var(--border-color);
+  transition: all 0.25s ease-in-out;
+  gap: 1rem;
+}
+
+.CardBoxWishlistContent:hover {
+  border: 0.05rem solid var(--primary-color);
+  background-color: rgb(240, 243, 242, 0.5);
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.CheckBox-CardBoxWishlistContentTop {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop {
+  display: flex;
+  flex-direction: row;
+  width: 7rem;
+  max-width: 7rem;
+  height: 7rem;
+  max-height: 7rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--primary-color);
+  overflow: hidden;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop img {
+  width: 100%;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop > li {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.35rem;
+}
+
+.CardBoxWishlistContent
+  > .CardBoxWishlistContentTop
+  > .Information-CardBoxWishlistContentTop
+  > li
+  > h6 {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.CardBoxWishlistContent
+  > .CardBoxWishlistContentTop
+  > .Information-CardBoxWishlistContentTop
+  > li
+  > h5 {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentBottom {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 1.15rem;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li > p {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li > button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0.5rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.StatusColor {
+  background-color: var(--success-color);
+  transform: none !important;
+  transition: none !important;
+  cursor: default !important;
+}
+
+.ActionColor {
+  background-color: var(--primary-color);
+}
+
+.TotalPrice {
+  background-color: transparent !important;
+  border: 0.05rem solid var(--border-color) !important;
+  color: var(--gray-700);
+  transform: none !important;
+  transition: none !important;
+  cursor: default !important;
+  padding: 0.5rem 2rem !important;
+  font-weight: 700 !important;
+}
+
+.InputQuantity-CardBoxCheckoutProduct {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 3.5rem;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0.5rem 0;
+  background-color: transparent;
+  border-radius: 0;
+  border-top: 0.05rem solid var(--border-color) !important;
+  border-bottom: 0.05rem solid var(--border-color) !important;
+  border: 0rem solid transparent;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity .QuantityUp {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  color: var(--gray-700);
+  border-radius: 0.5rem 0 0 0.5rem;
+  border: 0.05rem solid var(--border-color);
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity .QuantityDown {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 0.5rem;
+  background-color: transparent;
+  font-size: 0.75rem;
+  color: var(--gray-700);
+  border-radius: 0 0.5rem 0.5rem 0;
+  border: 0.05rem solid var(--border-color);
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity button:focus,
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity button:hover {
+  background-color: var(--gray-200);
+}
+
+.InputQuantity-CardBoxCheckoutProduct
+  > .FormInputQuantity
+  input[type='number']::-webkit-outer-spin-button,
+.InputQuantity-CardBoxCheckoutProduct
+  > .FormInputQuantity
+  input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity input[type='number']::-moz-appearance {
+  appearance: none;
+}
+
+.InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity input[type='number']:focus {
+  border: 0rem solid transparent;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.RemoveButtonCardBoxWishlistContent {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--danger-color);
+}
+
+.NavigationButtonShortCut {
+  position: fixed;
+  bottom: 0;
+  right: 50%;
+  transform: translate(50%);
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  margin: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background-color: var(--white-color);
+  border: 0.05rem solid var(--border-color);
+  border-radius: 1rem 1rem 0 0;
+  gap: 1rem;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.NavigationButtonShortCut > button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+}
+
+.Button-NavigationWishlistContent {
+  gap: 0.5rem;
+  background-color: var(--bg-color);
+  border: 0.05rem solid var(--border-color) !important;
+}
+
+.NavigationButtonShortCut > button > input[type='checkbox'] {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.NavigationButtonShortCut p {
+  color: var(--gray-700);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .Wishlist {
+    padding: 4rem 0 0 0 !important;
+  }
+
+  .NavigationWishlistContent {
+    display: flex !important;
+  }
+
+  .CheckAllDelete {
+    margin: 0 !important;
+  }
+
+  .InputSearch-NavigationWishlistContent {
+    max-width: 100% !important;
+  }
+
+  .ContainerCardBoxWishlistContent {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+
+  .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .Wishlist {
+    padding: 5rem 0 0 0 !important;
+  }
+
+  .NavigationWishlistContent {
+    display: flex !important;
+  }
+
+  .CheckAllDelete {
+    margin: 0 !important;
+  }
+
+  .InputSearch-NavigationWishlistContent {
+    max-width: 100% !important;
+  }
+
+  .ContainerCardBoxWishlistContent {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+
+  .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .NavigationWishlistContent {
+    display: flex !important;
+  }
+
+  .CheckAllDelete {
+    margin: 0 !important;
+  }
+
+  .InputSearch-NavigationWishlistContent {
+    max-width: 100% !important;
+  }
+
+  .ContainerCardBoxWishlistContent {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+
+  .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+
+  .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+
+  .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+    flex-direction: column !important;
+  }
+}

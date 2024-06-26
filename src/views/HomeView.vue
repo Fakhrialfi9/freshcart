@@ -1,4 +1,4 @@
-<script lang="ts">
+<script setup lang="ts">
 // Start Import Section Home Page
 import BannerHome from './Section/HomeView/BannerHome.vue'
 import FeaturedCategories from './Section/HomeView/FeaturedCategories.vue'
@@ -6,20 +6,9 @@ import PromotionSale from './Section/HomeView/PromotionSale.vue'
 import PopularProduct from './Section/HomeView/PopularProduct.vue'
 import DailyBestSells from './Section/HomeView/DailyBestSells.vue'
 import AdvantageServices from './Section/HomeView/AdvantageServices.vue'
-
 // Start Import Section Home Page
 
-export default {
-  name: 'HomeView',
-  components: {
-    BannerHome,
-    FeaturedCategories,
-    PromotionSale,
-    PopularProduct,
-    DailyBestSells,
-    AdvantageServices
-  }
-}
+import { products } from '../function/GetProduct'
 </script>
 
 <template>
@@ -32,7 +21,7 @@ export default {
           <!-- End Content Slider Banner -->
 
           <!-- Start Featured Categories -->
-          <FeaturedCategories />
+          <FeaturedCategories :products="products" />
           <!-- End Featured Categories -->
 
           <!-- Start Promotion Sale -->
@@ -40,11 +29,11 @@ export default {
           <!-- End Promotion Sale -->
 
           <!-- Start Promotion Sale -->
-          <PopularProduct />
+          <PopularProduct :products="products" />
           <!-- End Promotion Sale -->
 
           <!-- Start Daily Best Sells -->
-          <DailyBestSells />
+          <DailyBestSells :products="products" />
           <!-- End Daily Best Sells -->
 
           <!-- Start Daily Best Sells -->

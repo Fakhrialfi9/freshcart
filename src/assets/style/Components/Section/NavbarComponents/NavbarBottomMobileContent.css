@@ -1,0 +1,117 @@
+.NavbarBottomMobile {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100vw;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: transparent;
+  box-sizing: border-box;
+  z-index: 9995 !important;
+}
+
+.NavbarBottomMobileContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem auto;
+  padding: 0;
+  background-color: var(--dark-color);
+  border-radius: var(--border-radius);
+  color: var(--white-color);
+  z-index: 9995 !important;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.NavbarBottomMobileContent > ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.NavbarBottomMobileContent > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.NavbarBottomMobileContent > ul > li > a,
+span {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1.2rem 0.5rem;
+  stroke: var(--white-color);
+  color: var(--white-color);
+}
+
+.IconGridSquareNavbarBottom {
+  width: 1.5rem;
+  stroke-width: 0.025rem;
+}
+
+.IconUsersNavbarBottom {
+  width: 1.5rem;
+  stroke-width: 0.15rem;
+}
+
+.IconWishlistNavbarBottom {
+  width: 1.5rem;
+  stroke-width: 0.15rem;
+}
+
+.IconBagCartNavbarBottom {
+  width: 1.5rem;
+  stroke-width: 0.1rem;
+}
+
+.ActiveNavbarBottomMobile {
+  stroke: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  position: relative !important;
+}
+
+.ActiveNavbarBottomMobile::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 5px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: #ffffff;
+}

@@ -1,0 +1,267 @@
+.NavbarBottomContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.NavbarBottomContent > ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0 !important;
+  gap: 1.85rem;
+}
+
+.NavbarBottomContent > ul > li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.NavbarBottomContent > ul > li > button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: 0.5rem;
+}
+
+.IconButtonAllDepartement {
+  width: 0.85rem;
+}
+
+.NavbarBottomContent > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.6rem 0;
+  gap: 0.25rem;
+  color: var(--dark-color);
+}
+
+.NavbarBottomContent > ul > li > a:hover {
+  color: var(--primary-color);
+  cursor: pointer;
+}
+
+.IconDropdown {
+  stroke-width: 0.01rem;
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+}
+
+/* .IconMenu {
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  width: 0.65rem !important;
+  color: inherit;
+} */
+
+.PromoBadge {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  margin: 0;
+  border-radius: var(--border-radius);
+
+  background-color: var(--danger-color) !important;
+}
+
+.PromoBadge > a {
+  color: var(--white-color) !important;
+  padding: 0.6rem 0.35rem !important;
+}
+
+.DropdownMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  top: 100%;
+  left: 0;
+  padding: 0.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  border: 0.05rem solid var(--border-color);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 9999 !important;
+  white-space: nowrap;
+}
+
+/* Start Transition effect Dropdown */
+.SlideFadeDropdown-enter-active,
+.SlideFadeDropdown-leave-active {
+  transition: all 0.5s ease-in-out;
+}
+.SlideFadeDropdown-enter-from,
+.SlideFadeDropdown-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+/* Start Transition effect Dropdown */
+
+.DropdownMenu > ul {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+}
+
+.DropdownMenu > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0.65rem;
+  margin: 0 auto;
+  gap: 0.5rem;
+  color: var(--darkgrey-color);
+}
+
+.DropdownMenu > ul > li:hover {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  color: var(--dark-color);
+}
+
+.DropdownMenu > ul > li > a {
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0;
+}
+
+.DropdownMenuMegaMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  top: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius);
+  border: 0.05rem solid var(--border-color);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  z-index: 9999;
+  white-space: nowrap;
+}
+
+.DropdownMenuMegaMenu > ul {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  gap: 3.5rem;
+}
+
+.DropdownMenuMegaMenu > ul > ol {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+}
+
+.DropdownMenuMegaMenu > ul > ol > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0.65rem;
+  margin: 0 auto;
+  gap: 0.5rem;
+  color: var(--darkgrey-color);
+}
+
+.DropdownMenuMegaMenu > ul > ol > li:hover {
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+  color: var(--dark-color);
+}
+
+.DropdownMenuMegaMenu > ul > ol > span {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.5rem 0.65rem;
+  margin: 0 auto;
+  gap: 0.5rem;
+  color: var(--primary-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.DropdownMenuMegaMenu > ul > ol > li > a {
+  justify-content: center;
+  align-items: center;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0;
+}

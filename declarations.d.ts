@@ -22,3 +22,13 @@ declare module '*.svg' {
   const value: string
   export default value
 }
+
+declare module '*.ts' {
+  const value: string
+  export default value
+}
+
+declare module '*.js' {
+  const value: string
+  export default value
+}

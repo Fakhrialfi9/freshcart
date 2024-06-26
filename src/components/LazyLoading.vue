@@ -1,5 +1,16 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 const logo = new URL('../assets/logo/logo-company/freshcart-logo.svg', import.meta.url).href
+
+onMounted(() => {
+  setTimeout(() => {
+    console.log('Navigating to HomeView...')
+    router.push({ name: 'home' }) // Ubah menjadi 'home' jika itu nama rute yang benar
+  }, 1500)
+})
 </script>
 
 <template>

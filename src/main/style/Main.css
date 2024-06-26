@@ -39,3 +39,13 @@ main {
   margin: 0 auto;
   padding: 0;
 }
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.35s ease-in-out;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transform: translateX(100%);
+}

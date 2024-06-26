@@ -19,92 +19,6 @@
   }
   /* End Lazy Loading Component Responsive */
 
-  /* Start Section Navbar Component Responsive */
-  .MobileMenu {
-    width: 100% !important;
-  }
-  .Navbar {
-    position: fixed !important;
-    top: 0 !important;
-  }
-  .LogoNavbarContent img {
-    width: 100% !important;
-  }
-
-  .ModalBasketCart {
-    position: fixed !important;
-    display: flex !important;
-    flex-direction: column;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 95vw !important;
-    max-width: 95vw !important;
-    height: 98vh !important;
-    max-height: 98vh !important;
-    justify-content: center !important;
-    align-items: center !important;
-    margin: 0 auto !important;
-    padding: 0 !important;
-    background-color: var(--white-color) !important;
-    border-radius: var(--border-radius-lg) !important;
-    overflow: scroll !important;
-    box-sizing: border-box !important;
-    z-index: 9999 !important;
-    transition: all 1s ease !important;
-  }
-
-  .SlideFadeToggleModalBasketCart-enter-active,
-  .SlideFadeToggleModalBasketCart-leave-active {
-    transition: all 1.5s ease !important;
-  }
-
-  .SlideFadeToggleModalBasketCart-enter-from {
-    top: 100% !important;
-    left: 50% !important;
-    transform: translate(-50%, 0%) !important;
-    width: 55vw !important;
-    max-width: 55vw !important;
-    height: 58vh !important;
-    max-height: 58vh !important;
-    border-radius: 0 !important;
-  }
-
-  .SlideFadeToggleModalBasketCart-enter-to {
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 95vw !important;
-    max-width: 95vw !important;
-    height: 98vh !important;
-    max-height: 98vh !important;
-    border-radius: var(--border-radius-lg) !important;
-  }
-
-  .SlideFadeToggleModalBasketCart-leave-from {
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    width: 90vw !important;
-    max-width: 90vw !important;
-    height: 95vh !important;
-    max-height: 95vh !important;
-    border-radius: var(--border-radius-lg) !important;
-  }
-
-  .SlideFadeToggleModalBasketCart-leave-to {
-    top: 100% !important;
-    left: 50% !important;
-    transform: translate(-50%, 0%) !important;
-    width: 55vw !important;
-    max-width: 55vw !important;
-    height: 58vh !important;
-    max-height: 58vh !important;
-    border-radius: 0 !important;
-  }
-
-  /* End Section Navbar Component Responsive */
-
   /* Start Section Footer Component Responsive */
   .Footer {
     padding-bottom: 8rem !important;
@@ -122,43 +36,7 @@
   /* Start Section Footer Component Responsive */
 
   /* Start Section Home Pages Responsive */
-  .HomeContent {
-    padding: 5rem 0 0.5rem 0 !important;
-  }
 
-  .ContentBannerSlider-Headline {
-    padding: 1.5rem !important;
-  }
-
-  .ContentBannerSlider-Headline > ul {
-    width: 100% !important;
-    max-width: 100% !important;
-    gap: 3rem !important;
-  }
-
-  .ContentBannerSlider-Headline > ul > li > h1 {
-    font-size: 2.5rem !important;
-  }
-
-  .ContainerPopularProduct {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
-    width: 80% !important;
-  }
-
-  .ContainerHoverButtonProduct {
-    width: 90% !important;
-  }
-
-  .ContainerCardBoxDailyBestSells {
-    grid-template-columns: repeat(1, 1fr) !important;
-  }
-
-  .ContentAdvantageServices > ul {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
   /* End Section Home Pages Responsive */
 }
 
@@ -174,19 +52,6 @@
   .DisplayBlock-MD {
     display: block !important;
   }
-
-  /* Start Section Navbar Component Responsive */
-  .MobileMenu {
-    width: 100% !important;
-  }
-  .Navbar {
-    position: fixed !important;
-    top: 0 !important;
-  }
-  .LogoNavbarContent img {
-    width: 100% !important;
-  }
-  /* End Section Navbar Component Responsive */
 
   /* Start Section Footer Component Responsive */
   .Footer {
@@ -205,22 +70,7 @@
   /* End Section Footer Component Responsive */
 
   /* Start Section Home Pages Responsive */
-  .HomeContent {
-    padding: 5rem 0 0.5rem 0 !important;
-  }
-  .ContainerPopularProduct {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-  .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
-    width: 80% !important;
-  }
-  .ContainerCardBoxDailyBestSells {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
 
-  .ContentAdvantageServices > ul {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
   /* End Section Home Pages Responsive */
 }
 
@@ -239,12 +89,6 @@
     display: block !important;
   }
 
-  /* Start Section Navbar Component Responsive */
-  .LogoNavbarContent img {
-    width: 100% !important;
-  }
-  /* End Section Navbar Component Responsive */
-
   /* Start Section Footer Component Responsive */
   .FooterTopContent > ul {
     justify-content: flex-start !important;
@@ -258,20 +102,11 @@
     flex-direction: column !important;
     align-items: flex-start !important;
   }
-
-  .ContainerPopularProduct {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-
-  .ContainerCardBoxDailyBestSells {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  .ContentAdvantageServices > ul {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-
   /* End Section Footer Component Responsive */
+
+  /* Start Section Home Pages Responsive */
+
+  /* End Section Home Pages Responsive */
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {
@@ -286,9 +121,10 @@
   .DisplayBlock-XL {
     display: block !important;
   }
-  .ContainerCardBoxDailyBestSells {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+  /* Start Section Home Pages Responsive */
+
+  /* End Section Home Pages Responsive */
 }
 
 @media (min-width: 1201px) and (max-width: 1400px) {
@@ -303,12 +139,13 @@
   .DisplayBlock-XXL {
     display: block !important;
   }
-  .ContainerCardBoxDailyBestSells {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
+
+  /* Start Section Home Pages Responsive */
+
+  /* End Section Home Pages Responsive */
 }
 
-@media (min-width: 1400px) {
+@media (min-width: 1401px) and (max-width: 1530px) {
   .Container {
     width: 80%;
     user-select: none !important;
@@ -319,4 +156,8 @@
   .DisplayBlock-XXXL {
     display: block !important;
   }
+
+  /* Start Section Home Pages Responsive */
+
+  /* End Section Home Pages Responsive */
 }
