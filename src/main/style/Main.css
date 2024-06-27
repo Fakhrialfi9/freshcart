@@ -24,6 +24,7 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
+  z-index: 9999 !important;
 }
 
 .MainContent {
@@ -38,14 +39,31 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
+  z-index: 0 !important;
 }
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: transform 0.35s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .slide-enter-from,
 .slide-leave-to {
+  transition: transform 0.5s ease-in-out;
   transform: translateX(100%);
+}
+
+.MainFooter {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  z-index: 0 !important;
 }

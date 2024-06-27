@@ -4,14 +4,14 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-  /* -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-drag: none;
-  user-select: none; */
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-drag: none !important;
+  user-select: none !important;
 }
 
 ::selection {
@@ -35,9 +35,9 @@ body {
   min-height: 100vh;
   margin: 0 auto;
   padding: 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
   font-family:
     Inter,
     -apple-system,
@@ -55,15 +55,15 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  /* -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-drag: none;
-  user-select: none;
-  overflow-x: hidden; */
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-drag: none !important;
+  user-select: none !important;
+  overflow-x: hidden;
 }
 
 :root {
@@ -244,9 +244,9 @@ p {
 }
 
 img {
-  /* user-drag: none !important;
+  user-drag: none !important;
   user-select: none !important;
-  pointer-events: none !important; */
+  pointer-events: none !important;
 }
 /* End Links & Paragraf & Img*/
 

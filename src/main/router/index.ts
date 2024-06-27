@@ -1,6 +1,8 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 
+import LazyLoading from '../../components/LazyLoading.vue'
+
 // Start Import RouteView
 import MainLayout from '../Layout/MainLayout.vue'
 import HomeView from '../../views/HomeView.vue'
@@ -11,26 +13,18 @@ import AboutView from '../../views/AboutView.vue'
 // End Import RouteView
 
 const routes = [
-  // Start Routes Tampilan Awal
+  // Start Routes Lazyload
   {
     path: '/',
-    name: 'initialview',
-    component: MainLayout,
-    redirect: '/home',
-    children: [
-      {
-        path: 'home',
-        name: 'homepage',
-        component: HomeView
-      }
-    ]
+    name: 'lazyloading',
+    component: LazyLoading
   },
-  // End Routes Tampilan Awal
+  // End Routes Lazyload
 
   // Start All Public Routes Apps
   {
-    path: '/home',
-    name: 'mainLayout',
+    path: '/',
+    name: 'mainlayout',
     component: MainLayout,
     children: [
       {
