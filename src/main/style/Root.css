@@ -4,14 +4,14 @@
   box-sizing: border-box;
   margin: 0;
   font-weight: normal;
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-drag: none;
-  user-select: none;
+  user-select: none; */
 }
 
 ::selection {
@@ -55,7 +55,7 @@ body {
   transition:
     color 0.5s,
     background-color 0.5s;
-  -webkit-tap-highlight-color: transparent;
+  /* -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;
@@ -63,7 +63,7 @@ body {
   -ms-user-select: none;
   user-drag: none;
   user-select: none;
-  overflow-x: hidden;
+  overflow-x: hidden; */
 }
 
 :root {
@@ -244,9 +244,9 @@ p {
 }
 
 img {
-  user-drag: none !important;
+  /* user-drag: none !important;
   user-select: none !important;
-  pointer-events: none !important;
+  pointer-events: none !important; */
 }
 /* End Links & Paragraf & Img*/
 
