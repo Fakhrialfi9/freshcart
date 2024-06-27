@@ -22,8 +22,9 @@ const routes = [
   },
 
   {
-    path: '/',
+    path: '/home',
     component: MainLayout,
+    name: 'MainLayout',
     redirect: '/home',
     children: [
       // Start Routes Tampilan Awal

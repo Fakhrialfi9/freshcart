@@ -8,7 +8,7 @@ const logo = new URL('../assets/logo/logo-company/freshcart-logo.svg', import.me
 onMounted(() => {
   setTimeout(() => {
     console.log('Navigating to HomeView...')
-    router.push({ name: 'home' }) // Ubah menjadi 'home' jika itu nama rute yang benar
+    router.push({ path: '/home' })
   }, 1500)
 })
 </script>

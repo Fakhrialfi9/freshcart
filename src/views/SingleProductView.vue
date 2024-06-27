@@ -44,7 +44,7 @@ const toggleColor = () => {
             <div class="ImageLayout-LeftContent">
               <div class="PrimaryImage-LeftContent">
                 <img
-                  :src="'freshcart/public/assets/image/popularproduct/' + product.images[0]"
+                  :src="'../public/assets/image/popularproduct/' + product.images[0]"
                   :alt="product.name"
                 />
               </div>
@@ -55,7 +55,7 @@ const toggleColor = () => {
                   :key="index"
                 >
                   <img
-                    :src="'/freshcart/public/assets/image/popularproduct/' + product.images[0]"
+                    :src="'../public/assets/image/popularproduct/' + product.images[0]"
                     :alt="product.name"
                   />
                 </div>
