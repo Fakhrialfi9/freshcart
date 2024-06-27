@@ -1,21 +1,25 @@
+<!-- SingleProduct.vue -->
+
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
+import { useProducts, type Product } from '../function/useProduct'
 
 import Breadcrumbs from '../function/Breadcrumbs.vue'
-
 import IconStar from '../assets/icon/IconStar.vue'
 import IconPlaneSend from '../assets/icon/IconPlaneSend.vue'
 import IconWishlist from '../assets/icon/IconWishlist.vue'
 
-import { products } from '../function/GetProduct'
-
 const route = useRoute()
-const isClicked = ref(false)
-const hoverRating = ref(0)
-
+const { fetchProductById, loading, error } = useProducts()
 const productId = Number(route.params.id)
-const product = computed(() => products.find((p) => p.id === productId) || null)
+const product = ref<Product | null>(null)
+const hoverRating = ref(0)
+const isClicked = ref(false)
+
+onMounted(async () => {
+  product.value = await fetchProductById(productId)
+})
 
 function setRating(rating: number) {
   hoverRating.value = rating
@@ -39,14 +43,12 @@ const toggleColor = () => {
     <section class="SingleProduct">
       <div class="Container">
         <Breadcrumbs />
-        <div class="SingleProductContent" v-if="product">
+        <div v-if="loading">Loading...</div>
+        <div class="SingleProductContent" v-else-if="product">
           <div class="LeftContent">
             <div class="ImageLayout-LeftContent">
               <div class="PrimaryImage-LeftContent">
-                <img
-                  :src="'../public/assets/image/popularproduct/' + product.images[0]"
-                  :alt="product.name"
-                />
+                <img :src="'../' + product.images[0]" :alt="product.name" />
               </div>
               <div class="ThumbnailImage-LeftContent">
                 <div
@@ -54,10 +56,7 @@ const toggleColor = () => {
                   v-for="(image, index) in product.images"
                   :key="index"
                 >
-                  <img
-                    :src="'../public/assets/image/popularproduct/' + product.images[0]"
-                    :alt="product.name"
-                  />
+                  <img :src="'../' + product.images[0]" :alt="product.name" />
                 </div>
               </div>
             </div>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import type { Product } from '../../../function/GetProduct.ts'
+import { useProducts } from '../../../function/useProduct.js'
 
 // Start Import SwiperJs
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
@@ -13,9 +13,7 @@ import 'swiper/css/pagination'
 import 'swiper/swiper-bundle.css'
 // End Import SwiperJs
 
-const props = defineProps<{
-  products: Product[]
-}>()
+const { products } = useProducts()
 
 const sliderSettings = {
   1600: { slidesPerView: 6, spaceBetween: 10 },
@@ -90,13 +88,10 @@ const modules = [Navigation, Pagination, Autoplay]
             :breakpoints="sliderSettings"
           >
             <!-- Start Content Slider  -->
-            <swiper-slide v-for="product in props.products" :key="product.id">
+            <swiper-slide v-for="product in products" :key="product.id">
               <div class="BoxProductFeaturedCategories">
                 <RouterLink :to="'/detailproduct/' + product.id">
-                  <img
-                    :src="'public/assets/image/popularproduct/' + product.images[0]"
-                    :alt="product.name"
-                  />
+                  <img :src="'' + product.images[0]" :alt="product.name" />
                   <h5>{{ product.category }}</h5>
                 </RouterLink>
               </div>

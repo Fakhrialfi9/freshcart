@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import type { Product } from '../../../function/GetProduct.ts'
+import { useProducts } from '../../../function/useProduct.js'
 
 // Start Import Icon
 import IconStar from '../../../assets/icon/IconStar.vue'
@@ -11,9 +11,7 @@ import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
 import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
 // End Import Icon
 
-const props = defineProps<{
-  products: Product[]
-}>()
+const { products } = useProducts()
 
 const truncateText = (value: string, limit: number) => {
   if (value.length > limit) {
@@ -67,7 +65,7 @@ function resetHoverRating() {
         <div class="ContainerPopularProduct">
           <!-- Start Content Card Product -->
           <RouterLink
-            v-for="(product, index) in props.products"
+            v-for="(product, index) in products"
             :key="product.id"
             :to="'/detailproduct/' + product.id"
           >
@@ -81,10 +79,7 @@ function resetHoverRating() {
                 product.badges[0]
               }}</span>
               <div class="Image-CardPopularProduct">
-                <img
-                  :src="'public/assets/image/popularproduct/' + product.images[0]"
-                  :alt="product.name"
-                />
+                <img :src="'' + product.images[0]" :alt="product.name" />
               </div>
 
               <!-- End Badge & Image Card Box Product -->

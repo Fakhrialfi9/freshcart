@@ -1,77 +1,72 @@
 // src/router/index.js
 import { createRouter, createWebHistory } from 'vue-router'
 
-// Start Import Lazyload
-import LazyLoading from '../../components/LazyLoading.vue'
-// End Import Lazyload
-
 // Start Import RouteView
 import MainLayout from '../Layout/MainLayout.vue'
 import HomeView from '../../views/HomeView.vue'
 import UsersSigninView from '../../views/UsersSigninView.vue'
 import WishlistView from '../../views/WishlistView.vue'
-import SingleProductView from '../../views/SingleProductView.vue'
+import DetailProductView from '../../views/DetailProductView.vue'
 import AboutView from '../../views/AboutView.vue'
 // End Import RouteView
 
 const routes = [
+  // Start Routes Tampilan Awal
   {
     path: '/',
-    name: 'LazyLoading',
-    component: LazyLoading
-  },
-
-  {
-    path: 'freshcart/home',
+    name: 'initialview',
     component: MainLayout,
-    name: 'MainLayout',
-    redirect: 'freshcart/home',
+    redirect: '/home',
     children: [
-      // Start Routes Tampilan Awal
       {
-        path: 'freshcart/home',
+        path: 'home',
+        name: 'homepage',
+        component: HomeView
+      }
+    ]
+  },
+  // End Routes Tampilan Awal
+
+  // Start All Public Routes Apps
+  {
+    path: '/home',
+    name: 'mainLayout',
+    component: MainLayout,
+    children: [
+      {
+        path: '/home',
         name: 'home',
         component: HomeView
       },
-      // End Routes Tampilan Awal
-
       {
-        path: 'freshcart/about',
+        path: '/about',
         name: 'about',
         component: AboutView
       },
 
-      // Start Routes Wishlist Page
       {
-        path: 'freshcart/wishlist',
+        path: '/wishlist',
         name: 'wishlist',
         component: WishlistView
       },
-      // End Routes Wishlist Page
 
-      // Start Routes Wishlist Page
       {
-        path: 'freshcart/detailproduct/:id',
+        path: '/detailproduct/:id',
         name: 'singleproduct',
-        component: SingleProductView
+        component: DetailProductView
       }
-      // End Routes Wishlist Page
     ]
   },
+  // End All Public Routes Apps
 
+  // Start Routes Login Logic User
   {
-    path: 'freshcart/login',
-    redirect: '/login',
-    children: [
-      // Start Routes Users Page
-      {
-        path: 'freshcart/signin',
-        name: 'users',
-        component: UsersSigninView
-      }
-      // End Routes Users Page
-    ]
+    path: '/signin',
+    name: 'signin',
+    component: UsersSigninView,
+    children: []
   }
+  // Start Routes Login Logic User
 ]
 
 const router = createRouter({

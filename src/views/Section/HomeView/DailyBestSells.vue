@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
+import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import type { Product } from '../../../function/GetProduct.ts'
+import { useProducts } from '../../../function/useProduct.js'
 
 // Start Import Icon
 import IconShortArrowToRight from '../../../assets/icon/IconShortArrowToRight.vue'
@@ -11,9 +11,7 @@ import IconWishlistFill from '../../../assets/icon/IconWishlistFill.vue'
 import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
 // End Import Icon
 
-const props = defineProps<{
-  products: Product[]
-}>()
+const { products } = useProducts()
 
 const truncateText = (value: string, limit: number) => {
   if (value.length > limit) {
@@ -73,7 +71,7 @@ function resetHoverRating() {
 
           <!-- Start Content Card Box Product -->
           <RouterLink
-            v-for="(product, index) in props.products"
+            v-for="(product, index) in products"
             :key="product.id"
             :to="'/detailproduct/' + product.id"
           >
@@ -83,10 +81,7 @@ function resetHoverRating() {
               @mouseleave="hideButtons(index)"
             >
               <div class="Image-CardBoxDailyBestSells">
-                <img
-                  :src="'public/assets/image/popularproduct/' + product.images[0]"
-                  :alt="product.name"
-                />
+                <img :src="'' + product.images[0]" :alt="product.name" />
               </div>
 
               <!-- Start Headline Content Card Box Product -->
