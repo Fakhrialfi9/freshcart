@@ -22,28 +22,28 @@ const routes = [
   },
 
   {
-    path: '/home',
+    path: 'freshcart/home',
     component: MainLayout,
     name: 'MainLayout',
-    redirect: '/home',
+    redirect: 'freshcart/home',
     children: [
       // Start Routes Tampilan Awal
       {
-        path: '/home',
+        path: 'freshcart/home',
         name: 'home',
         component: HomeView
       },
       // End Routes Tampilan Awal
 
       {
-        path: '/about',
+        path: 'freshcart/about',
         name: 'about',
         component: AboutView
       },
 
       // Start Routes Wishlist Page
       {
-        path: '/wishlist',
+        path: 'freshcart/wishlist',
         name: 'wishlist',
         component: WishlistView
       },
@@ -51,7 +51,7 @@ const routes = [
 
       // Start Routes Wishlist Page
       {
-        path: '/detailproduct/:id',
+        path: 'freshcart/detailproduct/:id',
         name: 'singleproduct',
         component: SingleProductView
       }
@@ -60,12 +60,12 @@ const routes = [
   },
 
   {
-    path: '/login',
+    path: 'freshcart/login',
     redirect: '/login',
     children: [
       // Start Routes Users Page
       {
-        path: '/signin',
+        path: 'freshcart/signin',
         name: 'users',
         component: UsersSigninView
       }
