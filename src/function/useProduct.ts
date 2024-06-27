@@ -1,7 +1,5 @@
-// useProduct.ts
-
 import { ref, onMounted } from 'vue'
-import GetProduct from '../services/APi/GetProduct.js'
+import GetProduct from '../services/APi/GetProduct'
 
 // Define Product interface
 export interface Product {

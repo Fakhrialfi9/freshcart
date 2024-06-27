@@ -9,16 +9,14 @@ import ImageSliderBanner1 from '../../../assets/image/banner-home/slide1.jpg'
 import ImageSliderBanner2 from '../../../assets/image/banner-home/slide2.jpg'
 // End Import Image Banner
 
-// Import Swiper Vue.js components
+// Import Swiper Vue.js components & Style
 import { Swiper, SwiperSlide } from 'swiper/vue'
-
-// Import Swiper styles
+import { Pagination } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
 // import required modules
-import { Pagination } from 'swiper/modules'
 
 export default defineComponent({
   components: {
