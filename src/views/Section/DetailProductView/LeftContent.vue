@@ -52,7 +52,7 @@ const handleThumbnailClick = (index: number) => {
             v-for="(image, index) in product.images"
             :key="index"
           >
-            <img :src="'../' + image" :alt="product.name" />
+            <img :src="'' + image" :alt="product.name" />
           </swiper-slide>
         </swiper>
       </div>
@@ -74,7 +74,7 @@ const handleThumbnailClick = (index: number) => {
             :class="{ 'ImageThumbnail-LeftContent': true, active: activeIndex === index }"
             tabindex="0"
           >
-            <img :src="'../' + product.images[0]" :alt="product.name" />
+            <img :src="'' + product.images[0]" :alt="product.name" />
           </swiper-slide>
         </swiper>
       </div>
