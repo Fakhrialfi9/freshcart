@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineEmits } from 'vue'
+import { defineEmits, ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import LogoNavbar from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import IconSearch from '../../../assets/icon/IconSearch.vue'
@@ -8,6 +8,7 @@ import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 import IconUsers from '../../../assets/icon/IconUsers.vue'
 import IconBagCart from '../../../assets/icon/IconBagCart.vue'
 import IconHamburgerMenu from '../../../assets/icon/IconHamburgerMenu.vue'
+import { add, store } from '../../../stores/add'
 
 const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenContentMenuMobileSlider'])
 </script>
@@ -33,7 +34,7 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenConten
     <div class="RightContent">
       <RouterLink to="/wishlist" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
         <IconWishlist class="IconNavbar" />
-        <span class="BadgeContentNavbar">21</span>
+        <span class="BadgeContentNavbar">{{ store.count }}</span>
         <span class="TooltipText">Wishlist</span>
       </RouterLink>
 
@@ -44,7 +45,7 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenConten
 
       <a @click="$emit('ToggleOpenContentModalsBasketCart')" class="DisplayNone-SM Tooltip">
         <IconBagCart class="IconNavbar" />
-        <span class="BadgeContentNavbar">20</span>
+        <span class="BadgeContentNavbar">{{ add.count }}</span>
         <span class="TooltipText"> Cart</span>
       </a>
 

@@ -30,6 +30,21 @@ main {
 
 .SingleProductContent {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+  gap: 6.5rem;
+}
+
+.SingleProductTopContent {
+  display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 100%;
@@ -39,7 +54,7 @@ main {
   align-items: flex-start;
   align-content: center;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 0;
   gap: 1.5rem;
 }
 
@@ -84,83 +99,116 @@ main {
 }
 
 .PrimaryImage-LeftContent {
-  position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   max-width: 100%;
-  min-width: 100%;
-  height: 30rem;
+  height: 100%;
   max-height: 100%;
-  min-height: 30rem;
   justify-content: center;
   align-items: center;
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  overflow: hidden !important;
   border-radius: var(--border-radius-lg);
-  cursor: zoom-in !important;
 }
 
-.PrimaryImage-LeftContent > img {
-  position: absolute;
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  max-height: 100%;
-  object-fit: cover;
-  object-position: center;
-  transition: all 0.5s ease-in;
-}
-
-.PrimaryImage-LeftContent:hover > img {
-  transform: scale(1.2) !important;
-}
-
-.ThumbnailImage-LeftContent {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: space-between;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  padding: 0;
-  gap: 1rem;
-}
-
-.BoxThumbnail-LeftContent {
-  position: relative;
+.BoxPrimaryImage-LeftContent {
   display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 100%;
-  min-width: 100%;
-  height: 7.5rem;
-  max-height: 7.5rem;
-  min-height: 7.5rem;
+  height: 30rem;
+  max-height: 30rem;
   justify-content: center;
   align-items: center;
   align-content: center;
   margin: 0;
   padding: 0;
   border-radius: var(--border-radius-lg);
-  overflow: hidden !important;
-  background-color: black;
 }
 
-.BoxThumbnail-LeftContent:hover {
+.ImagePrimaryImage-LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius-lg);
+}
+
+.ImagePrimaryImage-LeftContent > img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.1s ease;
+  transform-origin: center center;
+}
+
+.Thumbnail-LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.BoxThumbnail-LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0.25rem 0.25rem;
+}
+
+.ImageThumbnail-LeftContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: var(--border-radius-lg);
+  overflow: hidden !important;
+}
+
+.ImageThumbnail-LeftContent.active {
   outline: 0.1rem solid var(--primary-color);
   box-shadow: 0 0 0 0.2rem rgba(10, 173, 10, 0.25);
 }
 
-.BoxThumbnail-LeftContent img {
-  position: absolute;
+.ImageThumbnail-LeftContent:hover {
+  outline: 0.1rem solid var(--primary-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(10, 173, 10, 0.25) !important;
+}
+
+.ImageThumbnail-LeftContent img {
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -463,11 +511,11 @@ main {
 .InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction {
   display: flex;
   flex-direction: row;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-width: auto;
-  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
   align-items: center;
   align-content: center;
   margin: 0;
@@ -481,21 +529,153 @@ main {
   padding: 0.7rem;
   font-size: 0.85rem;
   font-weight: 600;
+  background-color: brown;
 }
 
-.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonAddToCart {
-  background-color: var(--primary-color);
-  padding: 0.7rem 2.5rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+.ContainerButtonAddToCart {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonShare {
+.ButtonAddToCart {
+  width: 15rem !important;
+  max-width: 15rem !important;
+  min-width: 15rem !important;
+  padding: 0.7rem 3rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  background-color: var(--primary-color) !important;
+}
+
+.ButtonCheckoutNow {
+  width: 15rem !important;
+  max-width: 15rem !important;
+  min-width: 15rem !important;
+  padding: 0.7rem 3rem !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  background-color: var(--danger-color) !important;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+.ContainerButtonAddToCart > .ButtonShare {
   background-color: var(--gray-200);
   color: var(--gray-600);
   padding: 0.7rem;
   font-size: 0.85rem;
   font-weight: 600;
+}
+
+.ModalButtonShare {
+  position: fixed;
+  z-index: 9999 !important;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 1.5rem 3rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  -webkit-box-shadow: 0px 0px 90px -10px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0px 0px 90px -10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 90px -10px rgba(0, 0, 0, 0.25);
+}
+
+.ContentModalButtonShare {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.ContentModalButtonShare h5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.ContentModalButtonShare > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.ContentModalButtonShare > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+}
+
+.ContentModalButtonShare > ul > li:hover {
+  background-color: var(--gray-200);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+.ContentModalButtonShare > ul > li > a {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--black-color);
+}
+
+.ContentModalButtonShare button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  background-color: var(--danger-color);
 }
 
 .IconButtonShare {
@@ -504,12 +684,13 @@ main {
   stroke: var(--gray-600) !important;
 }
 
-.InformationProduct-RightContent > ul > li > .Content-ButtonCallToAction > .ButtonWishlist {
+.ContainerButtonAddToCart > .ButtonWishlist {
   background-color: var(--gray-200);
   color: var(--gray-600);
-  padding: 0.7rem;
+  padding: 0.7rem 0.85rem;
   font-size: 0.85rem;
   font-weight: 600;
+  gap: 0.75rem;
 }
 
 .IconButtonWishlist {
@@ -583,6 +764,151 @@ main {
   color: var(--gray-600);
 }
 
+.zoomable--zoomed .zoomable__img {
+  transform: scale(var(--zoom, 2));
+}
+
+.BottomContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ProductDetail-BottomContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-width: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.MainTabs {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 3.5rem !important;
+  max-height: 3.5rem !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color);
+  border-bottom: 0.05rem solid var(--gray-600);
+  position: relative;
+}
+
+.MainTabs > ul {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.MainTabs > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: 100%;
+  max-width: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 3rem;
+}
+
+.MainTabs > ul > li > a {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-bottom: 0.15rem solid transparent;
+  transition: all 0.25s ease-in-out;
+}
+
+.MainTabs > ul > li > a:hover {
+  color: var(--primary-color) !important;
+}
+
+.MainTabs > ul > li > a.active {
+  color: var(--primary-color) !important;
+}
+
+.active-marker {
+  position: absolute;
+  bottom: 0;
+  height: 0.15rem;
+  background-color: var(--primary-color);
+  transition: all 0.25s ease-in-out;
+}
+
+.ContentProductDetail-BottomContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.25s ease-out;
+}
+
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
 /* ================================================================================================== */
 /* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
 /* ================================================================================================== */
@@ -592,7 +918,7 @@ main {
     padding: 4rem 0 0 0 !important;
   }
 
-  .SingleProductContent {
+  .SingleProductTopContent {
     flex-direction: column !important;
     gap: 2.5rem !important;
   }
@@ -605,12 +931,6 @@ main {
     max-width: 100%;
     padding: 0 !important;
   }
-
-  .BoxThumbnail-LeftContent {
-    height: 5rem !important;
-    max-height: 5rem !important;
-    min-height: 5rem !important;
-  }
 }
 
 /* ================================================================================================== */
@@ -622,7 +942,7 @@ main {
     padding: 5rem 0 0 0 !important;
   }
 
-  .SingleProductContent {
+  .SingleProductTopContent {
     flex-direction: column !important;
     gap: 2.5rem !important;
   }
@@ -642,7 +962,7 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .SingleProductContent {
+  .SingleProductTopContent {
     flex-direction: column !important;
     gap: 2.5rem !important;
   }

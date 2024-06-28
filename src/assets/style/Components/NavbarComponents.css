@@ -45,7 +45,7 @@ main {
   gap: 1rem;
 }
 
-.NavbarBottomMobile {
+/* .NavbarBottomMobile {
   position: fixed;
   bottom: 0;
   display: flex;
@@ -61,7 +61,7 @@ main {
   background-color: transparent;
   box-sizing: border-box;
   z-index: 9995 !important;
-}
+} */
 
 @media (max-width: 576px) {
   .Navbar {

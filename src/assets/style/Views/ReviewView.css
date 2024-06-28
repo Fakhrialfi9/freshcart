@@ -1,0 +1,348 @@
+.ReviewView {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.LeftContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 35%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.LeftContent > ul {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.LeftContent > ul > li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.LeftContent > ul > li > .Headline-Rating {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.LeftContent > ul > li > .Headline-Rating > h5 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.LeftContent > ul > li > .Count-Rating {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+  color: var(--warning-color);
+}
+
+.LeftContent > ul > li > .Count-Rating > span {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.35rem;
+}
+
+.LeftContent > ul > li > .Count-Rating .IconStarRating {
+  width: 0.75rem;
+  max-width: 0.75rem;
+}
+
+.LeftContent > ul > li > .Count-Rating > h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500);
+}
+
+.LeftContent > ul > li > .RatingContent {
+  width: 100%;
+  max-width: 90%;
+  height: 100%;
+  max-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating > .RatingLabel {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  gap: 0.5rem;
+  color: var(--warning-color);
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating > .RatingLabel > h5 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500) !important;
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating > .RatingLabel > .IconStarRating {
+  width: 0.75rem;
+  max-width: 0.75rem;
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating > .RatingBar {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  height: 0.45rem;
+  max-height: 0.45rem;
+  min-height: 0.45rem;
+  margin: 0.65rem auto;
+  padding: 0;
+  background-color: var(--bg-color);
+  overflow: hidden;
+  border-radius: var(--border-radius-2xl);
+}
+
+.RatingProgress {
+  height: 100%;
+  background-color: var(--warning-color);
+  border-radius: 10px;
+  transition: width 0.3s;
+}
+
+.RatingPercentage {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  color: var(--gray-500) !important;
+}
+
+.LeftContent > ul > li > .RatingContent > .Rating > .RatingPercentage > h5 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-500) !important;
+}
+
+.LeftContent > ul > li > .CallToAction-Rating {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 90%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.LeftContent > ul > li > .CallToAction-Rating > span {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.LeftContent > ul > li > .CallToAction-Rating > span > h5 {
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.LeftContent > ul > li > .CallToAction-Rating > span > p {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+.LeftContent > ul > li > .CallToAction-Rating > button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  background-color: transparent;
+  color: var(--gray-600);
+  font-size: 0.85rem;
+  border: 0.1rem solid var(--border-color);
+}
+
+.LeftContent > ul > li > .CallToAction-Rating > button:hover {
+  background-color: var(--border-color);
+  color: var(--white-color);
+}
+
+.RightContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 65%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .ReviewView {
+    flex-direction: column !important;
+  }
+
+  .LeftContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent {
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .ReviewView {
+    flex-direction: column !important;
+  }
+
+  .LeftContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent {
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .ReviewView {
+    flex-direction: column !important;
+  }
+
+  .LeftContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent {
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1530px) {
+}

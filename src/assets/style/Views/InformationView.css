@@ -1,0 +1,169 @@
+.Informations {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.Informations > table {
+  width: 100%;
+  max-width: 50%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 0.85rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  font-family: var(--font-family-sans);
+}
+
+.Informations > table > tbody {
+  color: var(--dark-color);
+  text-align: left;
+  font-size: inherit;
+  font-weight: 800 !important;
+  font-family: var(--font-family-sans);
+}
+
+.Informations > table > tbody > tr {
+  color: var(--dark-color);
+  text-align: left;
+  font-size: inherit;
+  font-weight: 800;
+  font-family: var(--font-family-sans);
+  border-bottom: 0.05rem solid var(--gray-400);
+  transition: color 0.001s ease-out;
+}
+
+.Informations > table > tbody > tr:hover {
+  color: var(--white-color) !important;
+  background-color: var(--primary-color-hover);
+  cursor: pointer;
+}
+
+.Informations > table > tbody > tr:last-child {
+  border-bottom: none;
+}
+
+.Informations > table > tbody > tr > th {
+  width: auto;
+  max-width: auto;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.Informations > table > tbody > tr > th > span {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font-size: inherit;
+  font-weight: 700;
+  color: inherit;
+  font-family: var(--font-family-sans);
+  gap: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.Informations > table > tbody > tr:hover > th > span {
+  margin: 0 1rem;
+}
+
+.Informations > table > tbody > tr > td {
+  color: inherit;
+  text-align: left;
+  font-size: inherit;
+  font-weight: 500;
+  font-family: var(--font-family-sans);
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .Informations {
+    flex-direction: column !important;
+  }
+
+  .Informations > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .Informations {
+    flex-direction: column !important;
+  }
+
+  .Informations > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .Informations {
+    flex-direction: column !important;
+  }
+
+  .Informations > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .Informations {
+    flex-direction: column !important;
+  }
+
+  .Informations > table {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+}

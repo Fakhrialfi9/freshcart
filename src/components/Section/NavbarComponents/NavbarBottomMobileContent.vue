@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
 
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 import IconUsers from '../../../assets/icon/IconUsers.vue'

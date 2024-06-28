@@ -27,7 +27,7 @@ import FooterComponents from '../../components/FooterComponents.vue'
 
     <!-- Main Content with Transition -->
     <div class="MainContent">
-      <transition name="slide">
+      <transition name="slide" mode="out-in">
         <RouterView :key="$route.fullPath" />
       </transition>
     </div>
