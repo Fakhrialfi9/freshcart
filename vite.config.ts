@@ -18,9 +18,10 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'My PWA App',
-        short_name: 'PWA App',
-        description: 'My Progressive Web App',
+        name: 'Fresh Cart',
+        short_name: 'Fresh Cart',
+        description:
+          'Fresh Cart | 2022 - 2024 FreshCart eCommerce HTML Template. All rights reserved. Powered by Muhammad Fakhri Alfi Syahrin . ',
         theme_color: '#ffffff',
         icons: [
           {
