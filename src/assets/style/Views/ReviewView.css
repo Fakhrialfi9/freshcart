@@ -727,6 +727,10 @@
   .RightContent {
     max-width: 100% !important;
   }
+
+  .RightContent > ul > li > .ProfileUser-Review-CommentReviews {
+    max-width: 100% !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -743,6 +747,9 @@
   }
 
   .RightContent {
+    max-width: 100% !important;
+  }
+  .RightContent > ul > li > .ProfileUser-Review-CommentReviews {
     max-width: 100% !important;
   }
 }
@@ -763,6 +770,10 @@
   .RightContent {
     max-width: 100% !important;
   }
+
+  .RightContent > ul > li > .ProfileUser-Review-CommentReviews {
+    max-width: 100% !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -781,6 +792,10 @@
   .RightContent {
     max-width: 100% !important;
   }
+
+  .RightContent > ul > li > .ProfileUser-Review-CommentReviews {
+    max-width: 100% !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -797,6 +812,10 @@
   }
 
   .RightContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent > ul > li > .ProfileUser-Review-CommentReviews {
     max-width: 100% !important;
   }
 }
