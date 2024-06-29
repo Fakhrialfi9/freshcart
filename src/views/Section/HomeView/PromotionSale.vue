@@ -16,7 +16,6 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 // Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
-import 'swiper/css/navigation'
 
 import { Pagination, Navigation, Autoplay } from 'swiper/modules'
 
@@ -57,7 +56,6 @@ export default defineComponent({
     <section class="PromotionSale">
       <swiper
         class="PromotionContent"
-        :modules="modules"
         :space-between="10"
         :slides-per-view="2"
         :slides-per-group="1"
