@@ -65,7 +65,58 @@ const ratings = ref([
         <!-- End Call To Action Get Review -->
       </ul>
     </div>
-    <div class="RightContent"></div>
+    <div class="RightContent">
+      <ul>
+        <li>
+          <div class="Headline-CommentReviews">
+            <h5>Customer reviews</h5>
+            <button>Top Review</button>
+          </div>
+        </li>
+        <li>
+          <div class="ProfileUser-Review-CommentReviews" v-for="index in 5" :key="index">
+            <div class="image-ProfileUser"></div>
+            <div class="Information-ProfileUser">
+              <div class="ProfileUserComment-CommentReviews">
+                <div class="Name-ProfileUser">
+                  <h6>Muhammad Fakhri Alfi Syahrin H.</h6>
+                </div>
+                <div class="DateComment-VerifiedPurchase-ProfileUser">
+                  <span>30 December 2022</span>
+                  <strong>Verified Purchase</strong>
+                </div>
+              </div>
+              <div class="RatingReview-ProfileUser">
+                <div class="RatingStar">
+                  <span> <IconStar class="IconStarRating" v-for="index in 5" :key="index" /></span>
+                  <h6>Need to recheck the weight at delivery point</h6>
+                </div>
+                <div class="Description">
+                  <p>
+                    Product quality is good. But, weight seemed less than 1kg. Since it is being
+                    sent in open package, there is a possibility of pilferage in between. FreshCart
+                    sends the veggies and fruits through sealed plastic covers and Barcode on the
+                    weight etc. .
+                  </p>
+                </div>
+                <div class="ImageProductReview">
+                  <div class="BoxImageProductReview" v-for="index in 4" :key="index"></div>
+                </div>
+              </div>
+              <div class="ButtonCallToAction-RatingReview">
+                <button>Helpful</button>
+                <button>Report abuse</button>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="ButtonReadMoreReview">
+            <button>Read More Review</button>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 </template>
 

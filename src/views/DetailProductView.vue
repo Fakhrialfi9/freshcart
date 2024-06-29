@@ -10,6 +10,7 @@ import AlertBoxError from '../function/AlertBoxError.vue'
 import LeftContent from '../views/Section/DetailProductView/LeftContent.vue'
 import RightContent from '../views/Section/DetailProductView/RightContent.vue'
 import BottomContent from '../views/Section/DetailProductView/BottomContent.vue'
+import PopularProduct from '../views/Section/HomeView/PopularProduct.vue'
 // End Import Section Detail Product
 
 defineProps<{
@@ -48,6 +49,10 @@ onMounted(async () => {
 
             <!-- Start Bottom Content -->
             <BottomContent />
+            <!-- End Bottom Content -->
+
+            <!-- Start Bottom Content -->
+            <PopularProduct />
             <!-- End Bottom Content -->
 
             <!-- Next Content -->

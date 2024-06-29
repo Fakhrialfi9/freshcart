@@ -2,7 +2,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -12,6 +12,7 @@
   align-content: center;
   margin: 0 auto;
   padding: 0;
+  gap: 3.5rem;
 }
 
 .LeftContent {
@@ -19,7 +20,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 35%;
+  max-width: 30%;
   height: 100%;
   max-height: 100%;
   justify-content: space-between;
@@ -125,7 +126,7 @@
 
 .LeftContent > ul > li > .RatingContent {
   width: 100%;
-  max-width: 90%;
+  max-width: 100%;
   height: 100%;
   max-height: 100%;
   margin: 0;
@@ -204,7 +205,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 90%;
+  max-width: 100%;
   height: auto;
   max-height: auto;
   justify-content: flex-start;
@@ -262,7 +263,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 65%;
+  max-width: 70%;
   height: auto;
   max-height: auto;
   justify-content: space-between;
@@ -270,6 +271,444 @@
   align-content: center;
   margin: 0;
   padding: 0;
+}
+
+.RightContent > ul {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.RightContent > ul > li {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.RightContent > ul > li > .Headline-CommentReviews {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.RightContent > ul > li > .Headline-CommentReviews > h5 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-right: auto;
+}
+
+.RightContent > ul > li > .Headline-CommentReviews > button {
+  margin-left: auto;
+}
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 85%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 2rem 0;
+  gap: 1.25rem;
+  border-bottom: 0.08rem solid var(--border-color);
+}
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews:first-child {
+  padding-top: 0.85rem !important;
+}
+
+/* .RightContent > ul > li > .ProfileUser-Review-CommentReviews:last-child {
+  border-bottom: none !important;
+} */
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews > .image-ProfileUser {
+  display: flex;
+  flex-direction: row;
+  width: 3.15rem !important;
+  min-width: 3.15rem !important;
+  max-width: 3.15rem !important;
+  height: 3.15rem !important;
+  min-height: 3.15rem !important;
+  max-height: 3.15rem !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 100%;
+  background-color: var(--black-color);
+}
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews > .image-ProfileUser > img {
+  width: 100%;
+}
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews > .Information-ProfileUser {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews
+  > .Name-ProfileUser {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews
+  > .Name-ProfileUser
+  > h6 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews
+  > .DateComment-VerifiedPurchase-ProfileUser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews
+  > .DateComment-VerifiedPurchase-ProfileUser
+  > span {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--gray-700);
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .ProfileUserComment-CommentReviews
+  > .DateComment-VerifiedPurchase-ProfileUser
+  > strong {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.85rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .RatingStar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  color: var(--warning-color);
+  gap: 0.95rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .RatingStar
+  span {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.25rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .RatingStar
+  > span
+  > .IconStarRating {
+  width: 0.75rem;
+  max-width: 0.75rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .RatingStar
+  > h6 {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .Description {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .Description
+  > p {
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--gray-600);
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .ImageProductReview {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  > .Information-ProfileUser
+  > .RatingReview-ProfileUser
+  > .ImageProductReview
+  > .BoxImageProductReview {
+  display: flex;
+  flex-direction: row;
+  width: 3.25rem;
+  max-width: 3.25rem;
+  height: 3.25rem;
+  max-height: 3.25rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  border-radius: var(--border-radius);
+  background-color: var(--dark-color);
+}
+
+.RightContent > ul > li > .ProfileUser-Review-CommentReviews .ButtonCallToAction-RatingReview {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.RightContent
+  > ul
+  > li
+  > .ProfileUser-Review-CommentReviews
+  .ButtonCallToAction-RatingReview
+  > button {
+  background-color: transparent;
+  border: 0.08rem solid var(--border-color);
+  color: var(--gray-600);
+  font-size: 0.75rem;
+}
+
+.RightContent > ul > li > .ButtonReadMoreReview {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.RightContent > ul > li > .ButtonReadMoreReview > button {
+  background-color: transparent;
+  border: 0.08rem solid var(--border-color);
+  color: var(--gray-600);
+  font-size: 0.9rem;
 }
 
 /* ================================================================================================== */
@@ -331,6 +770,17 @@
 /* ================================================================================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
+  .ReviewView {
+    flex-direction: column !important;
+  }
+
+  .LeftContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent {
+    max-width: 100% !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -338,6 +788,17 @@
 /* ================================================================================================== */
 
 @media (min-width: 1201px) and (max-width: 1400px) {
+  .ReviewView {
+    flex-direction: column !important;
+  }
+
+  .LeftContent {
+    max-width: 100% !important;
+  }
+
+  .RightContent {
+    max-width: 100% !important;
+  }
 }
 
 /* ================================================================================================== */
