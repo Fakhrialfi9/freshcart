@@ -493,6 +493,24 @@ main {
   background-color: var(--danger-color);
 }
 
+.ProductEmpty {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ProductEmpty > h6 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+}
+
 .NavigationButtonShortCut {
   position: fixed;
   bottom: 0;

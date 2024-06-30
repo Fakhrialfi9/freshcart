@@ -8,7 +8,7 @@ import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 import IconUsers from '../../../assets/icon/IconUsers.vue'
 import IconBagCart from '../../../assets/icon/IconBagCart.vue'
 import IconHamburgerMenu from '../../../assets/icon/IconHamburgerMenu.vue'
-import { add, store } from '../../../stores/add'
+import { CartItems } from '../../../stores/AddToCart'
 
 const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenContentMenuMobileSlider'])
 </script>
@@ -39,13 +39,13 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenConten
 
       <RouterLink to="/wishlist" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
         <IconWishlist class="IconNavbar" />
-        <span class="BadgeContentNavbar">{{ store.count }}</span>
+        <span class="BadgeContentNavbar">0</span>
         <span class="TooltipText">Wishlist</span>
       </RouterLink>
 
       <RouterLink to="/basketcart" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
         <IconBagCart class="IconNavbar" />
-        <span class="BadgeContentNavbar">{{ add.count }}</span>
+        <span class="BadgeContentNavbar">{{ CartItems.length }}</span>
         <span class="TooltipText">Basket Cart</span>
       </RouterLink>
 

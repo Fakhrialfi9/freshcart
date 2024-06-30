@@ -2,8 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProducts, type Product } from '../../../function/useProduct'
-
-import { add, store } from '../../../stores/add'
+import { addToCart, type CartItem } from '../../../stores/AddToCart'
 
 import IconStar from '../../../assets/icon/IconStar.vue'
 import IconPlaneSend from '../../../assets/icon/IconPlaneSend.vue'
@@ -35,7 +34,6 @@ function resetHoverRating() {
 
 const count = ref(100)
 const open = ref(false)
-const docState = ref('saved')
 
 const toggleColor = () => {
   isClicked.value = !isClicked.value
@@ -48,11 +46,27 @@ const handleClick = () => {
   } else {
     count.value--
   }
-  store.increment()
 }
 
-function useStore() {
-  throw new Error('Function not implemented.')
+const handleAddToCart = () => {
+  if (product.value) {
+    const cartItem: CartItem = {
+      id: product.value.id,
+      imagesProduct: product.value.imagesProduct,
+      nameProduct: product.value.nameProduct,
+      priceProduct: product.value.priceProduct,
+      availabilityProduct: product.value.availabilityProduct,
+      quantity: 1,
+      badgesDiscountProduct: [],
+      nameCategory: '',
+      codeProduct: '',
+      typeProduct: '',
+      promoProduct: false,
+      shippingProduct: '',
+      promoGlobalProduct: []
+    }
+    addToCart(cartItem)
+  }
 }
 </script>
 
@@ -128,55 +142,34 @@ function useStore() {
               </button>
             </form>
           </div>
+
           <div class="Content-ButtonCallToAction">
-            <div class="ContainerButtonAddToCart">
-              <Transition name="slide-up" mode="out-in">
-                <button
-                  class="ButtonAddToCart"
-                  v-if="docState === 'saved'"
-                  @click="add.increment()"
-                >
-                  Add To Cart
-                </button>
-                <button
-                  class="ButtonCheckoutNow"
-                  v-else-if="docState === 'edited'"
-                  @click="docState = 'saved'"
-                >
-                  Checkout Now
-                </button>
-              </Transition>
-            </div>
-
-            <div class="ContainerButtonAddToCart">
-              <button @click="open = true" class="ButtonShare Tooltip">
-                <IconPlaneSend class="IconButtonShare" />
-                <span class="TooltipText">Share</span>
-              </button>
-            </div>
-
-            <div v-if="open" class="ModalButtonShare">
-              <div class="ContentModalButtonShare">
-                <h5>Share This Product</h5>
-                <ul>
-                  <li><a href="#">WhatsApp</a></li>
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Instagram</a></li>
-                </ul>
-                <button @click="open = false">Close</button>
+            <button class="ButtonAddToCart" @click="handleAddToCart">Add To Cart</button>
+            <button @click="open = true" class="ButtonShare Tooltip">
+              <IconPlaneSend class="IconButtonShare" />
+              <span class="TooltipText">Share</span>
+            </button>
+            <button class="ButtonWishlist Tooltip">
+              <IconWishlist
+                :class="['IconButtonWishlist', { clicked: isClicked }]"
+                @click="handleClick"
+              />
+              <h6>{{ count }}</h6>
+              <span class="TooltipText">Like</span>
+            </button>
+            <Transition name="slide-up" mode="out-in">
+              <div v-if="open" class="ModalButtonShare">
+                <div class="ContentModalButtonShare">
+                  <h5>Share This Product</h5>
+                  <ul>
+                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Instagram</a></li>
+                  </ul>
+                  <button @click="open = false">Close</button>
+                </div>
               </div>
-            </div>
-
-            <div class="ContainerButtonAddToCart">
-              <button class="ButtonWishlist Tooltip">
-                <IconWishlist
-                  :class="['IconButtonWishlist', { clicked: isClicked }]"
-                  @click="handleClick"
-                />
-                <h6>{{ count }}</h6>
-                <span class="TooltipText">Like</span>
-              </button>
-            </div>
+            </Transition>
           </div>
         </li>
         <div class="diver"></div>
@@ -202,4 +195,3 @@ function useStore() {
 </template>
 
 <style scoped src="../../../assets/style/Views/DetailProductView.css"></style>
-valueOfvalueOfvalueOfvalueOfvalueOfvalueOf
