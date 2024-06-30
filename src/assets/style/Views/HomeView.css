@@ -538,7 +538,7 @@ main {
 
 .ContainerPopularProduct {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 1rem;
   width: 100%;
   max-width: 100%;
@@ -562,20 +562,21 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
+  min-width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  min-height: 22.5rem;
+  min-height: 100%;
   justify-content: space-between;
   align-items: center;
   align-content: center;
   margin: 0;
-  padding: 1rem;
+  padding: 0.5rem;
   border: 0.08rem solid var(--border-color);
   border-radius: var(--border-radius-lg);
   background-color: var(--white-color);
   transition: all 0.5s ease-in-out;
-  gap: 0.5rem;
+  gap: 2.5rem !important;
   overflow: hidden;
 }
 
@@ -599,7 +600,7 @@ main {
   display: flex;
   flex-direction: row;
   width: auto;
-  max-width: 50%;
+  max-width: 90%;
   height: auto;
   max-height: auto;
   justify-content: center;
@@ -612,6 +613,8 @@ main {
   font-weight: 600;
   background-color: var(--danger-color);
   border-radius: var(--border-radius-md);
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
 }
 
 .Image-CardPopularProduct {
@@ -639,6 +642,8 @@ main {
 .CardPopularProduct > .Headline-CardPopularProduct {
   display: flex;
   flex-direction: column;
+  flex-wrap: nowrap !important;
+  white-space: nowrap !important;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -649,13 +654,14 @@ main {
   margin: 0;
   padding: 0;
   gap: 0.5rem;
+  overflow: hidden;
 }
 
 .CardPopularProduct > .Headline-CardPopularProduct > li {
   display: flex;
   flex-direction: row;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   justify-content: flex-start;
   align-items: center;
   align-content: center;
@@ -666,21 +672,21 @@ main {
 
 .CardPopularProduct > .Headline-CardPopularProduct > li > span {
   font-size: 0.75rem;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--gray-500);
 }
 
 .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
-  font-size: 1rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
   color: var(--gray-900);
 }
 
-.CardPopularProduct > .Headline-CardPopularProduct > li > p {
+/* .CardPopularProduct > .Headline-CardPopularProduct > li > p {
   font-size: 0.75rem;
   font-weight: 500;
   color: var(--gray-500);
-}
+} */
 
 /* Setting Rating */
 .RatingProduct {
@@ -691,7 +697,7 @@ main {
 }
 
 .IconStar {
-  width: 0.85rem !important;
+  width: 0.65rem !important;
 }
 
 .StarRatingProduct {
@@ -713,6 +719,7 @@ main {
 .CardPopularProduct > .PriceCart-CardPopularProduct {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
   max-width: 100%;
   height: auto;
@@ -723,6 +730,7 @@ main {
   margin: 0;
   padding: 0;
   z-index: 999 !important;
+  gap: 0.5rem;
 }
 
 .CardPopularProduct > .PriceCart-CardPopularProduct > li {
@@ -739,16 +747,16 @@ main {
 }
 
 .CardPopularProduct > .PriceCart-CardPopularProduct > li > .Price {
-  font-size: 0.75rem !important;
+  font-size: 0.7rem !important;
   font-weight: 400;
   color: var(--gray-500);
   text-decoration: line-through !important;
 }
 
 .CardPopularProduct > .PriceCart-CardPopularProduct > li > .Promo {
-  font-size: 1rem !important;
+  font-size: 0.9rem !important;
   font-weight: 700;
-  color: var(--gray-700);
+  color: var(--primary-color);
 }
 
 .CardPopularProduct > .PriceCart-CardPopularProduct > li > button {
@@ -1036,7 +1044,7 @@ main {
   color: var(--gray-700);
 }
 
-.CardBoxProductDailyBestSells button {
+.CardBoxProductDailyBestSells > .ButtonAddCart {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -1046,7 +1054,35 @@ main {
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-  z-index: 999 !important;
+  padding: 0;
+}
+
+.CardBoxProductDailyBestSells > .ButtonAddCart > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.CardBoxProductDailyBestSells > .ButtonAddCart > li > button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  gap: 0.5rem;
 }
 
 .CardBoxProductDailyBestSells > .CountDownPromo-CardBoxDailyBestSells {
@@ -1390,7 +1426,26 @@ main {
   }
 
   .ContainerPopularProduct {
-    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.5rem !important;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr)) !important;
+  }
+
+  .CardPopularProduct {
+    gap: 1rem !important;
+  }
+
+  .CardPopularProduct > .PriceCart-CardPopularProduct > li {
+    display: flex !important ;
+    flex-direction: row !important ;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .CardPopularProduct > .PriceCart-CardPopularProduct > li > button {
+    display: flex !important ;
+    flex-direction: row !important ;
+    width: 100% !important;
+    max-width: 100% !important;
   }
 
   .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
@@ -1419,11 +1474,17 @@ main {
     padding: 5rem 0 1rem 0 !important;
   }
   .ContainerPopularProduct {
-    grid-template-columns: repeat(2, 1fr) !important;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) !important;
   }
+
+  .CardPopularProduct {
+    gap: 1rem !important;
+  }
+
   .CardPopularProduct > .Headline-CardPopularProduct > li > h5 {
     width: 80% !important;
   }
+
   .ContainerCardBoxDailyBestSells {
     grid-template-columns: repeat(2, 1fr) !important;
   }
@@ -1439,7 +1500,11 @@ main {
 
 @media (min-width: 768px) and (max-width: 991px) {
   .ContainerPopularProduct {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) !important;
+  }
+
+  .CardPopularProduct {
+    gap: 1rem !important;
   }
 
   .ContainerCardBoxDailyBestSells {
@@ -1457,7 +1522,7 @@ main {
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .ContainerPopularProduct {
-    grid-template-columns: repeat(3, 1fr) !important;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) !important;
   }
 
   .ContainerCardBoxDailyBestSells {
@@ -1471,7 +1536,7 @@ main {
 
 @media (min-width: 1201px) and (max-width: 1400px) {
   .ContainerPopularProduct {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) !important;
   }
 
   .ContainerCardBoxDailyBestSells {
@@ -1483,9 +1548,9 @@ main {
 /* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
 /* ================================================================================================== */
 
-@media (min-width: 1401px) and (max-width: 1530px) {
+@media (min-width: 1401px) and (max-width: 1600px) {
   .ContainerPopularProduct {
-    grid-template-columns: repeat(4, 1fr) !important;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr)) !important;
   }
 
   .ContainerCardBoxDailyBestSells {

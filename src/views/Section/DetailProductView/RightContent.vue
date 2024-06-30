@@ -61,8 +61,8 @@ function useStore() {
     <div class="InformationProduct-RightContent">
       <ul>
         <li>
-          <span class="Content-ProductCategoty">{{ product.category }}</span>
-          <h2 class="Content-ProductName">{{ product.name }}</h2>
+          <span class="Content-ProductCategoty">{{ product.nameCategory }}</span>
+          <h2 class="Content-ProductName">{{ product.nameProduct }}</h2>
           <div class="Content-ProductRating">
             <span
               v-for="StarRatingProduct in 5"
@@ -70,7 +70,9 @@ function useStore() {
               :class="[
                 'StarRatingProduct',
                 {
-                  SelectedRating: StarRatingProduct <= product.rating,
+                  SelectedRating:
+                    StarRatingProduct <=
+                    product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
                   HoverRatingProduct: StarRatingProduct <= hoverRating
                 }
               ]"
@@ -80,12 +82,24 @@ function useStore() {
             >
               <IconStar class="IconStar" />
             </span>
-            <p>{{ product.rating }}</p>
+            <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+              {{ product.ratingsProduct[0].countRatingProduct }}
+            </p>
           </div>
           <div class="Content-ProductPrice">
-            <h5 class="DiscountPrice">{{ product.priceNormal }}</h5>
-            <h5 class="NormalPrice">{{ product.discountPrice }}</h5>
-            <span class="BadgeDiscount">26% Off</span>
+            <h5 class="DiscountPrice">{{ product.priceProduct }}</h5>
+            <h5
+              v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
+              class="NormalPrice"
+            >
+              {{ product.promoGlobalProduct[0].discountPrice }}
+            </h5>
+            <span
+              v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
+              class="BadgeDiscount"
+            >
+              {{ product.promoGlobalProduct[0].percentageDiscount }}% Off</span
+            >
           </div>
         </li>
         <div class="diver"></div>
@@ -175,10 +189,10 @@ function useStore() {
               <span>Shipping:</span>
             </div>
             <div class="Answer">
-              <span>{{ product.productCode }}</span>
-              <span>{{ product.availability }}</span>
-              <span>{{ product.type }}</span>
-              <span>01 day shipping. ( Free pickup today)</span>
+              <span>{{ product.codeProduct }}</span>
+              <span>{{ product.availabilityProduct }}</span>
+              <span>{{ product.typeProduct }}</span>
+              <span>{{ product.shippingProduct }}</span>
             </div>
           </div>
         </li>

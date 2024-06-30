@@ -1,38 +1,59 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useProducts, type Product } from '../../../function/useProduct'
+
+const route = useRoute()
+const { fetchProductById, loading } = useProducts()
+const productId = Number(route.params.id)
+const product = ref<Product | null>(null)
+
+onMounted(async () => {
+  product.value = await fetchProductById(productId)
+})
+</script>
 
 <template>
-  <section class="ProductDetail">
+  <section class="ProductDetail" v-if="product">
     <ul>
       <li>
-        <h5>Nutrient Value & Benefits</h5>
-        <p>
-          Buah ini kaya akan vitamin C, serat, dan antioksidan. Mengonsumsi buah ini secara teratur
-          dapat membantu meningkatkan sistem kekebalan tubuh, mendukung kesehatan pencernaan, dan
-          melindungi sel-sel dari kerusakan akibat radikal bebas. Selain itu, kandungan nutrisinya
-          dapat membantu dalam menjaga kesehatan kulit dan rambut.
+        <h5 v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.BenefitProduct }}
+        </h5>
+        <p v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.descriptionBenefitProduct }}
         </p>
       </li>
       <li>
-        <h5>Storage Tips</h5>
-        <p>
-          Simpan buah ini di tempat yang sejuk dan kering untuk menjaga kesegarannya. Jika sudah
-          dipotong, simpan dalam wadah kedap udara dan letakkan di dalam kulkas. Hindari menyimpan
-          di tempat yang terkena sinar matahari langsung atau di dekat bahan yang berbau kuat.
+        <h5 v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.StorageTips }}
+        </h5>
+        <p v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.descriptionStorageTips }}
         </p>
       </li>
       <li>
-        <h5>Unit</h5>
-        <p>3 Units</p>
+        <h5 v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.Unit }}
+        </h5>
+        <p v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.descriptionUnit }}
+        </p>
       </li>
       <li>
-        <h5>Seller</h5>
-        <p>DMart Pvt. LTD</p>
+        <h5 v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.Seller }}
+        </h5>
+        <p v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.descriptionSeller }}
+        </p>
       </li>
       <li>
-        <h5>Disclaimer</h5>
-        <p>
-          Image shown is a representation and may slightly vary from the actual product. Every
-          effort is made to maintain accuracy of all information displayed.
+        <h5 v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.Disclaimer }}
+        </h5>
+        <p v-if="product.ProductDetails && product.ProductDetails">
+          {{ product.ProductDetails.descriptionDisclaimer }}
         </p>
       </li>
     </ul>

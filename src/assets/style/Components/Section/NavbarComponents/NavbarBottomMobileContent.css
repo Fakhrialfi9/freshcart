@@ -5,8 +5,9 @@
   flex-direction: row;
   width: 100%;
   max-width: 100vw;
-  height: auto;
-  max-height: auto;
+  height: auto !important;
+  min-height: auto !important;
+  max-height: auto !important;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -15,55 +16,132 @@
   box-sizing: border-box;
   z-index: 9995 !important;
 }
+/* 
+.NavbarBottomMobileContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 4rem !important;
+  min-height: 4rem !important;
+  max-height: 4rem !important;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 0;
+  background-color: var(--dark-color);
+  border-radius: var(--border-radius-lg);
+  color: var(--white-color);
+  z-index: 9995 !important;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+} */
 
 .NavbarBottomMobileContent {
   display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  max-height: auto;
+  height: 4rem !important;
+  min-height: 4rem !important;
+  max-height: 4rem !important;
   justify-content: center;
   align-items: center;
   margin: auto;
   padding: 0;
-  background-color: var(--dark-color);
-  border-radius: var(--border-radius-2xl);
+  background-color: rgb(255, 255, 255, 0.7);
+  border: 0.08rem solid var(--border-color);
+  backdrop-filter: blur(5rem);
+  border-radius: var(--border-radius-lg);
   color: var(--white-color);
   z-index: 9995 !important;
   box-shadow:
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    0 2rem 2.5rem -0.5rem rgba(10, 173, 10, 0.1),
+    0 1rem 1rem -0.5rem rgba(10, 173, 10, 0.04);
 }
 
-.NavbarBottomMobileContent > ul {
+.NavbarBottomMobileContent > .Left-NavbarBottomMobileContent {
   display: flex;
   flex-direction: row;
   width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
+  min-width: 40%;
+  max-width: 40%;
+  height: 100%;
+  max-height: 100%;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
+  margin-right: auto !important;
   padding: 0;
 }
 
-.NavbarBottomMobileContent > ul > li {
+.NavbarBottomMobileContent > .Left-NavbarBottomMobileContent > li {
   display: flex;
   flex-direction: row;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  max-height: auto;
+  height: 100%;
+  max-height: 100%;
   justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
-.NavbarBottomMobileContent > ul > li > a,
-span {
+.NavbarBottomMobileContent > .Left-NavbarBottomMobileContent > li > a {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1.2rem 0.5rem;
+  stroke: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  fill: transparent !important;
+}
+
+.NavbarBottomMobileContent > .Center-NavbarBottomMobileContent {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 20%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.NavbarBottomMobileContent > .Center-NavbarBottomMobileContent > li {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -80%);
+  display: flex;
+  flex-direction: column;
+  width: 3.5rem;
+  max-width: 3.5rem;
+  height: 3.5rem;
+  max-height: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-lg);
+  stroke: var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: 0rem 0.5rem 3rem 0.5rem rgba(10, 173, 10, 0.4);
+}
+
+.NavbarBottomMobileContent > .Center-NavbarBottomMobileContent > li > a {
   display: flex;
   flex-direction: row;
   width: auto;
@@ -78,24 +156,91 @@ span {
   color: var(--white-color);
 }
 
+.NavbarBottomMobileContent > .Right-NavbarBottomMobileContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 40%;
+  max-width: 40%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: auto !important;
+  padding: 0;
+}
+
+.NavbarBottomMobileContent > .Right-NavbarBottomMobileContent > li {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.NavbarBottomMobileContent > .Right-NavbarBottomMobileContent > li > a {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 1.2rem 0.5rem;
+  stroke: var(--primary-color) !important;
+  color: var(--primary-color) !important;
+  fill: transparent !important;
+}
+
+.BadgeContentNavbarBottom {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 0.7rem;
+  right: 1.15rem;
+  width: 1.2rem;
+  min-width: none;
+  height: 1.2rem;
+  min-height: none;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 0.18rem;
+  margin: 0 auto;
+  border-radius: 100rem;
+  color: var(--white-color);
+  font-size: 0.7rem;
+  background-color: var(--primary-color);
+  outline: 0.09rem solid var(--white-color);
+}
+
 .IconGridSquareNavbarBottom {
   width: 1.5rem;
-  stroke-width: 0.025rem;
+  stroke-width: 0.03rem;
 }
 
 .IconUsersNavbarBottom {
   width: 1.5rem;
-  stroke-width: 0.15rem;
+  stroke-width: 0.135rem;
 }
 
 .IconWishlistNavbarBottom {
   width: 1.5rem;
-  stroke-width: 0.15rem;
+  stroke-width: 0.135rem;
 }
 
 .IconBagCartNavbarBottom {
   width: 1.5rem;
-  stroke-width: 0.1rem;
+  stroke-width: 0.135rem;
 }
 
 .ActiveNavbarBottomMobile {
@@ -110,8 +255,26 @@ span {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  width: 50%;
+  height: 5px;
+  border-radius: 1rem 1rem 0 0;
+  background-color: var(--primary-color);
+}
+
+.ActiveNavbarBottomMobileCenter {
+  stroke: var(--white-color) !important;
+  color: var(--white-color) !important;
+  position: relative;
+}
+
+.ActiveNavbarBottomMobileCenter::after {
+  content: '';
+  position: absolute;
+  bottom: -30.86%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100%;
   height: 5px;
   border-radius: 1rem 1rem 0 0;
-  background-color: #ffffff;
+  background-color: var(--primary-color);
 }

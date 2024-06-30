@@ -32,22 +32,28 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenConten
       </div>
     </div>
     <div class="RightContent">
+      <RouterLink to="/signin" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
+        <IconUsers class="IconNavbar" />
+        <span class="TooltipText">User Login</span>
+      </RouterLink>
+
       <RouterLink to="/wishlist" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
         <IconWishlist class="IconNavbar" />
         <span class="BadgeContentNavbar">{{ store.count }}</span>
         <span class="TooltipText">Wishlist</span>
       </RouterLink>
 
-      <RouterLink to="/signin" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
-        <IconUsers class="IconNavbar" />
-        <span class="TooltipText">User Login</span>
+      <RouterLink to="/basketcart" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
+        <IconBagCart class="IconNavbar" />
+        <span class="BadgeContentNavbar">{{ add.count }}</span>
+        <span class="TooltipText">Basket Cart</span>
       </RouterLink>
 
-      <a @click="$emit('ToggleOpenContentModalsBasketCart')" class="DisplayNone-SM Tooltip">
+      <!-- <a @click="$emit('ToggleOpenContentModalsBasketCart')" class="DisplayNone-SM Tooltip">
         <IconBagCart class="IconNavbar" />
         <span class="BadgeContentNavbar">{{ add.count }}</span>
         <span class="TooltipText"> Cart</span>
-      </a>
+      </a> -->
 
       <a
         @click="$emit('ToggleOpenContentMenuMobileSlider')"

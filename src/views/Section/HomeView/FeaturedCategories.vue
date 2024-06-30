@@ -91,8 +91,8 @@ const modules = [Navigation, Pagination, Autoplay]
             <swiper-slide v-for="product in products" :key="product.id">
               <div class="BoxProductFeaturedCategories">
                 <RouterLink :to="'/detailproduct/' + product.id">
-                  <img :src="'' + product.images[0]" :alt="product.name" />
-                  <h5>{{ product.category }}</h5>
+                  <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                  <h5>{{ product.nameCategory }}</h5>
                 </RouterLink>
               </div>
             </swiper-slide>

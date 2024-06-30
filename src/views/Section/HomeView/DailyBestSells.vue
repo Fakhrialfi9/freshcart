@@ -9,6 +9,7 @@ import IconStar from '../../../assets/icon/IconStar.vue'
 import IconArrowCompare from '../../../assets/icon/IconArrowCompare.vue'
 import IconWishlistFill from '../../../assets/icon/IconWishlistFill.vue'
 import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
+import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
 // End Import Icon
 
 const { products } = useProducts()
@@ -81,16 +82,16 @@ function resetHoverRating() {
               @mouseleave="hideButtons(index)"
             >
               <div class="Image-CardBoxDailyBestSells">
-                <img :src="'' + product.images[0]" :alt="product.name" />
+                <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
               </div>
 
               <!-- Start Headline Content Card Box Product -->
               <ul class="Headline-CardBoxDailyBestSells">
                 <li>
-                  <span>{{ product.category }}</span>
+                  <span>{{ product.nameCategory }}</span>
                 </li>
                 <li>
-                  <h5>{{ truncateText(product.name, 20) }}</h5>
+                  <h5>{{ truncateText(product.nameProduct, 20) }}</h5>
                 </li>
               </ul>
               <!-- End Headline Content Card Box Product -->
@@ -98,8 +99,13 @@ function resetHoverRating() {
               <!-- Start Price & Ratting Card Box Product -->
               <ul class="PriceRating">
                 <li>
-                  <p class="Promo">{{ product.discountPrice }}</p>
-                  <p class="Price">{{ product.priceNormal }}</p>
+                  <p
+                    v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
+                    class="Promo"
+                  >
+                    {{ product.promoGlobalProduct[0].discountPrice }}
+                  </p>
+                  <p class="Price">{{ product.priceProduct }}</p>
                 </li>
                 <li>
                   <div class="RatingProduct">
@@ -109,7 +115,9 @@ function resetHoverRating() {
                       :class="[
                         'StarRatingProduct',
                         {
-                          SelectedRating: StarRatingProduct <= product.rating,
+                          SelectedRating:
+                            StarRatingProduct <=
+                            product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
                           HoverRatingProduct: StarRatingProduct <= hoverRating
                         }
                       ]"
@@ -119,14 +127,20 @@ function resetHoverRating() {
                     >
                       <IconStar class="IconStar" />
                     </span>
-                    <p>{{ product.rating }}</p>
+                    <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+                      {{ product.ratingsProduct[0].countRatingProduct }}
+                    </p>
                   </div>
                 </li>
               </ul>
               <!-- End Price & Ratting Card Box Product -->
 
               <!-- Start Button Card Box Product -->
-              <button>Add To Cart</button>
+              <ul class="ButtonAddCart">
+                <li>
+                  <button><IconAddPlus class="IconButtonAddCart" /> Cart</button>
+                </li>
+              </ul>
               <!-- End Button Card Box Product -->
 
               <!-- Start Count Down Card Box Product -->

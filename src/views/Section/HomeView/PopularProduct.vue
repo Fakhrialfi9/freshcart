@@ -54,12 +54,12 @@ function resetHoverRating() {
         <!-- Start Headline Section Home -->
         <ul class="HeadlineSection-Home">
           <li><h5>Popula Product</h5></li>
-          <li>
+          <!-- <li>
             <button>All</button>
             <button>Hot Sale</button>
             <button>Years Sale</button>
             <button>Big Deals</button>
-          </li>
+          </li> -->
         </ul>
         <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
@@ -75,11 +75,13 @@ function resetHoverRating() {
               @mouseleave="hideButtons(index)"
             >
               <!-- Start Badge & Image Card Box Product -->
-              <span class="Badge-CardPopularProduct" v-if="product.badges.length > 0">{{
-                product.badges[0]
-              }}</span>
+              <span
+                class="Badge-CardPopularProduct"
+                v-if="product.badgesDiscountProduct.length > 0"
+                >{{ product.badgesDiscountProduct[0] }}</span
+              >
               <div class="Image-CardPopularProduct">
-                <img :src="'' + product.images[0]" :alt="product.name" />
+                <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
               </div>
 
               <!-- End Badge & Image Card Box Product -->
@@ -87,10 +89,10 @@ function resetHoverRating() {
               <!-- Start Headline Card Box Product -->
               <ul class="Headline-CardPopularProduct">
                 <li>
-                  <span>{{ product.category }}</span>
+                  <span>{{ product.nameCategory }}</span>
                 </li>
                 <li>
-                  <h5>{{ truncateText(product.name, 18) }}</h5>
+                  <h5>{{ truncateText(product.nameProduct, 18) }}</h5>
                 </li>
                 <li>
                   <div class="RatingProduct">
@@ -100,7 +102,9 @@ function resetHoverRating() {
                       :class="[
                         'StarRatingProduct',
                         {
-                          SelectedRating: StarRatingProduct <= product.rating,
+                          SelectedRating:
+                            StarRatingProduct <=
+                            product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
                           HoverRatingProduct: StarRatingProduct <= hoverRating
                         }
                       ]"
@@ -110,7 +114,9 @@ function resetHoverRating() {
                     >
                       <IconStar class="IconStar" />
                     </span>
-                    <p>{{ product.rating }}</p>
+                    <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+                      {{ product.ratingsProduct[0].countRatingProduct }}
+                    </p>
                   </div>
                 </li>
               </ul>
@@ -119,8 +125,13 @@ function resetHoverRating() {
               <!-- Start Price & Button Card Box Product -->
               <ul class="PriceCart-CardPopularProduct">
                 <li>
-                  <p class="Promo">{{ product.discountPrice }}</p>
-                  <p class="Price">{{ product.priceNormal }}</p>
+                  <p
+                    v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
+                    class="Promo"
+                  >
+                    {{ product.promoGlobalProduct[0].discountPrice }}
+                  </p>
+                  <p class="Price">{{ product.priceProduct }}</p>
                 </li>
                 <li>
                   <button><IconAddPlus class="IconButtonAddCart" /> Cart</button>

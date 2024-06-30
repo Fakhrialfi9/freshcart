@@ -1,19 +1,22 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import IconStar from '../../../assets/icon/IconStar.vue'
+import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
+import { useProducts, type Product } from '../../../function/useProduct'
 
-// Data rating
-const ratings = ref([
-  { rating: 5, percentage: 90 },
-  { rating: 4, percentage: 76 },
-  { rating: 3, percentage: 67 },
-  { rating: 2, percentage: 30 },
-  { rating: 1, percentage: 10 }
-])
+const route = useRoute()
+const { fetchProductById, loading } = useProducts()
+const productId = Number(route.params.id)
+const product = ref<Product | null>(null)
+
+onMounted(async () => {
+  product.value = await fetchProductById(productId)
+})
+
+import IconStar from '../../../assets/icon/IconStar.vue'
 </script>
 
 <template>
-  <section class="ReviewView">
+  <section class="ReviewView" v-if="product">
     <div class="LeftContent">
       <ul>
         <!-- Start Headline Content Review -->
@@ -26,25 +29,32 @@ const ratings = ref([
         <li>
           <div class="Count-Rating">
             <span> <IconStar class="IconStarRating" v-for="index in 5" :key="index" /></span>
-            <h6>4.1 out of 5</h6>
-            <h6>11,130 global ratings</h6>
+            <h6 v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+              {{ product.ratingsProduct[0].countRatingProduct }} out of 5
+            </h6>
+            <h6 v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+              {{ product.ratingsProduct[0].globalCountRatingProduct }} global ratings
+            </h6>
           </div>
         </li>
         <!-- End Count Rating Global -->
 
         <!-- Start Rating Bar Global  -->
         <li>
-          <div class="RatingContent">
-            <div class="Rating" v-for="rate in ratings" :key="rate.rating">
-              <span class="RatingLabel"
-                ><h5>{{ rate.rating }}</h5>
+          <div
+            class="RatingContent"
+            v-if="product.ratingsProduct && product.ratingsProduct.length > 0"
+          >
+            <div class="Rating" v-for="(product, index) in product.ratingsProduct" :key="index">
+              <span class="RatingLabel">
+                <h5>{{ product.ratingBar }}</h5>
                 <IconStar class="IconStarRating" />
               </span>
               <div class="RatingBar">
-                <div class="RatingProgress" :style="{ width: rate.percentage + '%' }"></div>
+                <div class="RatingProgress" :style="{ width: product.percentageBar + '%' }"></div>
               </div>
-              <span class="RatingPercentage"
-                ><h5>{{ rate.percentage }}</h5>
+              <span class="RatingPercentage">
+                <h5>{{ product.percentageBar }}</h5>
                 %</span
               >
             </div>
@@ -74,33 +84,40 @@ const ratings = ref([
           </div>
         </li>
         <li>
-          <div class="ProfileUser-Review-CommentReviews" v-for="index in 5" :key="index">
+          <div
+            class="ProfileUser-Review-CommentReviews"
+            v-for="(review, index) in product.reviewProduct"
+            :key="index"
+          >
             <div class="image-ProfileUser"></div>
             <div class="Information-ProfileUser">
               <div class="ProfileUserComment-CommentReviews">
                 <div class="Name-ProfileUser">
-                  <h6>Muhammad Fakhri Alfi Syahrin H.</h6>
+                  <h6>{{ review.nameUserReview }}</h6>
                 </div>
                 <div class="DateComment-VerifiedPurchase-ProfileUser">
-                  <span>30 December 2022</span>
-                  <strong>Verified Purchase</strong>
+                  <span>{{ review.dateUserReview }}</span>
+                  <strong>{{ review.passedPurchase }}</strong>
                 </div>
               </div>
               <div class="RatingReview-ProfileUser">
                 <div class="RatingStar">
-                  <span> <IconStar class="IconStarRating" v-for="index in 5" :key="index" /></span>
-                  <h6>Need to recheck the weight at delivery point</h6>
+                  <span>
+                    <IconStar class="IconStarRating" v-for="index in 5" :key="index" />
+                  </span>
+                  <h6>{{ review.headlineReview }}</h6>
                 </div>
                 <div class="Description">
-                  <p>
-                    Product quality is good. But, weight seemed less than 1kg. Since it is being
-                    sent in open package, there is a possibility of pilferage in between. FreshCart
-                    sends the veggies and fruits through sealed plastic covers and Barcode on the
-                    weight etc. .
-                  </p>
+                  <p>{{ review.descriptionUserReview }}, {{ review.descriptionReview }}</p>
                 </div>
                 <div class="ImageProductReview">
-                  <div class="BoxImageProductReview" v-for="index in 4" :key="index"></div>
+                  <div
+                    v-for="(image, imgIndex) in review.imageProductReview"
+                    :key="imgIndex"
+                    class="BoxImageProductReview"
+                  >
+                    <img :src="image" :alt="product.nameProduct" />
+                  </div>
                 </div>
               </div>
               <div class="ButtonCallToAction-RatingReview">

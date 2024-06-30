@@ -75,7 +75,7 @@
 
 // Menggunakan Hash Mengatasi 404 Github
 
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 import LazyLoading from '../../components/LazyLoading.vue'
 
@@ -84,6 +84,7 @@ import MainLayout from '../Layout/MainLayout.vue'
 import HomeView from '../../views/HomeView.vue'
 import UsersSigninView from '../../views/UsersSigninView.vue'
 import WishlistView from '../../views/WishlistView.vue'
+import BasketCartView from '../../views/BasketCartView.vue'
 import DetailProductView from '../../views/DetailProductView.vue'
 import AboutView from '../../views/AboutView.vue'
 // End Import RouteView
@@ -108,6 +109,7 @@ const routes = [
         name: 'home',
         component: HomeView
       },
+
       {
         path: '/about',
         name: 'about',
@@ -121,8 +123,14 @@ const routes = [
       },
 
       {
+        path: '/basketcart',
+        name: 'basketcart',
+        component: BasketCartView
+      },
+
+      {
         path: '/detailproduct/:id',
-        name: 'singleproduct',
+        name: 'detailproduct',
         component: DetailProductView
       }
     ]
@@ -155,13 +163,3 @@ const router = createRouter({
 })
 
 export default router
-
-// const router = createRouter({
-//   history: createWebHistory(import.meta.env.BASE_URL),
-//   routes,
-//   scrollBehavior(to, from, savedPosition) {
-//     return { top: 0 }
-//   }
-// })
-
-// export default router

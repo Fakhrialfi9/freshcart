@@ -4,25 +4,69 @@ import GetProduct from '../services/APi/GetProduct'
 // Define Product interface
 export interface Product {
   id: number
-  name: string
-  category: string
-  rating: number
-  priceNormal: number
-  discountPrice: number
-  productCode: string
-  availability: boolean
-  type: string
-  productDetails: string
-  information: string
-  reviews: string[]
-  sellerInfo: {
-    name: string
-    location: string
-    contact: string
+  badgesDiscountProduct: string[]
+  imagesProduct: string[]
+  nameCategory: string
+  nameProduct: string
+  priceProduct: number
+  codeProduct: string
+  availabilityProduct: boolean
+  typeProduct: string
+  promoProduct: boolean
+  shippingProduct: string
+
+  promoGlobalProduct: {
+    discountPrice: number
+    percentageDiscount: number
+  }[]
+
+  ProductDetails: {
+    BenefitProduct: string
+    descriptionBenefitProduct: string
+    StorageTips: string
+    descriptionStorageTips: string
+    Unit: string
+    descriptionUnit: string
+    Seller: string
+    descriptionSeller: string
+    Disclaimer: string
+    descriptionDisclaimer: string
   }
-  badges: string[]
-  promo: boolean
-  images: string[]
+
+  InformationProduct: {
+    Weight: string
+    IngredientType: string
+    Brand: string
+    ItemPackageQuantity: string
+    Form: string
+    Manufacturer: string
+    NetQuantity: string
+    ProductDimensions: string
+    ASIN: string
+    BestSellersRank: string
+    DateFirstAvailable: string
+    ItemWeight: string
+    GenericName: string
+    expiredDate: string
+  }
+
+  ratingsProduct: {
+    countRatingProduct: number
+    globalCountRatingProduct: number
+    ratingBar: number
+    percentageBar: number
+  }[]
+
+  reviewProduct: {
+    nameUserReview: string
+    dateUserReview: string
+    descriptionUserReview: string
+    reviewsProduct: string
+    passedPurchase: string
+    headlineReview: string
+    descriptionReview: string
+    imageProductReview: string[]
+  }[]
 }
 
 export const useProducts = () => {
