@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const apiClient = axios.create({
-  // baseURL: 'https://fakhrialfi9.github.io/APifreshcart/db.json',
   baseURL: 'https://fakhrialfi9.github.io/APifreshcart/dataproduct.json',
   withCredentials: false,
   headers: {

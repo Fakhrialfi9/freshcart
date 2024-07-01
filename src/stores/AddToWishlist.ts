@@ -18,21 +18,27 @@ export interface WishlistItem {
   }[]
 
   selected?: boolean
+  timestamp: number
 }
 
-export const WishlistItems = ref<WishlistItem[]>([])
+// Initialize WishlistItems from localStorage
+const initialWishlistItems = JSON.parse(
+  localStorage.getItem('wishlistItems') || '[]'
+) as WishlistItem[]
+export const WishlistItems = ref<WishlistItem[]>(initialWishlistItems)
 
+// Function to add item to wishlist
 export function addToWishlist(product: WishlistItem) {
   const existingItem = WishlistItems.value.find((item) => item.id === product.id)
   if (!existingItem) {
-    WishlistItems.value.push({ ...product })
-    return true
+    WishlistItems.value.push({ ...product, timestamp: new Date().getTime() })
   }
-  return false
+  // Save updated wishlist to localStorage
+  localStorage.setItem('wishlistItems', JSON.stringify(WishlistItems.value))
 }
 
 // Function Delete & Selected
-export function deleteFromCart(productId: number) {
+export function deleteFromWishlist(productId: number) {
   WishlistItems.value = WishlistItems.value.filter((item) => item.id !== productId)
 }
 
@@ -49,4 +55,14 @@ export function toggleSelectProduct(productId: number) {
   if (product) {
     product.selected = !product.selected
   }
+}
+
+// Function to clean up wishlist items older than one year
+export function cleanUpWishlistItems() {
+  const now = new Date().getTime()
+  const oneYearAgo = now - 365 * 24 * 60 * 60 * 1000 // Count Years (365 Days)
+  WishlistItems.value = WishlistItems.value.filter((item) => {
+    return item.timestamp > oneYearAgo
+  })
+  localStorage.setItem('wishlistItems', JSON.stringify(WishlistItems.value))
 }

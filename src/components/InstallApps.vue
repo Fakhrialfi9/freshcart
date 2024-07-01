@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
+import { ref } from 'vue'
 
 // Define the BeforeInstallPromptEvent type
 interface BeforeInstallPromptEvent extends Event {
@@ -9,7 +9,6 @@ interface BeforeInstallPromptEvent extends Event {
 
 // Reactive variables
 let deferredPrompt = ref<BeforeInstallPromptEvent | null>(null)
-let showCard = ref(false)
 let currentTime = ref(formatTime(new Date()))
 
 // Methods
@@ -25,10 +24,6 @@ const addToHomeScreen = () => {
       deferredPrompt.value = null
     })
   }
-}
-
-const closeCard = () => {
-  showCard.value = false // Close the card when close button is clicked
 }
 
 // Update current time every second
@@ -48,11 +43,6 @@ window.addEventListener('beforeinstallprompt', (e: Event) => {
   e.preventDefault()
   deferredPrompt.value = e as BeforeInstallPromptEvent
 })
-
-// Watch for changes in showCard
-watchEffect(() => {
-  console.log('showCard value changed:', showCard.value)
-})
 </script>
 
 <template>
@@ -61,28 +51,26 @@ watchEffect(() => {
       <div class="Container">
         <div class="ContentInstallApps">
           <!-- Card -->
-          <transition name="fade">
-            <div class="Card-ContentInstallApps" v-if="showCard">
-              <div class="Card-TopContentInstallApps">
-                <span>
-                  <div class="box"></div>
-                  <h5>Install Fresh Cart</h5>
-                </span>
-                <span>
-                  <h5>{{ currentTime }}</h5>
-                </span>
-              </div>
-              <div class="Card-BottomontentInstallApps">
-                <span>
-                  <h5>Temukan Product Makanan Terbaik se-Indonesia di <b>Fresh Cart</b></h5>
-                </span>
-                <div class="ButtonInstall">
-                  <button @click="closeCard">Close</button>
-                  <button @click="addToHomeScreen">Install Now</button>
-                </div>
+          <div class="Card-ContentInstallApps">
+            <div class="Card-TopContentInstallApps">
+              <span>
+                <div class="box"></div>
+                <h5>Install Fresh Cart</h5>
+              </span>
+              <span>
+                <h5>{{ currentTime }}</h5>
+              </span>
+            </div>
+            <div class="Card-BottomontentInstallApps">
+              <span>
+                <h5>Temukan Product Makanan Terbaik se-Indonesia di <b>Fresh Cart</b></h5>
+              </span>
+              <div class="ButtonInstall">
+                <button @click="addToHomeScreen">Install Now</button>
               </div>
             </div>
-          </transition>
+          </div>
+
           <!-- Card -->
         </div>
       </div>

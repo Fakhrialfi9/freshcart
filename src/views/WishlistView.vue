@@ -3,7 +3,7 @@ import { ref, computed, watch } from 'vue'
 import Breadcrumbs from '../components/Breadcrumbs.vue'
 import {
   WishlistItems,
-  deleteFromCart,
+  deleteFromWishlist,
   deleteSelectedProducts,
   toggleSelectAll,
   toggleSelectProduct
@@ -109,7 +109,7 @@ watch(searchQuery, () => {})
                   </ul>
                 </div>
                 <button
-                  @click="deleteFromCart(product.id)"
+                  @click="deleteFromWishlist(product.id)"
                   class="RemoveButtonCardBoxWishlistContent"
                 >
                   Remove

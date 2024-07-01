@@ -1,5 +1,4 @@
 // FunctionAddToWishlist.ts
-
 import { addToWishlist, type WishlistItem } from '../stores/AddToWishlist'
 import { showNotification } from '../components/NotificationView.vue'
 
@@ -16,7 +15,8 @@ export function handleAddToWishlist(product: any) {
       typeProduct: product.typeProduct,
       promoProduct: product.promoProduct,
       shippingProduct: product.shippingProduct,
-      promoGlobalProduct: product.promoGlobalProduct
+      promoGlobalProduct: product.promoGlobalProduct,
+      timestamp: new Date().getTime() // Add timestamp here
     }
     addToWishlist(wishlistItem)
     showNotification(

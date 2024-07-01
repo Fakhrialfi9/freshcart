@@ -1,5 +1,4 @@
 // FunctionAddToCart.ts
-
 import { addToCart, type CartItem } from '../stores/AddToCart'
 import { showNotification } from '../components/NotificationView.vue'
 
@@ -18,7 +17,8 @@ export function handleAddToCart(product: any) {
       typeProduct: '',
       promoProduct: false,
       shippingProduct: '',
-      promoGlobalProduct: []
+      promoGlobalProduct: [],
+      timestamp: new Date().getTime() // Add timestamp here
     }
     addToCart(cartItem)
     showNotification(

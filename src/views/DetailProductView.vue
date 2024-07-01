@@ -88,7 +88,9 @@ onMounted(async () => {
           <!-- End Bottom Content -->
 
           <!-- Start Bottom Content -->
-          <RelatedItemsView />
+          <transition name="slide-up" mode="out-in">
+            <RelatedItemsView />
+          </transition>
           <!-- End Bottom Content -->
         </div>
         <!-- End Main Content Detail Product -->
