@@ -3,14 +3,15 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProducts, type Product } from '../function/useProduct'
-import Breadcrumbs from '../function/Breadcrumbs.vue'
-import AlertBoxError from '../function/AlertBoxError.vue'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
+import AlertBoxError from '../components/AlertBoxError.vue'
+import LoadingComponents from '../components/LoadingComponents.vue'
 
 // Start Import Section Detail Product
 import LeftContent from '../views/Section/DetailProductView/LeftContent.vue'
 import RightContent from '../views/Section/DetailProductView/RightContent.vue'
 import BottomContent from '../views/Section/DetailProductView/BottomContent.vue'
-import PopularProduct from '../views/Section/HomeView/PopularProduct.vue'
+import RelatedItemsView from '../views/Section/DetailProductView/RelatedItemsView.vue'
 // End Import Section Detail Product
 
 defineProps<{
@@ -21,44 +22,78 @@ const route = useRoute()
 const { fetchProductById, loading } = useProducts()
 const productId = Number(route.params.id)
 const product = ref<Product | null>(null)
+const hasError = ref(false)
+const isLoaded = ref(false)
 
 onMounted(async () => {
-  product.value = await fetchProductById(productId)
+  const start = Date.now()
+  try {
+    product.value = await fetchProductById(productId)
+    hasError.value = false
+  } catch (error) {
+    hasError.value = true
+  } finally {
+    const elapsed = Date.now() - start
+    const delay = Math.max(2500 - elapsed, 0)
+    setTimeout(() => {
+      isLoaded.value = true
+    }, delay)
+  }
 })
 </script>
 
 <template>
   <main id="MainSingleProduct">
     <section class="SingleProduct">
-      <div class="Container">
-        <Breadcrumbs />
-        <!-- Loading state -->
-        <div v-if="loading">Loading...</div>
-        <div v-else>
-          <div v-if="errorMessage"></div>
-          <div class="SingleProductContent" v-if="product">
-            <div class="SingleProductTopContent">
-              <!-- Start Left Content -->
-              <LeftContent />
-              <!-- End Left Content -->
-
-              <!-- Start Right Content -->
-              <RightContent />
-              <!-- End Right Content -->
-            </div>
-
-            <!-- Start Bottom Content -->
-            <BottomContent />
-            <!-- End Bottom Content -->
-
-            <!-- Start Bottom Content -->
-            <PopularProduct />
-            <!-- End Bottom Content -->
-
-            <!-- Next Content -->
+      <!-- Start Loading Statement -->
+      <div class="MainLoading" v-if="loading || !isLoaded">
+        <div class="LoadingContainer">
+          <div class="LoadingContent">
+            <LoadingComponents />
+            <h6>Loading Product...</h6>
           </div>
-          <AlertBoxError v-else>Data tidak ditemukan.</AlertBoxError>
         </div>
+      </div>
+      <!-- End Loading Statement -->
+
+      <div class="Container" v-else>
+        <!-- Start Breadcrumbs Statement  -->
+        <Breadcrumbs />
+        <!-- End Breadcrumbs Statement  -->
+
+        <!-- Start Error Statement  -->
+        <div v-if="isLoaded && hasError">
+          <AlertBoxError>{{ errorMessage }}</AlertBoxError>
+        </div>
+        <!-- End Error Statement  -->
+
+        <!-- Start Main Content Detail Product -->
+        <div class="SingleProductContent" v-if="product">
+          <div class="SingleProductTopContent">
+            <!-- Start Left Content -->
+            <transition name="slide-up" mode="in-out">
+              <LeftContent />
+            </transition>
+            <!-- End Left Content -->
+
+            <!-- Start Right Content -->
+            <transition name="slide-up" mode="in-out">
+              <RightContent />
+            </transition>
+            <!-- End Right Content -->
+          </div>
+
+          <!-- Start Bottom Content -->
+          <BottomContent />
+          <!-- End Bottom Content -->
+
+          <!-- Start Bottom Content -->
+          <RelatedItemsView />
+          <!-- End Bottom Content -->
+        </div>
+        <!-- End Main Content Detail Product -->
+
+        <AlertBoxError v-else>Data tidak ditemukan.</AlertBoxError>
       </div>
     </section>
   </main>

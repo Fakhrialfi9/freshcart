@@ -1,37 +1,25 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useProducts } from '../../../function/useProduct.js'
-import { addToCart, type CartItem } from '../../../stores/AddToCart'
+import { useProducts, type Product } from '../../../function/useProduct.js'
+import { handleAddToCart } from '../../../function/FunctionAddToCart'
+import { handleAddToWishlist } from '../../../function/FunctionAddToWishlist'
 
 // Import Icons
 import IconShortArrowToRight from '../../../assets/icon/IconShortArrowToRight.vue'
 import IconStar from '../../../assets/icon/IconStar.vue'
-import IconArrowCompare from '../../../assets/icon/IconArrowCompare.vue'
 import IconWishlistFill from '../../../assets/icon/IconWishlistFill.vue'
 import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
 import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
-import { showNotification } from '../../../function/NotificationView.vue'
 
 const { products } = useProducts()
 
-const itemsPerPage = 7
-const currentPage = ref(1)
+const addToCartHandler = (product: Product) => {
+  handleAddToCart(product)
+}
 
-const paginatedProducts = computed(() => {
-  const startIndex = (currentPage.value - 1) * itemsPerPage
-  return products.value.slice(startIndex, startIndex + itemsPerPage)
-})
-
-const totalPages = computed(() => {
-  return Math.ceil(products.value.length / itemsPerPage)
-})
-
-const truncateText = (value: string, limit: number) => {
-  if (value.length > limit) {
-    return value.substring(0, limit) + '...'
-  }
-  return value
+const addToWishlistHandler = (product: Product) => {
+  handleAddToWishlist(product)
 }
 
 const hoverIndex = ref(-1)
@@ -64,33 +52,23 @@ function changePage(page: number) {
   currentPage.value = page
 }
 
-const handleAddToCart = (product: any) => {
-  if (product) {
-    const cartItem: CartItem = {
-      id: product.id,
-      imagesProduct: product.imagesProduct,
-      nameProduct: product.nameProduct,
-      priceProduct: product.priceProduct,
-      availabilityProduct: product.availabilityProduct,
-      quantity: 1,
-      badgesDiscountProduct: product.badgesDiscountProduct || [],
-      nameCategory: product.nameCategory || '',
-      codeProduct: product.codeProduct || '',
-      typeProduct: product.typeProduct || '',
-      promoProduct: product.promoProduct || false,
-      shippingProduct: product.shippingProduct || '',
-      promoGlobalProduct: product.promoGlobalProduct || []
-    }
+const itemsPerPage = 7
+const currentPage = ref(1)
 
-    addToCart(cartItem)
+const paginatedProducts = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage
+  return products.value.slice(startIndex, startIndex + itemsPerPage)
+})
 
-    showNotification(
-      `${product.nameProduct} - ${product.id}, successfully added to cart.`,
-      'success'
-    )
-  } else {
-    showNotification('Failed to add product to cart.', 'error')
+const totalPages = computed(() => {
+  return Math.ceil(products.value.length / itemsPerPage)
+})
+
+const truncateText = (value: string, limit: number) => {
+  if (value.length > limit) {
+    return value.substring(0, limit) + '...'
   }
+  return value
 }
 </script>
 
@@ -181,7 +159,7 @@ const handleAddToCart = (product: any) => {
             <!-- Button Card Box Product -->
             <ul class="ButtonAddCart">
               <li>
-                <button @click="handleAddToCart(product)">
+                <button @click="addToCartHandler(product)">
                   <IconAddPlus class="IconButtonAddCart" /> Cart
                 </button>
               </li>
@@ -217,28 +195,26 @@ const handleAddToCart = (product: any) => {
             </ul>
             <!-- End Count Down Card Box Product -->
 
-            <!-- Hover Component -->
-            <transition name="SlideFadeDropdown" mode="in-out">
-              <div
-                class="HoverButtonProduct"
-                v-if="hoverIndex === index + (currentPage - 1) * itemsPerPage && showButtonsFlag"
-              >
+            <!-- Start Pagination Content -->
+            <div
+              class="HoverButtonProduct"
+              v-if="hoverIndex === index + (currentPage - 1) * itemsPerPage && showButtonsFlag"
+            ></div>
+            <!-- End Pagination Content -->
+
+            <!-- Start Hover Component -->
+            <transition name="SlideFadeDropdown">
+              <div class="HoverButtonProduct" v-if="hoverIndex === index && showButtonsFlag">
                 <div class="ContainerHoverButtonProduct">
                   <RouterLink :to="'/detailproduct/' + product.id">
                     <button class="Tooltip">
                       <IconEyePriview class="IconHoverButtonProduct" />
-                      <span class="TooltipText">Preview</span>
+                      <span class="TooltipText">Priview</span>
                     </button>
                   </RouterLink>
-
-                  <button class="Tooltip">
+                  <button class="Tooltip" @click="addToWishlistHandler(product)">
                     <IconWishlistFill class="IconHoverButtonProduct" />
                     <span class="TooltipText">Wishlist</span>
-                  </button>
-
-                  <button class="Tooltip">
-                    <IconArrowCompare class="IconHoverButtonProduct" />
-                    <span class="TooltipText">Compare</span>
                   </button>
                 </div>
               </div>

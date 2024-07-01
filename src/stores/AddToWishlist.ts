@@ -31,6 +31,7 @@ export function addToWishlist(product: WishlistItem) {
   return false
 }
 
+// Function Delete & Selected
 export function deleteFromCart(productId: number) {
   WishlistItems.value = WishlistItems.value.filter((item) => item.id !== productId)
 }

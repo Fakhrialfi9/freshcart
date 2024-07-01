@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import Breadcrumbs from '../function/Breadcrumbs.vue'
+import Breadcrumbs from '../components/Breadcrumbs.vue'
 import {
   WishlistItems,
   deleteFromCart,

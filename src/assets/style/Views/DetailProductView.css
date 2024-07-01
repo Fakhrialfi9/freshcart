@@ -29,6 +29,7 @@ main {
 }
 
 .SingleProductContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -40,7 +41,7 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 2rem 0;
-  gap: 6.5rem;
+  gap: 3.5rem;
 }
 
 .SingleProductTopContent {
@@ -922,7 +923,7 @@ main {
   align-items: flex-start;
   align-content: center;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 2rem 0 0 0;
 }
 
 .slide-left-enter-active,
@@ -938,6 +939,72 @@ main {
 .slide-left-leave-to {
   opacity: 0;
   transform: translateX(-30px);
+}
+
+.MainLoading {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  background-color: white;
+  z-index: 9999 !important;
+}
+
+.MainLoading > .LoadingContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.MainLoading > .LoadingContainer > .LoadingContent {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin-top: -15%;
+  padding: 0;
+  gap: 1rem;
+}
+
+.MainLoading > .LoadingContainer > .LoadingContent > h6 {
+  font-size: 1.25rem;
+  color: var(--gray-color);
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.5s ease;
+}
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(100%);
+  opacity: 0;
+}
+.slide-up-enter-to,
+.slide-up-leave-from {
+  transform: translateY(0%);
+  opacity: 1;
 }
 
 /* ================================================================================================== */
@@ -966,6 +1033,14 @@ main {
   .InformationProduct-RightContent > ul > li > .Content-ProductName {
     font-size: 1.5rem !important;
   }
+
+  .MainLoading > .LoadingContainer {
+    margin-top: -50% !important;
+  }
+
+  .MainTabs > ul > li > a {
+    font-size: 0.85rem !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -993,6 +1068,10 @@ main {
   .InformationProduct-RightContent > ul > li > .Content-ProductName {
     font-size: 1.85rem !important;
   }
+
+  .MainTabs > ul > li > a {
+    font-size: 0.85rem !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -1013,6 +1092,10 @@ main {
   }
   .InformationProduct-RightContent > ul > li > .Content-ProductName {
     font-size: 2.1875rem !important;
+  }
+
+  .MainTabs > ul > li > a {
+    font-size: 0.85rem !important;
   }
 }
 

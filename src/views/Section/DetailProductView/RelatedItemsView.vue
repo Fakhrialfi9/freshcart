@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useProducts, type Product } from '../../../function/useProduct.js'
 import { handleAddToCart } from '../../../function/FunctionAddToCart'
@@ -21,6 +21,22 @@ const addToCartHandler = (product: Product) => {
 const addToWishlistHandler = (product: Product) => {
   handleAddToWishlist(product)
 }
+
+function changePage(page: number) {
+  currentPage.value = page
+}
+
+const itemsPerPage = 5
+const currentPage = ref(1)
+
+const paginatedProducts = computed(() => {
+  const startIndex = (currentPage.value - 1) * itemsPerPage
+  return products.value.slice(startIndex, startIndex + itemsPerPage)
+})
+
+const totalPages = computed(() => {
+  return Math.ceil(products.value.length / itemsPerPage)
+})
 
 const hoverIndex = ref(-1)
 const showButtonsFlag = ref(false)
@@ -62,13 +78,7 @@ const truncateText = (value: string, limit: number) => {
       <div class="ContentPopularProduct">
         <!-- Start Headline Section Home -->
         <ul class="HeadlineSection-Home">
-          <li><h5>Popular Product</h5></li>
-          <!-- <li>
-            <button>All</button>
-            <button>Hot Sale</button>
-            <button>Years Sale</button>
-            <button>Big Deals</button>
-          </li> -->
+          <li><h5>Related Items</h5></li>
         </ul>
         <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
@@ -76,7 +86,7 @@ const truncateText = (value: string, limit: number) => {
 
           <div
             class="CardPopularProduct"
-            v-for="(product, index) in products"
+            v-for="(product, index) in paginatedProducts"
             :key="product.id"
             @mouseover="showButtons(index)"
             @mouseleave="hideButtons(index)"

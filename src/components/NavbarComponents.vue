@@ -5,7 +5,6 @@ import NavbarBottomContent from '../components/Section/NavbarComponents/NavbarBo
 import ModalsBasketCartContent from '../components/Section/NavbarComponents/ModalsBasketCartContent.vue'
 import MenuMobileSlider from '../components/Section/NavbarComponents/MenuMobileSlider.vue'
 import NavbarBottomMobileContent from '../components/Section/NavbarComponents/NavbarBottomMobileContent.vue'
-import NotificationView from '../function/NotificationView.vue'
 
 // End Section Navbar Content
 
@@ -53,10 +52,6 @@ function setToggleOpenMenuMobileSlider() {
             @ToggleOpenContentMenuMobileSlider="setToggleOpenMenuMobileSlider"
           />
           <!-- End Navbar Top Content -->
-
-          <!-- Start Notification -->
-          <NotificationView />
-          <!-- End Notification -->
 
           <!-- Start Navbar Bottom Content -->
           <NavbarBottomContent />

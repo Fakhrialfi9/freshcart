@@ -2,15 +2,31 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProducts, type Product } from '../../../function/useProduct'
-import { addToCart, type CartItem } from '../../../stores/AddToCart'
-import { addToWishlist, type WishlistItem } from '../../../stores/AddToWishlist'
+import { handleAddToCart } from '../.../../../../function/FunctionAddToCart'
+import { handleAddToWishlist } from '../.../../../../function/FunctionAddToWishlist'
 
-import { showNotification } from '../../../function/NotificationView.vue'
 import IconStar from '../../../assets/icon/IconStar.vue'
 import IconPlaneSend from '../../../assets/icon/IconPlaneSend.vue'
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 
-const hoverRating = ref(0)
+const route = useRoute()
+const { fetchProductById } = useProducts()
+const productId = Number(route.params.id)
+const product = ref<Product | null>(null)
+
+onMounted(async () => {
+  product.value = await fetchProductById(productId)
+})
+
+const addToCartHandler = () => {
+  handleAddToCart(product.value)
+}
+
+const addToWishlistHandler = () => {
+  handleAddToWishlist(product.value)
+}
+
+const hoverRating = ref(1)
 
 function setRating(rating: number) {
   hoverRating.value = rating
@@ -25,73 +41,6 @@ function resetHoverRating() {
 }
 
 const open = ref(false)
-
-const route = useRoute()
-const { fetchProductById } = useProducts()
-const productId = Number(route.params.id)
-const product = ref<Product | null>(null)
-
-onMounted(async () => {
-  product.value = await fetchProductById(productId)
-})
-
-// Add product to cart
-const handleAddToCart = () => {
-  if (product.value) {
-    console.log('Adding product to cart:', product.value)
-    const cartItem: CartItem = {
-      id: product.value.id,
-      imagesProduct: product.value.imagesProduct,
-      nameProduct: product.value.nameProduct,
-      priceProduct: product.value.priceProduct,
-      availabilityProduct: product.value.availabilityProduct,
-      quantity: 1,
-      badgesDiscountProduct: [],
-      nameCategory: '',
-      codeProduct: '',
-      typeProduct: '',
-      promoProduct: false,
-      shippingProduct: '',
-      promoGlobalProduct: []
-    }
-    addToCart(cartItem)
-    showNotification(
-      `${product.value.nameProduct} - ${product.value.id}, 
-      successfully added to cart.`,
-      'success'
-    )
-  } else {
-    showNotification('Failed to add product to cart.', 'error')
-  }
-}
-
-// Add product to wishlist
-const handleAddToWishlist = () => {
-  if (product.value) {
-    console.log('Adding product to wishlist:', product.value)
-    const wishlistItem: WishlistItem = {
-      id: product.value.id,
-      nameProduct: product.value.nameProduct,
-      badgesDiscountProduct: [],
-      imagesProduct: product.value.imagesProduct,
-      priceProduct: product.value.priceProduct,
-      codeProduct: product.value.codeProduct,
-      availabilityProduct: product.value.availabilityProduct,
-      typeProduct: product.value.typeProduct,
-      promoProduct: product.value.promoProduct,
-      shippingProduct: product.value.shippingProduct,
-      promoGlobalProduct: product.value.promoGlobalProduct
-    }
-    addToWishlist(wishlistItem)
-    showNotification(
-      `${product.value.nameProduct} - ${product.value.id}
-      successfully added to wishlist.`,
-      'success'
-    )
-  } else {
-    showNotification('Failed to add product to wishlist.', 'error')
-  }
-}
 </script>
 
 <template>
@@ -99,7 +48,7 @@ const handleAddToWishlist = () => {
     <div class="InformationProduct-RightContent">
       <ul>
         <li>
-          <span class="Content-ProductCategoty">{{ product.nameCategory }}</span>
+          <span class="Content-ProductCategory">{{ product.nameCategory }}</span>
           <h3 class="Content-ProductName">{{ product.nameProduct }}</h3>
           <div class="Container-ProductRating">
             <div class="Content-ProductRating">
@@ -170,12 +119,12 @@ const handleAddToWishlist = () => {
           </div>
 
           <div class="Content-ButtonCallToAction">
-            <button class="ButtonAddToCart" @click="handleAddToCart">Add To Cart</button>
+            <button class="ButtonAddToCart" @click="addToCartHandler">Add To Cart</button>
             <button @click="open = true" class="ButtonShare Tooltip">
               <IconPlaneSend class="IconButtonShare" />
               <span class="TooltipText">Share</span>
             </button>
-            <button class="ButtonWishlist Tooltip" @click="handleAddToWishlist">
+            <button class="ButtonWishlist Tooltip" @click="addToWishlistHandler">
               <IconWishlist />
               <span class="TooltipText">Like</span>
             </button>

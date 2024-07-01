@@ -1,7 +1,7 @@
 @media (max-width: 576px) {
   .Container {
-    width: 95%;
-    max-width: 576px;
+    width: 95% !important;
+    max-width: 576px !important;
     user-select: none !important;
   }
 
@@ -42,8 +42,8 @@
 
 @media (min-width: 577px) and (max-width: 768px) {
   .Container {
-    width: 95%;
-    max-width: 768px;
+    width: 95% !important;
+    max-width: 768px !important;
     user-select: none !important;
   }
   .DisplayNone-MD {
@@ -76,7 +76,7 @@
 
 @media (min-width: 768px) and (max-width: 991px) {
   .Container {
-    width: 95%;
+    width: 95% !important;
     max-width: 991px;
     user-select: none !important;
   }
@@ -111,7 +111,7 @@
 
 @media (min-width: 992px) and (max-width: 1200px) {
   .Container {
-    width: 90%;
+    width: 90% !important;
     max-width: 1200px;
     user-select: none !important;
   }

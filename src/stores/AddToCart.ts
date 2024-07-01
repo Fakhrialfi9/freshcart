@@ -32,6 +32,7 @@ export function addToCart(product: CartItem) {
   }
 }
 
+// Function Delete & Selected
 export function deleteFromCart(productId: number) {
   CartItems.value = CartItems.value.filter((item) => item.id !== productId)
 }
