@@ -3,22 +3,14 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProducts, type Product } from '../../../function/useProduct'
 import { addToCart, type CartItem } from '../../../stores/AddToCart'
+import { addToWishlist, type WishlistItem } from '../../../stores/AddToWishlist'
 
+import { showNotification } from '../../../function/NotificationView.vue'
 import IconStar from '../../../assets/icon/IconStar.vue'
 import IconPlaneSend from '../../../assets/icon/IconPlaneSend.vue'
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 
-const route = useRoute()
-const { fetchProductById, loading } = useProducts()
-const productId = Number(route.params.id)
-const product = ref<Product | null>(null)
-
-onMounted(async () => {
-  product.value = await fetchProductById(productId)
-})
-
 const hoverRating = ref(0)
-const isClicked = ref(false)
 
 function setRating(rating: number) {
   hoverRating.value = rating
@@ -32,24 +24,21 @@ function resetHoverRating() {
   hoverRating.value = 0
 }
 
-const count = ref(100)
 const open = ref(false)
 
-const toggleColor = () => {
-  isClicked.value = !isClicked.value
-}
+const route = useRoute()
+const { fetchProductById } = useProducts()
+const productId = Number(route.params.id)
+const product = ref<Product | null>(null)
 
-const handleClick = () => {
-  toggleColor()
-  if (isClicked.value) {
-    count.value++
-  } else {
-    count.value--
-  }
-}
+onMounted(async () => {
+  product.value = await fetchProductById(productId)
+})
 
+// Add product to cart
 const handleAddToCart = () => {
   if (product.value) {
+    console.log('Adding product to cart:', product.value)
     const cartItem: CartItem = {
       id: product.value.id,
       imagesProduct: product.value.imagesProduct,
@@ -66,6 +55,41 @@ const handleAddToCart = () => {
       promoGlobalProduct: []
     }
     addToCart(cartItem)
+    showNotification(
+      `${product.value.nameProduct} - ${product.value.id}, 
+      successfully added to cart.`,
+      'success'
+    )
+  } else {
+    showNotification('Failed to add product to cart.', 'error')
+  }
+}
+
+// Add product to wishlist
+const handleAddToWishlist = () => {
+  if (product.value) {
+    console.log('Adding product to wishlist:', product.value)
+    const wishlistItem: WishlistItem = {
+      id: product.value.id,
+      nameProduct: product.value.nameProduct,
+      badgesDiscountProduct: [],
+      imagesProduct: product.value.imagesProduct,
+      priceProduct: product.value.priceProduct,
+      codeProduct: product.value.codeProduct,
+      availabilityProduct: product.value.availabilityProduct,
+      typeProduct: product.value.typeProduct,
+      promoProduct: product.value.promoProduct,
+      shippingProduct: product.value.shippingProduct,
+      promoGlobalProduct: product.value.promoGlobalProduct
+    }
+    addToWishlist(wishlistItem)
+    showNotification(
+      `${product.value.nameProduct} - ${product.value.id}
+      successfully added to wishlist.`,
+      'success'
+    )
+  } else {
+    showNotification('Failed to add product to wishlist.', 'error')
   }
 }
 </script>
@@ -76,26 +100,28 @@ const handleAddToCart = () => {
       <ul>
         <li>
           <span class="Content-ProductCategoty">{{ product.nameCategory }}</span>
-          <h2 class="Content-ProductName">{{ product.nameProduct }}</h2>
-          <div class="Content-ProductRating">
-            <span
-              v-for="StarRatingProduct in 5"
-              :key="StarRatingProduct"
-              :class="[
-                'StarRatingProduct',
-                {
-                  SelectedRating:
-                    StarRatingProduct <=
-                    product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
-                  HoverRatingProduct: StarRatingProduct <= hoverRating
-                }
-              ]"
-              @click="setRating(StarRatingProduct)"
-              @mouseover="setHoverRating(StarRatingProduct)"
-              @mouseleave="resetHoverRating"
-            >
-              <IconStar class="IconStar" />
-            </span>
+          <h3 class="Content-ProductName">{{ product.nameProduct }}</h3>
+          <div class="Container-ProductRating">
+            <div class="Content-ProductRating">
+              <span
+                v-for="StarRatingProduct in 5"
+                :key="StarRatingProduct"
+                :class="[
+                  'StarRatingProduct',
+                  {
+                    SelectedRating:
+                      StarRatingProduct <=
+                      product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
+                    HoverRatingProduct: StarRatingProduct <= hoverRating
+                  }
+                ]"
+                @click="setRating(StarRatingProduct)"
+                @mouseover="setHoverRating(StarRatingProduct)"
+                @mouseleave="resetHoverRating"
+              >
+                <small> <IconStar class="IconStar" /></small>
+              </span>
+            </div>
             <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
               {{ product.ratingsProduct[0].countRatingProduct }}
             </p>
@@ -149,12 +175,8 @@ const handleAddToCart = () => {
               <IconPlaneSend class="IconButtonShare" />
               <span class="TooltipText">Share</span>
             </button>
-            <button class="ButtonWishlist Tooltip">
-              <IconWishlist
-                :class="['IconButtonWishlist', { clicked: isClicked }]"
-                @click="handleClick"
-              />
-              <h6>{{ count }}</h6>
+            <button class="ButtonWishlist Tooltip" @click="handleAddToWishlist">
+              <IconWishlist />
               <span class="TooltipText">Like</span>
             </button>
             <Transition name="slide-up" mode="out-in">

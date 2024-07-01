@@ -1,35 +1,34 @@
-// stores/AddToCart.ts
+// stores/AddToWishlist.ts
 import { ref } from 'vue'
 
 export interface WishlistItem {
   id: number
+  nameProduct: string
   badgesDiscountProduct: string[]
   imagesProduct: string[]
-  nameCategory: string
-  nameProduct: string
   priceProduct: number
   codeProduct: string
   availabilityProduct: boolean
   typeProduct: string
   promoProduct: boolean
   shippingProduct: string
-  quantity: number
   promoGlobalProduct: {
     discountPrice: number
     percentageDiscount: number
   }[]
+
   selected?: boolean
 }
 
 export const WishlistItems = ref<WishlistItem[]>([])
 
-export function addToCart(product: WishlistItem) {
+export function addToWishlist(product: WishlistItem) {
   const existingItem = WishlistItems.value.find((item) => item.id === product.id)
-  if (existingItem) {
-    existingItem.quantity += product.quantity
-  } else {
-    WishlistItems.value.push({ ...product, quantity: 1, selected: false })
+  if (!existingItem) {
+    WishlistItems.value.push({ ...product })
+    return true
   }
+  return false
 }
 
 export function deleteFromCart(productId: number) {

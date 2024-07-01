@@ -2,6 +2,9 @@
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useProducts } from '../../../function/useProduct.js'
+import { addToCart, type CartItem } from '../../../stores/AddToCart'
+
+import { showNotification } from '../../../function/NotificationView.vue'
 
 // Start Import Icon
 import IconStar from '../../../assets/icon/IconStar.vue'
@@ -45,6 +48,35 @@ function setHoverRating(rating: number) {
 function resetHoverRating() {
   hoverRating.value = 0
 }
+
+const handleAddToCart = (product: any) => {
+  if (product) {
+    const cartItem: CartItem = {
+      id: product.id,
+      imagesProduct: product.imagesProduct,
+      nameProduct: product.nameProduct,
+      priceProduct: product.priceProduct,
+      availabilityProduct: product.availabilityProduct,
+      quantity: 1,
+      badgesDiscountProduct: product.badgesDiscountProduct || [],
+      nameCategory: product.nameCategory || '',
+      codeProduct: product.codeProduct || '',
+      typeProduct: product.typeProduct || '',
+      promoProduct: product.promoProduct || false,
+      shippingProduct: product.shippingProduct || '',
+      promoGlobalProduct: product.promoGlobalProduct || []
+    }
+
+    addToCart(cartItem)
+
+    showNotification(
+      `${product.nameProduct} - ${product.id}, successfully added to cart.`,
+      'success'
+    )
+  } else {
+    showNotification('Failed to add product to cart.', 'error')
+  }
+}
 </script>
 
 <template>
@@ -64,106 +96,106 @@ function resetHoverRating() {
         <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
           <!-- Start Content Card Product -->
-          <RouterLink
+
+          <div
+            class="CardPopularProduct"
             v-for="(product, index) in products"
             :key="product.id"
-            :to="'/detailproduct/' + product.id"
+            @mouseover="showButtons(index)"
+            @mouseleave="hideButtons(index)"
           >
-            <div
-              class="CardPopularProduct"
-              @mouseover="showButtons(index)"
-              @mouseleave="hideButtons(index)"
+            <!-- Start Badge & Image Card Box Product -->
+            <span
+              class="Badge-CardPopularProduct"
+              v-if="product.badgesDiscountProduct.length > 0"
+              >{{ product.badgesDiscountProduct[0] }}</span
             >
-              <!-- Start Badge & Image Card Box Product -->
-              <span
-                class="Badge-CardPopularProduct"
-                v-if="product.badgesDiscountProduct.length > 0"
-                >{{ product.badgesDiscountProduct[0] }}</span
-              >
-              <div class="Image-CardPopularProduct">
-                <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
-              </div>
-
-              <!-- End Badge & Image Card Box Product -->
-
-              <!-- Start Headline Card Box Product -->
-              <ul class="Headline-CardPopularProduct">
-                <li>
-                  <span>{{ product.nameCategory }}</span>
-                </li>
-                <li>
-                  <h5>{{ truncateText(product.nameProduct, 18) }}</h5>
-                </li>
-                <li>
-                  <div class="RatingProduct">
-                    <span
-                      v-for="StarRatingProduct in 5"
-                      :key="StarRatingProduct"
-                      :class="[
-                        'StarRatingProduct',
-                        {
-                          SelectedRating:
-                            StarRatingProduct <=
-                            product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
-                          HoverRatingProduct: StarRatingProduct <= hoverRating
-                        }
-                      ]"
-                      @click="setRating(StarRatingProduct)"
-                      @mouseover="setHoverRating(StarRatingProduct)"
-                      @mouseleave="resetHoverRating"
-                    >
-                      <IconStar class="IconStar" />
-                    </span>
-                    <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
-                      {{ product.ratingsProduct[0].countRatingProduct }}
-                    </p>
-                  </div>
-                </li>
-              </ul>
-              <!-- End Headline Card Box Product -->
-
-              <!-- Start Price & Button Card Box Product -->
-              <ul class="PriceCart-CardPopularProduct">
-                <li>
-                  <p
-                    v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
-                    class="Promo"
-                  >
-                    {{ product.promoGlobalProduct[0].discountPrice }}
-                  </p>
-                  <p class="Price">{{ product.priceProduct }}</p>
-                </li>
-                <li>
-                  <button><IconAddPlus class="IconButtonAddCart" /> Cart</button>
-                </li>
-              </ul>
-              <!-- End Price & Button Card Box Product -->
-
-              <!-- Start Hover Component -->
-              <transition name="SlideFadeDropdown">
-                <div class="HoverButtonProduct" v-if="hoverIndex === index && showButtonsFlag">
-                  <div class="ContainerHoverButtonProduct">
-                    <RouterLink :to="'/detailproduct/' + product.id">
-                      <button class="Tooltip">
-                        <IconEyePriview class="IconHoverButtonProduct" />
-                        <span class="TooltipText">Priview</span>
-                      </button>
-                    </RouterLink>
-                    <button class="Tooltip">
-                      <IconWishlistFill class="IconHoverButtonProduct" />
-                      <span class="TooltipText">Wishlist</span>
-                    </button>
-
-                    <button class="Tooltip">
-                      <IconArrowCompare class="IconHoverButtonProduct" />
-                      <span class="TooltipText">Compare</span>
-                    </button>
-                  </div>
-                </div>
-              </transition>
-              <!-- End Hover Component -->
+            <div class="Image-CardPopularProduct">
+              <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
             </div>
-          </RouterLink>
+
+            <!-- End Badge & Image Card Box Product -->
+
+            <!-- Start Headline Card Box Product -->
+            <ul class="Headline-CardPopularProduct">
+              <li>
+                <span>{{ product.nameCategory }}</span>
+              </li>
+              <li>
+                <h5>{{ truncateText(product.nameProduct, 18) }}</h5>
+              </li>
+              <li>
+                <div class="RatingProduct">
+                  <span
+                    v-for="StarRatingProduct in 5"
+                    :key="StarRatingProduct"
+                    :class="[
+                      'StarRatingProduct',
+                      {
+                        SelectedRating:
+                          StarRatingProduct <=
+                          product.ratingsProduct[StarRatingProduct - 1].countRatingProduct,
+                        HoverRatingProduct: StarRatingProduct <= hoverRating
+                      }
+                    ]"
+                    @click="setRating(StarRatingProduct)"
+                    @mouseover="setHoverRating(StarRatingProduct)"
+                    @mouseleave="resetHoverRating"
+                  >
+                    <IconStar class="IconStar" />
+                  </span>
+                  <p v-if="product.ratingsProduct && product.ratingsProduct.length > 0">
+                    {{ product.ratingsProduct[0].countRatingProduct }}
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <!-- End Headline Card Box Product -->
+
+            <!-- Start Price & Button Card Box Product -->
+            <ul class="PriceCart-CardPopularProduct">
+              <li>
+                <p
+                  v-if="product.promoGlobalProduct && product.promoGlobalProduct.length > 0"
+                  class="Promo"
+                >
+                  {{ product.promoGlobalProduct[0].discountPrice }}
+                </p>
+                <p class="Price">{{ product.priceProduct }}</p>
+              </li>
+              <li>
+                <button @click="handleAddToCart(product)">
+                  <IconAddPlus class="IconButtonAddCart" /> Add
+                </button>
+              </li>
+            </ul>
+            <!-- End Price & Button Card Box Product -->
+
+            <!-- Start Hover Component -->
+            <transition name="SlideFadeDropdown">
+              <div class="HoverButtonProduct" v-if="hoverIndex === index && showButtonsFlag">
+                <div class="ContainerHoverButtonProduct">
+                  <RouterLink :to="'/detailproduct/' + product.id">
+                    <button class="Tooltip">
+                      <IconEyePriview class="IconHoverButtonProduct" />
+                      <span class="TooltipText">Priview</span>
+                    </button>
+                  </RouterLink>
+                  <button class="Tooltip">
+                    <IconWishlistFill class="IconHoverButtonProduct" />
+                    <span class="TooltipText">Wishlist</span>
+                  </button>
+
+                  <button class="Tooltip">
+                    <IconArrowCompare class="IconHoverButtonProduct" />
+                    <span class="TooltipText">Compare</span>
+                  </button>
+                </div>
+              </div>
+            </transition>
+            <!-- End Hover Component -->
+          </div>
+
           <!-- End Content Card Product -->
         </div>
       </div>

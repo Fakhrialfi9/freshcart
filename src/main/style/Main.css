@@ -40,7 +40,7 @@ main {
   margin: 0 auto;
   padding: 0;
   z-index: 0 !important;
-  z-index: 999 !important;
+  z-index: 9 !important;
 }
 
 .slide-enter-active,
@@ -66,5 +66,5 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  z-index: 0 !important;
+  z-index: 1 !important;
 }

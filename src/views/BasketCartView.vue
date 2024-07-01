@@ -26,7 +26,6 @@ function filterProducts() {
 }
 
 const searchQuery = ref('')
-
 const filteredCartItems = computed(() => {
   if (!searchQuery.value.trim()) {
     return CartItems.value
@@ -56,16 +55,14 @@ watch(searchQuery, () => {})
               <input type="text" placeholder="Search Your Product" v-model="searchQuery" />
             </form>
 
-            <button
+            <!-- <button
               class="CheckAllDelete DisplayNone-SM DisplayNone-MD DisplayNone-LG"
               @click="deleteSelectedProducts"
             >
               Delete All
-            </button>
+            </button> -->
           </div>
-          <div
-            class="NavigationBasketCartContent DisplayNone DisplayBlock-LG DisplayBlock-MD DisplayBlock-SM"
-          >
+          <div class="NavigationBasketCartContent">
             <button class="Button-NavigationBasketCartContent">
               <input
                 type="checkbox"
@@ -79,7 +76,7 @@ watch(searchQuery, () => {})
             <button class="CheckAllDelete" @click="deleteSelectedProducts">Delete All</button>
           </div>
           <div class="ContainerCardBoxBasketCartContent">
-            <div v-if="filteredCartItems">
+            <div class="ContentCardBoxBasketCartContent" v-if="filteredCartItems">
               <div
                 class="CardBoxBasketCartContent"
                 v-for="product in filteredCartItems"
@@ -164,18 +161,20 @@ watch(searchQuery, () => {})
             </div>
 
             <!-- Start Search Not Found Product -->
-            <div v-else>
-              <h6>No products found</h6>
+            <div class="ProductNotFound" v-else>
+              <h6>No Product Found</h6>
             </div>
             <!-- End Search Not Found Product -->
 
             <!-- Start Product Cart Empty  -->
             <div class="ProductEmpty" v-if="filteredCartItems && filteredCartItems.length === 0">
-              <h6>No products found</h6>
+              <h6>Your Cart Is Empty</h6>
             </div>
             <!-- End Product Cart Empty  -->
           </div>
-          <div
+
+          <!-- Start Optional Navigasi Select & Filter -->
+          <!-- <div
             class="NavigationButtonShortCut DisplayNone-LG DisplayNone-MD DisplayNone-SM"
             ref="navShortcut"
           >
@@ -191,7 +190,8 @@ watch(searchQuery, () => {})
               <p>Select All</p>
             </button>
             <button @click="filterProducts">Filter Product</button>
-          </div>
+          </div> -->
+          <!-- End Optional Navigasi Select & Filter -->
         </div>
       </div>
     </section>

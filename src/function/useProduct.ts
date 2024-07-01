@@ -3,6 +3,7 @@ import GetProduct from '../services/APi/GetProduct'
 
 // Define Product interface
 export interface Product {
+  type: string
   id: number
   badgesDiscountProduct: string[]
   imagesProduct: string[]
