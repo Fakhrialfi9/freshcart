@@ -224,4 +224,4 @@ watch(searchQuery, () => {
   </main>
 </template>
 
-<style scoped src="../assets/style/Components/WishlistView.css"></style>
+<style scoped src="../assets/style/Views/WishlistView.css"></style>

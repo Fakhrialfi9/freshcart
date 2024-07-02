@@ -11,7 +11,7 @@
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 11.5rem 0.5rem;
   background-color: var(--white-color);
   border: 0.1rem solid var(--gray-200);
   transition: right 0.3s ease-in-out;
@@ -38,7 +38,9 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100%;
   height: auto;
+  max-height: auto;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 0 auto;

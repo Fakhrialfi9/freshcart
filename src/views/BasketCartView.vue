@@ -263,4 +263,4 @@ watch(searchQuery, () => {
   </main>
 </template>
 
-<style scoped src="../assets/style/Components/BasketCartView.css"></style>
+<style scoped src="../assets/style/Views/BasketCartView.css"></style>
