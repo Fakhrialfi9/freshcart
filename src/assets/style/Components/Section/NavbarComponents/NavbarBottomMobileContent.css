@@ -14,7 +14,7 @@
   padding: 0;
   background-color: transparent;
   box-sizing: border-box;
-  z-index: 999 !important;
+  z-index: 99 !important;
 }
 /* 
 .NavbarBottomMobileContent {
