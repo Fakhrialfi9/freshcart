@@ -1,0 +1,364 @@
+/* Start Slider Filter Wishlist & Basket Cart */
+.SliderFilterWishlistBasketCart {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  top: 0 !important;
+  left: 0 !important;
+  width: 30%;
+  max-width: 100vw;
+  height: 100%;
+  min-height: 100vh !important;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 0 auto;
+  padding: 1.5rem 1.5rem;
+  background-color: var(--white-color);
+  border: 0.1rem solid var(--gray-200);
+  transition: right 0.3s ease-in-out;
+  overflow-y: auto !important;
+  box-sizing: border-box;
+  z-index: 9999 !important;
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.SlideFadeToggleMenu-enter-active,
+.SlideFadeToggleMenu-leave-active {
+  transition: all 0.5s ease;
+}
+
+.SlideFadeToggleMenu-enter-from,
+.SlideFadeToggleMenu-leave-to {
+  transform: translateX(-100%);
+}
+
+.SliderFilterWishlistBasketCart > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .HeadlineFilter {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .HeadlineFilter > h5 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory > span {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  cursor: pointer;
+  color: var(--gray-500) !important;
+  transition: all 0.5s ease;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory > span:hover {
+  color: var(--primary-color) !important;
+  cursor: pointer;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory > span:before {
+  content: '';
+  width: 0;
+  max-width: 0;
+  height: 2.05rem;
+  position: absolute;
+  padding: 0.5rem 0;
+  border-bottom: 0.05rem solid var(--primary-color);
+  z-index: -1;
+  transition: width 0.3s ease; /* Transisi untuk lebar */
+}
+
+.SliderFilterWishlistBasketCart
+  > ul
+  > li
+  > .FilterCategory
+  > .MenuFilterCategory
+  > span:hover::before {
+  content: '';
+  width: 100%;
+  max-width: 100%;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory > span > a {
+  color: inherit !important;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterCategory > .MenuFilterCategory > span:hover > a {
+  cursor: pointer;
+}
+
+.IconChevronDown {
+  color: inherit !important;
+  width: 0.75rem;
+  transform: rotate(-90deg);
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterInputSearchStores {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterInputSearchStores > h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.SliderFilterWishlistBasketCart
+  > ul
+  > li
+  > .FilterInputSearchStores
+  > .InputSearchStores-FilterContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+.SliderFilterWishlistBasketCart
+  > ul
+  > li
+  > .FilterInputSearchStores
+  > .InputSearchStores-FilterContent
+  input[type='text'] {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterInputSearchStores > span {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterInputSearchStores > span > label {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.SliderFilterWishlistBasketCart
+  > ul
+  > li
+  > .FilterInputSearchStores
+  > span
+  > label
+  > input[type='checkbox'] {
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: var(--border-radius-sm) !important;
+  border: 0.1rem solid var(--primary-color);
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterInputSearchStores > span > label > p {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterPriceProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterPriceProduct > h5 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.SliderFilterWishlistBasketCart > ul > li > .FilterPriceProduct > .InputPrice-FilterContent {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+.SliderFilterWishlistBasketCart
+  > ul
+  > li
+  > .FilterPriceProduct
+  > .InputPrice-FilterContent
+  input[type='text'] {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.85rem !important;
+}
+
+/* Start Slider Filter Wishlist & Basket Cart */
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .SliderFilterWishlistBasketCart {
+    width: 100%;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .SliderFilterWishlistBasketCart {
+    width: 100%;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .SliderFilterWishlistBasketCart {
+    width: 100%;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .SliderFilterWishlistBasketCart {
+    width: 50%;
+  }
+}

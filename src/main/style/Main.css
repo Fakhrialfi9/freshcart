@@ -24,7 +24,6 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  z-index: 9999 !important;
 }
 
 .MainContent {
@@ -39,8 +38,6 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  z-index: 0 !important;
-  z-index: 9 !important;
 }
 
 .slide-enter-active,
@@ -66,5 +63,5 @@ main {
   align-content: center;
   margin: 0 auto;
   padding: 0;
-  z-index: 1 !important;
+  z-index: -1 !important;
 }

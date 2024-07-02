@@ -1,28 +1,24 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
+import InstallApps from '../../components/InstallAppsComponents.vue'
+import NotificationView from '../../components/NotificationComponents.vue'
 
-import InstallApps from '../../components/InstallApps.vue'
-import NotificationView from '../../components/NotificationView.vue'
-
-// Start Style Global
+// Import style global
 import '../../main/style/Framework.css'
 import '../../main/style/Root.css'
 import '../../main/style/Responsive.css'
-// End Style Global
+// End style global
 </script>
 
 <template>
-  <!-- Start InstallApps -->
+  <!-- Komponen InstallApps -->
   <InstallApps />
-  <!-- End InstallApps -->
 
-  <!-- Start Router View -->
+  <!-- Router View untuk menampilkan komponen sesuai dengan route -->
   <RouterView />
-  <!-- End Router View -->
 
-  <!-- Start Notification -->
+  <!-- Komponen NotificationView -->
   <NotificationView />
-  <!-- End Notification -->
 </template>
 
 <style scoped src="../../main/style/Main.css"></style>

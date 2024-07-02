@@ -1,9 +1,12 @@
-<script lang="ts">
-// Start Import Router Link & Router View
+<script setup lang="ts">
 import { RouterLink } from 'vue-router'
-// End Import Router Link & Router View
 
-// Start Image Import
+// Import komponen ikon dari file Vue
+import IconInstagram from '../assets/icon/IconInstagram.vue'
+import IconFacebook from '../assets/icon/IconFacebook.vue'
+import IconTwitter from '../assets/icon/IconTwitter.vue'
+
+// Import semua gambar logo brand dan tombol download dari folder assets
 import AmazonPay from './../assets/logo/logo-brand/amazonpay.svg'
 import AmericanExpress from './../assets/logo/logo-brand/american-express.svg'
 import MasterCard from './../assets/logo/logo-brand/mastercard.svg'
@@ -11,30 +14,6 @@ import Paypal from './../assets/logo/logo-brand/paypal.svg'
 import Visa from './../assets/logo/logo-brand/visa.svg'
 import DownloadAppStore from './../assets/image/other/appstore-btn.svg'
 import DownloadPlayStore from './../assets/image/other/googleplay-btn.svg'
-// Start Image Import
-
-export default {
-  components: {
-    RouterLink
-  },
-  data() {
-    return {
-      AmazonPay,
-      AmericanExpress,
-      MasterCard,
-      Paypal,
-      Visa,
-      DownloadAppStore,
-      DownloadPlayStore
-    }
-  }
-}
-</script>
-
-<script setup lang="ts">
-import IconInstagram from '../assets/icon/IconInstagram.vue'
-import IconFacebook from '../assets/icon/IconFacebook.vue'
-import IconTwitter from '../assets/icon/IconTwitter.vue'
 </script>
 
 <template>

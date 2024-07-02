@@ -3,6 +3,7 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
+// Interface untuk Notification
 interface Notification {
   id: number
   message: string
@@ -11,11 +12,22 @@ interface Notification {
   destination?: 'wishlist' | 'cart'
 }
 
+// Inisialisasi ID notifikasi berikutnya
 let nextNotificationId = 1
+
+// Referensi untuk waktu saat ini
 let currentTime = ref(formatTime(new Date()))
 
+// Referensi untuk daftar notifikasi
 const notifications = ref<Notification[]>([])
 
+/**
+ * Menampilkan notifikasi baru
+ * @param newMessage - Pesan notifikasi
+ * @param newType - Tipe notifikasi ('success' atau 'error')
+ * @param url - URL tujuan (opsional)
+ * @param destination - Tujuan notifikasi ('wishlist' atau 'cart', opsional)
+ */
 export function showNotification(
   newMessage: string,
   newType: 'success' | 'error',
@@ -24,10 +36,13 @@ export function showNotification(
 ) {
   const id = nextNotificationId++
   notifications.value.push({ id, message: newMessage, type: newType, url, destination })
-  console.log('Notification triggered:', newMessage, newType)
   setTimeout(() => hideNotification(id), 4500)
 }
 
+/**
+ * Menyembunyikan notifikasi berdasarkan ID
+ * @param id - ID notifikasi yang akan disembunyikan
+ */
 function hideNotification(id: number) {
   const index = notifications.value.findIndex((notification) => notification.id === id)
   if (index !== -1) {
@@ -35,12 +50,16 @@ function hideNotification(id: number) {
   }
 }
 
-// Update current time every second
+// Memperbarui waktu saat ini setiap detik
 setInterval(() => {
   currentTime.value = formatTime(new Date())
 }, 1000)
 
-// Format time function
+/**
+ * Memformat waktu menjadi string dengan format HH:mm
+ * @param date - Objek Date yang akan diformat
+ * @returns - String waktu dalam format HH:mm
+ */
 function formatTime(date: Date) {
   let hours = date.getHours()
   let minutes = date.getMinutes()
@@ -51,6 +70,10 @@ export default defineComponent({
   name: 'NotificationView',
 
   setup() {
+    /**
+     * Navigasi ke URL yang diberikan
+     * @param url - URL tujuan
+     */
     function goToUrl(url: string) {
       window.location.href = url
     }

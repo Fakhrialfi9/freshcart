@@ -78,5 +78,4 @@ onMounted(async () => {
 </template>
 
 <style scoped src="../../../assets/style/Views/DetailProductView.css"></style>
-
 <style scoped src="../../../assets/style/Views/DetailProductView.css"></style>

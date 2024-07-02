@@ -97,7 +97,7 @@ import IconChevronDown from '../../../assets/icon/IconChevronDown.vue'
 
       <!-- Start Home Menu  -->
       <li>
-        <RouterLink to="/home">Home</RouterLink>
+        <RouterLink to="/home" active-class="ActiveLinkNavbar">Home</RouterLink>
       </li>
       <!-- End Home Menu  -->
 

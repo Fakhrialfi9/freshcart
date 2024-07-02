@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useProducts, type Product } from '../../../function/useProduct.js'
+import { useProducts, type Product } from '../../../function/useProduct'
 import { handleAddToCart } from '../../../function/FunctionAddToCart'
 import { handleAddToWishlist } from '../../../function/FunctionAddToWishlist'
 

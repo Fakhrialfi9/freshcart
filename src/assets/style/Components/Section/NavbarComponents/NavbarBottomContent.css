@@ -265,3 +265,22 @@
   font-weight: 500;
   padding: 0;
 }
+
+.ActiveLinkNavbar {
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+  position: relative;
+}
+
+.ActiveLinkNavbar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4rem;
+  height: 1.55rem;
+  background-color: var(--bg-color);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: var(--border-radius-lg);
+}

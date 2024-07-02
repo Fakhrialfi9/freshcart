@@ -8,7 +8,7 @@ import DailyBestSells from './Section/HomeView/DailyBestSells.vue'
 import AdvantageServices from './Section/HomeView/AdvantageServices.vue'
 // Start Import Section Home Page
 
-import { products } from '../function/GetProduct'
+// import { useProducts } from '../function/useProduct'
 </script>
 
 <template>
@@ -21,7 +21,7 @@ import { products } from '../function/GetProduct'
           <!-- End Content Slider Banner -->
 
           <!-- Start Featured Categories -->
-          <FeaturedCategories :products="products" />
+          <FeaturedCategories />
           <!-- End Featured Categories -->
 
           <!-- Start Promotion Sale -->
@@ -29,11 +29,11 @@ import { products } from '../function/GetProduct'
           <!-- End Promotion Sale -->
 
           <!-- Start Promotion Sale -->
-          <PopularProduct :products="products" />
+          <PopularProduct />
           <!-- End Promotion Sale -->
 
           <!-- Start Daily Best Sells -->
-          <DailyBestSells :products="products" />
+          <DailyBestSells />
           <!-- End Daily Best Sells -->
 
           <!-- Start Daily Best Sells -->

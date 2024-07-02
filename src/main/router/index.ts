@@ -77,7 +77,7 @@
 
 import { createRouter, createWebHashHistory } from 'vue-router'
 
-import LazyLoading from '../../components/LazyLoading.vue'
+import LazyLoading from '../../components/LazyLoadingComponents.vue'
 
 // Start Import RouteView
 import MainLayout from '../Layout/MainLayout.vue'

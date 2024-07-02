@@ -1,25 +1,31 @@
-<!-- eslint-disable vue/multi-word-component-names -->
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 
+// Menggunakan useRoute untuk mengakses informasi route saat ini
 const route = useRoute()
 
+// Menghitung breadcrumbs berdasarkan path dari route saat ini
 const breadcrumbs = computed(() => {
+  // Memisahkan path menjadi array dan menghapus elemen kosong
   const pathArray = route.path.split('/').filter((p) => p)
+
+  // Array untuk menyimpan objek breadcrumb
   const breadcrumbArray = []
 
+  // Iterasi untuk membuat setiap breadcrumb
   pathArray.forEach((path, index) => {
+    // Membuat objek breadcrumb dengan nama dan link
     const breadcrumb = {
-      name: path.charAt(0).toUpperCase() + path.slice(1),
-      link: '/' + pathArray.slice(0, index + 1).join('/')
+      name: path.charAt(0).toUpperCase() + path.slice(1), // Mengubah huruf pertama menjadi kapital
+      link: '/' + pathArray.slice(0, index + 1).join('/') // Mengatur link breadcrumb
     }
-    breadcrumbArray.push(breadcrumb)
+    breadcrumbArray.push(breadcrumb) // Menambahkan breadcrumb ke dalam array
   })
 
-  breadcrumbArray.unshift({ name: '..', link: '/home' })
+  breadcrumbArray.unshift({ name: '..', link: '/home' }) // Menambahkan breadcrumb untuk home
 
-  return breadcrumbArray
+  return breadcrumbArray // Mengembalikan array breadcrumbs
 })
 </script>
 

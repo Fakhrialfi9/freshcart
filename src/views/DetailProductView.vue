@@ -3,8 +3,8 @@
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useProducts, type Product } from '../function/useProduct'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
-import AlertBoxError from '../components/AlertBoxError.vue'
+import Breadcrumbs from '../components/BreadcrumbsComponents.vue'
+import AlertBoxError from '../components/AlertBoxErrorComponents.vue'
 import LoadingComponents from '../components/LoadingComponents.vue'
 
 // Start Import Section Detail Product
@@ -101,8 +101,4 @@ onMounted(async () => {
   </main>
 </template>
 
-<style scoped src="../assets/style/Views/DetailProductView.css">
-@import '@/styles/variables.scss';
-@import '@/styles/mixins.scss';
-@import './style.scss';
-</style>
+<style scoped src="../assets/style/Views/DetailProductView.css"></style>

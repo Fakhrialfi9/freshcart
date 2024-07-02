@@ -1,4 +1,5 @@
 main {
+  position: relative;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -14,7 +15,8 @@ main {
   background-color: var(--white-color);
 }
 
-.Wishlist {
+.BasketCart {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -28,7 +30,8 @@ main {
   padding: 0.5rem 0;
 }
 
-.WishlistContent {
+.BasketCartContent {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -43,7 +46,7 @@ main {
   gap: 1.5rem;
 }
 
-.HeadlineWishlistContent {
+.HeadlineBasketCartContent {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -57,17 +60,17 @@ main {
   gap: 0.85rem;
 }
 
-.HeadlineWishlistContent h5 {
+.HeadlineBasketCartContent h5 {
   font-size: 2rem;
   font-weight: 600;
 }
 
-.HeadlineWishlistContent span {
+.HeadlineBasketCartContent span {
   font-size: 0.85rem;
   font-weight: 400;
 }
 
-.NavigationWishlistContent {
+.NavigationBasketCartContent {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -82,7 +85,7 @@ main {
   gap: 0.85rem;
 }
 
-.NavigationWishlistContent button {
+.NavigationBasketCartContent button {
   display: flex;
   flex-direction: row;
   width: auto;
@@ -95,25 +98,25 @@ main {
   margin: 0;
 }
 
-.Button-NavigationWishlistContent {
+.Button-NavigationBasketCartContent {
   gap: 0.5rem;
   background-color: var(--bg-color);
   border: 0.05rem solid var(--border-color) !important;
 }
 
-.NavigationWishlistContent > button > input[type='checkbox'] {
+.NavigationBasketCartContent > button > input[type='checkbox'] {
   width: 1.25rem;
   height: 1.25rem;
   border: 0.1rem solid var(--primary-color);
 }
 
-.NavigationWishlistContent p {
+.NavigationBasketCartContent p {
   color: var(--gray-700);
   font-size: 0.85rem;
   font-weight: 500;
 }
 
-.InputSearch-NavigationWishlistContent {
+.InputSearch-NavigationBasketCartContent {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -126,7 +129,7 @@ main {
   margin: 0;
   padding: 0;
 }
-.InputSearch-NavigationWishlistContent input[type='text'] {
+.InputSearch-NavigationBasketCartContent input[type='text'] {
   padding: 0.5rem 1rem !important;
   font-size: 0.85rem !important;
 }
@@ -136,7 +139,7 @@ main {
   font-weight: 500;
 }
 
-.ContainerCardBoxWishlistContent {
+.ContainerCardBoxBasketCartContent {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -150,7 +153,7 @@ main {
   padding: 0;
 }
 
-.ContentCardBoxWishlistContent {
+.ContentCardBoxBasketCartContent {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   width: 100%;
@@ -165,7 +168,7 @@ main {
   gap: 1rem;
 }
 
-.CardBoxWishlistContent {
+.CardBoxBasketCartContent {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -187,12 +190,12 @@ main {
   gap: 1rem;
 }
 
-.CardBoxWishlistContent:hover {
+.CardBoxBasketCartContent:hover {
   border: 0.05rem solid var(--primary-color);
   background-color: rgb(240, 243, 242, 0.5);
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentTop {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -206,14 +209,14 @@ main {
   gap: 1rem;
 }
 
-.CheckBox-CardBoxWishlistContentTop {
+.CheckBox-CardBoxBasketCartContentTop {
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
   border: 0.1rem solid var(--primary-color);
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentTop > .Image-CardBoxBasketCartContentTop {
   display: flex;
   flex-direction: row;
   width: 7rem;
@@ -229,11 +232,13 @@ main {
   overflow: hidden;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop img {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentTop > .Image-CardBoxBasketCartContentTop img {
   width: 100%;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop {
+.CardBoxBasketCartContent
+  > .CardBoxBasketCartContentTop
+  > .Information-CardBoxBasketCartContentTop {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -246,7 +251,9 @@ main {
   padding: 0;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop {
+.CardBoxBasketCartContent
+  > .CardBoxBasketCartContentTop
+  > .Information-CardBoxBasketCartContentTop {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -260,7 +267,10 @@ main {
   gap: 0.85rem;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop > li {
+.CardBoxBasketCartContent
+  > .CardBoxBasketCartContentTop
+  > .Information-CardBoxBasketCartContentTop
+  > li {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -274,25 +284,25 @@ main {
   gap: 0.35rem;
 }
 
-.CardBoxWishlistContent
-  > .CardBoxWishlistContentTop
-  > .Information-CardBoxWishlistContentTop
+.CardBoxBasketCartContent
+  > .CardBoxBasketCartContentTop
+  > .Information-CardBoxBasketCartContentTop
   > li
   > h6 {
   font-size: 0.8rem;
   font-weight: 500;
 }
 
-.CardBoxWishlistContent
-  > .CardBoxWishlistContentTop
-  > .Information-CardBoxWishlistContentTop
+.CardBoxBasketCartContent
+  > .CardBoxBasketCartContentTop
+  > .Information-CardBoxBasketCartContentTop
   > li
   > h5 {
   font-size: 0.95rem;
   font-weight: 700;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentBottom {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentBottom {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -305,7 +315,7 @@ main {
   padding: 0;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -319,7 +329,7 @@ main {
   gap: 1.15rem;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul > li {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -333,12 +343,12 @@ main {
   gap: 0.5rem;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li > p {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul > li > p {
   font-size: 0.8rem;
   font-weight: 500;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul > li > button {
+.CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul > li > button {
   display: flex;
   flex-direction: row;
   width: auto;
@@ -487,7 +497,7 @@ main {
   box-shadow: none !important;
 }
 
-.RemoveButtonCardBoxWishlistContent {
+.RemoveButtonCardBoxBasketCartContent {
   position: absolute;
   bottom: 1.25rem;
   right: 1.25rem;
@@ -527,8 +537,8 @@ main {
 .ProductEmpty {
   display: flex;
   flex-direction: row;
-  width: 100% !important;
-  max-width: 100% !important;
+  width: 100%;
+  max-width: 100%;
   height: auto;
   max-height: auto;
   justify-content: center;
@@ -543,7 +553,7 @@ main {
 }
 
 .NavigationButtonShortCut {
-  position: fixed;
+  position: fixed !important;
   bottom: 0;
   right: 50%;
   transform: translate(50%);
@@ -567,6 +577,13 @@ main {
     0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
+.NavigationButtonShortCut--absolute {
+  position: fixed;
+  bottom: 41.2rem !important;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .NavigationButtonShortCut > button {
   display: flex;
   flex-direction: row;
@@ -580,7 +597,7 @@ main {
   margin: 0;
 }
 
-.Button-NavigationWishlistContent {
+.Button-NavigationBasketCartContent {
   gap: 0.5rem;
   background-color: var(--bg-color);
   border: 0.05rem solid var(--border-color) !important;
@@ -598,16 +615,143 @@ main {
   font-weight: 500;
 }
 
+/* Start Section Modal Delet Confirm */
+.ModalDeleteConfirm {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999 !important;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 30%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--white-color);
+  border: 0.05 solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.SlideToggleMenu-enter-active,
+.SlideToggleMenu-leave-active {
+  transition: all 0.5s ease-out;
+}
+
+.SlideToggleMenu-enter-from,
+.SlideToggleMenu-leave-to {
+  width: 0 !important;
+  filter: blur(1rem);
+  opacity: 0;
+  transform: translate(-50%, 200%);
+}
+
+.ModalDeleteConfirm > ul {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.ModalDeleteConfirm > ul > li {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.ModalDeleteConfirm > ul > li > h5 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--black-color);
+}
+
+.ModalDeleteConfirm > ul > li > p {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--black-color);
+  line-height: 1.5;
+}
+
+.ModalDeleteConfirm > ul > li > .ButtonCallToAction {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.ModalDeleteConfirm > ul > li > .ButtonCallToAction > button {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.85rem;
+  border-radius: var(--border-radius-lg);
+}
+
+.ModalDeleteConfirm > ul > li > .ButtonCallToAction button:nth-child(1) {
+  background-color: transparent;
+  border: 0.05rem solid var(--border-color);
+  color: var(--gray-700);
+}
+
+.ModalDeleteConfirm > ul > li > .ButtonCallToAction button:nth-child(2) {
+  background-color: var(--danger-color) !important;
+}
+
+.ModalDeleteConfirm > ul > li > .ButtonCallToAction button:nth-child(2):hover {
+  background-color: rgb(202, 29, 29) !important;
+}
+/* End Section Modal Delet Confirm */
+
 /* ================================================================================================== */
 /* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
 /* ================================================================================================== */
 
 @media (max-width: 576px) {
-  .Wishlist {
+  .BasketCart {
     padding: 4rem 0 0 0 !important;
   }
 
-  .NavigationWishlistContent {
+  .NavigationBasketCartContent {
     display: flex !important;
   }
 
@@ -615,15 +759,15 @@ main {
     margin: 0 !important;
   }
 
-  .InputSearch-NavigationWishlistContent {
+  .InputSearch-NavigationBasketCartContent {
     max-width: 100% !important;
   }
 
-  .ContentCardBoxWishlistContent {
+  .ContentCardBoxBasketCartContent {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 
@@ -638,11 +782,11 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 577px) and (max-width: 768px) {
-  .Wishlist {
+  .BasketCart {
     padding: 5rem 0 0 0 !important;
   }
 
-  .NavigationWishlistContent {
+  .NavigationBasketCartContent {
     display: flex !important;
   }
 
@@ -650,15 +794,15 @@ main {
     margin: 0 !important;
   }
 
-  .InputSearch-NavigationWishlistContent {
+  .InputSearch-NavigationBasketCartContent {
     max-width: 100% !important;
   }
 
-  .ContentCardBoxWishlistContent {
+  .ContentCardBoxBasketCartContent {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 
@@ -673,7 +817,7 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .NavigationWishlistContent {
+  .NavigationBasketCartContent {
     display: flex !important;
   }
 
@@ -681,15 +825,15 @@ main {
     margin: 0 !important;
   }
 
-  .InputSearch-NavigationWishlistContent {
+  .InputSearch-NavigationBasketCartContent {
     max-width: 100% !important;
   }
 
-  .ContentCardBoxWishlistContent {
+  .ContentCardBoxBasketCartContent {
     grid-template-columns: repeat(1, 1fr) !important;
   }
 
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 
@@ -704,7 +848,7 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 992px) and (max-width: 1200px) {
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 
@@ -719,7 +863,7 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 1201px) and (max-width: 1400px) {
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 
@@ -734,7 +878,7 @@ main {
 /* ================================================================================================== */
 
 @media (min-width: 1401px) and (max-width: 1600px) {
-  .CardBoxWishlistContent > .CardBoxWishlistContentBottom > ul {
+  .CardBoxBasketCartContent > .CardBoxBasketCartContentBottom > ul {
     flex-direction: column !important;
   }
 }

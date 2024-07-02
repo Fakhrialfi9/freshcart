@@ -270,7 +270,7 @@
 .ActiveNavbarBottomMobileCenter::after {
   content: '';
   position: absolute;
-  bottom: -30.86%;
+  bottom: -30.86% !important;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;

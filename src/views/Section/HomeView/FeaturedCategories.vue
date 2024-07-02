@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useProducts } from '../../../function/useProduct.js'
+import { useProducts } from '../../../function/useProduct'
 
 // Start Import SwiperJs
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'

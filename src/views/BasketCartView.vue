@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
-import Breadcrumbs from '../components/Breadcrumbs.vue'
+import { ref, computed, watch, defineEmits } from 'vue'
+import SliderFilterComponents from '../components/SliderFilterComponents.vue'
+import Breadcrumbs from '../components/BreadcrumbsComponents.vue'
 import {
   CartItems,
   deleteFromCart,
@@ -9,6 +10,45 @@ import {
   toggleSelectProduct
 } from '../stores/AddToCart'
 
+// Variabel reaktif untuk slider filter
+const setMenuSliderFilter = ref(false)
+
+// Fungsi toggle untuk membuka/menutup slider filter
+function setToggleOpenMenuSliderFilter() {
+  setMenuSliderFilter.value = !setMenuSliderFilter.value
+
+  // Mengatur overflow body saat slider filter dibuka/tutup
+  const overflowValue = setMenuSliderFilter.value ? 'hidden' : 'auto'
+  document.documentElement.style.overflow = overflowValue
+  document.body.style.overflow = overflowValue
+}
+
+// Variabel reaktif untuk modal konfirmasi penghapusan
+const setOpenModalDeleteConfirm = ref(false)
+let DeleteId: number | null = null
+
+// Fungsi toggle untuk membuka/menutup modal konfirmasi penghapusan
+function setToggleOpenModalDeleteConfirm(productId: any) {
+  DeleteId = productId
+  setOpenModalDeleteConfirm.value = !setOpenModalDeleteConfirm.value
+
+  // Mengatur overflow body saat modal konfirmasi dibuka/tutup
+  const overflowValue = setOpenModalDeleteConfirm.value ? 'hidden' : 'auto'
+  document.documentElement.style.overflow = overflowValue
+  document.body.style.overflow = overflowValue
+}
+
+// Fungsi untuk mengkonfirmasi penghapusan produk yang dipilih
+const confirmDeleteSelectedProducts = () => {
+  if (DeleteId !== null) {
+    setToggleOpenModalDeleteConfirm(DeleteId)
+    // deleteSelectedProducts(); // Uncomment if you have defined this function
+    deleteFromCart(DeleteId as number) // Menggunakan as number untuk memastikan DeleteId adalah number
+    deleteSelectedProducts() // Menjalankan fungsi untuk menghapus produk terpilih
+  }
+}
+
+// Fungsi untuk mengupdate jumlah produk dalam keranjang
 function updateQuantity(productId: number, newQuantity: number) {
   const product = CartItems.value.find((item) => item.id === productId)
   if (product && newQuantity >= 1) {
@@ -16,16 +56,21 @@ function updateQuantity(productId: number, newQuantity: number) {
   }
 }
 
+// Fungsi untuk menangani input perubahan jumlah produk
 function handleInput(event: Event, productId: number) {
   const inputElement = event.target as HTMLInputElement
   updateQuantity(productId, parseInt(inputElement.value) || 1)
 }
 
+// Fungsi untuk melakukan filter produk
 function filterProducts() {
-  // Logika Filter
+  // Logika Filter produk
 }
 
+// Variabel reaktif untuk pencarian produk
 const searchQuery = ref('')
+
+// Komputed property untuk produk dalam keranjang yang sudah difilter
 const filteredCartItems = computed(() => {
   if (!searchQuery.value.trim()) {
     return CartItems.value
@@ -37,7 +82,10 @@ const filteredCartItems = computed(() => {
   }
 })
 
-watch(searchQuery, () => {})
+// Watcher untuk memantau perubahan pada pencarian produk
+watch(searchQuery, () => {
+  // Lakukan sesuatu jika nilai searchQuery berubah
+})
 </script>
 
 <template>
@@ -54,15 +102,9 @@ watch(searchQuery, () => {})
             <form class="InputSearch-NavigationBasketCartContent">
               <input type="text" placeholder="Search Your Product" v-model="searchQuery" />
             </form>
-
-            <!-- <button
-              class="CheckAllDelete DisplayNone-SM DisplayNone-MD DisplayNone-LG"
-              @click="deleteSelectedProducts"
-            >
-              Delete All
-            </button> -->
           </div>
           <div class="NavigationBasketCartContent">
+            <button @click="setToggleOpenMenuSliderFilter">Filter Product</button>
             <button class="Button-NavigationBasketCartContent">
               <input
                 type="checkbox"
@@ -72,8 +114,9 @@ watch(searchQuery, () => {})
 
               <p>Select All</p>
             </button>
-            <button @click="filterProducts">Filter Product</button>
-            <button class="CheckAllDelete" @click="deleteSelectedProducts">Delete All</button>
+            <button class="CheckAllDelete" @click="setToggleOpenModalDeleteConfirm">
+              Delete All
+            </button>
           </div>
           <div class="ContainerCardBoxBasketCartContent">
             <div class="ContentCardBoxBasketCartContent" v-if="filteredCartItems">
@@ -153,7 +196,7 @@ watch(searchQuery, () => {})
                 </div>
                 <button
                   class="RemoveButtonCardBoxBasketCartContent"
-                  @click="deleteFromCart(product.id)"
+                  @click="setToggleOpenModalDeleteConfirm(product.id)"
                 >
                   Remove
                 </button>
@@ -173,29 +216,47 @@ watch(searchQuery, () => {})
             <!-- End Product Cart Empty  -->
           </div>
 
-          <!-- Start Optional Navigasi Select & Filter -->
-          <!-- <div
-            class="NavigationButtonShortCut DisplayNone-LG DisplayNone-MD DisplayNone-SM"
-            ref="navShortcut"
-          >
-            <button class="Button-NavigationBasketCartContent" @click="toggleSelectAll(true)">
-              <input
-                type="checkbox"
-                id="AllSelectProductToCheckOut"
-                @change="
-                  $event.target && toggleSelectAll(($event.target as HTMLInputElement).checked)
-                "
-              />
+          <!-- Start Modal Delete Confirm -->
+          <transition name="SlideToggleMenu">
+            <div class="ModalDeleteConfirm" v-if="setOpenModalDeleteConfirm">
+              <ul>
+                <li><h5>Delete Cart?</h5></li>
+                <div class="diver"></div>
+                <li>
+                  <p>
+                    Anda yakin ingin menghapus wishlist ini? jika yakin click tombol lanjutkan, jika
+                    tidak tekan tombol batalkan
+                  </p>
+                </li>
+                <li>
+                  <div class="ButtonCallToAction">
+                    <button @click="setToggleOpenModalDeleteConfirm">Cencel</button>
+                    <button @click="confirmDeleteSelectedProducts">Delete</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </transition>
+          <!-- End Modal Delete Confirm -->
 
-              <p>Select All</p>
-            </button>
-            <button @click="filterProducts">Filter Product</button>
-          </div> -->
-          <!-- End Optional Navigasi Select & Filter -->
+          <!-- Start Effect Blur Saat Active Modal -->
+          <div
+            @click="setToggleOpenModalDeleteConfirm"
+            :class="{ active: setOpenModalDeleteConfirm }"
+            class="BlurEffect"
+          ></div>
+          <!-- End Effect Blur Saat Active Modal -->
+
+          <!-- Start Slider Filter Wishlist & Basket Cart -->
+          <SliderFilterComponents
+            :setMenuSliderFilter="setMenuSliderFilter"
+            @setToggleOpenMenuSliderFilter="setToggleOpenMenuSliderFilter"
+          />
+          <!-- End Slider Filter Wishlist & Basket Cart -->
         </div>
       </div>
     </section>
   </main>
 </template>
 
-<style scoped src="../assets/style/Views/BasketCartView.css"></style>
+<style scoped src="../assets/style/Components/BasketCartView.css"></style>

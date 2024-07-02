@@ -1,10 +1,10 @@
 <script setup lang="ts">
 // Start Section Navbar Content
-import NavbarTopContent from '../components/Section/NavbarComponents/NavbarTopContent.vue'
-import NavbarBottomContent from '../components/Section/NavbarComponents/NavbarBottomContent.vue'
+import NavbarTopContent from './Section/NavbarComponents/NavbarTopComponents.vue'
+import NavbarBottomContent from './Section/NavbarComponents/NavbarBottomComponents.vue'
 import ModalsBasketCartContent from '../components/Section/NavbarComponents/ModalsBasketCartContent.vue'
-import MenuMobileSlider from '../components/Section/NavbarComponents/MenuMobileSlider.vue'
-import NavbarBottomMobileContent from '../components/Section/NavbarComponents/NavbarBottomMobileContent.vue'
+import MenuMobileSlider from './Section/NavbarComponents/MenuMobileSliderComponents.vue'
+import NavbarBottomMobileContent from './Section/NavbarComponents/NavbarBottomMobileComponents.vue'
 
 // End Section Navbar Content
 

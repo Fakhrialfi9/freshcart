@@ -113,15 +113,6 @@
 /* End Inter Font Styles */
 
 /* Start Layout utilities */
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.col {
-  flex: 1;
-  padding: var(--spacing-unit);
-}
 
 .diver {
   width: 100%;
@@ -138,6 +129,31 @@
   height: 50%;
   min-height: 1.3rem;
   border: 0.0001rem solid var(--grey-color);
+}
+
+.BlurEffect {
+  position: fixed;
+  display: none;
+  top: 0;
+  right: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999 !important;
+  background-color: rgb(0, 0, 0, 0);
+  backdrop-filter: blur(0) !important;
+}
+
+.BlurEffect.active {
+  display: block !important;
+  position: fixed;
+  top: 0;
+  right: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 999 !important;
+  background-color: rgb(0, 0, 0, 0.6);
+  backdrop-filter: blur(0.05rem) !important;
+  transition: all 1s ease-in-out;
 }
 
 /* End Layout utilities */

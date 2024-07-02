@@ -27,7 +27,7 @@ main {
   padding: 1rem 0;
   background-color: var(--white-color);
   border-bottom: 0.1rem solid var(--gray-200);
-  z-index: 9999 !important;
+  z-index: 999 !important;
 }
 
 .NavbarContent {

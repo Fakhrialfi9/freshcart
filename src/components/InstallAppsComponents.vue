@@ -1,47 +1,64 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, watchEffect } from 'vue'
 
-// Define the BeforeInstallPromptEvent type
+// Definisikan tipe BeforeInstallPromptEvent
+// Event ini akan dipanggil ketika browser mendeteksi bahwa aplikasi dapat diinstal sebagai PWA
 interface BeforeInstallPromptEvent extends Event {
-  prompt(): void
-  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>
+  prompt(): void // Memunculkan prompt instalasi
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }> // Hasil pilihan pengguna (diterima atau ditolak)
 }
 
-// Reactive variables
-let deferredPrompt = ref<BeforeInstallPromptEvent | null>(null)
-let currentTime = ref(formatTime(new Date()))
+// Variabel reaktif
+const deferredPrompt = ref<BeforeInstallPromptEvent | null>(null) // Menyimpan event sebelum instalasi
+const showCard = ref(false) // Menentukan apakah card ditampilkan atau tidak
+const currentTime = ref(formatTime(new Date())) // Menyimpan waktu saat ini yang diformat
 
-// Methods
+// Fungsi untuk memunculkan prompt Add to Home Screen
 const addToHomeScreen = () => {
   if (deferredPrompt.value) {
-    deferredPrompt.value.prompt()
+    deferredPrompt.value.prompt() // Tampilkan prompt instalasi
     deferredPrompt.value.userChoice.then((choiceResult) => {
       if (choiceResult.outcome === 'accepted') {
+        // Pengguna menerima prompt
         console.log('User accepted the install prompt')
       } else {
+        // Pengguna menolak prompt
         console.log('User dismissed the install prompt')
       }
-      deferredPrompt.value = null
+      deferredPrompt.value = null // Reset deferredPrompt setelah pengguna membuat pilihan
     })
   }
 }
 
-// Update current time every second
-setInterval(() => {
-  currentTime.value = formatTime(new Date())
-}, 1000)
-
-// Format time function
-function formatTime(date: Date) {
-  let hours = date.getHours()
-  let minutes = date.getMinutes()
-  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`
+// Fungsi Untuk Menutup Card
+const closeCard = () => {
+  showCard.value = false // Menyembunyikan card
 }
 
-// Event listener for beforeinstallprompt
+// Fungsi Format Waktu
+// Fungsi ini mengambil objek Date dan mengembalikan waktu dalam format HH:mm
+function formatTime(date: Date): string {
+  const hours = date.getHours() // Mendapatkan jam
+  const minutes = date.getMinutes() // Mendapatkan menit
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}` // Mengembalikan string waktu dengan format HH:mm
+}
+
+// Perbarui waktu saat ini setiap detik
+setInterval(() => {
+  currentTime.value = formatTime(new Date()) // Mengatur currentTime dengan waktu saat ini setiap detik
+}, 1000)
+
+// Listener untuk event beforeinstallprompt
+// Event ini akan dipanggil ketika aplikasi dapat diinstal sebagai PWA
 window.addEventListener('beforeinstallprompt', (e: Event) => {
-  e.preventDefault()
-  deferredPrompt.value = e as BeforeInstallPromptEvent
+  e.preventDefault() // Mencegah prompt default agar kita bisa mengatur sendiri
+  deferredPrompt.value = e as BeforeInstallPromptEvent // Menyimpan event untuk digunakan nanti
+})
+
+// Observe perubahan pada showCard
+watchEffect(() => {
+  // Log perubahan nilai showCard (opsional, bisa disesuaikan dengan kebutuhan)
+  // console.log('showCard value changed:', showCard.value);
 })
 </script>
 
@@ -51,26 +68,28 @@ window.addEventListener('beforeinstallprompt', (e: Event) => {
       <div class="Container">
         <div class="ContentInstallApps">
           <!-- Card -->
-          <div class="Card-ContentInstallApps">
-            <div class="Card-TopContentInstallApps">
-              <span>
-                <div class="box"></div>
-                <h5>Install Fresh Cart</h5>
-              </span>
-              <span>
-                <h5>{{ currentTime }}</h5>
-              </span>
-            </div>
-            <div class="Card-BottomontentInstallApps">
-              <span>
-                <h5>Temukan Product Makanan Terbaik se-Indonesia di <b>Fresh Cart</b></h5>
-              </span>
-              <div class="ButtonInstall">
-                <button @click="addToHomeScreen">Install Now</button>
+          <transition name="fade">
+            <div class="Card-ContentInstallApps" v-if="showCard">
+              <div class="Card-TopContentInstallApps">
+                <span>
+                  <div class="box"></div>
+                  <h5>Install Fresh Cart</h5>
+                </span>
+                <span>
+                  <h5>{{ currentTime }}</h5>
+                </span>
+              </div>
+              <div class="Card-BottomontentInstallApps">
+                <span>
+                  <h5>Temukan Product Makanan Terbaik se-Indonesia di <b>Fresh Cart</b></h5>
+                </span>
+                <div class="ButtonInstall">
+                  <button @click="closeCard">Close</button>
+                  <button @click="addToHomeScreen">Install Now</button>
+                </div>
               </div>
             </div>
-          </div>
-
+          </transition>
           <!-- Card -->
         </div>
       </div>
