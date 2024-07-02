@@ -9,6 +9,7 @@ import {
   toggleSelectAll,
   toggleSelectProduct
 } from '../stores/AddToWishlist'
+import { RouterLink } from 'vue-router'
 
 // Variabel reaktif untuk slider filter
 const setMenuSliderFilter = ref(false)
@@ -119,17 +120,21 @@ watch(searchQuery, () => {
                     @change="toggleSelectProduct(product.id)"
                   />
                   <div class="Image-CardBoxWishlistContentTop">
-                    <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                    <RouterLink :to="'/detailproduct/' + product.id">
+                      <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                    </RouterLink>
                   </div>
                   <ul class="Information-CardBoxWishlistContentTop">
-                    <li>
-                      <h6>Name:</h6>
-                      <h5>{{ product.nameProduct }}</h5>
-                    </li>
-                    <li>
-                      <h6>Price:</h6>
-                      <h5>{{ product.priceProduct }}</h5>
-                    </li>
+                    <RouterLink :to="'/detailproduct/' + product.id">
+                      <li>
+                        <h6>Name:</h6>
+                        <h5>{{ product.nameProduct }}</h5>
+                      </li>
+                      <li>
+                        <h6>Price:</h6>
+                        <h5>{{ product.priceProduct }}</h5>
+                      </li>
+                    </RouterLink>
                   </ul>
                 </div>
                 <div class="CardBoxWishlistContentBottom">
@@ -180,17 +185,17 @@ watch(searchQuery, () => {
           <transition name="SlideToggleMenu">
             <div class="ModalDeleteConfirm" v-if="setOpenModalDeleteConfirm">
               <ul>
-                <li><h5>Delete Whislist?</h5></li>
+                <li><h5>Delete Wishlist?</h5></li>
                 <div class="diver"></div>
                 <li>
                   <p>
-                    Anda yakin ingin menghapus wishlist ini? jika yakin click tombol lanjutkan, jika
-                    tidak tekan tombol batalkan
+                    Are you sure you want to delete this wishlist? If yes, click the continue button
+                    if not, click the cancel button.
                   </p>
                 </li>
                 <li>
                   <div class="ButtonCallToAction">
-                    <button @click="setToggleOpenModalDeleteConfirm">Cencel</button>
+                    <button @click="setToggleOpenModalDeleteConfirm">Cancel</button>
                     <button @click="confirmDeleteSelectedProducts">Delete</button>
                   </div>
                 </li>

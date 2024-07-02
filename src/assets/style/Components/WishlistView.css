@@ -216,6 +216,19 @@ main {
 .CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop {
   display: flex;
   flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop > a {
+  display: flex;
+  flex-direction: row;
   width: 7rem;
   max-width: 7rem;
   height: 7rem;
@@ -229,7 +242,7 @@ main {
   overflow: hidden;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop img {
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Image-CardBoxWishlistContentTop > a > img {
   width: 100%;
 }
 
@@ -257,10 +270,27 @@ main {
   align-items: flex-start;
   margin: 0;
   padding: 0;
+}
+
+.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop > a {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
   gap: 0.85rem;
 }
 
-.CardBoxWishlistContent > .CardBoxWishlistContentTop > .Information-CardBoxWishlistContentTop > li {
+.CardBoxWishlistContent
+  > .CardBoxWishlistContentTop
+  > .Information-CardBoxWishlistContentTop
+  > a
+  > li {
   display: flex;
   flex-direction: column;
   width: auto;
@@ -277,6 +307,7 @@ main {
 .CardBoxWishlistContent
   > .CardBoxWishlistContentTop
   > .Information-CardBoxWishlistContentTop
+  > a
   > li
   > h6 {
   font-size: 0.8rem;
@@ -286,6 +317,7 @@ main {
 .CardBoxWishlistContent
   > .CardBoxWishlistContentTop
   > .Information-CardBoxWishlistContentTop
+  > a
   > li
   > h5 {
   font-size: 0.95rem;
@@ -677,6 +709,10 @@ main {
   font-weight: 400;
   color: var(--black-color);
   line-height: 1.5;
+}
+
+.ModalDeleteConfirm > ul > li > p > span {
+  font-weight: 600;
 }
 
 .ModalDeleteConfirm > ul > li > .ButtonCallToAction {
