@@ -811,6 +811,11 @@ main {
     width: 100% !important;
     max-width: 100% !important;
   }
+
+  .ModalDeleteConfirm {
+    max-width: 93.5% !important;
+    padding: 1.25rem !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -846,6 +851,11 @@ main {
     width: 100% !important;
     max-width: 100% !important;
   }
+
+  .ModalDeleteConfirm {
+    max-width: 93.5% !important;
+    padding: 1.25rem !important;
+  }
 }
 
 /* ================================================================================================== */
@@ -876,6 +886,11 @@ main {
   .InputQuantity-CardBoxCheckoutProduct > .FormInputQuantity > input[type='number'] {
     width: 100% !important;
     max-width: 100% !important;
+  }
+
+  .ModalDeleteConfirm {
+    max-width: 95% !important;
+    padding: 1.25rem !important;
   }
 }
 

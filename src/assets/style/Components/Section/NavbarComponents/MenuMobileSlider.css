@@ -15,7 +15,8 @@
   background-color: var(--white-color);
   border: 0.1rem solid var(--gray-200);
   transition: right 0.3s ease-in-out;
-  overflow: scroll;
+  overflow-y: auto !important;
+  overflow-y: scroll !important;
   box-sizing: border-box;
   z-index: 9999 !important;
   box-shadow:
