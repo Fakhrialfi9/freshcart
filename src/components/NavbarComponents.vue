@@ -71,17 +71,16 @@ function setToggleOpenMenuMobileSlider() {
           />
           <!-- End Modals Basket Cart Content -->
 
-          <!-- Start Navbar Bottom Mobile Content -->
-          <NavbarBottomMobileContent
-            :setOpenModalsBasketCart="setModalsBasketCart"
-            @ToggleOpenContentModalsBasketCart="setToggleOpenContentModalsBasketCart"
-          />
-          <!-- End Navbar Bottom Mobile Content -->
-
           <!-- End Mobile Section -->
         </div>
       </div>
     </nav>
+    <!-- Start Navbar Bottom Mobile Content -->
+    <NavbarBottomMobileContent
+      :setOpenModalsBasketCart="setModalsBasketCart"
+      @ToggleOpenContentModalsBasketCart="setToggleOpenContentModalsBasketCart"
+    />
+    <!-- End Navbar Bottom Mobile Content -->
   </main>
 </template>
 

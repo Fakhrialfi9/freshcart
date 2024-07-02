@@ -1,6 +1,6 @@
 .NavbarBottomMobile {
   position: fixed;
-  bottom: 2rem;
+  bottom: 2rem !important;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -14,7 +14,7 @@
   padding: 0;
   background-color: transparent;
   box-sizing: border-box;
-  z-index: 9995 !important;
+  z-index: 9999 !important;
 }
 /* 
 .NavbarBottomMobileContent {
