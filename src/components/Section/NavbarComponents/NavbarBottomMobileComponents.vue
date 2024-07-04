@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { RouterLink } from 'vue-router'
 import { ref } from 'vue'
+import { RouterLink } from 'vue-router'
 
+import { WishlistItems } from '../../../stores/AddToWishlist'
+import { CartItems } from '../../../stores/AddToCart'
+
+// Start Import Icon
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 import IconUsers from '../../../assets/icon/IconUsers.vue'
 import IconBagCart from '../../../assets/icon/IconBagCart.vue'
 import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
-import { WishlistItems } from '../../../stores/AddToWishlist'
-
-import { CartItems } from '../../../stores/AddToCart'
-
-const emit = defineEmits(['ToggleOpenContentModalsBasketCart'])
+// End Import Icon
 </script>
 
 <template>
@@ -24,9 +24,9 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart'])
             </RouterLink>
           </li>
           <li>
-            <a @click="$emit('ToggleOpenContentModalsBasketCart')">
-              <IconBagCart class="IconBagCartNavbarBottom" />
-            </a>
+            <RouterLink to="/" active-class="ActiveNavbarBottomMobile">
+              <IconGridSquare class="IconGridSquareNavbarBottom" />
+            </RouterLink>
           </li>
         </ul>
 

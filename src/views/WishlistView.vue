@@ -49,11 +49,6 @@ const confirmDeleteSelectedProducts = () => {
   }
 }
 
-// Fungsi untuk melakukan filter produk
-function filterProducts() {
-  // Logika Filter produk
-}
-
 // Variabel reaktif untuk pencarian produk
 const searchQuery = ref('')
 
@@ -120,12 +115,12 @@ watch(searchQuery, () => {
                     @change="toggleSelectProduct(product.id)"
                   />
                   <div class="Image-CardBoxWishlistContentTop">
-                    <RouterLink :to="'/detailproduct/' + product.id">
+                    <RouterLink :to="'/shopping/' + product.id">
                       <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
                     </RouterLink>
                   </div>
                   <ul class="Information-CardBoxWishlistContentTop">
-                    <RouterLink :to="'/detailproduct/' + product.id">
+                    <RouterLink :to="'/shopping/' + product.id">
                       <li>
                         <h6>Name:</h6>
                         <h5>{{ product.nameProduct }}</h5>

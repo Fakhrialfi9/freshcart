@@ -1,3 +1,5 @@
+// GetProduct.ts
+
 import axios from 'axios'
 
 const apiClient = axios.create({
@@ -193,6 +195,15 @@ const GetProduct = {
       return filteredProducts
     } catch (error) {
       throw new Error(`Error fetching products by image: ${(error as Error).message}`)
+    }
+  },
+
+  async searchProducts(keyword: string) {
+    try {
+      const response = await apiClient.get(`?search=${keyword}`)
+      return response.data
+    } catch (error) {
+      throw new Error(`Error searching products: ${(error as Error).message}`)
     }
   }
 }

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, defineEmits } from 'vue'
+import { ref, computed, watch } from 'vue'
 import SliderFilterComponents from '../components/SliderFilterComponents.vue'
 import Breadcrumbs from '../components/BreadcrumbsComponents.vue'
 import {
@@ -60,11 +60,6 @@ function updateQuantity(productId: number, newQuantity: number) {
 function handleInput(event: Event, productId: number) {
   const inputElement = event.target as HTMLInputElement
   updateQuantity(productId, parseInt(inputElement.value) || 1)
-}
-
-// Fungsi untuk melakukan filter produk
-function filterProducts() {
-  // Logika Filter produk
 }
 
 // Variabel reaktif untuk pencarian produk
@@ -133,12 +128,12 @@ watch(searchQuery, () => {
                     @change="toggleSelectProduct(product.id)"
                   />
                   <div class="Image-CardBoxBasketCartContentTop">
-                    <RouterLink :to="'/detailproduct/' + product.id">
+                    <RouterLink :to="'/shopping/' + product.id">
                       <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
                     </RouterLink>
                   </div>
                   <ul class="Information-CardBoxBasketCartContentTop">
-                    <RouterLink :to="'/detailproduct/' + product.id">
+                    <RouterLink :to="'/shopping/' + product.id">
                       <li>
                         <h6>Name:</h6>
                         <h5>{{ product.nameProduct }}</h5>
@@ -228,8 +223,8 @@ watch(searchQuery, () => {
                 <div class="diver"></div>
                 <li>
                   <p>
-                    Are you sure you want to delete this wishlist? If yes, click the continue button
-                    if not, click the cancel button.
+                    Are you sure you want to delete this cart? If yes, click the continue button if
+                    not, click the cancel button.
                   </p>
                 </li>
                 <li>

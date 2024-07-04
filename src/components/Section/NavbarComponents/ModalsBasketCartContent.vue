@@ -1,8 +1,39 @@
 <script setup lang="ts">
-import { defineEmits, defineProps } from 'vue'
+import { ref, defineEmits, defineProps, onMounted, computed } from 'vue'
 import { RouterLink } from 'vue-router'
+import { countries, getCountriesData } from '../../../services/APi/GetRestCountries' // Impor fungsi dan state
+
+// Start Input Icon
 import IconClose from '../../../assets/icon/IconClose.vue'
-import categorydairybreadeggs from '../../../assets/image/category/categorydairybreadeggs.jpg'
+import IconSearch from '../../../assets/icon/IconSearch.vue'
+// End Input Icon
+
+// Fungsi untuk memotong teks menjadi maksimal 10 suku kata
+const truncateText = (text: string, maxWords: number) => {
+  const words = text.split(' ')
+  if (words.length > maxWords) {
+    return words.slice(0, maxWords).join(' ') + '...'
+  }
+  return text
+}
+
+// State untuk menyimpan kata kunci pencarian
+const searchTerm = ref('')
+
+// Computed property untuk memfilter negara berdasarkan kata kunci pencarian
+const filteredCountries = computed(() => {
+  if (!searchTerm.value) {
+    return countries.value
+  }
+  return countries.value.filter((country) =>
+    country.name.common.toLowerCase().includes(searchTerm.value.toLowerCase())
+  )
+})
+
+// Panggil fungsi untuk mengambil data negara saat komponen di-mount
+onMounted(() => {
+  getCountriesData()
+})
 
 const props = defineProps({
   setOpenModalsBasketCart: Boolean
@@ -14,85 +45,56 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart'])
 <template>
   <transition name="SlideFadeToggleModalBasketCart">
     <div v-if="setOpenModalsBasketCart" class="ModalBasketCart">
-      <div class="ContentTopModalBasketCart">
-        <ul class="HeadingContent-ModalBasketCart">
-          <li>
-            <h5>Shop Cart</h5>
-            <p>Location in 382480</p>
-          </li>
-          <li>
-            <span @click="$emit('ToggleOpenContentModalsBasketCart')">
-              <IconClose class="IconCloseToggle" />
-            </span>
-          </li>
-        </ul>
-      </div>
-
       <div class="ContentCardModalBasketCart">
-        <div class="AlertModalBasketCart">
-          <div class="ContentAlertModalBasketCart">
-            <h5>
-              You’ve got FREE delivery. Start
-              <RouterLink class="LinkColor" to="">checkout now!</RouterLink>
-            </h5>
+        <!-- Start Content Heading -->
+        <div class="ContentHeading">
+          <ul class="HeadingContent-ModalBasketCart">
+            <li>
+              <h5>Choose your Delivery Location</h5>
+              <p>Enter your address and we will specify the offer you area.</p>
+            </li>
+            <li>
+              <span @click="$emit('ToggleOpenContentModalsBasketCart')">
+                <IconClose class="IconCloseToggle" />
+              </span>
+            </li>
+          </ul>
+        </div>
+        <!-- End Content Heading -->
+
+        <!-- Start Content Input -->
+        <div class="ContentFormInputSearch">
+          <form @submit.prevent>
+            <i class="IconInputSearch">
+              <IconSearch class="IconSearch" />
+            </i>
+            <input type="text" placeholder="Search products..." v-model="searchTerm" />
+          </form>
+        </div>
+        <!-- End Content Input -->
+
+        <!-- Start Content Select Country -->
+        <div class="ContentSelectHeadingContent">
+          <div class="SelectLocation">
+            <h5>Select Location</h5>
+            <button @click="searchTerm = ''">Clear All</button>
           </div>
         </div>
+        <!-- End Content Select Country -->
 
-        <div class="diver"></div>
-
-        <ul class="CardBoxCheckoutProduct" v-for="index in 20" :key="index">
-          <li>
-            <div class="ImageInformasi-CardBoxCheckoutProduct">
-              <div class="ImageContent">
-                <img :src="categorydairybreadeggs" alt="" />
-              </div>
-              <div class="InformationContent">
-                <h6>Haldiram's Sev Bhujia</h6>
-                <span>250g</span>
-                <button>Remove</button>
-              </div>
+        <!-- Start Content Name Country -->
+        <div class="ContainerCountry">
+          <button class="ContentCountry" v-for="country in filteredCountries" :key="country.cca3">
+            <div class="NameCountry">
+              <h6>{{ truncateText(country.name.common, 1) }}</h6>
             </div>
-
-            <div class="InputQuantity-CardBoxCheckoutProduct">
-              <form class="FormInputQuantity" action="">
-                <button
-                  class="QuantityUp"
-                  type="button"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepDown()"
-                >
-                  -
-                </button>
-                <input min="1" name="quantity" value="10" type="number" />
-                <button
-                  class="QuantityDown"
-                  type="button"
-                  onclick="this.parentNode.querySelector('input[type=number]').stepUp()"
-                >
-                  +
-                </button>
-              </form>
+            <div class="ShippingCost">
+              <!-- Contoh biaya pengiriman -->
+              <h6>Rp 20.000</h6>
             </div>
-
-            <div class="PriceContent-CardBoxCheckoutProduct">
-              <span>$5.00 </span>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="ContentBottomModalBasketCart">
-        <ul class="HeadingContent-ModalBasketCart">
-          <li>
-            <b>Total</b>
-            <h5>$354</h5>
-          </li>
-          <li>
-            <span>
-              <button>Checkout</button>
-              <button @click="$emit('ToggleOpenContentModalsBasketCart')">Cancel</button>
-            </span>
-          </li>
-        </ul>
+          </button>
+        </div>
+        <!-- End Content Name Country -->
       </div>
     </div>
   </transition>

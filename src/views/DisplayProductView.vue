@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useProducts, type Product } from '../../../function/useProduct'
-import { handleAddToCart } from '../../../function/FunctionAddToCart'
-import { handleAddToWishlist } from '../../../function/FunctionAddToWishlist'
+import { useProducts, type Product } from '../function/useProduct'
+import { handleAddToCart } from '../function/FunctionAddToCart'
+import { handleAddToWishlist } from '../function/FunctionAddToWishlist'
 
 // Start Import Icon
-import IconStar from '../../../assets/icon/IconStar.vue'
-import IconWishlistFill from '../../../assets/icon/IconWishlistFill.vue'
-import IconEyePriview from '../../../assets/icon/IconEyePriview.vue'
-import IconAddPlus from '../../../assets/icon/IconAddPlus.vue'
+import IconStar from '../assets/icon/IconStar.vue'
+import IconWishlistFill from '../assets/icon/IconWishlistFill.vue'
+import IconEyePriview from '../assets/icon/IconEyePriview.vue'
+import IconAddPlus from '../assets/icon/IconAddPlus.vue'
 // End Import Icon
 
 const { products } = useProducts()
@@ -60,17 +60,6 @@ const truncateText = (value: string, limit: number) => {
   <main>
     <section class="PopularProduct">
       <div class="ContentPopularProduct">
-        <!-- Start Headline Section Home -->
-        <ul class="HeadlineSection-Home">
-          <li><h5>Popular Product</h5></li>
-          <!-- <li>
-            <button>All</button>
-            <button>Hot Sale</button>
-            <button>Years Sale</button>
-            <button>Big Deals</button>
-          </li> -->
-        </ul>
-        <!-- End Headline Section Home -->
         <div class="ContainerPopularProduct">
           <!-- Start Content Card Product -->
 
@@ -90,7 +79,6 @@ const truncateText = (value: string, limit: number) => {
             <div class="Image-CardPopularProduct">
               <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
             </div>
-
             <!-- End Badge & Image Card Box Product -->
 
             <!-- Start Headline Card Box Product -->
@@ -175,4 +163,4 @@ const truncateText = (value: string, limit: number) => {
   </main>
 </template>
 
-<style scoped src="../../../assets/style/Views/HomeView.css"></style>
+<style scoped src="../assets/style/Views/HomeView.css"></style>

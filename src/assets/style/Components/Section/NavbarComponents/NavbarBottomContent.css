@@ -65,7 +65,7 @@
   align-content: center;
   font-size: 0.85rem;
   font-weight: 500;
-  padding: 0.6rem 0;
+  padding: 0;
   gap: 0.25rem;
   color: var(--dark-color);
 }
@@ -117,7 +117,7 @@
   max-width: auto;
   height: auto;
   max-height: auto;
-  top: 100%;
+  top: 2.25rem;
   left: 0;
   padding: 0.5rem;
   background-color: var(--white-color);
@@ -138,6 +138,7 @@
 .SlideFadeDropdown-enter-from,
 .SlideFadeDropdown-leave-to {
   opacity: 0;
+  filter: blur(1rem);
   transform: translateY(20px);
 }
 /* Start Transition effect Dropdown */
@@ -181,14 +182,17 @@
 }
 
 .DropdownMenuMegaMenu {
-  position: absolute;
+  position: fixed;
+  top: 7.5rem;
+  left: -50%;
+  right: -50%;
   display: flex;
   flex-direction: column;
-  width: auto;
-  max-width: auto;
+  width: 80vw;
+  min-width: 80vw;
+  max-width: 80vw;
   height: auto;
   max-height: auto;
-  top: 100%;
   margin: 0 auto;
   padding: 1.5rem;
   background-color: var(--white-color);
@@ -200,6 +204,19 @@
   z-index: 9999;
   white-space: nowrap;
 }
+
+/* Start Transition effect Dropdown */
+.SlideFadeDropdownMegaMenu-enter-active,
+.SlideFadeDropdownMegaMenu-leave-active {
+  transition: all 1s ease;
+}
+.SlideFadeDropdownMegaMenu-enter-from,
+.SlideFadeDropdownMegaMenu-leave-to {
+  opacity: 0;
+  filter: blur(1rem);
+  transform: translateY(20px);
+}
+/* Start Transition effect Dropdown */
 
 .DropdownMenuMegaMenu > ul {
   display: flex;
@@ -277,7 +294,7 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 4rem;
+  width: 135%;
   height: 1.55rem;
   background-color: var(--bg-color);
   transform: translate(-50%, -50%);

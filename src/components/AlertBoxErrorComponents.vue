@@ -67,16 +67,17 @@ main {
   flex-direction: column;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  max-height: auto;
+  height: 100%;
+  min-height: 10rem !important;
+  max-height: 100%;
   justify-content: center;
   align-items: flex-start;
   margin: 0;
-  padding: 1.5rem;
+  padding: 1rem;
   background-color: var(--white-color);
   border: 0.08rem solid var(--danger-color);
   border-radius: var(--border-radius-lg);
-  gap: 0.75rem;
+  gap: 1.5rem;
 }
 
 .ContentAlertBoxError strong {
@@ -102,5 +103,16 @@ main {
 
 .IconBackHome {
   width: 1rem;
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .ContentAlertBoxError {
+    min-height: 12rem !important;
+    gap: 2rem;
+  }
 }
 </style>

@@ -6,7 +6,7 @@ import App from './main/app/App.vue'
 // End Import konfigurasi App
 
 // Start Import konfigurasi Router
-import router from './main/router/index'
+import router from './main/router/github'
 // End Import konfigurasi Router
 
 // Start Import Style Global

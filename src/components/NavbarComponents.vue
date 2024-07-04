@@ -59,6 +59,8 @@ function setToggleOpenMenuMobileSlider() {
 
           <!-- Start Menu Mobile Slider -->
           <MenuMobileSlider
+            :setOpenModalsBasketCart="setModalsBasketCart"
+            @ToggleOpenContentModalsBasketCart="setToggleOpenContentModalsBasketCart"
             :setOpenMenuMobileSlider="setMenuMobileSlider"
             @ToggleOpenContentMenuMobileSlider="setToggleOpenMenuMobileSlider"
           />

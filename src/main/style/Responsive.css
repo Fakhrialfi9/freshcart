@@ -10,7 +10,7 @@
   }
 
   .DisplayBlock-SM {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Lazy Loading Component Responsive */
@@ -50,7 +50,7 @@
     display: none !important;
   }
   .DisplayBlock-MD {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Section Footer Component Responsive */
@@ -86,7 +86,7 @@
   }
 
   .DisplayBlock-LG {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Section Footer Component Responsive */
@@ -119,7 +119,7 @@
     display: none !important;
   }
   .DisplayBlock-XL {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Section Home Pages Responsive */
@@ -137,7 +137,7 @@
     display: none !important;
   }
   .DisplayBlock-XXL {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Section Home Pages Responsive */
@@ -145,7 +145,7 @@
   /* End Section Home Pages Responsive */
 }
 
-@media (min-width: 1401px) and (max-width: 1530px) {
+@media (min-width: 1401px) and (max-width: 1600px) {
   .Container {
     width: 80%;
     user-select: none !important;
@@ -154,7 +154,7 @@
     display: none !important;
   }
   .DisplayBlock-XXXL {
-    display: block !important;
+    display: flex !important;
   }
 
   /* Start Section Home Pages Responsive */

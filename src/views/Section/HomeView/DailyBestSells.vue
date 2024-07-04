@@ -206,7 +206,7 @@ const truncateText = (value: string, limit: number) => {
             <transition name="SlideFadeDropdown">
               <div class="HoverButtonProduct" v-if="hoverIndex === index && showButtonsFlag">
                 <div class="ContainerHoverButtonProduct">
-                  <RouterLink :to="'/detailproduct/' + product.id">
+                  <RouterLink :to="'/shopping/' + product.id">
                     <button class="Tooltip">
                       <IconEyePriview class="IconHoverButtonProduct" />
                       <span class="TooltipText">Priview</span>

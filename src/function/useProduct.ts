@@ -1,3 +1,5 @@
+// useProduct.ts
+
 import { ref, onMounted } from 'vue'
 import GetProduct from '../services/APi/GetProduct'
 

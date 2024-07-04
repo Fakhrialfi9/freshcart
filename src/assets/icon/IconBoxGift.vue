@@ -20,11 +20,11 @@
 
 <style scoped>
 a {
-  display: flex !important;
-  place-items: center !important;
-  place-content: center !important;
-  color: inherit !important;
-  font-size: inherit !important;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  color: inherit;
+  font-size: inherit;
 }
 
 a > svg > path {
@@ -32,12 +32,12 @@ a > svg > path {
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  margin: inherit !important;
-  padding: inherit !important;
-  stroke-width: inherit !important;
-  fill: transparent !important;
-  stroke: inherit !important;
-  stroke-linejoin: round !important;
-  stroke-linecap: round !important;
+  margin: inherit;
+  padding: inherit;
+  stroke-width: inherit;
+  fill: transparent;
+  stroke: inherit;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 </style>
