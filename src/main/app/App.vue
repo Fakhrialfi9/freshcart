@@ -20,5 +20,3 @@ import '../../main/style/Responsive.css'
   <!-- Komponen NotificationView -->
   <NotificationView />
 </template>
-
-<style scoped src="../../main/style/Main.css"></style>

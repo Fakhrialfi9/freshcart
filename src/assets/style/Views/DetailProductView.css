@@ -627,7 +627,7 @@ main {
 
 .slide-up-enter-active,
 .slide-up-leave-active {
-  transition: all 0.25s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .slide-up-enter-from {
@@ -939,57 +939,6 @@ main {
 .slide-left-leave-to {
   opacity: 0;
   transform: translateX(-30px);
-}
-
-.MainLoading {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: row;
-  width: 100vw !important;
-  max-width: 100vw !important;
-  height: 100vh !important;
-  max-height: 100vh !important;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  padding: 1rem;
-  background-color: white;
-  z-index: 9999 !important;
-}
-
-.MainLoading > .LoadingContainer {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin: 0 auto;
-  padding: 0;
-}
-
-.MainLoading > .LoadingContainer > .LoadingContent {
-  display: flex;
-  flex-direction: column;
-  width: auto;
-  max-width: auto;
-  height: auto;
-  max-height: auto;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  margin-top: -15%;
-  padding: 0;
-  gap: 1rem;
-}
-
-.MainLoading > .LoadingContainer > .LoadingContent > h6 {
-  font-size: 1.25rem;
-  color: var(--gray-color);
 }
 
 .slide-up-enter-active,

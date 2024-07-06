@@ -1,16 +1,72 @@
 <template>
-  <div class="container">
-    <div class="loadingspinner">
-      <div id="square1"></div>
-      <div id="square2"></div>
-      <div id="square3"></div>
-      <div id="square4"></div>
-      <div id="square5"></div>
+  <section class="MainLoading">
+    <div class="Container">
+      <div class="LoadingContent">
+        <div class="loadingspinner">
+          <div id="square1"></div>
+          <div id="square2"></div>
+          <div id="square3"></div>
+          <div id="square4"></div>
+          <div id="square5"></div>
+        </div>
+        <div class="HeadingLoading"><h6>Loading Components...</h6></div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <style scoped>
+.MainLoading {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  max-width: 100vw;
+  height: 35vh;
+  max-height: 35vh;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color) !important;
+  z-index: 9999 !important;
+}
+
+.LoadingContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.HeadingLoading {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HeadingLoading > h6 {
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
 .container {
   width: auto;
   max-width: auto;

@@ -250,13 +250,8 @@ const setToggleOpenMenuSliderFilter = () => {
           </div>
 
           <!-- Start Loading Statement -->
-          <div class="MainLoading" v-if="loading || !isLoaded">
-            <div class="LoadingContainer">
-              <div class="LoadingContent">
-                <LoadingComponents />
-                <h6>Loading Product...</h6>
-              </div>
-            </div>
+          <div v-if="loading || !isLoaded">
+            <LoadingComponents />
           </div>
           <!-- End Loading Statement -->
 

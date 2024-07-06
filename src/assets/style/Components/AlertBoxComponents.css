@@ -1,0 +1,72 @@
+.MainAlert-Box {
+  position: fixed;
+  top: 8%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+}
+
+.MainAlert-error {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.MainAlert-warning {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.MainAlert-info {
+  background-color: var(--info-color);
+  color: white;
+}
+
+.MainAlert-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.MainAlert-Box p {
+  margin: 0;
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+}
+
+.MainAlert-Box button {
+  display: flex;
+  flex-direction: row;
+  border-radius: var(--border-radius-2xl);
+  margin: 1rem 0 0 0 0;
+  background-color: var(--white-color);
+  color: var(--black-color);
+}
+
+.MainAlert-box button:hover {
+  background-color: #f2f2f2;
+}
+
+.alert-slide-enter-active,
+.alert-slide-leave-active {
+  transition: all 0.5s ease;
+}
+.alert-slide-enter-from,
+.alert-slide-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+.alert-slide-enter-to,
+.alert-slide-leave-from {
+  transform: translateY(0);
+  opacity: 1;
+}

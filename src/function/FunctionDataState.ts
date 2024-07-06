@@ -1,0 +1,25 @@
+import { ref } from 'vue'
+export const firstName = ref('')
+export const lastName = ref('')
+export const email = ref('')
+export const password = ref('')
+export const confirmPassword = ref('')
+export const showPassword = ref(false)
+export const showConfirmPassword = ref(false)
+export const phoneNumber = ref('')
+export const address = ref('')
+export const city = ref('')
+export const state = ref('')
+export const country = ref('')
+export const postalCode = ref('')
+export const profilePicture = ref<File | null>(null)
+export const userName = ref('')
+export const bio = ref('')
+export const textareaHeight = ref(150)
+export const selectedMethod = ref('')
+export const message = ref('')
+export const authenticator = ref('')
+export const answers = ref([
+  { question: '', answer: '' },
+  { question: '', answer: '' }
+])

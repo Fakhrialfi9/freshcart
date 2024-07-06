@@ -1,0 +1,588 @@
+.MainCreateAccountContent {
+  background-color: var(--white-color);
+}
+
+/* Start Basic Information Content */
+.CreateAccountContent {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  max-width: 60%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2rem;
+}
+
+.BasicInformationContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Start Basic Information Content */
+
+/* Start Contact Information Content */
+
+.ContactInformationContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Start Contact Information Content */
+
+/* Start Profile Setup  Content */
+
+.ProfileSetupContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Start Profile Setup  Content */
+
+/* Start Authentication Content */
+
+.TwoFactorAuthenticationContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Start Authentication Content */
+
+/* Start Security Questions Content */
+
+.SecurityQuestionsContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+/* Start Security Questions Content */
+
+/* Start Final Confirmation Content */
+.FinalConfirmationContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ConfirmationMessage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.65rem;
+}
+/* Start Final Confirmation Content */
+
+.HeadingContentCreateAccount {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.HeadingContentCreateAccount > h5 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.HeadingContentCreateAccount > p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.LogoFreshCart {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0.85rem 0;
+  gap: 1rem;
+  background-color: var(--bg-color);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem !important;
+}
+
+form > .ContainerInput {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.85rem;
+  gap: 1rem !important;
+}
+
+form > .ContainerInput > label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0.85rem;
+  gap: 0.5rem;
+}
+
+form > .ContainerInput > label > .InputGroup {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+form > .ContainerInput > label > h6 {
+  font-size: 0.85rem !important;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+form > .ContainerInput > label > p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gray-600);
+  line-height: 1.25;
+}
+
+form > .ContainerInput > label > .ContainerInputPassword {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.IconUnhide {
+  position: absolute;
+  right: 0.5rem;
+  font-weight: 500;
+}
+
+form > .ContainerInput > label > select {
+  width: 100%;
+  max-width: 100%;
+}
+
+form > .ButtonCallToAction {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  flex-wrap: nowrap !important;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+form > .ButtonCallToAction > a > button {
+  width: 100%;
+}
+
+form > .ButtonCallToAction > button {
+  width: 100%;
+}
+
+form > .ButtonCallToAction > a > button {
+  background-color: var(--white-color);
+  border: 0.05rem solid var(--border-color);
+  color: var(--gray-300);
+}
+
+form > .ButtonCallToAction > a > button:hover {
+  color: var(--gray-700);
+}
+
+form > .ButtonCallToAction > button:nth-child(2) {
+  background-color: var(--primary-color);
+}
+
+form > label > .ContainerInputPassword > input[type='password'] {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+}
+
+.ButtonUnHidePassword {
+  position: absolute;
+
+  bottom: 0;
+}
+
+/* Start Bullet Step Content */
+.ContainerStepBullet {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  max-height: 1.75rem;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.StepsBullet {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 1.75rem;
+  min-width: 1.75rem;
+  max-width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  max-height: 1.75rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  border: 0.1rem solid var(--border-color);
+  background-color: var(--bg-color);
+  z-index: 99;
+}
+
+.StepsBulletFill {
+  position: absolute;
+  content: '';
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5rem;
+  min-width: 0.5rem;
+  max-width: 0.5rem;
+  height: 0.5rem;
+  min-width: 0.5rem;
+  max-height: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--black-color);
+}
+
+.StepsLine {
+  position: absolute;
+  width: 100%;
+  height: 0.15rem;
+  background-color: var(--border-color);
+  top: 45%;
+  left: 0;
+  transform: translateY (-50%);
+  transition: all 0.5s ease;
+}
+
+.Steps:last-child .StepsLine {
+  display: none;
+}
+
+/* Start Active, Done, Finish */
+
+/* Start Active */
+.StepsActive .StepsBullet {
+  border: 0.07rem solid var(--bg-color);
+  background-color: var(--primary-color);
+  transition: all 1s ease;
+}
+
+.StepsActive .StepsBulletFill {
+  background-color: var(--bg-color);
+  transition: all 1s ease;
+}
+/* End Active */
+
+/* Start Step Done */
+.StepsDone .StepsBullet {
+  border: 0.07rem solid var(--bg-color);
+  background-color: var(--primary-color);
+  transition: all 0.5s ease;
+}
+
+.StepsDone .StepsBullet::after {
+  content: '';
+  width: 1rem;
+  height: 1rem;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"%3E%3Cpath fill="none" d="M0 0h24v24H0V0z"/%3E%3Cpath d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" /%3E%3C/svg%3E');
+  background-size: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.5s ease;
+}
+
+.StepsDone .StepsBulletFill {
+  background-color: transparent;
+  transition: all 0.5s ease;
+}
+
+.StepsDone .StepsLineFill {
+  width: 100%;
+  max-width: 100%;
+  transition: all 0.5s ease;
+}
+
+/* End Step Done */
+
+.StepsLineFill {
+  position: absolute;
+  width: 0;
+  max-width: 100%;
+  height: 0.15rem;
+  background-color: var(--primary-color);
+  transition: all 0.5s ease;
+}
+
+.StepsDoneClear .StepsLineFill {
+  width: 50%;
+  border-radius: 100rem;
+  transition: all 0.5s ease;
+}
+
+.MainLoading {
+  position: fixed !important;
+  top: 50% !important ;
+  left: 50% !important ;
+  transform: translate(-50%, -50%) !important ;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--white-color) !important;
+  z-index: 9999 !important;
+}
+
+/* End Active, Done, Finish */
+/* End Bullet Step Content */
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .CreateAccountContent,
+  .ContactInformation,
+  .ProfileSetup,
+  .TwoFactorAuthentication,
+  .FinalConfirmation,
+  .SecurityQuestions {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .CreateAccountContent,
+  .ContactInformation,
+  .ProfileSetup,
+  .TwoFactorAuthentication,
+  .FinalConfirmation,
+  .SecurityQuestions {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .CreateAccountContent,
+  .ContactInformation,
+  .ProfileSetup,
+  .TwoFactorAuthentication,
+  .FinalConfirmation,
+  .SecurityQuestions {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .CreateAccountContent,
+  .ContactInformation,
+  .ProfileSetup,
+  .TwoFactorAuthentication,
+  .FinalConfirmation,
+  .SecurityQuestions {
+    width: 85% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .CreateAccountContent,
+  .ContactInformation,
+  .ProfileSetup,
+  .TwoFactorAuthentication,
+  .FinalConfirmation,
+  .SecurityQuestions {
+    width: 80% !important;
+    max-width: 100% !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+}

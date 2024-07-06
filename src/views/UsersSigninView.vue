@@ -28,8 +28,8 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
 </script>
 
 <template>
-  <main id="MainUser">
-    <section class="User">
+  <main id="MainSigninUser">
+    <section class="Signin">
       <div class="LeftContent">
         <div class="Container-SigninUsers">
           <div class="FormContent">
@@ -101,7 +101,7 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
             <div class="SignUp-FormContent">
               <h6>
                 Dont Have an Accout?
-                <RouterLink class="CreateAccout" to="/user/createaccount">Create Accout</RouterLink>
+                <RouterLink class="CreateAccout" to="/signup">Sign Up</RouterLink>
               </h6>
             </div>
             <!-- End Signup Content  -->

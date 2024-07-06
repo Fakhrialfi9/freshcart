@@ -2,7 +2,7 @@
 import { RouterView } from 'vue-router'
 
 // Start Style Global
-import '../../main/style/Main.css'
+import '../../main/style/MainLayout.css'
 import '../../main/style/Framework.css'
 import '../../main/style/Root.css'
 import '../../main/style/Responsive.css'
@@ -41,4 +41,4 @@ import FooterComponents from '../../components/FooterComponents.vue'
   </main>
 </template>
 
-<style scoped src="../../main/style/Main.css"></style>
+<style scoped src="../../main/style/MainLayout.css"></style>

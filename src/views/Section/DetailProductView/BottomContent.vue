@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import { useProducts, type Product } from '../../../function/useProduct'
+import { useProducts } from '../../../function/useProduct'
 
 import ProductDetails from './ProductDetails.vue'
 import InformationView from './InformationView.vue'
@@ -20,7 +20,6 @@ const tabs: Record<string, typeof ProductDetails | typeof InformationView | type
 const route = useRoute()
 const { fetchProductById } = useProducts()
 const productId = Number(route.params.id)
-const product = ref<Product | null>(null)
 
 const setActiveTab = async (tab: string) => {
   currentTab.value = tab as typeof currentTab.value

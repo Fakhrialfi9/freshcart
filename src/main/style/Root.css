@@ -78,8 +78,8 @@ body {
   --black-color: #1b1b1b;
   --white-color: #ffffff;
 
-  --success-color: #198754;
-  --danger-color: #db3030;
+  --success-color: #4caf50;
+  --danger-color: #f44336;
   --warning-color: #ffc107;
   --info-color: #016bf8;
 
@@ -328,6 +328,11 @@ textarea {
   font-family: var(--font-family-sans);
   border: 0.1rem solid var(--border-color);
   border-radius: var(--border-radius);
+}
+
+input::placeholder {
+  font-size: 0.85rem;
+  font-weight: 500;
 }
 
 input:focus,
