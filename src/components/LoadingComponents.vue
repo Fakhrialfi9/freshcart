@@ -27,7 +27,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin: 0 auto;
+  margin: 10rem 0 0 0;
   padding: 0;
   background-color: var(--white-color) !important;
   z-index: 9999 !important;
