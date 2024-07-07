@@ -46,8 +46,12 @@ onMounted(async () => {
   <main id="MainSingleProduct">
     <section class="SingleProduct">
       <!-- Start Loading Statement -->
-      <div v-if="loading || !isLoaded">
-        <LoadingComponents />
+      <div class="MainLoading" v-if="loading || !isLoaded">
+        <div class="LoadingContainer">
+          <div class="LoadingContent">
+            <LoadingComponents />
+          </div>
+        </div>
       </div>
       <!-- End Loading Statement -->
 
@@ -66,11 +70,15 @@ onMounted(async () => {
         <div class="SingleProductContent" v-if="product">
           <div class="SingleProductTopContent">
             <!-- Start Left Content -->
-            <LeftContent />
+            <transition name="slide-up" mode="in-out">
+              <LeftContent />
+            </transition>
             <!-- End Left Content -->
 
             <!-- Start Right Content -->
-            <RightContent />
+            <transition name="slide-up" mode="in-out">
+              <RightContent />
+            </transition>
             <!-- End Right Content -->
           </div>
 
@@ -79,9 +87,9 @@ onMounted(async () => {
           <!-- End Bottom Content -->
 
           <!-- Start Bottom Content -->
-
-          <RelatedItemsView />
-
+          <transition name="slide-up" mode="out-in">
+            <RelatedItemsView />
+          </transition>
           <!-- End Bottom Content -->
         </div>
         <!-- End Main Content Detail Product -->

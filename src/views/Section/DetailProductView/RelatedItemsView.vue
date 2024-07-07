@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 import { useProducts, type Product } from '../../../function/useProduct.js'
 import { handleAddToCart } from '../../../function/FunctionAddToCart'
@@ -70,12 +70,24 @@ const truncateText = (value: string, limit: number) => {
   }
   return value
 }
+
+const isLoading = ref(true)
+
+onMounted(async () => {
+  const start = Date.now()
+  const elapsed = Date.now() - start
+  const delay = Math.max(2000 - elapsed, 0)
+  setTimeout(() => {
+    isLoading.value = false
+  }, delay)
+})
 </script>
 
 <template>
   <main>
     <section class="PopularProduct">
-      <div class="ContentPopularProduct">
+      <div v-if="isLoading"><h6>Loading Content...</h6></div>
+      <div class="ContentPopularProduct" v-else>
         <!-- Start Headline Section Home -->
         <ul class="HeadlineSection-Home">
           <li><h5>Related Items</h5></li>

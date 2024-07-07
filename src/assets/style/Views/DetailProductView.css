@@ -89,8 +89,8 @@ main {
   flex-direction: column;
   width: 100%;
   max-width: 100%;
-  height: auto;
-  max-width: auto;
+  height: 100%;
+  max-width: 100%;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -119,8 +119,8 @@ main {
   flex-direction: row;
   width: 100%;
   max-width: 100%;
-  height: 30rem;
-  max-height: 30rem;
+  height: 40rem;
+  max-height: 40rem;
   justify-content: center;
   align-items: center;
   align-content: center;
@@ -990,6 +990,21 @@ main {
   .MainTabs > ul > li > a {
     font-size: 0.85rem !important;
   }
+
+  .BoxPrimaryImage-LeftContent {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 25rem !important;
+    max-height: 25rem !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+  }
 }
 
 /* ================================================================================================== */
@@ -1021,6 +1036,21 @@ main {
   .MainTabs > ul > li > a {
     font-size: 0.85rem !important;
   }
+
+  .BoxPrimaryImage-LeftContent {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 35rem !important;
+    max-height: 35rem !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+  }
 }
 
 /* ================================================================================================== */
@@ -1046,6 +1076,21 @@ main {
   .MainTabs > ul > li > a {
     font-size: 0.85rem !important;
   }
+
+  .BoxPrimaryImage-LeftContent {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 57rem !important;
+    max-height: 57rem !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+  }
 }
 
 /* ================================================================================================== */
@@ -1056,6 +1101,21 @@ main {
   .InformationProduct-RightContent > ul > li > .Content-ProductName {
     font-size: 2.1875rem !important;
   }
+
+  .BoxPrimaryImage-LeftContent {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 28rem !important;
+    max-height: 28rem !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
+  }
 }
 
 /* ================================================================================================== */
@@ -1065,6 +1125,21 @@ main {
 @media (min-width: 1201px) and (max-width: 1400px) {
   .InformationProduct-RightContent > ul > li > .Content-ProductName {
     font-size: 2.1875rem !important;
+  }
+
+  .BoxPrimaryImage-LeftContent {
+    display: flex !important;
+    flex-direction: row !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 35rem !important;
+    max-height: 35rem !important;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--border-radius-lg);
   }
 }
 

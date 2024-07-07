@@ -41,8 +41,8 @@ const handleThumbnailClick = (index: number) => {
         <swiper
           class="BoxPrimaryImage-LeftContent"
           :style="{
-            '--swiper-navigation-color': '#fff',
-            '--swiper-pagination-color': '#fff'
+            '--swiper-navigation-color': '#000000',
+            '--swiper-pagination-color': '#000000'
           }"
           :modules="modules"
           :space-between="10"

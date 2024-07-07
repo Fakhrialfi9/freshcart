@@ -30,6 +30,8 @@ import IconCube from '../assets/icon/IconCube.vue'
         <h5>Fresh Cart Enterprise</h5>
         <h5>x</h5>
         <h5>Vue Js 3</h5>
+        <h5>|</h5>
+        <h5>Muhammad Fakhri Alfi Syahrin H.</h5>
       </div>
     </section>
   </main>

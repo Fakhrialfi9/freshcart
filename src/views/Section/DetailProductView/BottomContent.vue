@@ -21,6 +21,8 @@ const route = useRoute()
 const { fetchProductById } = useProducts()
 const productId = Number(route.params.id)
 
+const isLoaded = ref(false)
+
 const setActiveTab = async (tab: string) => {
   currentTab.value = tab as typeof currentTab.value
   await nextTick()
@@ -42,14 +44,23 @@ const moveMarker = () => {
 }
 
 onMounted(async () => {
+  const start = Date.now()
   await fetchProductById(productId)
-  moveMarker()
+  const elapsed = Date.now() - start
+  const delay = Math.max(2000 - elapsed, 0)
+  setTimeout(() => {
+    isLoaded.value = true
+    moveMarker()
+  }, delay)
 })
 </script>
 
 <template>
   <section class="BottomContent">
-    <div class="ProductDetail-BottomContent">
+    <div v-if="!isLoaded">
+      <h6>Loading Content...</h6>
+    </div>
+    <div class="ProductDetail-BottomContent" v-else>
       <div class="MainTabs">
         <ul>
           <li
@@ -68,7 +79,7 @@ onMounted(async () => {
         <i class="active-marker"></i>
       </div>
       <div class="ContentProductDetail-BottomContent">
-        <transition name="slide-left" mode="out-in">
+        <transition name="slide-left">
           <component :is="tabs[currentTab]"></component>
         </transition>
       </div>
