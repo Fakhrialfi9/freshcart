@@ -22,12 +22,12 @@
   flex-direction: column;
   width: 100vw;
   max-width: 100vw;
-  height: 35vh;
-  max-height: 35vh;
+  height: 50vh;
+  max-height: 50vh;
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin: 10rem 0 0 0;
+  margin: 0 auto;
   padding: 0;
   background-color: var(--white-color) !important;
   z-index: 9999 !important;
@@ -295,6 +295,26 @@
   100% {
     transform: scale(1);
     opacity: 1;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .MainLoading {
+    margin-top: 10rem !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .MainLoading {
+    margin-top: 10rem !important;
   }
 }
 </style>
