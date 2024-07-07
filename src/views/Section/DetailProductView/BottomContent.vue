@@ -79,7 +79,7 @@ onMounted(async () => {
         <i class="active-marker"></i>
       </div>
       <div class="ContentProductDetail-BottomContent">
-        <transition name="slide-left">
+        <transition name="slide-left" mode="out-in">
           <component :is="tabs[currentTab]"></component>
         </transition>
       </div>

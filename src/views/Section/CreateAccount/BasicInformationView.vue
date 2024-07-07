@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue'
+import { computed, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
-import LoadingComponents from '../../../components/LoadingComponents.vue'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
 import { alertBox } from '../../../function/FunctionAlert'
 import { dataSteps, data } from '../../../function/FunctionDataNavigationStep'
@@ -33,17 +32,6 @@ watch(
   }
 )
 
-const loading = ref<boolean>(true) // State untuk menunjukkan status loading
-const isLoaded = ref<boolean>(false) // State untuk menunjukkan apakah konten telah dimuat
-
-onMounted(() => {
-  // Simulasi loading selama 2 detik
-  setTimeout(() => {
-    loading.value = false // Setelah 2 detik, loading selesai
-    isLoaded.value = true // Konten telah dimuat
-  }, 2000)
-})
-
 const styleSteps = computed(() => ({
   '--Active-Color': dataSteps.value.activeStep,
   '--Passive-Color': dataSteps.value.passiveStep
@@ -54,18 +42,16 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
 
 <template>
   <main class="MainCreateAccountContent">
-    <!-- Start Loading Statement -->
-    <div class="MainLoading" v-if="loading || !isLoaded">
-      <LoadingComponents />
-    </div>
-    <!-- End Loading Statement -->
     <div class="Container">
       <section class="CreateAccountContent" :style="styleSteps">
+        <!-- Start Logo Content -->
         <div class="LogoFreshCart DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG">
           <img :src="LogoFreshCart" alt="" />
           <p>|</p>
           <h6>Create Account</h6>
         </div>
+        <!-- End Logo Content -->
+
         <!-- Start Step Progress Content -->
         <div
           class="ContainerStepBullet DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG"
