@@ -30,7 +30,7 @@
     "otp-generator": "^4.0.1",
     "pinia": "^2.1.7",
     "quill": "^2.0.2",
-    "swiper": "^8.4.7",
+    "swiper": "^8.0.0",
     "update": "^0.4.2",
     "vue": "^3.4.31",
     "vue-apexcharts": "^1.6.2",
