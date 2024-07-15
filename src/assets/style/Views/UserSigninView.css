@@ -431,13 +431,13 @@ main {
   color: var(--gray-600);
 }
 
-.SignUp-FormContent .CreateAccout {
+.SignUp-FormContent .CreateAccount {
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--gray-800);
 }
 
-.SignUp-FormContent .CreateAccout:hover {
+.SignUp-FormContent .CreateAccount:hover {
   color: var(--primary-color);
 }
 

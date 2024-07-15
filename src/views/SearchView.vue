@@ -142,20 +142,30 @@ const setShowSort = ref(false)
 
 // Toggle untuk menampilkan atau menyembunyikan pilihan kolom
 const toggleSelectColumn = () => {
+  closeAllDropdowns()
   setShowColumn.value = !setShowColumn.value
 }
 
 // Toggle untuk menampilkan atau menyembunyikan opsi pengurutan
 const toggleSelectSort = () => {
+  closeAllDropdowns()
   setShowSort.value = !setShowSort.value
+}
+
+const closeAllDropdowns = () => {
+  setShowColumn.value = false
+  setShowSort.value = false
 }
 
 // Fungsi untuk menangani klik di luar area dropdown untuk menutup dropdown
 const handleClickOutside = (event: MouseEvent) => {
-  const select = document.querySelector('.ContentSelectOption')
-  if (select && !select.contains(event.target as Node)) {
-    setShowColumn.value = false
-    setShowSort.value = false
+  const dropdowns = document.querySelectorAll('.ContentSelectOption')
+  const isClickOutside = Array.from(dropdowns).every(
+    (dropdown) => !dropdown.contains(event.target as Node)
+  )
+
+  if (isClickOutside) {
+    closeAllDropdowns()
   }
 }
 

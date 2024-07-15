@@ -1,0 +1,1071 @@
+main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+
+  background-color: var(--white-color);
+}
+
+.DashboardUser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100% !important;
+  min-width: 100% !important;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.DashboardUserContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.BannerContentDashboardUser {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 18rem;
+  max-height: 18rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius-lg);
+  /* Menambahkan gambar sebagai background */
+  background-image: url('../../image/banner-home/slide2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.ContentBannerContentDashboardUser {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 3.5rem;
+  gap: 1.25rem;
+}
+
+.ContentBannerContentDashboardUser > h4 {
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.InsightsInformation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.CardBoxInsightsInformation {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  height: 10rem;
+  min-height: 10rem;
+  max-height: 10rem;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out;
+}
+
+.CardBoxInsightsInformation:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.TopContentCardBoxInsightsInformation {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.TopContentCardBoxInsightsInformation h5 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.IconTopContentCardBoxInsightsInformation {
+  display: flex;
+  flex-direction: row;
+  width: 3rem;
+  max-width: 3rem;
+  height: 3rem;
+  min-height: 3rem;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--third-color);
+  border-radius: 50%;
+}
+
+.CardBoxInsightsInformation:nth-child(1) .IconTopContentCardBoxInsightsInformation {
+  background-color: var(--third-color) !important;
+}
+
+.CardBoxInsightsInformation:nth-child(2) .IconTopContentCardBoxInsightsInformation {
+  background-color: var(--fourth-color) !important;
+}
+
+.CardBoxInsightsInformation:nth-child(3) .IconTopContentCardBoxInsightsInformation {
+  background-color: var(--fifth-color) !important;
+}
+
+.IconInsightsInformation {
+  stroke: #5a191d !important;
+  stroke-width: 0.1rem !important;
+}
+
+.BottomContentCardBoxInsightsInformation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.45rem;
+}
+
+.BottomContentCardBoxInsightsInformation h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.BottomContentCardBoxInsightsInformation h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.ChartInformation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(1, 2fr 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.CardBoxChartInformation {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  gap: 2.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.CardBoxChartInformation:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.TopContentCardBoxChartInformation {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HeadlineTopContentCardBoxChartInformation {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.45rem;
+}
+
+.HeadlineTopContentCardBoxChartInformation h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.HeadlineTopContentCardBoxChartInformation h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.YearsSelecrTopContentCardBoxChartInformation {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.YearsSelecrTopContentCardBoxChartInformation > form {
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-end;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.BottomContentCardBoxChartInformation {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.ChartContent {
+  display: flex;
+  flex-direction: row;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto !important;
+  padding: 0 !important;
+}
+
+.BarProgressSalesOverview {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.CardBoxBarProgressSalesOverview {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  gap: 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.CardBoxBarProgressSalesOverview:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.TopContentCardBoxBarProgressSalesOverview {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HeadlineTopContentCardBoxBarProgressSalesOverview {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.45rem;
+}
+
+.HeadlineTopContentCardBoxBarProgressSalesOverview h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.HeadlineTopContentCardBoxBarProgressSalesOverview h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.BottomContentCardBoxBarProgressSalesOverview {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.ContainerBarProgress {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.HeadlineBarProgress {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HeadlineBarProgress > h5 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.BarProgress {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: 1rem;
+  max-height: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  background-color: #f0f0f0;
+  border-radius: var(--border-radius-lg);
+}
+
+.BarProgressInner {
+  height: 100%;
+  border-radius: 5px;
+}
+
+.ContainerBarProgress:nth-child(1) .BarProgress {
+  background-color: rgb(10, 173, 10, 0.25) !important;
+}
+
+.ContainerBarProgress:nth-child(2) .BarProgress {
+  background-color: rgb(255, 187, 40, 0.25) !important;
+}
+
+.ContainerBarProgress:nth-child(3) .BarProgress {
+  background-color: rgb(1, 107, 248, 0.25) !important;
+}
+
+.ContainerBarProgress:nth-child(1) .BarProgressInner {
+  background-color: var(--primary-color) !important;
+}
+
+.ContainerBarProgress:nth-child(2) .BarProgressInner {
+  background-color: var(--sixth-color) !important;
+}
+
+.ContainerBarProgress:nth-child(3) .BarProgressInner {
+  background-color: var(--info-color) !important;
+}
+
+.ContentNotificationMessage {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.75rem;
+}
+
+.IconNotificationMessage {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 3.5rem;
+  max-width: 3.5rem;
+  height: 3.5rem;
+  max-height: 3.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  border-radius: 50%;
+}
+
+.ContentNotificationMessage:nth-child(1) .IconNotificationMessage {
+  background-color: var(--third-color) !important;
+}
+
+.ContentNotificationMessage:nth-child(2) .IconNotificationMessage {
+  background-color: var(--fourth-color) !important;
+}
+
+.ContentNotificationMessage:nth-child(3) .IconNotificationMessage {
+  background-color: var(--fifth-color) !important;
+}
+
+.IconNotification {
+  color: #5a191d !important;
+  width: 1.5rem !important;
+}
+
+.LabelNotificationMessage {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.35rem;
+}
+
+.LabelNotificationMessage > h5 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+
+.LabelNotificationMessage > p {
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: var(--gray-500);
+}
+
+.LabelNotificationMessage > p > a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--info-color);
+}
+
+.ContainerChartTotalSales {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 1.25rem;
+}
+
+#ContentChartTotalSales {
+  box-sizing: border-box !important;
+  display: flex;
+  flex-direction: column;
+  width: 15rem !important;
+  max-width: 15rem !important;
+  height: 15rem !important;
+  min-height: 15rem !important;
+  max-height: 15rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
+.ContentChartTotalSales {
+  box-sizing: border-box !important;
+  display: flex;
+  flex-direction: column;
+  width: 15rem !important;
+  max-width: 15rem !important;
+  height: 15rem !important;
+  min-height: 15rem !important;
+  max-height: 15rem !important;
+  justify-content: center !important;
+  align-items: center !important;
+  align-content: center !important;
+}
+
+.ContainerLabelsChart {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.ContentLabelsChart {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.Bullets {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 0.65rem;
+  max-width: 0.65rem;
+  height: 0.65rem;
+  max-height: 0.65rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--success-color);
+  border-radius: 50%;
+}
+
+.ContentLabelsChart:nth-child(1) .Bullets {
+  background-color: var(--success-color);
+}
+
+.ContentLabelsChart:nth-child(2) .Bullets {
+  background-color: var(--warning-color);
+}
+
+.ContentLabelsChart:nth-child(3) .Bullets {
+  background-color: var(--danger-color);
+}
+
+.ContentLabelsChart:nth-child(4) .Bullets {
+  background-color: var(--info-color);
+}
+
+.TextLabels {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: auto;
+  max-width: auto;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.TextLabels > h5 {
+  font-size: 0.85rem;
+  color: var(--gray-700);
+  font-weight: 600;
+}
+
+.TextLabels > h5 > span {
+  color: var(--gray-500);
+  font-weight: 600;
+}
+
+.ContentRecentOrder {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.CardBoxContentRecentOrder {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  gap: 2rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.CardBoxContentRecentOrder:hover {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.TopContentCardBoxCardBoxContentRecentOrder {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.HeadlineTopContentCardBoxCardBoxContentRecentOrder {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.45rem;
+}
+
+.HeadlineTopContentCardBoxCardBoxContentRecentOrder h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--gray-600);
+}
+
+.HeadlineTopContentCardBoxCardBoxContentRecentOrder h6 {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+.BottomContentCardBoxCardBoxContentRecentOrder {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  flex-wrap: nowrap !important;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.CardBoxOrderProduct {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 1.5rem;
+  background-color: var(--white-color);
+  border: 0.05rem solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  gap: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.CardBoxOrderProduct .CardBoxOrderInfoProduct {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.CardBoxOrderProduct .CardBoxOrderInfoProduct > p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+.CardBoxOrderProduct .CardBoxOrderInfoProduct > p > span {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+
+.CardBoxOrderProduct .CardBoxOrderStatusProduct {
+  margin-left: auto !important;
+}
+
+.CardBoxOrderProduct .CardBoxOrderStatusProduct > span {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0.25rem 0.5rem;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius);
+}
+
+.CardBoxOrderProduct .CardBoxOrderStatusProduct > span > p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--white-color);
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 576px  =============================== */
+/* ================================================================================================== */
+
+@media (max-width: 576px) {
+  .InsightsInformation {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .ChartInformation {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .BarProgressSalesOverview {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .LabelNotificationMessage > h5 {
+    font-size: 0.85rem !important;
+  }
+  .LabelNotificationMessage > p {
+    font-size: 0.65rem !important;
+  }
+  .LabelNotificationMessage > p > a {
+    font-size: 0.65rem !important;
+  }
+  .BottomContentCardBoxCardBoxContentRecentOrder {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 768px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .InsightsInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .ChartInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .BarProgressSalesOverview {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .LabelNotificationMessage > h5 {
+    font-size: 0.85rem !important;
+  }
+  .LabelNotificationMessage > p {
+    font-size: 0.65rem !important;
+  }
+  .LabelNotificationMessage > p > a {
+    font-size: 0.65rem !important;
+  }
+  .BottomContentCardBoxCardBoxContentRecentOrder {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 991px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .InsightsInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .ChartInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .BarProgressSalesOverview {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .LabelNotificationMessage > h5 {
+    font-size: 0.85rem !important;
+  }
+  .LabelNotificationMessage > p {
+    font-size: 0.65rem !important;
+  }
+  .LabelNotificationMessage > p > a {
+    font-size: 0.65rem !important;
+  }
+  .BottomContentCardBoxCardBoxContentRecentOrder {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1200px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .InsightsInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .ChartInformation {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .BarProgressSalesOverview {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+  .LabelNotificationMessage > h5 {
+    font-size: 0.85rem !important;
+  }
+  .LabelNotificationMessage > p {
+    font-size: 0.65rem !important;
+  }
+  .LabelNotificationMessage > p > a {
+    font-size: 0.65rem !important;
+  }
+  .BottomContentCardBoxCardBoxContentRecentOrder {
+    grid-template-columns: repeat(1, 1fr) !important;
+  }
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1400px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+}
+
+/* ================================================================================================== */
+/* ===============================  T H I S  R E S P O N S I V E  M A X - W I D T H 1600px  =============================== */
+/* ================================================================================================== */
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+}

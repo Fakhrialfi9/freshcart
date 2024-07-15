@@ -34,6 +34,12 @@ declare module '*.js' {
 }
 
 declare module '*.vue' {
-  const value: string
-  export default value
+  import { DefineComponent } from 'vue'
+  const component: DefineComponent<{}, {}, any>
+  export default component
 }
+
+// declare module '*.vue' {
+//   const value: string
+//   export default value
+// }

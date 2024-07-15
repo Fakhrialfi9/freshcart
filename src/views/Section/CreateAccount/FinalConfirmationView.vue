@@ -5,7 +5,9 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 
 const handleSubmit = () => {
-  router.push('/signin')
+  setTimeout(() => {
+    router.push('/home')
+  }, 1500)
 }
 </script>
 

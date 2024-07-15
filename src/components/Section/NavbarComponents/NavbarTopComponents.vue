@@ -1,28 +1,26 @@
 <!-- NavbarTopComponents.vue -->
 
 <script setup lang="ts">
-import { defineEmits, ref } from 'vue'
+import { defineEmits, ref, onMounted } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 import { useSearch } from '../../../stores/SearchStore'
 import { useProducts, type Product } from '../../../function/useProduct' // Pastikan mengimpor useProducts dan Product dari useProduct.ts
+import { user, getUser } from '../../../stores/AuthGetUserStores'
 
-// Start Import Function Wishlist & Cart
+// Import Function Wishlist & Cart
 import { CartItems } from '../../../stores/AddToCart'
 import { WishlistItems } from '../../../stores/AddToWishlist'
-// End Import Function Wishlist & Cart
 
-// Start Import Logo Fresh Cart
+// Import Logo Fresh Cart
 import LogoNavbar from '../../../assets/logo/logo-company/freshcart-logo.svg'
-// End Import Logo Fresh Cart
 
-// Start Import Icon
+// Import Icon
 import IconSearch from '../../../assets/icon/IconSearch.vue'
 import IconPinLocation from '../../../assets/icon/IconPinLocation.vue'
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 import IconUsers from '../../../assets/icon/IconUsers.vue'
 import IconBagCart from '../../../assets/icon/IconBagCart.vue'
 import IconHamburgerMenu from '../../../assets/icon/IconHamburgerMenu.vue'
-// End Import Icon
 
 const router = useRouter()
 const searchQuery = ref<string>('') // State untuk menyimpan nilai input pencarian
@@ -62,6 +60,10 @@ const selectAutofill = (product: Product) => {
 }
 
 const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenContentMenuMobileSlider']) // Mendefinisikan event untuk emit
+
+onMounted(() => {
+  getUser()
+})
 </script>
 
 <template>
@@ -99,7 +101,22 @@ const emit = defineEmits(['ToggleOpenContentModalsBasketCart', 'ToggleOpenConten
       </div>
     </div>
     <div class="RightContent">
-      <RouterLink to="/signin" active-class="ActiveIconNavbar" class="DisplayNone-SM Tooltip">
+      <RouterLink
+        v-if="user"
+        :to="`/profileuser/${user.userName}/detailaccount`"
+        active-class="ActiveIconNavbar"
+        class="DisplayNone-SM Tooltip"
+      >
+        <IconUsers class="IconNavbar" />
+        <span v-if="user" class="TooltipText">@{{ user.userName }} </span>
+      </RouterLink>
+
+      <RouterLink
+        v-else
+        to="/signin"
+        active-class="ActiveIconNavbar"
+        class="DisplayNone-SM Tooltip"
+      >
         <IconUsers class="IconNavbar" />
         <span class="TooltipText">User Login</span>
       </RouterLink>

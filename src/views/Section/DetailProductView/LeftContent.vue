@@ -10,8 +10,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-import { counter } from './../../../stores/counter'
-
 const route = useRoute()
 const { fetchProductById, loading } = useProducts()
 const productId = Number(route.params.id)

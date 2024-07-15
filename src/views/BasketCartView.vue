@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import SliderFilterComponents from '../components/SliderFilterComponents.vue'
 import Breadcrumbs from '../components/BreadcrumbsComponents.vue'
+import { user, getUser } from '../stores/AuthGetUserStores'
 import {
   CartItems,
   deleteFromCart,
@@ -9,6 +10,10 @@ import {
   toggleSelectAll,
   toggleSelectProduct
 } from '../stores/AddToCart'
+
+onMounted(() => {
+  getUser()
+})
 
 // Variabel reaktif untuk slider filter
 const setMenuSliderFilter = ref(false)
@@ -83,7 +88,7 @@ watch(searchQuery, () => {
 })
 </script>
 
-<template>
+<template v-if="user">
   <main id="MainBasketCart">
     <section class="BasketCart">
       <div class="Container">
@@ -115,91 +120,95 @@ watch(searchQuery, () => {
           </div>
           <div class="ContainerCardBoxBasketCartContent">
             <div class="ContentCardBoxBasketCartContent" v-if="filteredCartItems">
-              <div
-                class="CardBoxBasketCartContent"
-                v-for="product in filteredCartItems"
-                :key="product.id"
-              >
-                <div class="CardBoxBasketCartContentTop">
-                  <input
-                    class="CheckBox-CardBoxBasketCartContentTop"
-                    type="checkbox"
-                    :checked="product.selected"
-                    @change="toggleSelectProduct(product.id)"
-                  />
-                  <div class="Image-CardBoxBasketCartContentTop">
-                    <RouterLink :to="'/shopping/' + product.id">
-                      <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
-                    </RouterLink>
-                  </div>
-                  <ul class="Information-CardBoxBasketCartContentTop">
-                    <RouterLink :to="'/shopping/' + product.id">
-                      <li>
-                        <h6>Name:</h6>
-                        <h5>{{ product.nameProduct }}</h5>
-                      </li>
-                      <li>
-                        <h6>Price:</h6>
-                        <h5>{{ product.priceProduct }}</h5>
-                      </li>
-                    </RouterLink>
-                  </ul>
-                </div>
-                <div class="CardBoxBasketCartContentBottom">
-                  <ul>
-                    <li>
-                      <p>Status</p>
-                      <button class="StatusColor">
-                        {{ product.availabilityProduct ? 'Available' : 'Out of Stock' }}
-                      </button>
-                    </li>
-                    <li>
-                      <p>Actions</p>
-                      <button class="ActionColor">Add To Cart</button>
-                    </li>
-                    <li>
-                      <p>Quantity</p>
-                      <div class="InputQuantity-CardBoxCheckoutProduct">
-                        <form class="FormInputQuantity" action="">
-                          <button
-                            class="QuantityUp"
-                            type="button"
-                            @click="updateQuantity(product.id, product.quantity - 1)"
-                          >
-                            -
-                          </button>
-                          <input
-                            min="1"
-                            name="quantity"
-                            :value="product.quantity"
-                            type="number"
-                            @input="handleInput($event, product.id)"
-                          />
-                          <button
-                            class="QuantityDown"
-                            type="button"
-                            @click="updateQuantity(product.id, product.quantity + 1)"
-                          >
-                            +
-                          </button>
-                        </form>
-                      </div>
-                    </li>
-                    <li>
-                      <p>Total Price</p>
-                      <button class="TotalPrice">
-                        {{ product.priceProduct * product.quantity }}
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  class="RemoveButtonCardBoxBasketCartContent"
-                  @click="setToggleOpenModalDeleteConfirm(product.id)"
+              <!-- Start Card Content Cart -->
+              <transition-group name="list">
+                <div
+                  class="CardBoxBasketCartContent"
+                  v-for="product in filteredCartItems"
+                  :key="product.id"
                 >
-                  Remove
-                </button>
-              </div>
+                  <div class="CardBoxBasketCartContentTop">
+                    <input
+                      class="CheckBox-CardBoxBasketCartContentTop"
+                      type="checkbox"
+                      :checked="product.selected"
+                      @change="toggleSelectProduct(product.id)"
+                    />
+                    <div class="Image-CardBoxBasketCartContentTop">
+                      <RouterLink :to="'/shopping/' + product.id">
+                        <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                      </RouterLink>
+                    </div>
+                    <ul class="Information-CardBoxBasketCartContentTop">
+                      <RouterLink :to="'/shopping/' + product.id">
+                        <li>
+                          <h6>Name:</h6>
+                          <h5>{{ product.nameProduct }}</h5>
+                        </li>
+                        <li>
+                          <h6>Price:</h6>
+                          <h5>{{ product.priceProduct }}</h5>
+                        </li>
+                      </RouterLink>
+                    </ul>
+                  </div>
+                  <div class="CardBoxBasketCartContentBottom">
+                    <ul>
+                      <li>
+                        <p>Status</p>
+                        <button class="StatusColor">
+                          {{ product.availabilityProduct ? 'Available' : 'Out of Stock' }}
+                        </button>
+                      </li>
+                      <li>
+                        <p>Actions</p>
+                        <button class="ActionColor">Add To Cart</button>
+                      </li>
+                      <li>
+                        <p>Quantity</p>
+                        <div class="InputQuantity-CardBoxCheckoutProduct">
+                          <form class="FormInputQuantity" action="">
+                            <button
+                              class="QuantityUp"
+                              type="button"
+                              @click="updateQuantity(product.id, product.quantity - 1)"
+                            >
+                              -
+                            </button>
+                            <input
+                              min="1"
+                              name="quantity"
+                              :value="product.quantity"
+                              type="number"
+                              @input="handleInput($event, product.id)"
+                            />
+                            <button
+                              class="QuantityDown"
+                              type="button"
+                              @click="updateQuantity(product.id, product.quantity + 1)"
+                            >
+                              +
+                            </button>
+                          </form>
+                        </div>
+                      </li>
+                      <li>
+                        <p>Total Price</p>
+                        <button class="TotalPrice">
+                          {{ product.priceProduct * product.quantity }}
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                  <button
+                    class="RemoveButtonCardBoxBasketCartContent"
+                    @click="setToggleOpenModalDeleteConfirm(product.id)"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </transition-group>
+              <!-- Start Card Content Cart -->
             </div>
 
             <!-- Start Search Not Found Product -->

@@ -1,0 +1,161 @@
+main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.DetailAccountContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: transform 0.6s ease-in-out;
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  transition: transform 0.65s ease-in-out;
+  transform: translateX(100%);
+}
+
+.ProfileImageContent {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.CardImageProfile {
+  display: flex;
+  flex-direction: row;
+  width: 6.5rem;
+  max-width: 6.5rem;
+  height: 6.5rem;
+  max-height: 6.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  border-radius: var(--border-radius);
+}
+
+.CardImageProfile > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.InformationUser {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.InformationUser > form {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 1rem;
+}
+
+.InformationUser > form > .ContainerForm {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: auto;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 0.5rem;
+}
+
+.InformationProfile {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  max-width: auto;
+  height: 100%;
+  max-height: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: center;
+  margin: 0;
+  padding: 0;
+  gap: 0.75rem;
+}
+
+.InformationProfile > h5:nth-child(1) {
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.InformationProfile > h5:nth-child(2) {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+
+.InformationProfile > h5:nth-child(3) {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}

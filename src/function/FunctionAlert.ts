@@ -1,3 +1,5 @@
+// FunctionAlert.ts
+
 import { ref } from 'vue'
 
 export const alertBox = ref()

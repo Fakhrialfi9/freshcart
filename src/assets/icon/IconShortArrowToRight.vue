@@ -19,24 +19,24 @@
 
 <style scoped>
 a {
-  display: flex !important;
-  place-items: center !important;
-  place-content: center !important;
-  color: inherit !important;
-  fill: inherit !important;
-  font-size: inherit !important;
+  display: flex;
+  place-items: center;
+  place-content: center;
+  color: inherit;
+  font-size: inherit;
 }
 
-a > svg {
+a > svg > path {
   width: 100%;
   max-width: 100%;
   height: 100%;
   max-height: 100%;
-  margin: inherit !important;
-  padding: inherit !important;
-  stroke-width: inherit !important;
-  stroke: currentColor !important;
-  stroke-linejoin: round !important;
-  stroke-linecap: round !important;
+  margin: inherit;
+  padding: inherit;
+  stroke-width: inherit;
+  fill: inherit;
+  stroke: inherit;
+  stroke-linejoin: round;
+  stroke-linecap: round;
 }
 </style>

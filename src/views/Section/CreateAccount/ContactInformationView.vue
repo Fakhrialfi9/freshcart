@@ -1,72 +1,56 @@
 <script setup lang="ts">
-import { onMounted, watch, computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, reactive, watch } from 'vue'
+import { alertBox, showAlert } from '../../../function/FunctionAlert'
+import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import { alertBox } from '../../../function/FunctionAlert'
-import { data } from '../../../function/FunctionDataNavigationStep'
-import { updateCurrentStep } from '../../../function/FunctionUpdateProgressSteps'
-import { handleSubmitContactInformation } from '../../../function/FunctionHandleSubmitFormCreateAccount'
-import { isStepCompleteContactInformation } from '../../../function/FunctionStepIsComplete'
-import {
-  phoneNumber,
-  address,
-  city,
-  state,
-  country,
-  postalCode
-} from '../../../function/FunctionDataState'
+import router from '../../../main/router/github'
 
-const router = useRouter()
-
-// Perbarui currentStep saat komponen dimounted dan route berubah
-onMounted(() => {
-  updateCurrentStep()
+const inputData = reactive({
+  phoneNumber: '',
+  address: '',
+  city: '',
+  state: '',
+  country: '',
+  postalCode: ''
 })
 
-watch(
-  () => router.currentRoute.value.path,
-  () => {
-    updateCurrentStep()
+const DataSignup = () => {
+  inputData.phoneNumber = ''
+  inputData.address = ''
+  inputData.city = ''
+  inputData.state = ''
+  inputData.country = ''
+  inputData.postalCode = ''
+}
+
+const authSignin = useAuthUserStores()
+const { signUpcontactinformation } = authSignin
+
+// Handle Submit Form Contact Information
+const handleSubmitContactInformation = async () => {
+  try {
+    await signUpcontactinformation(inputData)
+    DataSignup()
+    setTimeout(() => {
+      router.push('/createaccount/profilesetup')
+    }, 1500)
+  } catch (error) {
+    showAlert('Sign-up failed. Please try again later.', 'error')
+    console.error('Signup error:', error)
   }
-)
-
-const styleSteps = computed(() => ({
-  '--Active-Color': data.value.activeStep,
-  '--Passive-Color': data.value.passiveStep
-}))
-
-const filteredSteps = computed(() => [data.value.Steps[data.value.currentStep]])
+}
 </script>
 
 <template>
   <main class="MainCreateAccountContent">
     <div class="Container">
-      <section class="CreateAccountContent" :style="styleSteps">
+      <section class="CreateAccountContent">
         <div class="LogoFreshCart DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG">
           <img :src="LogoFreshCart" alt="" />
           <p>|</p>
           <h6>Create Account</h6>
         </div>
-        <!-- Start Step Progress Content -->
-        <div
-          class="ContainerStepBullet DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG"
-          v-for="(step, index) in filteredSteps"
-          :key="index"
-          :class="{
-            StepsActive: index === data.currentStep,
-            StepsDone: index < data.currentStep && isStepCompleteContactInformation(index),
-            StepsDoneClear: index === 0 && data.currentStep === 0
-          }"
-        >
-          <div class="StepsBullet">
-            <div class="StepsBulletFill"></div>
-          </div>
-          <div class="StepsLine">
-            <div class="StepsLineFill"></div>
-          </div>
-        </div>
-        <!-- End Step Progress Content -->
 
         <div class="HeadingContentCreateAccount">
           <h5>Contact Information</h5>
@@ -86,7 +70,7 @@ const filteredSteps = computed(() => [data.value.Steps[data.value.currentStep]])
                   inputmode="numeric"
                   placeholder="eg: 0896"
                   required
-                  v-model="phoneNumber"
+                  v-model="inputData.phoneNumber"
                 />
               </label>
             </div>
@@ -102,28 +86,28 @@ const filteredSteps = computed(() => [data.value.Steps[data.value.currentStep]])
                     type="text"
                     placeholder="eg: Pulo Asem"
                     required
-                    v-model="address"
+                    v-model="inputData.address"
                   />
                   <input
                     id="city"
                     type="text"
                     placeholder="eg: Jakarta Timur"
                     required
-                    v-model="city"
+                    v-model="inputData.city"
                   />
                   <input
                     id="state"
                     type="text"
                     placeholder="eg: DKI Jakarta"
                     required
-                    v-model="state"
+                    v-model="inputData.state"
                   />
                   <input
                     id="country"
                     type="text"
                     placeholder="eg: Indonesia"
                     required
-                    v-model="country"
+                    v-model="inputData.country"
                   />
                 </div>
               </label>
@@ -139,7 +123,7 @@ const filteredSteps = computed(() => [data.value.Steps[data.value.currentStep]])
                   type="text"
                   placeholder="eg: 12345"
                   required
-                  v-model="postalCode"
+                  v-model="inputData.postalCode"
                 />
               </label>
             </div>

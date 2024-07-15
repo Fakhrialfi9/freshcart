@@ -1,75 +1,15 @@
 import router from '@/main/router/github'
 import { dataSteps } from './FunctionDataNavigationStep'
-import { isStepCompleteAuthentication } from '../function/FunctionStepIsComplete'
 import { showAlert } from './FunctionAlert'
 import {
-  firstName,
-  lastName,
   email,
-  password,
-  confirmPassword,
-  phoneNumber,
-  address,
-  city,
-  state,
-  country,
-  postalCode,
-  profilePicture,
-  userName,
-  bio,
-  textareaHeight,
-  answers
+  answers,
+  selectedMethod,
+  message,
+  authenticator
 } from '../function/FunctionDataState'
-import { validatePassword } from '../function/FunctionPasswordValidate'
 
-// Handle Submit Form Basic Information
-export const handleSubmitBasicInformation = () => {
-  if (
-    firstName.value &&
-    lastName.value &&
-    email.value &&
-    validatePassword(password.value) &&
-    password.value === confirmPassword.value
-  ) {
-    router.push('/createaccount/contactinformation')
-  } else {
-    showAlert('Please fill in all required fields or check password requirements.', 'error')
-  }
-}
-
-// Handle Submit Form Contact Information
-export const handleSubmitContactInformation = () => {
-  if (
-    phoneNumber.value &&
-    address.value &&
-    city.value &&
-    state.value &&
-    country.value &&
-    postalCode.value
-  ) {
-    router.push('/createaccount/profilesetup')
-  } else {
-    showAlert('Please fill in all required fields.', 'error')
-  }
-}
-
-// Handle Submit Form Profile Setup
-export const handleSubmitProfileSetup = () => {
-  if (profilePicture.value && userName.value && bio.value && textareaHeight.value) {
-    router.push('/createaccount/authentication')
-  } else {
-    showAlert('Please fill in all required fields.', 'error')
-  }
-}
-// Handle File Change
-export const handleFileChange = (event: Event) => {
-  const input = event.target as HTMLInputElement
-  if (input.files && input.files[0]) {
-    profilePicture.value = input.files[0]
-  }
-}
 // Handle Submit Form Authentication
-
 export const handleSubmitAuthentication = () => {
   if (isStepCompleteAuthentication(dataSteps.value.currentStep)) {
     const nextRoute =
@@ -80,6 +20,30 @@ export const handleSubmitAuthentication = () => {
     alert('Please fill in all required fields.')
   }
 }
+
+export const isStepCompleteAuthentication = (stepIndex: number): boolean => {
+  switch (stepIndex) {
+    case 0:
+      // Basic Information step validation
+      return !!email.value
+    case 1:
+      // Contact Information step validation
+      return !!(selectedMethod.value !== '' && message.value)
+    case 2:
+      // Profile Setup step validation
+      return !!email.value
+    case 3:
+      // Two-Factor Authentication step validation
+      if (selectedMethod.value === 'sms' && message.value) return true
+      if (selectedMethod.value === 'email' && email.value) return true
+      if (selectedMethod.value === 'app' && authenticator.value) return true
+      return false
+    // Add more cases for additional steps as needed
+    default:
+      return false
+  }
+}
+
 // Handle Submit Form Question Security
 export const handleSubmitQuestionSecurity = () => {
   if (answers.value) {

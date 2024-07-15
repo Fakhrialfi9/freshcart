@@ -1,5 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { alertBox } from '../function/FunctionAlert.ts'
 
 const isVisible = ref(false)
 const message = ref('')
@@ -20,7 +21,7 @@ function showAlert(msg, type = 'error') {
   // Set timeout to hide the alert after 3 seconds
   timeoutId = setTimeout(() => {
     isVisible.value = false
-  }, 3000)
+  }, 850)
 }
 
 // Function to close the alert manually
@@ -43,6 +44,8 @@ const alertClass = computed(() => {
     'MainAlert-success': messageType.value === 'success'
   }
 })
+
+alertBox.value = { showAlert } // Assign showAlert to alertBox
 
 defineExpose({ showAlert }) // Expose the showAlert method
 </script>

@@ -1,30 +1,27 @@
-<script lang="ts">
-// Start Import Router
-import { RouterLink } from 'vue-router'
-// End Import Router
-
-import LogoFreshCart from '../assets/logo/logo-company/freshcart-logo.svg'
-import BannerSignin from '../assets/image/banner-home/slide2.jpg'
-
-export default {
-  component: {
-    RouterLink
-  },
-
-  data() {
-    return {
-      LogoFreshCart,
-      BannerSignin
-    }
-  }
-}
-</script>
-
 <script setup lang="ts">
+import { RouterLink } from 'vue-router'
+import { useAuthSignin } from '../stores/AuthSigninStores'
+import { reactive } from 'vue'
 import IconEmail from '../assets/icon/IconEmail.vue'
 import IconPassword from '../assets/icon/IconPassword.vue'
 import IconShortArrowToRight from '../assets/icon/IconShortArrowToRight.vue'
 import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
+import LogoFreshCart from '../assets/logo/logo-company/freshcart-logo.svg'
+import BannerSignin from '../assets/image/banner-home/slide2.jpg'
+import AlertBoxComponent from '../components/AlertBoxComponents.vue'
+import { alertBox } from '../function/FunctionAlert'
+
+const authSignin = useAuthSignin()
+const { signIn } = authSignin
+
+const inputData = reactive({
+  email: '',
+  password: ''
+})
+
+const handlesubmit = async () => {
+  signIn(inputData)
+}
 </script>
 
 <template>
@@ -36,9 +33,9 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
             <!-- Start Image Content Form Signin -->
             <div class="Image-FormContent">
               <RouterLink to="/home">
-                <img :src="LogoFreshCart" alt="" />
+                <img :src="LogoFreshCart" alt="Logo FreshCart" />
               </RouterLink>
-              <RouterLink to="home">
+              <RouterLink to="/home">
                 <button><IconArrowToLeft /> Back Home</button>
               </RouterLink>
             </div>
@@ -46,41 +43,56 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
 
             <!-- Start Heading Content Signin -->
             <div class="Heading-FormContent">
-              <h4>Signin Into Your Account</h4>
-              <p>Welcom Back! Select Method to Log in:</p>
+              <h4>Sign in to Your Account</h4>
+              <p>Welcome Back! Select a method to log in:</p>
             </div>
             <!-- End Heading Content Signin -->
 
-            <!-- Start Signin Option Google Or Facebook -->
+            <!-- Start Signin Option Google or Facebook -->
             <div class="SigninOption-FormContent">
               <button>Google</button>
               <button>Facebook</button>
             </div>
-            <!-- End Signin Option Google Or Facebook -->
+            <!-- End Signin Option Google or Facebook -->
 
-            <!-- Start Content Diver or Email Login  -->
-            <div className="SigninWithEmail-FormContent">
+            <!-- Start Content Divider or Email Login -->
+            <div class="SigninWithEmail-FormContent">
               <p>Or Continue With Email</p>
             </div>
-            <!-- End Content Diver or Email Login  -->
+            <!-- End Content Divider or Email Login -->
 
+            <!-- Start Email Sign In Form -->
             <div class="SignWithEmail-FormContent">
-              <form action="">
+              <form @submit.prevent="handlesubmit">
                 <!-- Start Content Input Email & Password -->
                 <div class="InputEmail">
                   <IconEmail class="IconInputSignin" />
-                  <input type="email" placeholder="Email Address" />
+                  <input
+                    id="email"
+                    v-model="inputData.email"
+                    type="email"
+                    name="email"
+                    placeholder="Email Address"
+                    required
+                  />
                 </div>
                 <div class="InputPassword">
                   <IconPassword class="IconInputSignin" />
-                  <input type="password" placeholder="Password" />
+                  <input
+                    id="password"
+                    v-model="inputData.password"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
                 </div>
                 <!-- End Content Input Email & Password -->
 
                 <!-- Start Content Checkbox Remember Me -->
-                <div className="CheckBoxRememberMe">
+                <div class="CheckBoxRememberMe">
                   <label>
-                    <input type="checkbox" id="rememberMe" />
+                    <input type="checkbox" id="rememberMe" name="rememberMe" />
                     <p>Remember Me</p>
                   </label>
                   <RouterLink class="ForgotPassword" to="/login/forgotpassword">
@@ -91,27 +103,32 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
 
                 <!-- Start Button Signin -->
                 <div class="ButtonSignin">
-                  <button>Sign In <IconShortArrowToRight /></button>
+                  <button type="submit" :disabled="authSignin.loading">
+                    <template v-if="authSignin.loading">Signing In...</template>
+                    <template v-else>Sign In <IconShortArrowToRight /></template>
+                  </button>
                 </div>
                 <!-- End Button Signin -->
               </form>
             </div>
+            <!-- End Email Sign In Form -->
 
-            <!-- Start Signup Content  -->
+            <!-- Start Signup Content -->
             <div class="SignUp-FormContent">
               <h6>
-                Dont Have an Accout?
-                <RouterLink class="CreateAccout" to="/signup">Sign Up</RouterLink>
+                Don't Have an Account?
+                <RouterLink class="CreateAccount" to="/signup">Sign Up</RouterLink>
               </h6>
             </div>
-            <!-- End Signup Content  -->
+            <!-- End Signup Content -->
           </div>
         </div>
       </div>
       <div class="RightContent DisplayNone-SM DisplayNone-MD DisplayNone-LG">
-        <img :src="BannerSignin" alt="" />
+        <img :src="BannerSignin" alt="Sign in Banner" />
       </div>
     </section>
+    <AlertBoxComponent ref="alertBox" />
   </main>
 </template>
 

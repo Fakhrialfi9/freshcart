@@ -1,20 +1,35 @@
 <script setup lang="ts">
-import { RouterView } from 'vue-router'
+import { RouterView, useRoute } from 'vue-router'
+import { computed, onMounted } from 'vue'
 
 // Start Style Global
 import '../../main/style/MainLayout.css'
 import '../../main/style/Framework.css'
 import '../../main/style/Root.css'
 import '../../main/style/Responsive.css'
-// End Style Global
 
 // Start Import Component
 import NavbarComponents from '../../components/NavbarComponents.vue'
-// End Import Component
-
-// Start Import Component
 import FooterComponents from '../../components/FooterComponents.vue'
-// End Import Component
+import { user, getUser } from '../../stores/AuthGetUserStores'
+
+const route = useRoute()
+
+onMounted(() => {
+  getUser()
+})
+
+const slide = computed(() => {
+  if (user.value && user.value.userName) {
+    const Dashboard = [
+      `/profileuser/${user.value.userName}/dashboarduser`,
+      `/profileuser/${user.value.userName}/detailaccount`,
+      '/path3'
+    ]
+    return Dashboard.includes(route.path) ? '' : 'slide'
+  }
+  return 'slide'
+})
 </script>
 
 <template>
@@ -27,7 +42,7 @@ import FooterComponents from '../../components/FooterComponents.vue'
 
     <!-- Main Content with Transition -->
     <div class="MainContent">
-      <transition name="slide" mode="out-in">
+      <transition :name="slide" mode="out-in">
         <RouterView :key="$route.fullPath" />
       </transition>
     </div>

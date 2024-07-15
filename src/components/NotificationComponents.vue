@@ -90,7 +90,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div class="MainNotification">
+  <main>
     <transition-group name="notification-slide" mode="out-in">
       <div
         v-for="notification in notifications"
@@ -121,7 +121,7 @@ export default defineComponent({
         </div>
       </div>
     </transition-group>
-  </div>
+  </main>
 </template>
 
 <style scoped src="../assets/style/Function/NotificationView.css"></style>

@@ -32,7 +32,7 @@ import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
 
         <ul class="Center-NavbarBottomMobileContent">
           <li class="CenterIconNavbarBottom">
-            <RouterLink to="/signin" active-class="ActiveNavbarBottomMobileCenter">
+            <RouterLink to="/profileuser" active-class="ActiveNavbarBottomMobileCenter">
               <IconUsers class="IconUsersNavbarBottom" />
             </RouterLink>
           </li>

@@ -1,3 +1,5 @@
+// AuthUsers.ts
+
 import { createStore, Store, type Commit } from 'vuex'
 import type { InjectionKey } from 'vue'
 
@@ -10,12 +12,12 @@ interface State {
 export const key: InjectionKey<Store<State>> = Symbol()
 
 // Create Vuex Store
-const store = createStore<State>({
+const store = createStore({
   state: {
     isAuthenticated: false
   },
   mutations: {
-    setAuthenticated(state: State, payload: boolean) {
+    setAuthenticated(state, payload) {
       state.isAuthenticated = payload
     }
   },

@@ -1,3 +1,5 @@
+<!-- App.vue -->
+
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import InstallApps from '../../components/InstallAppsComponents.vue'
@@ -7,7 +9,6 @@ import NotificationView from '../../components/NotificationComponents.vue'
 import '../../main/style/Framework.css'
 import '../../main/style/Root.css'
 import '../../main/style/Responsive.css'
-// End style global
 </script>
 
 <template>

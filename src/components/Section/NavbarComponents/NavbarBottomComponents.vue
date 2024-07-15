@@ -122,10 +122,10 @@ onBeforeUnmount(() => {
       <li @click.stop="toggleShopDropdown">
         <RouterLink to="/shopping" active-class="ActiveLinkNavbar">
           Shopping
-          <IconChevronDown class="IconDropdown" />
+          <!-- <IconChevronDown class="IconDropdown" /> -->
         </RouterLink>
 
-        <transition name="SlideFadeDropdown">
+        <!-- <transition name="SlideFadeDropdown">
           <div v-if="ShopDropdown" class="DropdownMenu" ref="dropdown">
             <ul>
               <li><RouterLink to="/">Fruits & Vegetables</RouterLink></li>
@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
               <li><RouterLink to="/">Pantry Staples</RouterLink></li>
             </ul>
           </div>
-        </transition>
+        </transition> -->
       </li>
       <!-- End Shop Menu & Dropdown -->
 

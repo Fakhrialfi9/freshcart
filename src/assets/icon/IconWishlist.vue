@@ -21,11 +21,10 @@ a {
   place-items: center;
   place-content: center;
   color: inherit;
-  fill: inherit;
   font-size: inherit;
 }
 
-a > svg {
+a > svg > path {
   width: 100%;
   max-width: 100%;
   height: 100%;
@@ -33,6 +32,7 @@ a > svg {
   margin: inherit;
   padding: inherit;
   stroke-width: inherit;
+  fill: inherit;
   stroke: inherit;
   stroke-linejoin: round;
   stroke-linecap: round;

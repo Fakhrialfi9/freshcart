@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import SliderFilterComponents from '../components/SliderFilterComponents.vue'
 import Breadcrumbs from '../components/BreadcrumbsComponents.vue'
+import { user, getUser } from '../stores/AuthGetUserStores'
 import {
   WishlistItems,
   deleteFromWishlist,
@@ -10,6 +11,10 @@ import {
   toggleSelectProduct
 } from '../stores/AddToWishlist'
 import { RouterLink } from 'vue-router'
+
+onMounted(() => {
+  getUser()
+})
 
 // Variabel reaktif untuk slider filter
 const setMenuSliderFilter = ref(false)
@@ -70,7 +75,7 @@ watch(searchQuery, () => {
 })
 </script>
 
-<template>
+<template v-if="user">
   <main id="MainWishlist">
     <section class="Wishlist">
       <div class="Container">
@@ -102,61 +107,63 @@ watch(searchQuery, () => {
           <div class="ContainerCardBoxWishlistContent">
             <div class="ContentCardBoxWishlistContent" v-if="filteredWishlistItems">
               <!-- Start Card Content Wishlist -->
-              <div
-                class="CardBoxWishlistContent"
-                v-for="product in filteredWishlistItems"
-                :key="product.id"
-              >
-                <div class="CardBoxWishlistContentTop">
-                  <input
-                    class="CheckBox-CardBoxWishlistContentTop"
-                    type="checkbox"
-                    :checked="product.selected"
-                    @change="toggleSelectProduct(product.id)"
-                  />
-                  <div class="Image-CardBoxWishlistContentTop">
-                    <RouterLink :to="'/shopping/' + product.id">
-                      <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
-                    </RouterLink>
-                  </div>
-                  <ul class="Information-CardBoxWishlistContentTop">
-                    <RouterLink :to="'/shopping/' + product.id">
-                      <li>
-                        <h6>Name:</h6>
-                        <h5>{{ product.nameProduct }}</h5>
-                      </li>
-                      <li>
-                        <h6>Price:</h6>
-                        <h5>{{ product.priceProduct }}</h5>
-                      </li>
-                    </RouterLink>
-                  </ul>
-                </div>
-                <div class="CardBoxWishlistContentBottom">
-                  <ul>
-                    <li>
-                      <p>Status</p>
-                      <button class="StatusColor">
-                        {{ product.availabilityProduct ? 'In Stock' : 'Out of Stock' }}
-                      </button>
-                    </li>
-                    <li>
-                      <p>Actions</p>
-                      <button class="ActionColor">Add To Cart</button>
-                    </li>
-                    <li>
-                      <p>Total Price</p>
-                      <button class="TotalPrice">{{ product.priceProduct }}</button>
-                    </li>
-                  </ul>
-                </div>
-                <button
-                  class="RemoveButtonCardBoxWishlistContent"
-                  @click="setToggleOpenModalDeleteConfirm(product.id)"
+              <transition-group name="list">
+                <div
+                  class="CardBoxWishlistContent"
+                  v-for="product in filteredWishlistItems"
+                  :key="product.id"
                 >
-                  Remove
-                </button>
-              </div>
+                  <div class="CardBoxWishlistContentTop">
+                    <input
+                      class="CheckBox-CardBoxWishlistContentTop"
+                      type="checkbox"
+                      :checked="product.selected"
+                      @change="toggleSelectProduct(product.id)"
+                    />
+                    <div class="Image-CardBoxWishlistContentTop">
+                      <RouterLink :to="'/shopping/' + product.id">
+                        <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                      </RouterLink>
+                    </div>
+                    <ul class="Information-CardBoxWishlistContentTop">
+                      <RouterLink :to="'/shopping/' + product.id">
+                        <li>
+                          <h6>Name:</h6>
+                          <h5>{{ product.nameProduct }}</h5>
+                        </li>
+                        <li>
+                          <h6>Price:</h6>
+                          <h5>{{ product.priceProduct }}</h5>
+                        </li>
+                      </RouterLink>
+                    </ul>
+                  </div>
+                  <div class="CardBoxWishlistContentBottom">
+                    <ul>
+                      <li>
+                        <p>Status</p>
+                        <button class="StatusColor">
+                          {{ product.availabilityProduct ? 'In Stock' : 'Out of Stock' }}
+                        </button>
+                      </li>
+                      <li>
+                        <p>Actions</p>
+                        <button class="ActionColor">Add To Cart</button>
+                      </li>
+                      <li>
+                        <p>Total Price</p>
+                        <button class="TotalPrice">{{ product.priceProduct }}</button>
+                      </li>
+                    </ul>
+                  </div>
+                  <button
+                    class="RemoveButtonCardBoxWishlistContent"
+                    @click="setToggleOpenModalDeleteConfirm(product.id)"
+                  >
+                    Remove
+                  </button>
+                </div>
+              </transition-group>
               <!-- End Card Content Wishlist -->
             </div>
 

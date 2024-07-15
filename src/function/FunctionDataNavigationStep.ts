@@ -18,15 +18,16 @@ export const dataSteps = ref({
       route: '/createaccount/profilesetup'
     },
     {
-      title: 'Two-Factor Authentication',
-      description: 'Setup 2FA: SMS, email, app',
-      route: '/createaccount/authentication'
-    },
-    {
       title: 'Security Questions',
       description: 'Answer security questions',
       route: '/createaccount/securityquestions'
     },
+    {
+      title: 'Two-Factor Authentication',
+      description: 'Setup 2FA: SMS, email, app',
+      route: '/createaccount/authentication'
+    },
+
     {
       title: 'Final Confirmation',
       description: 'Confirmation message, redirect to login',

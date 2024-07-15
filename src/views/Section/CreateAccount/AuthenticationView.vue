@@ -1,127 +1,241 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
+import { showAlert, alertBox } from '../../../function/FunctionAlert'
+import { useAuthUserStores } from '../../../stores/AuthUserStores'
+import { sendOtpByMessage, sendOtpByEmail, verifyOtpByEmail } from '../../../services/OtpServices'
+import router from '../../../main/router/github'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import { alertBox } from '../../../function/FunctionAlert'
-import { dataSteps } from '../../../function/FunctionDataNavigationStep'
-import { updateCurrentStep } from '../../../function/FunctionUpdateProgressSteps'
-import { handleSubmitAuthentication } from '../../../function/FunctionHandleSubmitFormCreateAccount'
-import { isStepCompleteAuthentication } from '../../../function/FunctionStepIsComplete'
-import { selectedMethod, message, email, authenticator } from '../../../function/FunctionDataState'
 
 // State management
-const router = useRouter()
+const selectedMethod = ref('')
+const setShowMethod = ref(false)
+const email = ref('')
+const otpCode = ref('')
+const showOtpEmail = ref(false)
+const showOtpMessage = ref(false)
+const serverOtp = ref('')
+const phoneNumber = ref('')
+const isDisabled = ref(true)
 
-// Computed properties
-const styleSteps = computed(() => ({
-  '--Active-Color': dataSteps.value.activeStep,
-  '--Passive-Color': dataSteps.value.passiveStep
-}))
-
-const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.currentStep]])
-
-// Lifecycle hooks
-onMounted(() => {
-  updateCurrentStep()
+// Input data
+const inputData = reactive({
+  verifyotp: ''
 })
 
-watch(
-  () => router.currentRoute.value.path,
-  () => updateCurrentStep()
-)
+// Auth store
+const authSignin = useAuthUserStores()
+const { signUpauthentication } = authSignin
 
-// Methods
+// Show OTP input for message
+const otpMessage = () => {
+  showOtpMessage.value = true
+}
+
+// Show OTP input for email
+const otpEmail = () => {
+  showOtpEmail.value = true
+}
+
+// Send OTP via email
+const handleSendOtp = async () => {
+  try {
+    const response = await sendOtpByEmail(email.value, '')
+    serverOtp.value = response.otp // Assuming the server returns the OTP in the response
+    showAlert('OTP sent to your email', 'success')
+    showOtpEmail.value = true
+    otpEmail()
+  } catch (error) {
+    console.error('Failed to send OTP:', error)
+    showAlert('Failed to send OTP. Please try again.', 'error')
+  }
+}
+
+// Reset input data
+const DataSignup = () => {
+  inputData.verifyotp = ''
+}
+
+// Verify OTP
+const handleVerifyOtp = async () => {
+  try {
+    const response = await verifyOtpByEmail(email.value, otpCode.value)
+    if (response.success) {
+      showAlert('OTP Verified Successfully', 'success')
+
+      setTimeout(async () => {
+        await signUpauthentication(inputData)
+        console.log(inputData)
+        DataSignup()
+
+        setTimeout(() => {
+          router.push('/createaccount/finalconfirmation')
+        }, 1350)
+      }, 500)
+    } else {
+      showAlert('Invalid OTP', 'error')
+    }
+  } catch (error) {
+    console.error('Error verifying OTP:', error)
+    showAlert('Failed to verify OTP. Please try again.', 'error')
+  }
+}
+
+// Select OTP method (email or message)
+const selectMethod = (method: string) => {
+  selectedMethod.value = method
+}
+
+// Toggle method dropdown
+const toggleSelectMethod = () => {
+  closeAllDropdowns()
+  setShowMethod.value = !setShowMethod.value
+}
+
+// Close all dropdowns
+const closeAllDropdowns = () => {
+  setShowMethod.value = false
+}
+
+// Handle click outside dropdown
+const handleClickOutside = (event: MouseEvent) => {
+  const dropdowns = document.querySelectorAll('.ContentSelectOption')
+  const isClickOutside = Array.from(dropdowns).every(
+    (dropdown) => !dropdown.contains(event.target as Node)
+  )
+
+  if (isClickOutside) {
+    closeAllDropdowns()
+  }
+}
+
+// Mount and unmount lifecycle hooks
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
+})
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside)
+})
 </script>
 
 <template>
   <main class="MainCreateAccountContent">
     <div class="Container">
-      <section class="CreateAccountContent" :style="styleSteps">
+      <section class="CreateAccountContent">
         <div class="LogoFreshCart DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG">
           <img :src="LogoFreshCart" alt="" />
           <p>|</p>
           <h6>Create Account</h6>
         </div>
-        <!-- Start Step Progress Content -->
-        <div
-          class="ContainerStepBullet DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG"
-          v-for="(step, index) in filteredSteps"
-          :key="index"
-          :class="{
-            StepsActive: index === dataSteps.currentStep,
-            StepsDone: index < dataSteps.currentStep && isStepCompleteAuthentication(index),
-            StepsDoneClear: index === 0 && dataSteps.currentStep === 0
-          }"
-        >
-          <div class="StepsBullet">
-            <div class="StepsBulletFill"></div>
-          </div>
-          <div class="StepsLine">
-            <div class="StepsLineFill"></div>
-          </div>
-        </div>
-        <!-- End Step Progress Content -->
+
         <div class="HeadingContentCreateAccount">
           <h5>Two-Factor Authentication</h5>
           <p>Setup 2FA using SMS, email, or authenticator app</p>
         </div>
         <div class="TwoFactorAuthenticationContent">
-          <form @submit.prevent="handleSubmitAuthentication">
-            <!-- Start Select Methode Auth -->
+          <form @submit.prevent="handleVerifyOtp">
+            <!-- Start Select Method Auth -->
             <div class="ContainerInput">
-              <label for="method">
-                <h6>Choose Method*</h6>
-                <select id="method" v-model="selectedMethod" required>
-                  <option value="">Select Method</option>
-                  <option value="sms">SMS</option>
-                  <option value="email">Email</option>
-                  <option value="app">Authenticator App</option>
-                </select>
-              </label>
+              <!-- Start Select Methode OTP -->
+              <div class="ContainerSelectMethod">
+                <div class="SelectMethod" @click.stop="toggleSelectMethod">
+                  <h6>Select Method</h6>
+                </div>
 
-              <!-- Start Select Methode Message -->
-              <label v-if="selectedMethod === 'sms'" for="phone-number">
-                <h6>Phone Number*</h6>
+                <transition
+                  name="SlideFadeDropdown"
+                  mode="in-out"
+                  :duration="{ enter: 400, leave: 400 }"
+                >
+                  <div v-if="setShowMethod" class="CardSelectMethod" ref="dropdown">
+                    <ul>
+                      <li @click="selectMethod('sms')">
+                        <option value="sms">Message</option>
+                      </li>
+                      <li @click="selectMethod('email')">
+                        <option value="email">Email</option>
+                      </li>
+                    </ul>
+                  </div>
+                </transition>
+              </div>
+              <!-- End Select Methode OTP -->
+
+              <!-- Start Select Method SMS -->
+              <label v-if="selectedMethod === 'sms'" for="sms">
+                <h6>Phone Number* | "Currently in testing."</h6>
+                <div class="FormButtonOtpCheck">
+                  <input
+                    v-model="phoneNumber"
+                    id="phoneNumber"
+                    type="tel"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    placeholder="eg: 0896"
+                    autocomplete="off"
+                    required
+                    :disabled="isDisabled"
+                  />
+                  <button disabled type="button" @click="handleSendOtp">Send</button>
+                </div>
+              </label>
+              <!-- End Select Method SMS -->
+
+              <!-- Start OTP Input if SMS Method is Selected -->
+              <label v-if="showOtpMessage && selectedMethod === 'sms'" for="otp">
+                <h6>Enter OTP*</h6>
                 <input
-                  v-model="message"
-                  id="phone-number"
+                  v-model="otpCode"
+                  id="otp"
+                  name="verifyotp"
                   type="tel"
                   inputmode="numeric"
                   pattern="[0-9]*"
-                  placeholder="eg: 0896"
+                  placeholder="eg: 0000"
+                  autocomplete="off"
                   required
                 />
+                />
               </label>
-              <!-- End Select Methode Message -->
+              <!-- End OTP Input if SMS Method is Selected -->
 
-              <!-- Start Select Methode Email -->
+              <!-- Start Select Method Email -->
               <label v-if="selectedMethod === 'email'" for="email">
-                <h6>Email Address*</h6>
-                <input
-                  v-model="email"
-                  id="email"
-                  type="email"
-                  placeholder="example@example.com"
-                  required
-                />
+                <h6>Email*</h6>
+                <div class="FormButtonOtpCheck">
+                  <input
+                    v-model="email"
+                    id="email"
+                    type="email"
+                    placeholder="eg: example@example.com"
+                    autocomplete="off"
+                    required
+                  />
+                  <button type="button" @click="handleSendOtp">Send</button>
+                </div>
               </label>
-              <!-- End Select Methode Email -->
+              <!-- End Select Method Email -->
 
-              <!-- Start Select Methode Google Authenticator -->
-              <label v-if="selectedMethod === 'app'" for="app">
-                <h6>Authenticator App*</h6>
+              <!-- Start OTP Input if Email Method is Selected -->
+              <label v-if="showOtpEmail && selectedMethod === 'email'" for="email">
+                <h6>Enter OTP*</h6>
                 <input
-                  v-model="authenticator"
-                  id="app"
-                  type="text"
-                  placeholder="eg: Google Authenticator"
+                  v-model="inputData.verifyotp"
+                  v-model.number="otpCode"
+                  id="verifyotp"
+                  name="verifyotp"
+                  type="tel"
+                  inputmode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="eg: 0000"
+                  autocomplete="off"
                   required
                 />
               </label>
-              <!-- End Select Methode Google Authenticator -->
+              <!-- End OTP Input if Email Method is Selected -->
             </div>
-            <!-- End Select Methode Auth -->
+            <!-- End Select Method Auth -->
             <div class="ButtonCallToAction">
               <RouterLink to="/createaccount/profilesetup">
                 <button type="button">Back</button>

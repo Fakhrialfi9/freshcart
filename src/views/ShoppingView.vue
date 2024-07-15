@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed, watch, onMounted, onBeforeUnmount } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
 // Start Import Components
 import SliderFilterComponents from '../components/SliderFilterComponents.vue'
@@ -18,18 +18,28 @@ const setShowColumn = ref(false)
 const setShowSort = ref(false)
 
 const toggleSelectColumn = () => {
+  closeAllDropdowns()
   setShowColumn.value = !setShowColumn.value
 }
 
 const toggleSelectSort = () => {
+  closeAllDropdowns()
   setShowSort.value = !setShowSort.value
 }
 
+const closeAllDropdowns = () => {
+  setShowColumn.value = false
+  setShowSort.value = false
+}
+
 const handleClickOutside = (event: MouseEvent) => {
-  const select = document.querySelector('.ContentSelectOption')
-  if (select && !select.contains(event.target as Node)) {
-    setShowColumn.value = false
-    setShowSort.value = false
+  const dropdowns = document.querySelectorAll('.ContentSelectOption')
+  const isClickOutside = Array.from(dropdowns).every(
+    (dropdown) => !dropdown.contains(event.target as Node)
+  )
+
+  if (isClickOutside) {
+    closeAllDropdowns()
   }
 }
 
@@ -89,7 +99,7 @@ function setToggleOpenMenuSliderFilter() {
                     mode="in-out"
                     :duration="{ enter: 400, leave: 1850 }"
                   >
-                    <div v-if="setShowColumn" class="ContentSelectOption">
+                    <div v-if="setShowColumn" class="ContentSelectOption" ref="dropdown">
                       <ul>
                         <li>
                           <a href="">10 Column</a>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch, onMounted } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
+import LogoFreshCart from '../assets/logo/logo-company/freshcart-logo.svg'
 
 const router = useRouter()
 
@@ -22,15 +23,16 @@ const dataSteps = {
       route: '/createaccount/profilesetup'
     },
     {
-      title: 'Two-Factor Authentication',
-      description: 'Setup 2FA: SMS, email, app',
-      route: '/createaccount/authentication'
-    },
-    {
       title: 'Security Questions',
       description: 'Answer security questions',
       route: '/createaccount/securityquestions'
     },
+    {
+      title: 'Two-Factor Authentication',
+      description: 'Setup 2FA: SMS, email, app',
+      route: '/createaccount/authentication'
+    },
+
     {
       title: 'FinalConfirmation',
       description: 'Confirmation message, redirect to login',
@@ -74,7 +76,7 @@ const styleSteps = computed(() => {
 </script>
 
 <template>
-  <main class="NavbarCreateAccount">
+  <main class="NavbarCreateAccount DisplayNone-SM DisplayNone-MD DisplayNone-LG">
     <nav class="Navbar">
       <div class="Container">
         <div class="NavbarContent" :style="styleSteps">

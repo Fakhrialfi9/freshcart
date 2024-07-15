@@ -1,76 +1,69 @@
 <script setup lang="ts">
-import { computed, onMounted, watch } from 'vue'
-import { useRouter } from 'vue-router'
+import { ref, reactive } from 'vue'
+import { alertBox, showAlert } from '../../../function/FunctionAlert'
+import { validatePassword } from '../../../function/FunctionPasswordValidate'
+import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import { alertBox } from '../../../function/FunctionAlert'
-import { dataSteps, data } from '../../../function/FunctionDataNavigationStep'
-import { updateCurrentStep } from '../../../function/FunctionUpdateProgressSteps'
-import { handleSubmitBasicInformation } from '../../../function/FunctionHandleSubmitFormCreateAccount'
-import { isStepCompleteBasicInformation } from '../../../function/FunctionStepIsComplete'
-import {
-  firstName,
-  lastName,
-  email,
-  password,
-  confirmPassword,
-  showPassword,
-  showConfirmPassword
-} from '../../../function/FunctionDataState'
-import { validatePassword } from '../../../function/FunctionPasswordValidate'
+import router from '../../../main/router/github'
 
-const router = useRouter()
-
-onMounted(() => {
-  updateCurrentStep()
+const inputData = reactive({
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: ''
 })
 
-watch(
-  () => router.currentRoute.value.path,
-  () => {
-    updateCurrentStep()
+const DataSignup = () => {
+  inputData.firstName = ''
+  inputData.lastName = ''
+  inputData.email = ''
+  inputData.password = ''
+  inputData.confirmPassword = ''
+}
+
+const showPassword = ref(false)
+const showConfirmPassword = ref(false)
+
+const authSignin = useAuthUserStores()
+const { signUpbasicinformation } = authSignin
+
+// Handle Submit Form Basic Information
+const handleSubmitBasicInformation = async () => {
+  if (!validatePassword(inputData.password)) {
+    showAlert('Password does not meet the requirements.', 'error')
+    return
   }
-)
 
-const styleSteps = computed(() => ({
-  '--Active-Color': dataSteps.value.activeStep,
-  '--Passive-Color': dataSteps.value.passiveStep
-}))
+  if (inputData.password !== inputData.confirmPassword) {
+    showAlert('Passwords do not match.', 'error')
+    return
+  }
 
-const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.currentStep]])
+  try {
+    await signUpbasicinformation(inputData)
+    DataSignup()
+    setTimeout(() => {
+      router.push('/createaccount/contactinformation')
+    }, 1500)
+  } catch (error) {
+    showAlert('Sign-up failed. Please try again later.', 'error')
+    console.error('Signup error:', error)
+  }
+}
 </script>
 
 <template>
   <main class="MainCreateAccountContent">
     <div class="Container">
-      <section class="CreateAccountContent" :style="styleSteps">
+      <section class="CreateAccountContent">
         <!-- Start Logo Content -->
         <div class="LogoFreshCart DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG">
           <img :src="LogoFreshCart" alt="" />
           <p>|</p>
           <h6>Create Account</h6>
         </div>
-        <!-- End Logo Content -->
-
-        <!-- Start Step Progress Content -->
-        <div
-          class="ContainerStepBullet DisplayNone DisplayBlock-SM DisplayBlock-MD DisplayBlock-LG"
-          v-for="(step, index) in filteredSteps"
-          :key="index"
-          :class="{
-            StepsActive: index === data.currentStep,
-            StepsDone: index < data.currentStep && isStepCompleteBasicInformation(index),
-            StepsDoneClear: index === 0 && data.currentStep === 0
-          }"
-        >
-          <div class="StepsBullet">
-            <div class="StepsBulletFill"></div>
-          </div>
-          <div class="StepsLine">
-            <div class="StepsLineFill"></div>
-          </div>
-        </div>
-        <!-- End Step Progress Content -->
 
         <div class="HeadingContentCreateAccount">
           <h5>Basic Information</h5>
@@ -84,16 +77,16 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
                 <h6>Full Name*</h6>
                 <div class="InputGroup">
                   <input
-                    id="first-name"
+                    id="firstName"
                     type="text"
-                    v-model="firstName"
+                    v-model="inputData.firstName"
                     placeholder="eg: Muhammad Fakhri"
                     required
                   />
                   <input
-                    id="last-name"
+                    id="lastName"
                     type="text"
-                    v-model="lastName"
+                    v-model="inputData.lastName"
                     placeholder="eg: Alfi Syahrin"
                     required
                   />
@@ -110,13 +103,12 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
                 <input
                   id="email"
                   type="email"
-                  v-model="email"
+                  v-model="inputData.email"
                   placeholder="fakhrialfi9@gmail.com"
                   required
                 />
               </label>
             </div>
-
             <!-- End Input Email -->
 
             <!-- Start Input Password & Confirm Password -->
@@ -127,7 +119,7 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
                 <div class="ContainerInputPassword">
                   <input
                     id="password"
-                    v-model="password"
+                    v-model="inputData.password"
                     :type="showPassword ? 'text' : 'password'"
                     placeholder="••••••••••••"
                     required
@@ -144,7 +136,7 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
                 <div class="ContainerInputPassword">
                   <input
                     id="confirmPassword"
-                    v-model="confirmPassword"
+                    v-model="inputData.confirmPassword"
                     :type="showConfirmPassword ? 'text' : 'password'"
                     placeholder="••••••••••••"
                     required
@@ -153,7 +145,10 @@ const filteredSteps = computed(() => [dataSteps.value.Steps[dataSteps.value.curr
                     {{ showConfirmPassword ? 'Hide' : 'Show' }}
                   </div>
                 </div>
-                <p v-if="password && !validatePassword(password)" style="color: red">
+                <p
+                  v-if="inputData.password && !validatePassword(inputData.password)"
+                  style="color: red"
+                >
                   Password must be at least 8 characters long and include at least one uppercase
                   letter, one lowercase letter, one number, and one special character.
                 </p>

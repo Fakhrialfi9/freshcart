@@ -11,6 +11,7 @@ import UsersSigninView from '../../views/UsersSigninView.vue'
 import WishlistView from '../../views/WishlistView.vue'
 import DetailProductView from '../../views/DetailProductView.vue'
 import AboutView from '../../views/AboutView.vue'
+import NotFoundComponents from '../../components/404NotFoundComponents.vue'
 // End Import RouteView
 
 const routes = [
@@ -26,13 +27,13 @@ const routes = [
   {
     path: '/:pathMatch(.*)*',
     name: 'NotFound',
-    component: LazyLoading
+    component: NotFoundComponents
   },
   //   End 404 Route - Catch all other routes
 
   // Start All Public Routes Apps
   {
-    path: '/',
+    path: '/home',
     name: 'mainlayout',
     component: MainLayout,
     children: [
@@ -75,7 +76,7 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes,
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior() {
     return { top: 0 }
   }
 })

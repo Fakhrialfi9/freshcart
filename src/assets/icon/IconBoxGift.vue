@@ -35,7 +35,7 @@ a > svg > path {
   margin: inherit;
   padding: inherit;
   stroke-width: inherit;
-  fill: transparent;
+  fill: inherit;
   stroke: inherit;
   stroke-linejoin: round;
   stroke-linecap: round;
