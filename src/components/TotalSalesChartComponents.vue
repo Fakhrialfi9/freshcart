@@ -62,7 +62,7 @@ const chartOptions = ref({
             fontWeight: 900,
             color: undefined,
             offsetY: -10,
-            formatter: function (val) {
+            formatter: function (val: string) {
               return val
             }
           },
@@ -74,8 +74,8 @@ const chartOptions = ref({
             fontFamily: 'Inter, sans-serif',
             fontWeight: 900,
             color: '#000000',
-            formatter: function (w) {
-              return w.globals.seriesTotals.reduce((a, b) => {
+            formatter: function (w: any) {
+              return w.globals.seriesTotals.reduce((a: number, b: number) => {
                 return a + b
               }, 0)
             }
@@ -87,7 +87,7 @@ const chartOptions = ref({
             fontWeight: 900,
             color: undefined,
             offsetY: 18,
-            formatter: function (val) {
+            formatter: function (val: number) {
               return val
             }
           }

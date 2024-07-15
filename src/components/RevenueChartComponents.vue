@@ -68,7 +68,7 @@ const chartOptions = ref({
         display: true
       },
       ticks: {
-        callback: function (value) {
+        callback: function (value: any) {
           return value / 1000 + 'k'
         }
       }
