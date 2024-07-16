@@ -1,54 +1,49 @@
 import router from '@/main/router/github'
-import { dataSteps } from './FunctionDataNavigationStep'
+import { useAuthUserStores } from '../stores/AuthUserStores'
+import { validatePassword } from '../function/FunctionPasswordValidate'
+import { inputData, DataSignup } from '../function/FunctionDataState'
 import { showAlert } from './FunctionAlert'
-import {
-  email,
-  answers,
-  selectedMethod,
-  message,
-  authenticator
-} from '../function/FunctionDataState'
 
-// Handle Submit Form Authentication
-export const handleSubmitAuthentication = () => {
-  if (isStepCompleteAuthentication(dataSteps.value.currentStep)) {
-    const nextRoute =
-      dataSteps.value.Steps[dataSteps.value.currentStep + 1]?.route ||
-      '/createaccount/securityquestions'
-    router.push(nextRoute)
-  } else {
-    alert('Please fill in all required fields.')
+const authSignin = useAuthUserStores()
+const { signUpbasicinformation } = authSignin
+
+// Handle Submit Form Basic Information
+export const handleSubmitBasicInformation = async () => {
+  if (!validatePassword(inputData.password)) {
+    showAlert('Password does not meet the requirements.', 'error')
+    return
   }
-}
 
-export const isStepCompleteAuthentication = (stepIndex: number): boolean => {
-  switch (stepIndex) {
-    case 0:
-      // Basic Information step validation
-      return !!email.value
-    case 1:
-      // Contact Information step validation
-      return !!(selectedMethod.value !== '' && message.value)
-    case 2:
-      // Profile Setup step validation
-      return !!email.value
-    case 3:
-      // Two-Factor Authentication step validation
-      if (selectedMethod.value === 'sms' && message.value) return true
-      if (selectedMethod.value === 'email' && email.value) return true
-      if (selectedMethod.value === 'app' && authenticator.value) return true
-      return false
-    // Add more cases for additional steps as needed
-    default:
-      return false
+  if (inputData.password !== inputData.confirmPassword) {
+    showAlert('Passwords do not match.', 'error')
+    return
   }
-}
 
-// Handle Submit Form Question Security
-export const handleSubmitQuestionSecurity = () => {
-  if (answers.value) {
-    router.push('/createaccount/finalconfirmation')
-  } else {
-    showAlert('Please fill in all required fields.', 'error')
+  try {
+    await signUpbasicinformation({
+      firstName: inputData.firstName,
+      lastName: inputData.lastName,
+      email: inputData.email,
+      password: inputData.password
+    })
+
+    DataSignup()
+
+    setTimeout(() => {
+      router.push('/createaccount/contactinformation')
+    }, 1500)
+  } catch (error: any) {
+    console.error('Signup error:', error)
+
+    // Handling errors
+    if (
+      error.response &&
+      error.response.status === 400 &&
+      error.response.data.message === 'Email already exists'
+    ) {
+      showAlert('Email already exists. Please use a different email address.', 'error')
+    } else {
+      showAlert('Sign-up failed. Please try again later.', 'error')
+    }
   }
 }

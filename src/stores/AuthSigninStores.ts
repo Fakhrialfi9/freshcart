@@ -48,7 +48,7 @@ export const useAuthSignin = defineStore('user', () => {
       })
 
       error.value = null
-      SuccessSignin.value = 'Sign in successful!'
+      SuccessSignin.value = 'Signin successful!'
 
       // Save user data to local storage
       currentUser.value = data.data

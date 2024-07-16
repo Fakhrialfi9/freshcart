@@ -7,6 +7,7 @@ import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
 import router from '../../../main/router/github'
 
+// Reactive state for input data
 const inputData = reactive({
   firstName: '',
   lastName: '',
@@ -15,6 +16,7 @@ const inputData = reactive({
   confirmPassword: ''
 })
 
+// Reset input data
 const DataSignup = () => {
   inputData.firstName = ''
   inputData.lastName = ''
@@ -23,13 +25,18 @@ const DataSignup = () => {
   inputData.confirmPassword = ''
 }
 
+// Error state
+const error = ref<string | null>(null)
+
+// Show/hide password states
 const showPassword = ref(false)
 const showConfirmPassword = ref(false)
 
+// Access auth user store
 const authSignin = useAuthUserStores()
 const { signUpbasicinformation } = authSignin
 
-// Handle Submit Form Basic Information
+// Handle submit form basic information
 const handleSubmitBasicInformation = async () => {
   if (!validatePassword(inputData.password)) {
     showAlert('Password does not meet the requirements.', 'error')
@@ -42,14 +49,34 @@ const handleSubmitBasicInformation = async () => {
   }
 
   try {
-    await signUpbasicinformation(inputData)
+    await signUpbasicinformation({
+      firstName: inputData.firstName,
+      lastName: inputData.lastName,
+      email: inputData.email,
+      password: inputData.password
+    })
+
     DataSignup()
+
+    // Delayed navigation to the next step
     setTimeout(() => {
-      router.push('/createaccount/contactinformation')
+      if (!error.value) {
+        router.push('/createaccount/contactinformation')
+      }
     }, 1500)
-  } catch (error) {
-    showAlert('Sign-up failed. Please try again later.', 'error')
+  } catch (error: any) {
     console.error('Signup error:', error)
+
+    // Handling errors
+    if (
+      error.response &&
+      error.response.status === 400 &&
+      error.response.data.message === 'Email already exists'
+    ) {
+      showAlert('Email already exists. Please use a different email address.', 'error')
+    } else {
+      showAlert('Sign-up failed. Please try again later.', 'error')
+    }
   }
 }
 </script>

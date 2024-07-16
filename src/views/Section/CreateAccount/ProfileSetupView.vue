@@ -6,51 +6,90 @@ import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
 import router from '../../../main/router/github'
 
+// Default profile image URL
+const defaultImage =
+  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
+
+// Image source state
+const imageSrc = ref('')
+
+// Handle file change event for profile picture
+const handleFileChange = (event: Event) => {
+  const input = event.target as HTMLInputElement
+  const file = input.files?.[0]
+
+  if (file && file.type.startsWith('image/')) {
+    inputData.avatarUser = file
+    const reader = new FileReader()
+    reader.onload = () => {
+      imageSrc.value = reader.result as string
+    }
+    reader.readAsDataURL(file)
+  } else {
+    inputData.avatarUser = ''
+    imageSrc.value = ''
+  }
+}
+
+// Error state
+const error = ref<string | null>(null)
+
+// Default textarea height
 const textareaHeight = ref(150)
+
+// Reactive state for input data
 const inputData = reactive({
-  avatarUser: '',
+  avatarUser: '' as File | string,
   userName: '',
   bio: ''
 })
 
+// Reset input data
 const DataSignup = () => {
   inputData.avatarUser = ''
   inputData.userName = ''
   inputData.bio = ''
 }
 
+// Access auth user store
 const authSignin = useAuthUserStores()
 const { signUpprofilesetup } = authSignin
 
-// Handle Submit Form Contact Information
+// Handle submit form profile setup
 const handleSubmitProfileSetup = async () => {
   try {
-    await signUpprofilesetup(inputData)
+    error.value = null
+
+    const formData = new FormData()
+    formData.append('avatarUser', inputData.avatarUser)
+    formData.append('userName', inputData.userName)
+    formData.append('bio', inputData.bio)
+
+    // Validate username uniqueness
+    try {
+      await signUpprofilesetup(formData)
+    } catch (err: any) {
+      // Menetapkan tipe any untuk err
+      if (err.message === 'Username already exists') {
+        error.value = 'Username already exists. Please choose a different username.'
+        showAlert(error.value, 'error')
+        return
+      }
+      throw err
+    }
+
     DataSignup()
+
+    // Delayed navigation to the next step if no errors
     setTimeout(() => {
       router.push('/createaccount/securityquestions')
     }, 1500)
-  } catch (error) {
-    showAlert('Sign-up failed. Please try again later.', 'error')
-    console.error('Signup error:', error)
-  }
-}
+  } catch (err: any) {
+    console.error('Signup error:', err)
 
-const defaultImage =
-  'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'
-const backgroundImage = ref('')
-
-const imageSrc = ref('')
-
-const handleFileChange = (event: Event) => {
-  const input = event.target as HTMLInputElement
-  const file = input.files && input.files[0]
-  if (file) {
-    inputData.avatarUser = file.name
-    imageSrc.value = URL.createObjectURL(file)
-  } else {
-    inputData.avatarUser = ''
-    imageSrc.value = ''
+    // Handle other errors during sign-up
+    error.value = 'Failed to signup. Please try again later.'
+    showAlert(error.value, 'error')
   }
 }
 </script>

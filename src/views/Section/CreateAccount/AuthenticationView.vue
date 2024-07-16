@@ -51,6 +51,9 @@ const handleSendOtp = async () => {
   }
 }
 
+// Error state
+const error = ref<string | null>(null)
+
 // Reset input data
 const DataSignup = () => {
   inputData.verifyotp = ''
@@ -59,24 +62,42 @@ const DataSignup = () => {
 // Verify OTP
 const handleVerifyOtp = async () => {
   try {
+    // Call the verifyOtpByEmail function with the email and OTP code
     const response = await verifyOtpByEmail(email.value, otpCode.value)
+
     if (response.success) {
+      // If the OTP verification is successful, show a success alert
       showAlert('OTP Verified Successfully', 'success')
 
       setTimeout(async () => {
-        await signUpauthentication(inputData)
-        console.log(inputData)
-        DataSignup()
+        try {
+          // Call the signUpAuthentication function with the OTP code
+          await signUpauthentication({
+            verifyotp: inputData.verifyotp
+          })
 
-        setTimeout(() => {
-          router.push('/createaccount/finalconfirmation')
-        }, 1350)
+          // Call the DataSignup function to handle additional signup steps
+          DataSignup()
+
+          setTimeout(() => {
+            // If there are no errors, redirect to the security questions page
+            if (!error.value) {
+              router.push('/createaccount/finalconfirmation')
+            }
+          }, 1500)
+        } catch (err) {
+          // Handle errors from the signUpAuthentication function
+          console.error('Error during signup authentication:', err)
+          showAlert('Please complete these steps before proceeding.', 'error')
+        }
       }, 500)
     } else {
+      // If the OTP verification fails, show an error alert
       showAlert('Invalid OTP', 'error')
     }
-  } catch (error) {
-    console.error('Error verifying OTP:', error)
+  } catch (err) {
+    // Handle errors from the verifyOtpByEmail function
+    console.error('Error verifying OTP:', err)
     showAlert('Failed to verify OTP. Please try again.', 'error')
   }
 }

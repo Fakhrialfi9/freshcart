@@ -397,6 +397,12 @@ main {
   padding: 0;
 }
 
+#signInButton[disabled] {
+  background-color: #ccc; /* Gray background color */
+  color: #666; /* Darker gray text color */
+  cursor: not-allowed; /* Change cursor to not-allowed */
+}
+
 .ButtonSignin button {
   display: flex;
   flex-direction: row;

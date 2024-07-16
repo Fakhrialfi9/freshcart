@@ -58,10 +58,9 @@ export const useAuthUserStores = defineStore('user', () => {
     password: string
   }) => {
     try {
-      SuccessSignup.value = null
       loading.value = true
+      error.value = null
 
-      // Call API endpoint for sign-in-basicinformation
       const { data } = await apiClient.post('/auth/signup/basicinformation', {
         firstName: inputData.firstName,
         lastName: inputData.lastName,
@@ -69,28 +68,29 @@ export const useAuthUserStores = defineStore('user', () => {
         password: inputData.password
       })
 
-      error.value = null
-      SuccessSignup.value = 'Signup successful!'
-
-      // Save user data to local storage
+      // Handling success
       currentUser.value = data.data
       localStorage.setItem('user', JSON.stringify(data.data))
-
-      console.log(data)
-      dialog.value = false
-
+      SuccessSignup.value = 'Signup successful!'
       showAlert(SuccessSignup.value, 'success')
+
+      return data
     } catch (err: any) {
       console.error('Signup error:', err)
 
-      // Handle sign-in errors
-      if (err.response && err.response.status === 400) {
-        error.value = 'Invalid email or password.'
+      // Handling errors
+      if (
+        err.response &&
+        err.response.status === 400 &&
+        err.response.data.message === 'Email already exists'
+      ) {
+        error.value = 'Email already exists. Please use a different email address.'
       } else {
         error.value = 'Failed to signup. Please try again later.'
       }
 
       showAlert(error.value, 'error')
+      throw err
     } finally {
       loading.value = false
     }
@@ -122,7 +122,7 @@ export const useAuthUserStores = defineStore('user', () => {
       SuccessSignup.value = null
       loading.value = true
 
-      // Call API endpoint for sign-in-contactinformation
+      // Call API endpoint for contact information sign-up
       const { data } = await apiClient.post('/auth/signup/contactinformation', {
         phoneNumber: inputData.phoneNumber,
         address: inputData.address,
@@ -146,14 +146,21 @@ export const useAuthUserStores = defineStore('user', () => {
     } catch (err: any) {
       console.error('Signup error:', err)
 
-      // Handle sign-in errors
+      // Handling errors
       if (err.response && err.response.status === 400) {
-        error.value = 'Invalid email or password.'
+        if (err.response.data.message === 'Invalid phone number') {
+          error.value = 'Invalid phone number. Please enter a valid phone number.'
+        } else if (err.response.data.message === 'Address already exists') {
+          error.value = 'Address already exists. Please use a different address.'
+        } else {
+          error.value = 'Failed to signup. Please try again later.'
+        }
       } else {
         error.value = 'Failed to signup. Please try again later.'
       }
 
       showAlert(error.value, 'error')
+      throw err
     } finally {
       loading.value = false
     }
@@ -173,46 +180,34 @@ export const useAuthUserStores = defineStore('user', () => {
    * @param inputData - Object containing user email and password
    */
 
-  const signUpprofilesetup = async (inputData: {
-    avatarUser: string
-    userName: string
-    bio: string
-  }) => {
+  const signUpprofilesetup = async (formData: FormData) => {
     try {
-      SuccessSignup.value = null
-      loading.value = true
-
-      // Call API endpoint for sign-in-profilesetup
-      const { data } = await apiClient.post('/auth/signup/profilesetup', {
-        avatarUser: inputData.avatarUser,
-        userName: inputData.userName,
-        bio: inputData.bio
+      const { data } = await apiClient.post('/auth/signup/profilesetup', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       })
 
-      error.value = null
-      SuccessSignup.value = 'Signup successful!'
-
-      // Save user data to local storage
+      // Handle success
       currentUser.value = data.data
       localStorage.setItem('user', JSON.stringify(data.data))
-
-      console.log(data)
-      dialog.value = false
-
+      SuccessSignup.value = 'Signup successful!'
       showAlert(SuccessSignup.value, 'success')
+
+      return data
     } catch (err: any) {
       console.error('Signup error:', err)
 
-      // Handle sign-in errors
+      // Handle errors during sign-up
       if (err.response && err.response.status === 400) {
-        error.value = 'Invalid email or password.'
+        if (err.response.data.message === 'Username already exists') {
+          throw new Error('Username already exists')
+        } else {
+          throw new Error('Failed to signup. Please try again later.')
+        }
       } else {
-        error.value = 'Failed to signup. Please try again later.'
+        throw new Error('Failed to signup. Please try again later.')
       }
-
-      showAlert(error.value, 'error')
-    } finally {
-      loading.value = false
     }
   }
 
@@ -234,36 +229,51 @@ export const useAuthUserStores = defineStore('user', () => {
     securityQuestions: { question: string; answer: string }[]
   }) => {
     try {
-      SuccessSignup.value = null
       loading.value = true
+      error.value = null
 
-      // Call API endpoint for sign-in-securityquestion
+      // Validate input data
+      if (!inputData.securityQuestions || inputData.securityQuestions.length === 0) {
+        throw new Error(
+          'Invalid security questions. Please provide valid security questions and answers.'
+        )
+      }
+
+      // Call API endpoint for security questions
       const { data } = await apiClient.post('/auth/signup/securityquestion', {
         securityQuestions: inputData.securityQuestions
       })
 
-      error.value = null
-      SuccessSignup.value = 'Signup successful!'
-
-      // Save user data to local storage
+      // Handling success
       currentUser.value = data.data
       localStorage.setItem('user', JSON.stringify(data.data))
-
-      console.log(data)
-      dialog.value = false
-
+      SuccessSignup.value = 'Signup successful!'
       showAlert(SuccessSignup.value, 'success')
+
+      return data
     } catch (err: any) {
       console.error('Signup error:', err)
 
-      // Handle sign-in errors
-      if (err.response && err.response.status === 400) {
-        error.value = 'Invalid email or password.'
-      } else {
-        error.value = 'Failed to signup. Please try again later.'
+      // Handling errors
+      switch (err.response?.status) {
+        case 400:
+          if (err.response.data.message === 'Invalid security questions') {
+            error.value =
+              'Invalid security questions. Please provide valid security questions and answers.'
+          } else if (err.response.data.message === 'Security questions already exist') {
+            error.value =
+              'Security questions already exist. Please provide different security questions.'
+          } else {
+            error.value = 'Failed to signup. Please try again later.'
+          }
+          break
+        default:
+          error.value = 'Failed to signup. Please try again later.'
+          break
       }
 
       showAlert(error.value, 'error')
+      throw err
     } finally {
       loading.value = false
     }
@@ -285,36 +295,43 @@ export const useAuthUserStores = defineStore('user', () => {
 
   const signUpauthentication = async (inputData: { verifyotp: string }) => {
     try {
-      SuccessSignup.value = null
       loading.value = true
+      error.value = null
 
-      // Call API endpoint for sign-in-authentication
+      // Call API endpoint for authentication
       const { data } = await apiClient.post('/auth/signup/authentication', {
         verifyotp: inputData.verifyotp
       })
 
-      error.value = null
-      SuccessSignup.value = 'Signup successful!'
-
-      // Save user data to local storage
+      // Handling success
       currentUser.value = data.data
       localStorage.setItem('user', JSON.stringify(data.data))
-
-      console.log(data)
-      dialog.value = false
-
+      SuccessSignup.value = 'Signup successful!'
       showAlert(SuccessSignup.value, 'success')
+
+      return data
     } catch (err: any) {
       console.error('Signup error:', err)
 
-      // Handle sign-in errors
-      if (err.response && err.response.status === 400) {
-        error.value = 'Invalid email or password.'
+      // Handling errors
+      if (
+        err.response &&
+        err.response.status === 400 &&
+        err.response.data.message === 'Invalid OTP'
+      ) {
+        error.value = 'Invalid OTP. Please enter the correct OTP sent to your email.'
+      } else if (
+        err.response &&
+        err.response.status === 400 &&
+        err.response.data.message === 'OTP expired'
+      ) {
+        error.value = 'OTP expired. Please request a new OTP.'
       } else {
         error.value = 'Failed to signup. Please try again later.'
       }
 
       showAlert(error.value, 'error')
+      throw err
     } finally {
       loading.value = false
     }

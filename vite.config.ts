@@ -9,7 +9,7 @@ import VueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, process.cwd())
+  process.env = loadEnv(mode, process.cwd())
 
   return {
     base: '/freshcart/',
@@ -47,9 +47,14 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: env.VITE_API_URL,
+          target: process.env.VITE_API_URL,
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
+        },
+        '/user/avatarUser': {
+          target: process.env.VITE_API_URL_IMAGE,
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/user\/avatarUser/, '/user/avatarUser')
         }
       }
     },

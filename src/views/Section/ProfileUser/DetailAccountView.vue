@@ -14,7 +14,9 @@ onMounted(() => {
     <transition name="slide">
       <div class="DetailAccountContent" v-if="user">
         <div class="ProfileImageContent">
-          <div class="CardImageProfile"></div>
+          <div class="CardImageProfile">
+            <img :src="user.avatarUser" :alt="user.userName" />
+          </div>
           <div class="InformationProfile">
             <h5>{{ user.firstName }} {{ user.lastName }}</h5>
             <h5>Username: @{{ user.userName }}</h5>

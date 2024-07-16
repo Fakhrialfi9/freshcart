@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { useAuthSignin } from '../stores/AuthSigninStores'
-import { reactive } from 'vue'
+import { reactive, ref } from 'vue'
 import IconEmail from '../assets/icon/IconEmail.vue'
 import IconPassword from '../assets/icon/IconPassword.vue'
 import IconShortArrowToRight from '../assets/icon/IconShortArrowToRight.vue'
@@ -9,7 +9,7 @@ import IconArrowToLeft from '../assets/icon/IconArrowToLeft.vue'
 import LogoFreshCart from '../assets/logo/logo-company/freshcart-logo.svg'
 import BannerSignin from '../assets/image/banner-home/slide2.jpg'
 import AlertBoxComponent from '../components/AlertBoxComponents.vue'
-import { alertBox } from '../function/FunctionAlert'
+import { alertBox, showAlert } from '../function/FunctionAlert'
 
 const authSignin = useAuthSignin()
 const { signIn } = authSignin
@@ -20,6 +20,12 @@ const inputData = reactive({
 })
 
 const handlesubmit = async () => {
+  // Validate if email or password is empty
+  if (!inputData.email.trim() || !inputData.password.trim()) {
+    showAlert('Email and password are required.', 'error')
+    return
+  }
+
   signIn(inputData)
 }
 </script>
@@ -103,7 +109,12 @@ const handlesubmit = async () => {
 
                 <!-- Start Button Signin -->
                 <div class="ButtonSignin">
-                  <button type="submit" :disabled="authSignin.loading">
+                  <button
+                    type="submit"
+                    :disabled="
+                      !inputData.email.trim() || !inputData.password.trim() || authSignin.loading
+                    "
+                  >
                     <template v-if="authSignin.loading">Signing In...</template>
                     <template v-else>Sign In <IconShortArrowToRight /></template>
                   </button>

@@ -21,7 +21,7 @@ function showAlert(msg, type = 'error') {
   // Set timeout to hide the alert after 3 seconds
   timeoutId = setTimeout(() => {
     isVisible.value = false
-  }, 850)
+  }, 1000)
 }
 
 // Function to close the alert manually
