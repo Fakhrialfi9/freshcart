@@ -49,7 +49,6 @@
     "vitest": "^1.4.0",
     "vue-tsc": "^2.0.11"
   },
-  "homepage": "https://Fakhrialfi9.github.io/freshcart/",
   "dependencies": {
     "@vue/runtime-core": "^3.4.31",
     "apexcharts": "^3.50.0",
