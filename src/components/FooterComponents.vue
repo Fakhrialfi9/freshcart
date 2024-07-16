@@ -12,8 +12,8 @@ import AmericanExpress from './../assets/logo/logo-brand/american-express.svg'
 import MasterCard from './../assets/logo/logo-brand/mastercard.svg'
 import Paypal from './../assets/logo/logo-brand/paypal.svg'
 import Visa from './../assets/logo/logo-brand/visa.svg'
-import DownloadAppStore from './../assets/image/other/appstore-btn.svg'
-import DownloadPlayStore from './../assets/image/other/googleplay-btn.svg'
+import DownloadAppStore from './../assets/logo/logo-brand/appstore-btn.svg'
+import DownloadPlayStore from './../assets/logo/logo-brand/googleplay-btn.svg'
 </script>
 
 <template>
@@ -29,7 +29,7 @@ import DownloadPlayStore from './../assets/image/other/googleplay-btn.svg'
                   <RouterLink to="">Vegetables & Fruits</RouterLink>
                   <RouterLink to="">Breakfast & instant food</RouterLink>
                   <RouterLink to="">Bakery & Biscuits</RouterLink>
-                  <RouterLink to="">Atta, rice & dal</RouterLink>
+                  <RouterLink to="">Tata, rice & dal</RouterLink>
                   <RouterLink to="">Sauces & spreads</RouterLink>
                   <RouterLink to="">Organic & gourmet</RouterLink>
                   <RouterLink to="">Baby care</RouterLink>
@@ -40,10 +40,10 @@ import DownloadPlayStore from './../assets/image/other/googleplay-btn.svg'
                   <RouterLink to="">Dairy, bread & eggs</RouterLink>
                   <RouterLink to="">Cold drinks & juices</RouterLink>
                   <RouterLink to="">Tea, coffee & drinks</RouterLink>
-                  <RouterLink to="">Masala, oil & more</RouterLink>
+                  <RouterLink to="">Masada, oil & more</RouterLink>
                   <RouterLink to="">Chicken, meat & fish</RouterLink>
-                  <RouterLink to="">Paan corner</RouterLink>
-                  <RouterLink to="">Pharma & wellness</RouterLink>
+                  <RouterLink to="">Paar corner</RouterLink>
+                  <RouterLink to="">Parma & wellness</RouterLink>
                   <RouterLink to="">Home & office</RouterLink>
                   <RouterLink to="">Pet care</RouterLink>
                 </ol>
