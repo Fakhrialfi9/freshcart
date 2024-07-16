@@ -10,12 +10,12 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/thumbs'
 
-const route = useRoute()
-const { fetchProductById, loading } = useProducts()
-const productId = Number(route.params.id)
+const { fetchProductById } = useProducts()
 const product = ref<Product | null>(null)
 
 onMounted(async () => {
+  const route = useRoute()
+  const productId = Number(route.params.id)
   product.value = await fetchProductById(productId)
 })
 

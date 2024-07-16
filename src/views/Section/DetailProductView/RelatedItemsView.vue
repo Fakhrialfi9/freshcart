@@ -22,20 +22,12 @@ const addToWishlistHandler = (product: Product) => {
   handleAddToWishlist(product)
 }
 
-function changePage(page: number) {
-  currentPage.value = page
-}
-
 const itemsPerPage = 5
 const currentPage = ref(1)
 
 const paginatedProducts = computed(() => {
   const startIndex = (currentPage.value - 1) * itemsPerPage
   return products.value.slice(startIndex, startIndex + itemsPerPage)
-})
-
-const totalPages = computed(() => {
-  return Math.ceil(products.value.length / itemsPerPage)
 })
 
 const hoverIndex = ref(-1)
@@ -47,7 +39,7 @@ function showButtons(index: number) {
   showButtonsFlag.value = true
 }
 
-function hideButtons(index: number) {
+function hideButtons(_index: number) {
   hoverIndex.value = -1
   showButtonsFlag.value = false
 }

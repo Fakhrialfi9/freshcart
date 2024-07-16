@@ -18,6 +18,15 @@ function onSwiper(swiper) {
   swiperInstance.value = swiper
 }
 
+const sliderSettings = {
+  1600: { slidesPerView: 6, spaceBetween: 10 },
+  1280: { slidesPerView: 5, spaceBetween: 10 },
+  1024: { slidesPerView: 4, spaceBetween: 10 },
+  768: { slidesPerView: 3, spaceBetween: 10 },
+  576: { slidesPerView: 3, spaceBetween: 10 },
+  320: { slidesPerView: 2, spaceBetween: 10 }
+}
+
 function slideNext() {
   if (swiperInstance.value && swiperInstance.value.swiper) {
     swiperInstance.value.swiper.slideNext()
@@ -61,6 +70,7 @@ function slidePrev() {
             :modules="[Navigation, Pagination, A11y]"
             :slides-per-view="6"
             :space-between="10"
+            :breakpoints="sliderSettings"
             ref="swiperRef"
             @swiper="onSwiper"
           >

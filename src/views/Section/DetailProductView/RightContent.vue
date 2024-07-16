@@ -9,12 +9,12 @@ import IconStar from '../../../assets/icon/IconStar.vue'
 import IconPlaneSend from '../../../assets/icon/IconPlaneSend.vue'
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
 
-const route = useRoute()
 const { fetchProductById } = useProducts()
-const productId = Number(route.params.id)
 const product = ref<Product | null>(null)
 
 onMounted(async () => {
+  const route = useRoute()
+  const productId = Number(route.params.id)
   product.value = await fetchProductById(productId)
 })
 
