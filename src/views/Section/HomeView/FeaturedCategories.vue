@@ -1,61 +1,51 @@
-<script setup lang="ts">
+<script setup>
 import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
-import { useProducts } from '../../../function/useProduct'
-
-// Start Import SwiperJs
-import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import type SwiperClass from 'swiper'
+import { A11y, Pagination, Navigation } from 'swiper/modules'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
-import 'swiper/swiper-bundle.css'
-// End Import SwiperJs
+
+import { useProducts } from '@/function/useProduct'
 
 const { products } = useProducts()
 
-const sliderSettings = {
-  1600: { slidesPerView: 6, spaceBetween: 10 },
-  1280: { slidesPerView: 5, spaceBetween: 10 },
-  1024: { slidesPerView: 4, spaceBetween: 10 },
-  768: { slidesPerView: 3, spaceBetween: 10 },
-  576: { slidesPerView: 3, spaceBetween: 10 },
-  320: { slidesPerView: 2, spaceBetween: 10 }
+const swiperInstance = ref(null)
+
+function onSwiper(swiper) {
+  swiperInstance.value = swiper
 }
 
-let vSwiperRef: SwiperClass | null = null
-const setVSwiperRef = (swiper: SwiperClass) => {
-  vSwiperRef = swiper
-}
-const vSwiperIndex = ref<number>()
-const updateVSwiperIndex = () => {
-  vSwiperIndex.value = vSwiperRef?.activeIndex
+function slideNext() {
+  if (swiperInstance.value && swiperInstance.value.swiper) {
+    swiperInstance.value.swiper.slideNext()
+  }
 }
 
-const prevVSwiperSlide = () => vSwiperRef?.slidePrev()
-const nextVSwiperSlide = () => vSwiperRef?.slideNext()
-
-const modules = [Navigation, Pagination, Autoplay]
+function slidePrev() {
+  if (swiperInstance.value && swiperInstance.value.swiper) {
+    swiperInstance.value.swiper.slidePrev()
+  }
+}
 </script>
 
 <template>
   <main>
-    <!-- Start Featured Categories -->
     <section class="FeaturedCategories">
       <div class="ContentFeaturedCategories">
-        <!-- Start Headline Section Home -->
         <ul class="HeadlineSection-Home">
           <li><h5>Featured Categories</h5></li>
           <li>
-            <button @click="nextVSwiperSlide">
+            <button @click="slidePrev">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
                   d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c-12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"
                 />
               </svg>
             </button>
-            <button @click="prevVSwiperSlide">
+            <button @click="slideNext">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
                 <path
                   d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
@@ -64,44 +54,29 @@ const modules = [Navigation, Pagination, Autoplay]
             </button>
           </li>
         </ul>
-        <!-- End Headline Section Home -->
 
-        <ul>
-          <li><span></span></li>
-        </ul>
         <div class="ContainerBoxProductFeaturedCategories">
-          <swiper
+          <Swiper
+            v-if="products.length > 0"
+            :modules="[Navigation, Pagination, A11y]"
             :slides-per-view="6"
-            :slides-per-group="1"
-            :spaceBetween="10"
-            :centered-slides="false"
-            :loop="true"
-            :loop-fill-group-with-blank="true"
-            :modules="modules"
-            :navigation="false"
-            :autoplay="{
-              delay: 5000,
-              disableOnInteraction: false
-            }"
-            @swiper="setVSwiperRef"
-            @slide-change="updateVSwiperIndex"
-            :breakpoints="sliderSettings"
+            :space-between="10"
+            ref="swiperRef"
+            @swiper="onSwiper"
           >
-            <!-- Start Content Slider  -->
-            <swiper-slide v-for="product in products" :key="product.id">
+            <SwiperSlide v-for="product in products" :key="product.id">
               <div class="BoxProductFeaturedCategories">
                 <RouterLink :to="'/shopping/' + product.id">
-                  <img :src="'' + product.imagesProduct[0]" :alt="product.nameProduct" />
+                  <img :src="product.imagesProduct[0]" :alt="product.nameProduct" />
                   <h5>{{ product.nameCategory }}</h5>
                 </RouterLink>
               </div>
-            </swiper-slide>
-            <!-- End Content Slider  -->
-          </swiper>
+            </SwiperSlide>
+          </Swiper>
+          <p v-else>No products available.</p>
         </div>
       </div>
     </section>
-    <!-- End Featured Categories -->
   </main>
 </template>
 
