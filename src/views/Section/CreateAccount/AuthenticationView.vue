@@ -3,7 +3,7 @@ import { onBeforeUnmount, onMounted, reactive, ref } from 'vue'
 import { showAlert, alertBox } from '../../../function/FunctionAlert'
 import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import { sendOtpByMessage, sendOtpByEmail, verifyOtpByEmail } from '../../../services/OtpServices'
-import router from '../../../main/router/github'
+import router from '../../../main/router'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
 

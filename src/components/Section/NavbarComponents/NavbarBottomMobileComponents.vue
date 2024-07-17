@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted } from 'vue'
 import { RouterLink } from 'vue-router'
 
 import { WishlistItems } from '../../../stores/AddToWishlist'
 import { CartItems } from '../../../stores/AddToCart'
+import { user, getUser } from '../../../stores/AuthGetUserStores'
 
 // Start Import Icon
 import IconWishlist from '../../../assets/icon/IconWishlist.vue'
@@ -11,6 +12,10 @@ import IconUsers from '../../../assets/icon/IconUsers.vue'
 import IconBagCart from '../../../assets/icon/IconBagCart.vue'
 import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
 // End Import Icon
+
+onMounted(() => {
+  getUser()
+})
 </script>
 
 <template>
@@ -24,7 +29,7 @@ import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/" active-class="ActiveNavbarBottomMobile">
+            <RouterLink to="/shopping" active-class="ActiveNavbarBottomMobile">
               <IconGridSquare class="IconGridSquareNavbarBottom" />
             </RouterLink>
           </li>
@@ -32,7 +37,15 @@ import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
 
         <ul class="Center-NavbarBottomMobileContent">
           <li class="CenterIconNavbarBottom">
-            <RouterLink to="/profileuser" active-class="ActiveNavbarBottomMobileCenter">
+            <RouterLink
+              v-if="user"
+              :to="`/profileuser/${user.userName}/detailaccount`"
+              active-class="ActiveNavbarBottomMobileCenter"
+            >
+              <IconUsers class="IconUsersNavbarBottom" />
+            </RouterLink>
+
+            <RouterLink v-else to="/signin" active-class="ActiveNavbarBottomMobileCenter">
               <IconUsers class="IconUsersNavbarBottom" />
             </RouterLink>
           </li>

@@ -35,7 +35,7 @@ export function handleAddToWishlist(product: any) {
     showNotification(
       `${product.nameProduct} - ${product.id} successfully added to wishlist.`, // Pesan notifikasi sukses dengan nama produk dan ID
       'success', // Jenis notifikasi sukses
-      `/freshcart/#/wishlist`, // Link menuju halaman wishlist dalam aplikasi
+      `/wishlist`, // Link menuju halaman wishlist dalam aplikasi
       'wishlist' // Jenis notifikasi untuk wishlist
     )
   } else {

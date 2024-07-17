@@ -5,7 +5,7 @@ import { validatePassword } from '../../../function/FunctionPasswordValidate'
 import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import router from '../../../main/router/github'
+import router from '../../../main/router'
 
 // Reactive state for input data
 const inputData = reactive({

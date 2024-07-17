@@ -1,4 +1,4 @@
-import router from '@/main/router/github'
+import router from '@/main/router'
 import { useAuthUserStores } from '../stores/AuthUserStores'
 import { validatePassword } from '../function/FunctionPasswordValidate'
 import { inputData, DataSignup } from '../function/FunctionDataState'

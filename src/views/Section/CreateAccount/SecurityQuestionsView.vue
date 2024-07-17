@@ -4,7 +4,7 @@ import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import { alertBox, showAlert } from '../../../function/FunctionAlert'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import router from '../../../main/router/github'
+import router from '../../../main/router'
 
 const setShowSecurityQuestion1 = ref(false)
 const setShowSecurityQuestion2 = ref(false)

@@ -7,7 +7,6 @@ import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import VueDevTools from 'vite-plugin-vue-devtools'
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
   process.env = loadEnv(mode, process.cwd())
 
@@ -46,12 +45,12 @@ export default defineConfig(({ mode }) => {
     server: {
       proxy: {
         '/api': {
-          target: process.env.VITE_API_URL,
+          target: 'https://freshcartbackend.vercel.app/api',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, '')
         },
         '/user/avatarUser': {
-          target: process.env.VITE_API_URL_IMAGE,
+          target: 'http://localhost:3000/',
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/user\/avatarUser/, '/user/avatarUser')
         }

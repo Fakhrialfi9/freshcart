@@ -36,7 +36,7 @@ export function handleAddToCart(product: any) {
     showNotification(
       `${product.nameProduct} - ${product.id} successfully added to cart.`, // Pesan notifikasi sukses dengan nama produk dan ID
       'success', // Jenis notifikasi sukses
-      `/freshcart/#/basketcart`, // Link menuju halaman keranjang belanja dalam aplikasi
+      `/basketcart`, // Link menuju halaman keranjang belanja dalam aplikasi
       'cart' // Jenis notifikasi untuk cart
     )
   } else {

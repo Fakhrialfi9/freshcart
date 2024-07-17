@@ -4,7 +4,7 @@ import { alertBox, showAlert } from '../../../function/FunctionAlert'
 import { useAuthUserStores } from '../../../stores/AuthUserStores'
 import LogoFreshCart from '../../../assets/logo/logo-company/freshcart-logo.svg'
 import AlertBoxComponents from '../../../components/AlertBoxComponents.vue'
-import router from '../../../main/router/github'
+import router from '../../../main/router'
 
 // Default profile image URL
 const defaultImage =
