@@ -1,30 +1,30 @@
 {
   "name": "Fresh Cart",
   "short_name": "Fresh Cart",
-  "start_url": "/",
+  "start_url": "/freshcart/",
   "display": "standalone",
   "background_color": "#ffffff",
   "description": "Belanja makanan terbaik di Fresh Cart.",
   "icons": [
     {
-      "src": "/src/assets/logo/logo-company/freshcart-logo.svg",
+      "src": "/freshcart/src/assets/logo/logo-company/freshcart-logo.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "/src/assets/logo/logo-company/freshcart-logo.svg",
+      "src": "/freshcart/src/assets/logo/logo-company/freshcart-logo.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
   ],
   "screenshots": [
     {
-      "src": "/path-to-screenshot/screenshot-desktop-wide.png",
+      "src": "./src/assets/image/screenshoot/desktop.png",
       "sizes": "1280x720",
       "type": "image/png"
     },
     {
-      "src": "/path-to-screenshot/screenshot-mobile-portrait.png",
+      "src": "./src/assets/image/screenshoot/mobile.png",
       "sizes": "360x640",
       "type": "image/png"
     }
@@ -32,15 +32,15 @@
   "theme_color": "#0aad0a",
   "related_applications": [],
   "prefer_related_applications": false,
-  "scope": "/",
+  "scope": "/freshcart/",
   "serviceworker": {
-    "src": "/service-worker.js"
+    "src": "/freshcart/service-worker.js"
   },
   "form_factors": {
     "wide": {
       "screenshots": [
         {
-          "src": "/path-to-screenshot/screenshot-desktop-wide.png",
+          "src": "./src/assets/image/screenshoot/desktop.png",
           "sizes": "1280x720",
           "type": "image/png"
         }

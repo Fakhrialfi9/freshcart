@@ -23,19 +23,18 @@ export default defineConfig(({ mode }) => {
         manifest: {
           name: 'Fresh Cart',
           short_name: 'Fresh Cart',
-          description:
-            'Fresh Cart | 2022 - 2024 FreshCart eCommerce HTML Template. All rights reserved. Powered by Muhammad Fakhri Alfi Syahrin.',
-          theme_color: '#ffffff',
+          description: 'Belanja makanan terbaik di Fresh Cart.',
+          theme_color: '#0aad0a',
           icons: [
             {
-              src: './public/Freshcart-Favicon.svg',
+              src: '/freshcart/src/assets/logo/logo-company/freshcart-logo.svg',
               sizes: '192x192',
-              type: 'image/png'
+              type: 'image/svg+xml'
             },
             {
-              src: './public/Freshcart-Favicon.svg',
+              src: '/freshcart/src/assets/logo/logo-company/freshcart-logo.svg',
               sizes: '512x512',
-              type: 'image/png'
+              type: 'image/svg+xml'
             }
           ]
         }
