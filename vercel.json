@@ -5,6 +5,10 @@
       "destination": "https://freshcartbackend.vercel.app/api/:path"
     },
     {
+      "source": "/user/avatarUser/:path(.*)",
+      "destination": "https://freshcartbackend.vercel.app/user/avatarUser/:path"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
