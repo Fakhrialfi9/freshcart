@@ -9,7 +9,7 @@ import VueApexCharts from 'vue3-apexcharts'
 import App from './main/app/App.vue'
 
 // Import konfigurasi Router
-import router from './main/router/github'
+import router from './main/router/index'
 
 // Start Import Style Global
 import './main/style/Framework.css'

@@ -1,7 +1,7 @@
 // src/router/github.ts
 
 // Menggunakan Router Hash Mengatasi 404 Github
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 
 // Import Auth Store
 import { useAuthUserStores } from '../../stores/AuthUserStores'
@@ -187,7 +187,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior(to, from, savedPosition) {
     return new Promise((resolve) => {
