@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
   process.env = loadEnv(mode, process.cwd())
 
   return {
+    base: '/',
     plugins: [
       vue(),
       vueJsx(),

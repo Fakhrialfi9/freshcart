@@ -1,7 +1,7 @@
 {
   "name": "Fresh Cart",
   "short_name": "Fresh Cart",
-  "start_url": "https://freshcart-rust-eta.vercel.app/",
+  "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "description": "Belanja makanan terbaik di Fresh Cart.",
@@ -32,7 +32,7 @@
   "theme_color": "#0aad0a",
   "related_applications": [],
   "prefer_related_applications": false,
-  "scope": "https://freshcart-rust-eta.vercel.app/",
+  "scope": "/",
   "serviceworker": {
     "src": "/freshcart/service-worker.js"
   },
