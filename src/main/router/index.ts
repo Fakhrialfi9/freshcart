@@ -1,5 +1,4 @@
 // src/router/index.ts
-
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Import Auth Store

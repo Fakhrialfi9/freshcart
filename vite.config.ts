@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   process.env = loadEnv(mode, process.cwd())
 
   return {
-    base: '/freshcart-rust-eta.vercel.app/',
+    base: '/',
     plugins: [
       vue(),
       vueJsx(),
