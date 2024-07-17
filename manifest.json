@@ -7,12 +7,12 @@
   "description": "Belanja makanan terbaik di Fresh Cart.",
   "icons": [
     {
-      "src": "/freshcart/src/assets/logo/logo-company/freshcart-logo.svg",
+      "src": "/public/freshcart-logo-landscape.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "/freshcart/src/assets/logo/logo-company/freshcart-logo.svg",
+      "src": "/public/freshcart-logo-landscape.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }

@@ -26,12 +26,12 @@ export default defineConfig(({ mode }) => {
           theme_color: '#0aad0a',
           icons: [
             {
-              src: '/freshcart/src/assets/logo/logo-company/freshcart-logo.svg',
+              src: '/public/Freshcart-Favicon.svg',
               sizes: '192x192',
               type: 'image/svg+xml'
             },
             {
-              src: '/freshcart/src/assets/logo/logo-company/freshcart-logo.svg',
+              src: '/public/Freshcart-Favicon.svg',
               sizes: '512x512',
               type: 'image/svg+xml'
             }
