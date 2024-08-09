@@ -7,10 +7,8 @@ import { CartItems } from '../../../stores/AddToCart'
 import { user, getUser } from '../../../stores/AuthGetUserStores'
 
 // Start Import Icon
-import IconWishlist from '../../../assets/icon/IconWishlist.vue'
+import { LayoutGrid, ShoppingCart, Heart, ShoppingBag } from 'lucide-vue-next'
 import IconUsers from '../../../assets/icon/IconUsers.vue'
-import IconBagCart from '../../../assets/icon/IconBagCart.vue'
-import IconGridSquare from '../../../assets/icon/IconGridSquare.vue'
 // End Import Icon
 
 onMounted(() => {
@@ -25,12 +23,12 @@ onMounted(() => {
         <ul class="Left-NavbarBottomMobileContent">
           <li>
             <RouterLink to="/home" active-class="ActiveNavbarBottomMobile">
-              <IconGridSquare class="IconGridSquareNavbarBottom" />
+              <LayoutGrid />
             </RouterLink>
           </li>
           <li>
             <RouterLink to="/shopping" active-class="ActiveNavbarBottomMobile">
-              <IconGridSquare class="IconGridSquareNavbarBottom" />
+              <ShoppingCart />
             </RouterLink>
           </li>
         </ul>
@@ -54,13 +52,13 @@ onMounted(() => {
         <ul class="Right-NavbarBottomMobileContent">
           <li>
             <RouterLink to="/wishlist" active-class="ActiveNavbarBottomMobile">
-              <IconWishlist class="IconWishlistNavbarBottom"
-            /></RouterLink>
+              <Heart />
+            </RouterLink>
             <span class="BadgeContentNavbarBottom">{{ WishlistItems.length }}</span>
           </li>
           <li>
             <RouterLink to="/basketcart" active-class="ActiveNavbarBottomMobile">
-              <IconBagCart class="IconBagCartNavbarBottom" />
+              <ShoppingBag />
             </RouterLink>
             <span class="BadgeContentNavbarBottom">{{ CartItems.length }}</span>
           </li>
